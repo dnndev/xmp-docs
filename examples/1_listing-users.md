@@ -1,6 +1,9 @@
-# Walkthrough One: Creating A List-Based View of Your Data
+---
+title: "1: Create a List View"
+---
+# Tutorial One: <br> Creating A List View of Your Data
 
-In this walkthrough, we're going to cover the basic mechanics of displaying some data in your database in a list-based view. We'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other walkthroughs and projects.
+In this tutorial, we're going to cover the basic mechanics of displaying some data in your database in a list-based view. We'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other tutorials and projects.
 
 Since we don't want you to have to create any tables in your database, we'll choose one that every DotNetNuke (DNN) installation has: the Users table.
 
@@ -88,4 +91,4 @@ There are some other fields besides those listed above, and different versions o
 
 #### Next Steps:
 
-[Walkthrough Two: Adding A Detail View](2_user-detail-view.md)
+[Tutorial Two: Create a Detail View](2_user-detail-view.md)

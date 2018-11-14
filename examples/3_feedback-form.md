@@ -1,6 +1,9 @@
-# Walkthrough Three:  Creating A Feedback Form
+---
+title: "3: Create a Feedback Form"
+---
+# Tutorial Three:  Create a Feedback Form
 
-In the first two walkthroughs, you created a list-based view of your data and then added the ability to view the details of each record. In this walkthrough, we're going to switch gears from displaying data, to enabling the input of data via XMod Pro's custom forms. We'll be creating a simple Feedback form that will allow site visitors to enter their Name, Email Address, and Question. The form will then send that information, via email to our site administrator. To keep things simple, no data will be saved to the database.
+In the first two tutorials, you created a list-based view of your data and then added the ability to view the details of each record. In this tutorial, we're going to switch gears from displaying data, to enabling the input of data via XMod Pro's custom forms. We'll be creating a simple Feedback form that will allow site visitors to enter their Name, Email Address, and Question. The form will then send that information, via email to our site administrator. To keep things simple, no data will be saved to the database.
 
 1.  If you haven't done so already, install the FormView module that came with XMod Pro. You'll find it in the Installation folder alongside the XMod Pro installation file.
 2.  Next, open a page in your site and add an XMod Pro FormView instance to the page.
@@ -11,7 +14,7 @@ In the first two walkthroughs, you created a list-based view of your data and th
 6.  Click the **New Form** button. The new form dialog appears in-line, within the grid.
 7.  In the Form Name field type "FeedbackForm" (without quotes). Form names can consist of only letters, numbers, hyphens (-) and underscores (_).
 8.  In the Content editing area, you'll see some boilerplate code that can help you get a jump-start on creating your forms. It's not necessary for our purposes, so delete all the text.
-9.  As with our other walkthroughs, we'll present and explain the individual parts of our form first and then present you with the full form definition at the end.
+9.  As with our other tutorials, we'll present and explain the individual parts of our form first and then present you with the full form definition at the end.
     1.  `<AddForm>`
 
         The AddForm is the form that is displayed when creating a record. We won't actually be creating a database record in this example, but we'll still use the `<AddForm>` tag. The reason for this is that we will be displaying this form in "form view" mode. This means that when the page is loaded, the form will be displayed. The user won't have to click an "Add" button or other button to display the form. XMod Pro uses the AddForm for this form.

@@ -25,7 +25,7 @@ module.exports = {
       "/data-types",
       "/unit-types",
       {
-        title: "Examples",
+        title: "Tutorials",
         collapsible: true,
         children: [
           "/examples/1_listing-users",

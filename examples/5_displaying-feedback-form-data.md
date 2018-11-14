@@ -1,10 +1,13 @@
-# Walkthrough Five: Displaying The Feedback Form Data
+---
+title: "5: Display Form Data"
+---
+# Tutorial Five: <br>Displaying the Feedback Form Data
 
-This walkthrough assumes you have successfully completed [Walkthrough Four "Saving Data From The Feedback Form"](./4_saving-feedback-form-data.md).
+This tutorial assumes you have successfully completed [Tutorial Four "Saving Data From The Feedback Form"](./4_saving-feedback-form-data.md).
 
-In the last walkthrough, we modified our feedback form so that it now saves data to the database. Now we'll create a template to display that data.
+In the last tutorial, we modified our feedback form so that it now saves data to the database. Now we'll create a template to display that data.
 
-1.  In Walkthrough 3 and 4, we used the **FormView** module. This is useful if we just want to display a form. However, since we'll be displaying the data from that form as well, we'll need to use the main XMod Pro module. So, open a page on your site and place an XMod Pro module instance on that page, configuring it to use the "Feedback Form" form.
+1.  In Tutorial 3 and 4, we used the **FormView** module. This is useful if we just want to display a form. However, since we'll be displaying the data from that form as well, we'll need to use the main XMod Pro module. So, open a page on your site and place an XMod Pro module instance on that page, configuring it to use the "Feedback Form" form.
 2.  Ensure you're logged-in as Host or SuperUser.
 3.  We're going to create a new template. So, from the Actions menu, select **Manage Templates**:  
     ![](../img/ActionMenu_ManageTemplates.png)
@@ -65,7 +68,7 @@ In the last walkthrough, we modified our feedback form so that it now saves data
       </DetailTemplate>
     </xmod:template>
     ```
-    Most of the template should be familiar from previous walkthrough's. We've highlighted some areas of interest:.
+    Most of the template should be familiar from previous tutorial's. We've highlighted some areas of interest:.
 
     **Add Button**
 

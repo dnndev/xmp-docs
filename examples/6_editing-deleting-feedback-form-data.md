@@ -1,8 +1,11 @@
-# Walkthrough Six: Editing And Deleting The Feedback Form Data
+---
+title: "6: Modify Form Data"
+---
+# Tutorial Six: <br>Editing And Deleting the Feedback Form Data
 
-This walkthrough assumes you have successfully completed [Walkthrough Five "Displaying The Feedback Form Data"](5_displaying-feedback-form-data.md).
+This tutorial assumes you have successfully completed [Tutorial Five "Displaying The Feedback Form Data"](5_displaying-feedback-form-data.md).
 
-In the last walkthrough, we created a template to display a list of the feedback we've received from customers and provided a button to add feedback. Now we'll modify that template and the feedback form to enable us to edit and delete feedback.
+In the last tutorial, we created a template to display a list of the feedback we've received from customers and provided a button to add feedback. Now we'll modify that template and the feedback form to enable us to edit and delete feedback.
 
 1.  If you haven't done so already open the page in your site that contains the Feedback form and its display template we've been working with.
 2.  Ensure you're logged-in as Host or SuperUser.
@@ -74,7 +77,7 @@ In the last walkthrough, we created a template to display a list of the feedback
 
     Just as we provided a detail button to initiate the display of a record's details, so too we need to provide an edit button to initiate editing of that record. As with most buttons in XMod Pro, the edit button comes in several varieties. For this example, we're using the `<xmod:editimage>` to display a clickable image instead of a button or a link. We've chosen a standard graphic from the default DNN installation. Feel free to choose your own image.
 
-    As with the Detail Button ([See Walkthrough 5](5_displaying-feedback-form-data.md)), we need to supply a parameter that will be passed to the EditForm so that it can retrieve the record to edit. We'll be passing the FeedbackId. At this point, you may be wondering where the command to retrieve that record is. You'll find it in the EditForm, which we'll cover in just a moment.
+    As with the Detail Button ([See Tutorial 5](5_displaying-feedback-form-data.md)), we need to supply a parameter that will be passed to the EditForm so that it can retrieve the record to edit. We'll be passing the FeedbackId. At this point, you may be wondering where the command to retrieve that record is. You'll find it in the EditForm, which we'll cover in just a moment.
 
 6.  Save your changes to the template. Your display should now look something like this:
 

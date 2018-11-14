@@ -1,6 +1,9 @@
-# Walkthrough Two: Adding A Detail View
+---
+title: "2: Create a Detail View"
+---
+# Tutorial Two: <br> Create a Detail View
 
-In this walkthrough, we're going to enhance the List View created in [Walkthrough One](1_listing-users.md) by adding a way to view the details of a user's record. As with the first walkthrough, we'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other walkthroughs and projects.
+In this tutorial, we're going to enhance the List View created in [Tutorial One](1_listing-users.md) by adding a way to view the details of a user's record. As with the first tutorial, we'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other tutorials and projects.
 
 ::: warning
 Using XMod Pro, you will be interacting directly with your live data source. You should BACKUP you data beforehand to prevent the accidental loss or corruption of data due to typo's and other unforeseen circumstances.
@@ -17,8 +20,8 @@ Please recall the columns in the Users table: For our purposes, the Users table 
 
 There are some other fields and different versions of DNN may have slight variations but we'll focus on just these. It's also important to _note the capitalization of the field names_ as you will need to match it exactly when referring to that field: 'UserID' is not the same as 'UserId' or 'userid'.
 
-1.  If you haven't done so already open the page we created in the first walkthrough and ensure you're logged-in as Host or SuperUser.
-2.  We're going to edit the template we created in the first walkthrough. So, from the Actions menu, select **Manage Templates**:  
+1.  If you haven't done so already open the page we created in the first tutorial and ensure you're logged-in as Host or SuperUser.
+2.  We're going to edit the template we created in the first tutorial. So, from the Actions menu, select **Manage Templates**:  
     ![](../img/ActionMenu_ManageTemplates.png)
 3.  The **Manage Templates** page is where you add, edit, copy, and delete your display templates. For the mechanics of how to use the Manage Templates page, refer to [this topic](../manage-templates.md).
 4.  Find the "AllUsers" template in the grid and click the **Edit** link next to its name.
@@ -41,7 +44,7 @@ There are some other fields and different versions of DNN may have slight variat
       </FooterTemplate>  
     </xmod:template>
     ```
-6.  From this starting point, we will need to add a data source to use for our detail record and also provide a link the user can click to see that user's details. Finally, we'll need to add a template that tells XMod Pro what to display for the user's details. All of this will be added to our current template. As in the first walkthrough, we'll take a look at the individual bits and put them together for you at the end. Let's get started.
+6.  From this starting point, we will need to add a data source to use for our detail record and also provide a link the user can click to see that user's details. Finally, we'll need to add a template that tells XMod Pro what to display for the user's details. All of this will be added to our current template. As in the first tutorial, we'll take a look at the individual bits and put them together for you at the end. Let's get started.
     1.  ``` html
         <DetailDataSource CommandText="SELECT UserID, Username, FirstName,
                                        LastName, DisplayName, Email  
