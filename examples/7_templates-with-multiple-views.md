@@ -16,35 +16,27 @@ Each template tag is self-contained. It knows only how to deal with its own data
 
 So, for our news article example, we'd have two templates: Template A would display a list of headlines and Template B would display the full article. We'd create a simple two-column table to establish the layout - the Headline template goes in the left column and the Article template goes in the right column. The basic idea of how this would look is laid out below:
 
-```html
-<table>
-  <colgroup>
-    <col style="width: 50%;">
-    <col style="width: 50%;">
-  </colgroup>
-  <tbody>
-    <tr>
-      <td style="vertical-align: top;">
-        Headlines (Template A)<br />
-        <a>Article One</a> by John Smith <br />
-        <a>Article Two</a> by Adam Smith  <br />
-        <a>Article Three</a> by Joanna Smith  
-      </td>
-      <td style="vertical-align: top;">
-        Article (Template B) <br />
-        <strong>Article One</strong><br />
-        by John Smith  
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non sem. 
-        Suspendisse adipiscing iaculis massa. Proin sodales. Maecenas ac risus non 
-        eros feugiat venenatis. Suspendisse odio magna, aliquam ut, tempus eget, 
-        varius ut, sapien. Quisque orci eros, venenatis et, gravida at, 
-        sagittis non, lacus.</p>
-      </td>
-    </tr>
-  </tbody>
+<table>
+  <tr>
+    <td style="vertical-align: top;width:50%">
+      Headlines (Template A)<br />
+      <a>Article One</a> by John Smith <br />
+      <a>Article Two</a> by Adam Smith  <br />
+      <a>Article Three</a> by Joanna Smith  
+    </td>
+    <td style="vertical-align: top; width: 50%">
+      Article (Template B) <br />
+      <strong>Article One</strong><br />
+      by John Smith  <br />
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non sem. 
+      Suspendisse adipiscing iaculis massa. Proin sodales. Maecenas ac risus non 
+      eros feugiat venenatis. Suspendisse odio magna, aliquam ut, tempus eget, 
+      varius ut, sapien. Quisque orci eros, venenatis et, gravida at, 
+      sagittis non, lacus.</p>
+    </td>
+  </tr>
 </table>
-```
 
 This is just a simple HTML table in our master view - one row with two columns. How you choose to lay things out is completely up to you. Put an `<xmod:template>` tag in the left column and another `<xmod:template>` tag in the right column. The Headlines template would only contain the information necessary to display a list of news headlines, while the Article template would only contain the information needed to display the full article.
 

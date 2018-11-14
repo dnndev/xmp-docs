@@ -1,5 +1,8 @@
 module.exports = {
   title: "XMod Pro Documentation",
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     sidebar: [
       "/",
@@ -31,7 +34,7 @@ module.exports = {
           "/examples/4_saving-feedback-form-data",
           "/examples/5_displaying-feedback-form-data",
           "/examples/6_editing-deleting-feedback-form-data",
-          "/examples/7_templates-with-multiples-views"
+          "/examples/7_templates-with-multiple-views"
         ]
       },
       {

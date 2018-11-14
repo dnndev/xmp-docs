@@ -1,11 +1,12 @@
-# Walkthrough One:  
-Creating A List-Based View of Your Data
+# Walkthrough One: Creating A List-Based View of Your Data
 
 In this walkthrough, we're going to cover the basic mechanics of displaying some data in your database in a list-based view. We'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other walkthroughs and projects.
 
 Since we don't want you to have to create any tables in your database, we'll choose one that every DotNetNuke (DNN) installation has: the Users table.
 
-**CAUTION**: _Using XMod Pro, you will be interacting directly with your live data source. You should BACKUP you data beforehand to prevent the accidental loss or corruption of data due to typo's and other unforeseen circumstances._
+::: warning
+Using XMod Pro, you will be interacting directly with your live data source. You should BACKUP you data beforehand to prevent the accidental loss or corruption of data due to typo's and other unforeseen circumstances.
+:::
 
 For our purposes, the Users table has the following columns (Note that the term "column" and "field" will be used interchangeably throughout the documentation): 
 
@@ -21,15 +22,15 @@ There are some other fields besides those listed above, and different versions o
 1.  If you haven't done so already create a page in your website and add an XMod Pro module instance to that page
 2.  Since only Hosts and SuperUsers can work with templates, ensure you're logged-in as such a user.
 3.  Display of your data is done using templates. So, we'll need to create a template. From the Actions menu, select **Manage Templates**:  
-    ![](ActionMenu_ManageTemplates.png)
-4.  The **Manage Templates** page is where you add, edit, copy, and delete your display templates. For the mechanics of how to use the Manage Templates page, refer to [this topic](ManageTemplates.html).
+    ![](../img/ActionMenu_ManageTemplates.png)
+4.  The **Manage Templates** page is where you add, edit, copy, and delete your display templates. For the mechanics of how to use the Manage Templates page, refer to [this topic](../manage-templates.md).
 5.  Click the **New Template** button to create a new template. An inline dialog box will appear within the grid prompting you for a Template Name and Content. For the Template Name, type in "AllUsers" (without quotes). The Template Name can only consist of letters, numbers, hyphens (-) and underscores (_). The Content editor will contain some boilerplate code that can help you get a jump-start creating your template. We don't need it for this example, so just delete all the text.
 6.  We'll type our template into the Content area of the dialog. Whenever you see `text that looks like this`, we're referring to code. At the end, we'll put all the pieces together so you can see the whole template. At that point you can type or copy/paste the code into the Content editor.  
 
     1.  `<xmod:template id="AllUsers">`  
-        This is the 'template' tag. You can have one or more of these in your template. We'll just use one for this example. You may use your own HTML to surround the template tag, to lay it out in whatever manner you need. For instance, you could put multiple templates into an HTML <table> to position them within your module. Again, for our purposes, we don't need any of that - just the template tag will suffice.  
+        This is the 'template' tag. You can have one or more of these in your template. We'll just use one for this example. You may use your own HTML to surround the template tag, to lay it out in whatever manner you need. For instance, you could put multiple templates into an HTML `<table>` to position them within your module. Again, for our purposes, we don't need any of that - just the template tag will suffice.  
 
-        In this example, we've given the template an ID of "AllUsers". The ID is a unique identifier for this template tag within the broader set of templates and controls. The ID can be anything you'd like, but it must start with a letter and consists of only letters, numbers, hyphens and underscores. While an ID isn't strictly required in this case, it's a good habit to get into. Later you'll use the ID when implementing communications between templates. We're using "AllUsers" here, which matches our template name, but that doesn't have to be the case. It could easily be "ListOfUsers" or "MyDogSpot" - though it's usually good practice for the ID to reflect the purpose of the template. See the [template tag topic](temp_template.html) for additional attributes of the template tag.  
+        In this example, we've given the template an ID of "AllUsers". The ID is a unique identifier for this template tag within the broader set of templates and controls. The ID can be anything you'd like, but it must start with a letter and consists of only letters, numbers, hyphens and underscores. While an ID isn't strictly required in this case, it's a good habit to get into. Later you'll use the ID when implementing communications between templates. We're using "AllUsers" here, which matches our template name, but that doesn't have to be the case. It could easily be "ListOfUsers" or "MyDogSpot" - though it's usually good practice for the ID to reflect the purpose of the template. See the [template tag topic](../template-controls/template.md) for additional attributes of the template tag.  
 
     2.  `<ListDataSource CommandText="SELECT UserID, DisplayName FROM Users ORDER BY DisplayName ASC" />`  
         This tag tells XMod Pro what data it should retrieve for your list view template. In the CommandText attribute, you can insert your own SQL `SELECT` query or use `EXEC sprocName` to execute a stored procedure. In this example, we're simply retrieving the UserID and the user's DisplayName. In this example, we just use "Users" as the table name. Depending on how your database is setup, you may need to pre-pend a database owner and/or object qualifier to the table name like: dbo.DNN_Users or something similar.  
@@ -59,7 +60,8 @@ There are some other fields besides those listed above, and different versions o
     7.  `</xmod:template>`  
         Finally, we'll close our template tag.
 7.  Let's take a look at the completed template:  
-    `<xmod:template>  
+    ```html
+    <xmod:template>  
       <ListDataSource CommandText="SELECT UserID, DisplayName FROM Users ORDER BY DisplayName ASC" />  
       <HeaderTemplate>  
         <ul>  
@@ -73,16 +75,17 @@ There are some other fields besides those listed above, and different versions o
       <FooterTemplate>  
         </ul>  
       </FooterTemplate>  
-    </xmod:template>`
+    </xmod:template>
+    ```
 8.  Type or copy and paste the above code into the Content editor area and click the "Update" link. If there were errors in your template, you will be notified via an error message just below the Update and Cancel links. Assuming there were no errors, you've successfully created your template.
 9.  Click the "Close" button at the bottom of the grid to return to the previous page.
 10.  Now, all we need to do is configure the XMod Pro module to use the template we just created. From the Actions menu, select "Configure":  
-    ![](ActionMenu_Configure.png)
+    ![](../img/ActionMenu_Configure.png)
 11.  This displays the configuration page. On the Settings tab, select "AllUsers" from the list of available Templates.
 12.  Click the "Close" button to save your changes and return to the previous page.
 13.  Your display should look something like this (though your list of users may be different and your site's style may be different):  
-    ![](Walkthrough1_AllUsersListView.png)   
+    ![](./Walkthrough1_AllUsersListView.png)   
 
 #### Next Steps:
 
-[Walkthrough Two: Adding A Detail View](Walkthrough2_DetailView.html)
+[Walkthrough Two: Adding A Detail View](2_user-detail-view.md)
