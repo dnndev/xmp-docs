@@ -28,13 +28,13 @@ module.exports = {
         title: "Tutorials",
         collapsible: true,
         children: [
-          "/examples/1_listing-users",
-          "/examples/2_user-detail-view",
-          "/examples/3_feedback-form",
-          "/examples/4_saving-feedback-form-data",
-          "/examples/5_displaying-feedback-form-data",
-          "/examples/6_editing-deleting-feedback-form-data",
-          "/examples/7_templates-with-multiple-views"
+          "/tutorials/1_listing-users",
+          "/tutorials/2_user-detail-view",
+          "/tutorials/3_feedback-form",
+          "/tutorials/4_saving-feedback-form-data",
+          "/tutorials/5_displaying-feedback-form-data",
+          "/tutorials/6_editing-deleting-feedback-form-data",
+          "/tutorials/7_templates-with-multiple-views"
         ]
       },
       {
