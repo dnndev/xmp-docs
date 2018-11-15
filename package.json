@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.22"
+  }
+}
