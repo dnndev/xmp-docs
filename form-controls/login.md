@@ -1,12 +1,12 @@
-# <Login>
+# `<Login>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 
 
 **New to Version 4.0!** The Login tag will log the specified user into the DNN website.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 

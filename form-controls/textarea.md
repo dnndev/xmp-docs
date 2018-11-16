@@ -1,12 +1,12 @@
-# <Textarea>
+# `<Textarea>`
 
-<a name="top"></a>
+
 
 
 
 The Textarea tag renders as a multi-line text input box at run time.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -48,7 +48,7 @@ The Textarea tag renders as a multi-line text input box at run time.
 
 <div xmlns="">/> </div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -77,7 +77,7 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
 
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  
+*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
@@ -100,7 +100,7 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **Rows**: The number of rows displayed in the Textarea control.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Tabindex**: Sets the tab index for the control.  
 
@@ -112,7 +112,7 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **Wrap**: If True, text in the textarea wraps. If False, text does not wrap. The default is True.  
 
-<a name="example"></a>
+
 
 ## Example
 

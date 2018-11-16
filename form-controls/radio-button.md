@@ -1,12 +1,12 @@
-# <RadioButton>
+# `<RadioButton>`
 
-<a name="top"></a>
+
 
 
 
 The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive options. This can be a useful alternative to using a RadioButtonList. With the RadioButtonList, only one value is sent to the datasource. If you use RadioButton controls that are grouped, you get the same mutually-exclusive options, but you also have the ability to store the value of each RadioButton in its own data field.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -45,7 +45,7 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 ## Remarks
 
-<a name="remarks"></a>
+
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
@@ -64,7 +64,7 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
 
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). Valid values are: boolean only. This attribute is required if the control will participate in operations with your form's data commands.  
+*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: boolean only. This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
@@ -79,7 +79,7 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **Nullable**: If this is set to True, the control will return a DBNull value if the control has not been checked. If a DBNull value is passed to this control, regardless of the Nullable setting, the control will be un-checked.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **TabIndex**: Sets the tab index for the control.  
 
@@ -97,7 +97,7 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 ## Example
 
-<a name="example"></a>
+
 
 <div>`<AddForm>`  
 `  ...`  

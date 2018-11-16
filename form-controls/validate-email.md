@@ -1,12 +1,12 @@
 # <Validate type="email">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "email" is referred to as an Email Validator and is used to ensure the value of the target control matches the form of a valid email address. It does not validate the email account is valid or active.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -34,7 +34,7 @@ The Validate tag whose type is set to "email" is referred to as an Email Validat
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -74,7 +74,7 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

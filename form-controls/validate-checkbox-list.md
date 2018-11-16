@@ -1,12 +1,12 @@
 # <Validate type="checkboxlist">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "checkboxlist" is referred to as a CheckBoxList Validator and is used to ensure the user checks at least one box in the list. NOTE: This validator runs on the server only. A form must pass all client-side validation and be submitted to the server before this validation will trigger.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -33,7 +33,7 @@ The Validate tag whose type is set to "checkboxlist" is referred to as a CheckBo
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -45,7 +45,7 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 
 *   **BorderStyle**: Style of the border around the control. Defaults to NotSet.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.](../unit-types.md)  
+*   **BorderWidth**: Width of the border around the control, specified in (../unit-types.md)  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
@@ -68,7 +68,7 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

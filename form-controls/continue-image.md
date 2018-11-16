@@ -1,20 +1,38 @@
-# <xmod:ContinueImage>
-
-<a name="top"></a>
-
-
+# `<xmod:ContinueImage>`
 
 The ContinueImage tag renders as a clickable image at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.
 
-<a name="syntax"></a>
-
 ## Syntax
-
-    <xmod:ContinueImage
-
-     />  
-
- <a name="remarks"></a>
+```html
+<xmod:ContinueImage
+    AccessKey="string"
+    AlternateText="string"
+    BackColor="color name|#dddddd"
+    BorderColor="color name|#dddddd"
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"
+    BorderWidth="size"
+    CssClass="string"
+    Font-Bold="True|False"
+    Font-Italic="True|False"
+    Font-Names="string"
+    Font-Overline="True|False"
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"
+    Font-Strikeout="True|False"
+    Font-Underline="True|False"
+    ForeColor="color name|#dddddd"
+    Height="size"
+    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"
+    ImageUrl="url"
+    OnClientClick="string"
+    Redirect="url"
+    RedirectMethod="Get|Post"
+    Style="string"
+    TabIndex="integer"
+    ToolTip="string"
+    Visible="True|False"
+    Width="size"  
+ />  
+```
 
 ## Remarks
 
@@ -24,7 +42,7 @@ The ContinueImage tag renders as a clickable image at run-time. It is only valid
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
-*   **AlternateText**: Use this attribute's value will be used as the image's "alt" text. The "alt" text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.  
+*   **AlternateText**: Use this attribute's value will be used as the image's `alt` text. The `alt` text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.  
 
 *   **BackColor**: Color of the background of the control.  
 
@@ -32,21 +50,19 @@ The ContinueImage tag renders as a clickable image at run-time. It is only valid
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
-    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
-    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
 
-*   **ImageUrl**: Specify a URL to the image. You may use the tilde (~) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
+*   **ImageUrl**: Specify a URL to the image. You may use the tilde (`~`) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
@@ -54,7 +70,7 @@ The ContinueImage tag renders as a clickable image at run-time. It is only valid
 
 *   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **TabIndex**: Sets the tab index for the control.  
 
@@ -64,20 +80,22 @@ The ContinueImage tag renders as a clickable image at run-time. It is only valid
 
 *   **Width**: Width of the control in [units](../unit-types.md).
 
-<a name="example"></a>
+
 
 ## Example
+```html {9-12}
+<AddForm>
+  ...
+</AddForm>
 
-<div>`<AddForm>`  
-`  ...``</AddForm>  
-
-<AddSuccessTemplate`</div>
-
-<div>`<ItemTemplate>  
-    <h1>Thanks for Signing Up</h1>  
-      <p>Click the button below to go to your profile page</p>  
-<span style="color: #ff0000;"><xmod:ContinueImage AlternateText="View Your Profile" Redirect="http://mysite.com/profile" RedirectMethod="Get" ImageUrl="~/images/profile.gif"/></span>`</div>
-
-<div>`</ItemTemplate>  
-</AddSuccessTemplate>`</div>
-
+<AddSuccessTemplate
+  <ItemTemplate>
+    <h1>Thanks for Signing Up</h1>
+    <p>Click the button below to go to your profile page</p>
+    <xmod:ContinueImage AlternateText="View Your Profile" 
+                        Redirect="http://mysite.com/profile" 
+                        RedirectMethod="Get" 
+                        ImageUrl="~/images/profile.gif"/>
+  </ItemTemplate>
+</AddSuccessTemplate>
+```

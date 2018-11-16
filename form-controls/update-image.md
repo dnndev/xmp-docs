@@ -1,18 +1,18 @@
-# <UpdateImage>
+# `<UpdateImage>`
 
-<a name="top"></a>
+
 
 
 
 The UpdateImage tag renders as a clickable image at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<EditForm>`.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
     <UpdateImage
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -54,7 +54,7 @@ The UpdateImage tag renders as a clickable image at run-time. When clicked, the 
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

@@ -1,12 +1,12 @@
-# <Textbox>
+# `<Textbox>`
 
-<a name="top"></a>
+
 
 
 
 The Textbox tag renders as a single-line text input box at run time.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -41,7 +41,7 @@ The Textbox tag renders as a single-line text input box at run time.
     Width="_size_"  
 ``/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -62,7 +62,7 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
 
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). . This attribute is required if the control will participate in operations with your form's data commands.  
+*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). . This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
@@ -83,7 +83,7 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **MaxLength**: The maximum number of characters allowed in the text box.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Tabindex**: Sets the tab index for the control.  
 
@@ -93,7 +93,7 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

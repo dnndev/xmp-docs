@@ -1,62 +1,54 @@
-# <CheckBoxList>
-
-<a name="top"></a>
-
-
+# `<CheckBoxList>`
 
 The CheckboxList tag renders as a series of checkboxes at run-time.
 
 ## Syntax
+```html
+<CheckBoxList 
+    AccessKey="string" 
+    AppendDataBoundItems="True|False" 
+    BackColor="color name|#dddddd" 
+    BorderColor="color name|#dddddd" 
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
+    BorderWidth="size" 
+    CellPadding="integer" 
+    CellSpacing="integer" 
+    CssClass="string" 
+    DataField="string" 
+    DataSourceID="string" 
+    DataTextField="string" 
+    DataTextFormatString="string" 
+    DataType="string|int32|...." 
+    DataValueField="string" 
+    Font-Bold="True|False" 
+    Font-Italic="True|False" 
+    Font-Names="string" 
+    Font-Overline="True|False" 
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
+    Font-Strikeout="True|False" 
+    Font-Underline="True|False" 
+    ForeColor="color name|#dddddd" 
+    Height="size" 
+    ID="string" 
+    Nullable="True|False" 
+    RepeatColumns="integer" 
+    RepeatDirection="Horizontal|Vertical" 
+    RepeatLayout="Table|Flow"
+    SelectedItemsSeparator="string||"
+    Style="string" 
+    TabIndex="integer" 
+    TextAlign="Left|Right" 
+    ToolTip="string" 
+    Visible="True|False" 
+    Width="size">
 
-<a name="syntax"></a>
-
-<div>`<CheckBoxList`  
-``    AccessKey="_string_"  
-    AppendDataBoundItems="True|**False**"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth="_size_"  
-    CellPadding="_integer_"  
-    CellSpacing="_integer_"  
-    CssClass="_string_"  
-`    DataField="_string_"`  
-    DataSourceID="_string_"  
-    DataTextField="_string_"  
-    DataTextFormatString="_string_"  
-`    DataType="**string**|int32|...."`  
-    DataValueField="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    ID="_string_"  
-    Nullable="True|**False**"  
-    RepeatColumns="_integer_"  
-    RepeatDirection="Horizontal|**Vertical**"  
-    RepeatLayout="**Table**|Flow"``</div>
-
-<div>``    SelectedItemsSeparator="_string_|**|**"  
-    Style="_string_"  
-    TabIndex="_integer_"  
-    TextAlign="Left|**Right**"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_"`>  
-
-``    <ListItem Value="_string_" Selected="True|**False**">Item1</ListItem>`  
-`    <ListItem Value="_string_">Item2</ListItem>`  
-`    ...`  
-`</CheckBoxList>`</div>
+    <ListItem Value="string" Selected="True|False">Item1</ListItem> 
+    <ListItem Value="string">Item2</ListItem> 
+    ... 
+</CheckBoxList>
+```
 
 ## Remarks
-
-<a name="remarks"></a>
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
@@ -68,9 +60,7 @@ The CheckboxList tag renders as a series of checkboxes at run-time.
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-
-    ](../unit-types.md)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CellPadding**: For table layouts, sets the distance (in pixels) between the border and the content of the cells.  
 
 *   **CellSpacing**: For table layouts, sets the distance (in pixels) between cells.  
@@ -81,17 +71,15 @@ The CheckboxList tag renders as a series of checkboxes at run-time.
 
 *   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<controldatasource>` tag.  
+*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDatasource>` tag.  
 
 *   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
 
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  
+*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-
-    ](../font-properties.md)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
@@ -112,7 +100,7 @@ The CheckboxList tag renders as a series of checkboxes at run-time.
 
     NOTE that if you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **TabIndex**: Sets the tab index for the control.  
 
@@ -130,32 +118,31 @@ The CheckboxList tag renders as a series of checkboxes at run-time.
 
 ## Example
 
-<a name="example"></a>
-
-<div>`<AddForm>`  
-`  ...`  
-`  <table>`  
-`    <tr>`  
-`       <td>`  
-`        <Label Target="txtFirstName" Text="First Name" />`  
-`        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label Target="lstColors" Text="Favorite Color" />  
-`<span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">`<CheckBoxList Id="cblColors" DataField="FavoriteColors" DataType="string" >`  
-`           <ListItem Value="#00FF00">Green</ListItem >`  
-`           <ListItem Value="#FF0000" Selected="true">Red</ListItem >`  
-`           <ListItem Value="#0000FF">Blue</ListItem >`  
-`         </CheckBoxList >`</span>  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel" />`  
-`      </td>`  
-`    </tr>`  
-`  </table>`  
-`</AddForm>`</div>
-
+```html {13-17}
+<AddForm> 
+  ... 
+  <table> 
+    <tr> 
+       <td> 
+        <Label Target="txtFirstName" Text="First Name" /> 
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td> 
+        <Label Target="lstColors" Text="Favorite Color" />
+        <CheckBoxList Id="cblColors" DataField="FavoriteColors" DataType="string" >
+           <ListItem Value="#00FF00">Green</ListItem >
+           <ListItem Value="#FF0000" Selected="true">Red</ListItem >
+           <ListItem Value="#0000FF">Blue</ListItem >
+         </CheckBoxList> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td colspan="2"> 
+        <AddButton Text="Add"/> <CancelButton Text="Cancel" /> 
+      </td> 
+    </tr> 
+  </table> 
+</AddForm>
+```

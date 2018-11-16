@@ -1,12 +1,12 @@
 # <Validate type="checkbox">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "checkbox" is referred to as a CheckBox Validator and is used to ensure the user either checks or does not check a checkbox control.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -34,7 +34,7 @@ The Validate tag whose type is set to "checkbox" is referred to as a CheckBox Va
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -46,7 +46,7 @@ The Checkbox validator is one type of the `<Validate>` tag. When the "type" attr
 
 *   **BorderStyle**: Style of the border around the control. Defaults to NotSet.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.](../unit-types.md)  
+*   **BorderWidth**: Width of the border around the control, specified in (../unit-types.md)  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
@@ -71,7 +71,7 @@ The Checkbox validator is one type of the `<Validate>` tag. When the "type" attr
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

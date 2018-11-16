@@ -1,12 +1,12 @@
-# <ListBox>
+# `<ListBox>`
 
-<a name="top"></a>
+
 
 
 
 The ListBox tag renders as a single or multi-select listbox at run-time.
 
-## <a name="syntax"></a>Syntax
+## Syntax
 
 <div>`<ListBox`  
 `    AccessKey="_string_"  
@@ -49,7 +49,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 ## Remarks
 
-<a name="remarks"></a>
+
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
@@ -74,7 +74,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
 
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands. NOTE: If this is a multi-select listbox, you MUST set the DataType to "string" because the value returned from the control will be a string.  
+*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands. NOTE: If this is a multi-select listbox, you MUST set the DataType to "string" because the value returned from the control will be a string.  
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
@@ -99,7 +99,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
     NOTE that if you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **TabIndex**: Sets the tab index for the control.  
 
@@ -113,7 +113,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 
 
-## <a name="example"></a>Example
+## Example
 
 <div xmlns="">`<AddForm>`  
 `  ...`  

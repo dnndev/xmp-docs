@@ -1,12 +1,12 @@
 # <Validate type="required">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "required" is referred to as a Required Field Validator and is used to ensure the user provides some input for a given control.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -34,13 +34,13 @@ The Validate tag whose type is set to "required" is referred to as a Required Fi
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
 The required field validator is one type of the `<Validate>` tag. When the "type" attribute is set to **Required**, the control prevents the form from being submitted if its associated control does not have a value. You associate a control with the <validate> tag by setting its "target" attribute to the ID of the control you wish to validate. The "message" attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`. The "display" attribute determines if the the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically display allocate the space for the message when validation fails. The `<Validate>` tag defaults to **Dynamic** display.
 
-<a name="example"></a>
+
 
 *   **BackColor**: Color of the background of the control.  
 

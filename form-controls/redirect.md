@@ -1,12 +1,12 @@
-# <Redirect>
+# `<Redirect>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 
 
 New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 

@@ -1,20 +1,13 @@
-# <Include>
-
-<a name="top"></a>
-
-
+# `<Include>`
 
 The Include tag injects the raw contents of the specified file into the form at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.
 
-<a name="syntax"></a>
-
 ## Syntax
-
-<div>`<Include`  
-``    FileName="_string_"`  
-``/> `</div>
-
- <a name="remarks"></a>
+```html
+<Include
+  FileName="string"
+/>
+```
 
 ## Remarks
 
@@ -24,31 +17,36 @@ Please note that every time XMP renders an Include tag, it attempts to read the
 
 ## Attributes  
 
-*   **FileName**: The full path and filename of the file to include. You may use the tilde (~) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
+*   **FileName**: The full path and filename of the file to include. You may use the tilde (`~`) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
 
-<a name="example"></a>
+
 
 ## Example
 
-In this example, you may have a file called CompanyHeader.html located in the "includes" directory of your website. This could be something simple like <h1>DNNDev.com</h1><p><em>Makers of Cool DNN Tools since 2004</em></p>
+In this example, you may have a file called CompanyHeader.html located in the "includes" directory of your website. This could be something simple like 
+```html
+<h1>DNNDev.com</h1>
+<p><em>Makers of Cool DNN Tools since 2004</em></p>
+```
 
-By using the <Include> tag before the table, we're able to inject that HTML right into the form. Later, if we decide to change our name to "EvoqDev.com" then we just need to change the CompanyHeader.html file and it will automatically change in every form and template in which it's used.
+By using the `<Include>` tag before the table, we're able to inject that HTML right into the form. Later, if we decide to change our name to _EvoqDev.com_ then we just need to change the **CompanyHeader.html** file and it will automatically change in every form and template in which it's used.
 
-<div>`<AddForm>`  
-`  <Include FileName="~/includes/CompanyHeader.html" />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtFirstName" text="First Name" />`  
-`        <Textbox id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    ...`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/>&nbsp;<CancelButton T text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>`  
-`</AddForm>`</div>
-
+```html {2}
+<AddForm>
+  <Include FileName="~/includes/CompanyHeader.html" />
+  <table>
+    <tr>
+      <td>
+        <Label For="txtFirstName" text="First Name" /> 
+        <Textbox id="txtFirstName" DataField="FirstName" DataType="string" />
+      </td>
+    </tr>
+    ...
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
+      </td>
+    </tr>
+  </table>
+</AddForm>
+```

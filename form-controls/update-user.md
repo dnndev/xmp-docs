@@ -1,6 +1,6 @@
-# <UpdateUser>
+# `<UpdateUser>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 
 
@@ -8,7 +8,7 @@
 
 **IMPORTANT**: You MUST take care to properly validate user input. Additionally you should place this tag only on forms that are properly secured so that only users you intend to have access can use the form.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 

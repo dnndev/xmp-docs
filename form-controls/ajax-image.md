@@ -1,16 +1,10 @@
-# <AjaxImage>
-
-
-
-
+# `<AjaxImage>`
 
 The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.
 
-
-
 ## Syntax
-
-<div xmlns="">`<AjaxImage  
+```html
+<AjaxImage  
     AlternateText="_string_"  
     BackColor="_color name_|#dddddd"  
     BorderColor="_color name_|#dddddd"  
@@ -36,13 +30,9 @@ The AjaxImage tag renders as a push-button at run-time that, when clicked, will 
     ToolTip="_string_"  
     Url="_url_"  
     Visible="**True**|False"  
-    Width="_size_"`</div>
-
-<div xmlns="">`/>  
-
-`</div>
-
-
+    Width="_size_"
+/>  
+```
 
 ## Remarks
 
@@ -56,8 +46,7 @@ The AjaxImage tag renders as a push-button at run-time that, when clicked, will 
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units  
-     ](../unit-types.md)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
@@ -66,29 +55,32 @@ The AjaxImage tag renders as a push-button at run-time that, when clicked, will 
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
-*   **ImageUrl**: Specify a URL to the image. You may use the tilde (~) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
+*   **ImageUrl**: Specify a URL to the image. You may use the tilde (`~`) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
 
 *   **LoadingCssClass**: A CSS class name to assign to the image which appears after the button has been clicked - to indicate content is being loaded. This property is ignored if no LoadingImageUrl is specified.  
 
-*   **LoadingImageUrl**: A URL to the image file that will be displayed after the button is clicked - to indicate content is being loaded. You can use the tilde (~) character as a placeholder for the website root directory. The image will be displayed immediately after the button when the button is clicked. It will be removed from the page after successful completion of the AJAX call. If no image url is specified, no image will be displayed.  
+*   **LoadingImageUrl**: A URL to the image file that will be displayed after the button is clicked - to indicate content is being loaded. You can use the tilde (`~`) character as a placeholder for the website root directory. The image will be displayed immediately after the button when the button is clicked. It will be removed from the page after successful completion of the AJAX call. If no image url is specified, no image will be displayed.  
 
-*   **OnError**: You can optionally specify a Javascript function to call if there is an error in the AJAX call. Your function should accept the following parameters: jqXHR, textStatus, errorThrown. This should only contain a function name. An example would be:  
+*   **OnError**: You can optionally specify a Javascript function to call if there is an error in the AJAX call. Your function should accept the following parameters: `jqXHR`, `textStatus`, `errorThrown`. This should only contain a function name. An example would be:  
     `OnError="myErrHandler"`  
     Elsewhere, you would define your Javascript function like:  
-    `function myErrHandler(jqXHR, textStatus, errorThrown) {`  
-    `  alert("The following error occurred: " + textStatus);`  
-    `}`  
+    ```js
+    function myErrHandler(jqXHR, textStatus, errorThrown) {  
+      alert("The following error occurred: " + textStatus);  
+    }  
+    ```
 
 *   **OnSuccess**: You can optionally specify a Javascript function to call when data is returned from the AJAX call. This overrides standard default processing of the AJAX call - which normally sets the HTML of the Target element. Instead, your function will be called and the returned data from the AJAX call will be passed to your function. This property should only contain a function name. An example might be:  
     `OnSuccess="doSomethingCool"`  
     Elsewhere you would define your Javascript function like:  
-    `function doSomethingCool(data){`  
-    `  alert("The following data was returned:" + data);`  
-    `}`  
+    ```js
+    function doSomethingCool(data){
+      alert("The following data was returned:" + data);
+    }
+    ```
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`)  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;")  
-
-*   **Target**: A jQuery "selector" that identifies the element(s) that will contain the HTML returned from the Url. Note that content of the element will be replaced by the HTML. To select an element by its ID, use the # selector. So, to select an element with the client ID of "divMyResults" (without the quotes), the Target attribute would be "#divMyResults" (again, without the quotes). To select all DIV elements with the class name of "MyResults", you would use the period selector (.) - "div.MyResults".  
+*   **Target**: A jQuery "selector" that identifies the element(s) that will contain the HTML returned from the Url. Note that content of the element will be replaced by the HTML. To select an element by its ID, use the `#` selector. So, to select an element with the client ID of _divMyResults_, the `Target` attribute would be `#divMyResults`. To select all DIV elements with the class name of _MyResults_, you would use the period selector (`.`) like so: `div.MyResults`.  
 
 *   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
 
@@ -102,8 +94,8 @@ The AjaxImage tag renders as a push-button at run-time that, when clicked, will 
 
 
 ## Example
-
-<div xmlns="">````<AddForm>  
+```html {12-13}
+<AddForm>  
   <SubmitCommand CommandText="Update EmployeeReview SET Rating=@Rating" />  
 
   <Label>Submit Rating for Employee</Label>  
@@ -114,10 +106,9 @@ The AjaxImage tag renders as a push-button at run-time that, when clicked, will 
     <ListItem Value="4">Above Average</ListItem>  
     <ListItem Value="5">Excellent</ListItem>  
   </DropdownList>  
-<span style="color: #ff0000;"><AjaxImage AlternateText="View Employee History" Url="mysite.com/history.aspx?eid=100"</span>  
-<span style="color: #ff0000;">      Target="#divHistory" ImageUrl="~/images/history.gif" /></span>  
+  <AjaxImage AlternateText="View Employee History" Url="mysite.com/history.aspx?eid=100"
+        Target="#divHistory" ImageUrl="~/images/history.gif" />
   <div id="divHistory"></div>  
   <AddButton Text="Add Rating" /> <CancelButton Text="Nevermind" />  
 </AddForm>  
- ````</div>
-
+```

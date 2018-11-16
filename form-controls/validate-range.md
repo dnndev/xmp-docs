@@ -1,12 +1,12 @@
 # <Validate type="range">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "range" is referred to as a Range Validator and is used to ensure the value of the target control falls within the specified range of values. This can be used, for example, to ensure that only a limited number of tickets can be purchased - that the number of tickets ordered is at least one but not more than five.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -37,13 +37,13 @@ The Validate tag whose type is set to "range" is referred to as a Range Validato
     Width="_size_"  
 />`</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
 When the "type" attribute is set to **Range**, the control prevents the form from being submitted if its associated control's value does not match the range specified using the "MaximumValue" and "MinimumValue" attributes. You associate a control with the `<Validate>` tag by setting its "target" attribute to the ID of the control you wish to validate. The "message" attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.
 
-<a name="example"></a>
+
 
 *   **BackColor**: Color of the background of the control.  
 

@@ -1,12 +1,12 @@
-# <Tabstrip>
+# `<Tabstrip>`
 
-<a name="top"></a>
+
 
 
 
 The Tabstrip tag renders as a series of tabs that, when clicked, shows the corresponding content within that tab. This control requires that Javascript be enabled in the browser to function correctly.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -19,7 +19,7 @@ The Tabstrip tag renders as a series of tabs that, when clicked, shows the corre
         ShowPanelBorders="True|False"
         Visible="True|False"     Width="size"
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -38,7 +38,7 @@ This tag allows you to create a tabbed user interface for your form much like a 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).
 *   **Width**: Width of the control in [units](../unit-types.md).
 
-<a name="example"></a>
+
 
 ## Example
 

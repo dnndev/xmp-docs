@@ -1,12 +1,12 @@
-# <Label>
+# `<Label>`
 
-<a name="top"></a>
+
 
 
 
 The Label tag renders as a static text at run-time.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -18,7 +18,7 @@ The Label tag renders as a static text at run-time.
 `    Visible="**True**|False"`  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -34,7 +34,7 @@ The Label tag provides the ability to offer better accessibility to your users b
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false). Default set to "True".
 
-<a name="example"></a>
+
 
 ## Example
 

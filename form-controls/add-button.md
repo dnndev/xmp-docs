@@ -61,7 +61,7 @@ The AddButton tag renders as a push-button at run-time. When clicked, the form e
 *   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post"  
     IMPORTANT: When using "Post", the ID that you supply for your form controls determine the name of the field that is posted to the target URL, not the DataField.  
 
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **TabIndex**: Sets the tab index for the control.  
 

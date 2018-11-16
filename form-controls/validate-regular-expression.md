@@ -1,12 +1,12 @@
 # <Validate type="regex">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "regex" is referred to as a Regular Expression Validator and is used to ensure the value of the target control matches the specified regular expression pattern. This can be used, for example, to ensure a phone number matches the format you specify or that an email address is properly formatted.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -35,13 +35,13 @@ The Validate tag whose type is set to "regex" is referred to as a Regular Expres
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
 When the "type" attribute is set to **RegEx**, the control prevents the form from being submitted if its associated control's value does not match the regular expression pattern specified in the "ValidationExpression" attribute. You associate a control with the `<Validate>` tag by setting its "target" attribute to the ID of the control you wish to validate. The "message" attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.
 
-<a name="example"></a>
+
 
 *   **BackColor**: Color of the background of the control.  
 

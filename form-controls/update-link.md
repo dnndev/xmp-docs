@@ -1,18 +1,18 @@
-# <UpdateLink>
+# `<UpdateLink>`
 
-<a name="top"></a>
+
 
 
 
 The UpdateLink tag renders as a hyperlink at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<EditForm>`.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
     <UpdateLink
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -49,7 +49,7 @@ The UpdateLink tag renders as a hyperlink at run-time. When clicked, the form ex
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

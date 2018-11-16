@@ -1,12 +1,12 @@
-# <UpdateButton>
+# `<UpdateButton>`
 
-<a name="top"></a>
+
 
 
 
 The UpdateButton tag renders as a push-button at run-time that, when clicked, initiates the update process, executing the `<SubmitCommand>` of the associated `<EditForm>`.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -36,7 +36,7 @@ The UpdateButton tag renders as a push-button at run-time that, when clicked, in
     Visible="**True**|False"  
     Width="_size_"` `/>`</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -73,7 +73,7 @@ The UpdateButton tag renders as a push-button at run-time that, when clicked, in
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

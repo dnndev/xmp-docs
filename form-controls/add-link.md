@@ -59,7 +59,7 @@ The AddLink tag renders as a hyperlink at run-time. When clicked, the form execu
     When using `Post`, the ID that you supply for your form controls determine the name of the field that is posted to the target URL, not the DataField. 
     :::
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Text**: The caption that will be displayed on the link.  
 

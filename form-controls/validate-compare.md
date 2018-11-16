@@ -1,12 +1,12 @@
 # <Validate type="compare">
 
-<a name="top"></a>
+
 
 
 
 The Validate tag whose type is set to "compare" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the value in a second control. It is useful when prompting the user for an email address or password.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
@@ -40,7 +40,7 @@ The Validate tag whose type is set to "compare" is referred to as a Comparison V
     Width="_size_"``  
 `/> `</div>
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -86,7 +86,7 @@ When the "type" attribute is set to **Compare**, the control prevents the form f
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-<a name="example"></a>
+
 
 ## Example
 

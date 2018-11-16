@@ -1,18 +1,18 @@
-# <Panel>
+# `<Panel>`
 
-<a name="top"></a>
+
 
 
 
 The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders. Primarily, though, it is used to show/hide parts of the form based on what role the current user is in. So, for instance, you can include controls that will only be available to administrators or editors or registered users, etc.
 
-<a name="syntax"></a>
+
 
 ## Syntax
 
     <Panel  
 
- <a name="remarks"></a>
+ 
 
 ## Remarks
 
@@ -62,7 +62,7 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 *   **ShowRoles**: A comma-delimited list of security role names. When specified, only members of the security roles will be shown the content of the panel. Note that if you are logged-in as host, you will see the panel contents even though the account may not be a member of one of the specified roles. To accurately test the functionality, you should login as a Non-host/superuser account.  
 
-*   **Style**:Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**:Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
@@ -70,7 +70,7 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 *   **Wrap**: If true (default), content within the panel wraps. If false, content does not wrap.  
 
-<a name="example"></a>
+
 
 ## Example:
 

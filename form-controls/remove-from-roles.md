@@ -1,12 +1,12 @@
-# <RemoveFromRoles>
+# `<RemoveFromRoles>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 
 
 **New to Version 4.0!** The RemoveFromRoles tag will remove a user from one or more DotNetNuke security roles after the form has been successfully submitted.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 

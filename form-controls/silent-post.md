@@ -1,12 +1,12 @@
-# <SilentPost>
+# `<SilentPost>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 
 
 New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e. silently) without user interaction.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 
