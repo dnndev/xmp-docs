@@ -1,49 +1,36 @@
-# <AddButton>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<AddButton>`
 
 The AddButton tag renders as a push-button at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<AddForm>`.
 
-<a name="syntax"></a>
-
 ## Syntax
-
-    <AddButton
-
-<div xmlns="">
-
-<div xmlns="">`   AccessKey="_string_"`</div>
-
-<div xmlns="">`   BackColor="_color name_|#dddddd"`</div>
-
-<div xmlns="">`   BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"  
-    BorderWidth="_size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    OnClientClick="_string_"  
-    Redirect="_url_"  
-    RedirectMethod="**Get**|Post"  
-    Style="_string_"  
-    TabIndex="_integer_"  
-    Text="_string_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_"`</div>
-
-`/> `</div>
-
- <a name="remarks"></a>
+```html
+<AddButton
+  AccessKey="_string_"
+  BackColor="_color name_|#dddddd"
+  BorderColor="_color name_|#dddddd"  
+  BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"  
+  BorderWidth="_size_"  
+  CssClass="_string_"  
+  Font-Bold="True|**False**"  
+  Font-Italic="True|**False**"  
+  Font-Names="_string_"  
+  Font-Overline="True|**False**"  
+  Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"  
+  Font-Strikeout="True|**False**"  
+  Font-Underline="True|**False**"  
+  ForeColor="_color name_|#dddddd"  
+  Height="_size_"  
+  OnClientClick="_string_"  
+  Redirect="_url_"  
+  RedirectMethod="**Get**|Post"  
+  Style="_string_"  
+  TabIndex="_integer_"  
+  Text="_string_"  
+  ToolTip="_string_"  
+  Visible="**True**|False"  
+  Width="_size_"
+/>
+```
 
 ## Remarks
 
@@ -86,31 +73,28 @@ The AddButton tag renders as a push-button at run-time. When clicked, the form e
 
 *   **Width**: Width of the control in [units](units.html).  
 
-[Back to top](#top)<a name="example"></a>
-
 ## Example
-
-<div xmlns="">`<addform>`  
-`  <submitcommand commandtext="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`         <label for="txtFirstName" text="First Name" />`  
-`         <textbox id="txtFirstName" datafield="FirstName" datatype="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <label for="txtLastName" text="Last Name" />  
-        <``textbox id="txtLastName" datafield="LastName" datatype="_string_" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <addbutton text="Add"/> <cancelbutton text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>  
-``</addform>`</div>
-
-[Back to top](#top)
+```html
+<AddForm>  
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
+  <table>  
+    <tr>  
+      <td>  
+         <label for="txtFirstName" text="First Name" />  
+         <textbox id="txtFirstName" datafield="FirstName" datatype="string" />  
+       </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <label for="txtLastName" text="Last Name" />  
+        <textbox id="txtLastName" datafield="LastName" datatype="_string_" />  
+      </td>  
+    </tr>  
+    <tr>  
+      <td colspan="2">  
+        <addbutton text="Add"/> <cancelbutton text="Cancel"/>  
+      </td>  
+    </tr>  
+  </table>  
+</AddForm>
+```

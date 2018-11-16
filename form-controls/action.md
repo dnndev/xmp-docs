@@ -1,28 +1,17 @@
-# <Action>
+# `<Action>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 **New to Version 4.0!** The Action tag allows you to execute custom server-side functionality after the form has been successfully submitted.
 
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
-
 ## Syntax
-
+  ```html
     <Action
-        Assembly="Name of DLL containing action - do not include the .dll extension" 
-        Namespace="Namespace pointing to the action class" > 
-
-<pre xmlns="" xml:space="preserve">      <Property Name="_string_" Value="_string_" />
-</pre>
-
-<pre xmlns="" xml:space="preserve">      ...Additional Property Tags as needed...</pre>
-
+      Assembly="Name of DLL containing action - do not include the .dll extension" 
+      Namespace="Namespace pointing to the action class"> 
+      <Property Name="_string_" Value="_string_" />
+      ...Additional Property Tags as needed...
     </Action>
-
- <a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
-
+  ```
 ## Remarks
 
 *   The Action tag is only executed if the form has been successfully submitted. If there is a validation error or an error is thrown from the database, the action will not be performed. Note that the Action is executed after the SubmitCommand is executed, so it cannot impact the database call itself.  
@@ -44,45 +33,43 @@
     3.  Create the class that will contain your custom action  
 
     4.  Add a method called "Execute" and set it to accept a PortalModuleBase object and KnowBetter.XModPro.Common.XItem object like so:  
-
-        ` Public Sub Execute(pmb As DotNetNuke.Entities.Modules.PortalModuleBase, ByRef xi As KnowBetter.XModPro.Common.XItem)`  
-        `     ' Do something very cool and interesting here.`  
-        `     ' pmb will contain useful environmental data like the current PortalId and current UserId.`  
-        `     ' xi will contain a list of values from the form just submitted. Note: They are passed by reference so you can modify the values`  
-        `     ' and add values to the list. At this point, the data will have been saved to the database already. However, your modified values`  
-        `     ' can be used by subsequent <Action> tags as well as <Email> tags and user redirection.`  
-        ` End Sub`  
-
+        ```vbnet
+        Public Sub Execute(pmb As DotNetNuke.Entities.Modules.PortalModuleBase, ByRef xi As KnowBetter.XModPro.Common.XItem)  
+           ' Do something very cool and interesting here.  
+           ' pmb will contain useful environmental data like the current PortalId and current UserId.  
+           ' xi will contain a list of values from the form just submitted. Note: They are passed by reference so you can modify the values  
+           ' and add values to the list. At this point, the data will have been saved to the database already. However, your modified values  
+           ' can be used by subsequent <Action> tags as well as <Email> tags and user redirection.  
+        End Sub  
+        ```
     5.  Compile and place the DLL in your site's /bin directory.  
 
 *   **Property Tags**: These are optional child tags that allow you to specify one or more attributes that will be set when the action is executed.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
-
 ## Example
 
-<div xmlns="">`<AddForm>`  
-`  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />`  
-`  <Action Assembly="MyCompany.XMPActions" Namespace="MyCompany.XModPro.Actions.MyCustomAction" />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`         <Label For="txtFirstName" Text="First Name" />`  
-`         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtLastName" Text="Last Name" />`  
-`        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>  
-</AddForm>`</div>
-
-[Back to top](#top)
+```html
+<AddForm>  
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
+  <Action Assembly="MyCompany.XMPActions" Namespace="MyCompany.XModPro.Actions.MyCustomAction" />  
+  <table>  
+    <tr>  
+      <td>  
+         <Label For="txtFirstName" Text="First Name" />  
+         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />  
+       </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <Label For="txtLastName" Text="Last Name" />  
+        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />  
+      </td>  
+    </tr>  
+    <tr>  
+      <td colspan="2">  
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>  
+      </td>  
+    </tr>  
+  </table>  
+</AddForm>
+```
