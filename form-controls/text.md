@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Text tag renders as un-decorated text at run-time.
 
@@ -30,7 +30,7 @@ You may also find the Text tag useful when combined with Javascript. The Text ta
 *   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
 *   **Nullable**: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -52,4 +52,3 @@ You may also find the Text tag useful when combined with Javascript. The Text ta
 `  </table>`  
 `</addform>`</div>
 
-[Back to top](#top)

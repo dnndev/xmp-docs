@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The CheckBox tag renders as a checkbox and associated label at run-time. A series of CheckBox controls provides a useful alternative to the CheckBoxList. With the CheckBoxList, all selected values are placed into a single string value that is sent to the data source. However, a series of individual CheckBox controls provides you with the same basic functionality as the CheckBoxList, but you also have the ability to store the value of each CheckBox in its own data field.
 
@@ -55,7 +55,7 @@ The CheckBox tag renders as a checkbox and associated label at run-time. A serie
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **Checked**: Determines whether the checkbox is checked.  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
@@ -66,10 +66,10 @@ The CheckBox tag renders as a checkbox and associated label at run-time. A serie
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
@@ -87,9 +87,9 @@ The CheckBox tag renders as a checkbox and associated label at run-time. A serie
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)
+
 
 ## Example
 
@@ -116,4 +116,3 @@ The CheckBox tag renders as a checkbox and associated label at run-time. A serie
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

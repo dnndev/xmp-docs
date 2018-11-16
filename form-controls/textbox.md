@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Textbox tag renders as a single-line text input box at run time.
 
@@ -57,7 +57,7 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
@@ -66,10 +66,10 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **HtmlEncode**: When set to true, the content of the control will have any HTML encoded before sending it to the SubmitCommand for processing. Note that setting this to true can help protect against scripting attacks but it will also enlarge the size of the text that is saved (<) becomes (&lt;), for instance.  
 
@@ -91,9 +91,9 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -122,4 +122,3 @@ You will probably use the <span style="font-family: monospace;">Textbox</span> t
 
 </div>
 
-[Back to top](#top)

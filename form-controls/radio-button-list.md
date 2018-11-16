@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The RadioButtonList tag renders as a series of mutually-exclusive option button at run-time.
 
@@ -67,7 +67,7 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CellPadding**: For table layouts, sets the distance (in pixels) between the border and the content of the cells.  
 
 *   **CellSpacing**: For table layouts, sets the distance (in pixels) between cells.  
@@ -88,10 +88,10 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
@@ -113,11 +113,11 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Usage**: <span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml">The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the DataSourceId attribute, the name of the column in the data source that should supply the display text for each list item in the DataTextField attribute, and the column in the data source that should supply the hidden value of each list item in the DataValueField attribute.</span>
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -148,4 +148,3 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 `   </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

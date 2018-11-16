@@ -1,25 +1,18 @@
-# <AddToRoles>
+# `<AddToRoles>`
 
-<a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
-
-**New to Version 4.0!** The AddToRoles tag will add a user to one or more DotNetNuke security roles after the form has been successfully submitted.
-
-<a name="syntax" xmlns="http://www.w3.org/1999/xhtml"></a>
+**New to Version 4.0** The AddToRoles tag will add a user to one or more DotNetNuke security roles after the form has been successfully submitted.
 
 ## Syntax
-
-    <AddToRoles
-        Culture="locale-id"
-        EndDate="date"
-        If="basic conditional equality expression"
-        RoleNames="comma-delimited list of DNN roles"
-        StartDate="date" 
-        UserId="integer" 
-    />
-
-<a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+```html
+<AddToRoles
+    Culture="locale-id"
+    EndDate="date"
+    If="basic conditional equality expression"
+    RoleNames="comma-delimited list of DNN roles"
+    StartDate="date" 
+    UserId="integer" 
+/>
+```
 
 ## Remarks
 
@@ -35,9 +28,11 @@
 
 *   **If**: optional. This is a basic equality expression. When it evaluates to true, the AddToRoles action will be executed. If it evaluates to false, the AddToRoles action will not be executed. This is a good way to add a user to a role only if some value on the form has been set. For instance, you could add someone to the Newsletter role only if they check a box on the form confirming that they want your newsletter. New to version 4.1  
 
-    <span style="font-family: 'Courier New';" xmlns="http://www.w3.org/1999/xhtml"><AddToRoles If='[[SignMeUp]] = True' RoleNames="Newsletter" UserId='[[uid]]' /></span>  
+    `<AddToRoles If='[[SignMeUp]] = True' RoleNames="Newsletter" UserId='[[uid]]' />`  
 
-    NOTE: Comparisons are text-only and are not case-sensitive. You can test for equality using the "=" operator or inequality using the "<>" operator.  
+    :::tip NOTE
+    Comparisons are text-only and are not case-sensitive. You can test for equality using the "=" operator or inequality using the "<>" operator.
+    :::
 
 *   **RoleNames**: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with commas. Field tokens may be used to populate this property.  
 
@@ -45,35 +40,34 @@
 
 *   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to add to a role. Field tokens may be used to populate this property.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
 
 ## Example
 
-In the example below, we're using a <span style="font-family: 'Courier New';"><Variable></span> tag to retrieve the current user's ID and make it available to the <span style="font-family: 'Courier New';"><AddToRoles></span> tag. The variable has a name of "uid" and we set the UserId property of the <span style="font-family: 'Courier New';"><AddToRoles></span> tag to <span style="font-family: 'Courier New';">[[uid]]</span>.
+In the example below, we're using a `<Variable>` tag to retrieve the current user's ID and make it available to the `<AddToRoles>` tag. The variable has a name of "uid" and we set the UserId property of the `<AddToRoles>` tag to `[[uid]]`.
 
-<div xmlns="">`<AddForm>  
-  <Variable Name="uid" Value='[[User:Id]]' />`  
-`  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />`  
-`  <AddToRoles RoleNames="Role1,Editors" UserId='[[uid]]' />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`         <Label For="txtFirstName" Text="First Name" />`  
-`         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtLastName" Text="Last Name" />`  
-                `<TextBox Id="txtLastName" DataField="LastName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>  
-</AddForm>`</div>
-
-[Back to top](#top)
+```html {20}
+<AddForm>  
+  <Variable Name="uid" Value='[[User:Id]]' />  
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
+  <AddToRoles RoleNames="Role1,Editors" UserId='[[uid]]' />  
+  <table>  
+    <tr>  
+      <td>  
+         <Label For="txtFirstName" Text="First Name" />  
+         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />  
+       </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <Label For="txtLastName" Text="Last Name" />  
+                <TextBox Id="txtLastName" DataField="LastName" DataType="string" />  
+      </td>  
+    </tr>  
+    <tr>  
+      <td colspan="2">  
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>  
+      </td>  
+    </tr>  
+  </table>  
+</AddForm>
+```

@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The FileUpload tag allows your users to upload a file to your web server. If a file has been upoaded, its filename is displayed.
 
@@ -52,7 +52,7 @@ The FileUpload control has the following attributes:
 
 **NOTE**: Because of Javascript's security mechanisms, the FileUpload control will NOT function if Partial Page Rendering has been enabled for the XMod Pro control. This is true of the ASP.NET FileUpload control and is not specific to XMod Pro's FileUpload control.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -85,4 +85,3 @@ The FileUpload control has the following attributes:
 `  </table>`  
 `</addform>`</div>
 
-[Back to top](#top)

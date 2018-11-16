@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The ContinueButton tag renders as a push-button at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.
 
@@ -61,15 +61,15 @@ The ContinueButton tag renders as a push-button at run-time. It is only valid wi
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
@@ -87,9 +87,9 @@ The ContinueButton tag renders as a push-button at run-time. It is only valid wi
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -106,4 +106,3 @@ The ContinueButton tag renders as a push-button at run-time. It is only valid wi
 <div>`</ItemTemplate>  
 </AddSuccessTemplate>`</div>
 
-[Back to top](#top)

@@ -2,7 +2,7 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e. silently) without user interaction.
 
@@ -19,7 +19,7 @@ _Optional 1 or more Field child tags that contain data to pass to the URL_
 
 </SilentPost>`</div>
 
- <a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+ 
 
 ## Remarks
 
@@ -41,7 +41,7 @@ _Optional 1 or more Field child tags that contain data to pass to the URL_
 
 *   **Fields**: You can optionally add one or more <Field> child tags to the SilentPost. These enable you to send data to the URL, specifying a Name and Value for each.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Example
 
@@ -58,4 +58,3 @@ _Optional 1 or more Field child tags that contain data to pass to the URL_
 
 In the example above, we've setup a SilentPost that will send a POST request to http://mysite.com/PostTest.aspx. The request will incluce field called "param1" with a value of "1" and a field with a name of "param2" and a value that is pulled from the txtParam2 TextBox.
 
-[Back to top](#top)

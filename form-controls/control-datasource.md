@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 Use this optional tag if you want to bind a list-based control to a set of data. A good example would be providing the user with a drop down list of states (in the US) or a list of departments in a company or a list of job titles, etc. You can supply more than one `<ControlDataSource>` per form definition and you can use the `<ControlDataSource>` as the source for multiple controls within your form.
 
@@ -54,7 +54,7 @@ For each control that will use the data, you need to specify:
 *   **DataTextField**: This is the name of the field in the data source that contains the value to use for the control's display text.
 *   **DataValueField**: This is the name of the field in the data source that contains the value to use for the control's hidden text.
 
-[Back to top](#top)
+
 
 ## Example
 
@@ -103,4 +103,3 @@ For each control that will use the data, you need to specify:
 
 </div>
 
-[Back to top](#top)

@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Include tag injects the raw contents of the specified file into the form at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.
 
@@ -26,7 +26,7 @@ Please note that every time XMP renders an Include tag, it attempts to read the
 
 *   **FileName**: The full path and filename of the file to include. You may use the tilde (~) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -52,4 +52,3 @@ By using the <Include> tag before the table, we're able to inject that HTML righ
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

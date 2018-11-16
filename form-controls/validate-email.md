@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Validate tag whose type is set to "email" is referred to as an Email Validator and is used to ensure the value of the target control matches the form of a valid email address. It does not validate the email account is valid or active.
 
@@ -50,7 +50,7 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Display**: This attribute determines if the <span style="font-family: monospace;"><Validate></span> tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically allocate the space for the message when validation fails. Defaults to **Dynamic** display.  
@@ -59,10 +59,10 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml"><ValidationSummary</span>, then this is the message that will be displayed in the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml"><ValidationSummary></span> when validation fails.  
 
@@ -72,9 +72,9 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 
 *   **Type**: When the "type" attribute is set to **Email**, the control prevents the form from being submitted if its associated control's value does not match the pattern of a properly formed email address. It does not validate the email _account_ is active or valid. The Email Validator is a handy short-cut. It uses a built-in pattern that should validate most forms of email address. If you find it insufficient for specific situations, you can always use the RegularExpression Validator and use your own pattern.  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -98,4 +98,3 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

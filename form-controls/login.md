@@ -2,7 +2,7 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 **New to Version 4.0!** The Login tag will log the specified user into the DNN website.
 
@@ -19,7 +19,7 @@
         Username="string"
         UsernameField="string" />
 
- <a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+ 
 
 ## Remarks
 
@@ -43,7 +43,7 @@
 
 *   **UsernameField**: Optional. If you would like the tag to pass the user's Username along to subsequent actions, specify the field name to use here. Later actions can then use that name in their field tokens. If not specified, this information will not be inserted into the action stream for use by later action tags.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Example
 
@@ -62,4 +62,3 @@
 
 In the example above note how we're using Field Tokens ([[Uname]] and [[Pword]]) to grab the data from the form controls. Additionally, we're telling the Login tag to add the user's Username and UserID to any tags "downstream". The field names that will be used are "UsrName" for the Username and "UsrId" for the UserID. There is one "downstream" action - the <Redirect> tag. It's using those fields in its Target property to feed the data into the URL. NOTE that in this specific case (and unlike most other XMod Pro forms) we can simply put the field tokens [[UsrName]] and [[UsrId]] directly into the target property without having to use the JOIN() function.
 
-[Back to top](#top)

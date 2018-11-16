@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive options. This can be a useful alternative to using a RadioButtonList. With the RadioButtonList, only one value is sent to the datasource. If you use RadioButton controls that are grouped, you get the same mutually-exclusive options, but you also have the ability to store the value of each RadioButton in its own data field.
 
@@ -57,7 +57,7 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **Checked**: Determines whether the radio button is checked.  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
@@ -68,12 +68,12 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **GroupName**: The name of the group the radio button belongs to. Use this to create a grouping of radio buttons that form a mutually exclusive list of options. When this property is specified, only one radio button may be selected within that group at any given time.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
@@ -91,9 +91,9 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)
+
 
 ## Example
 
@@ -120,4 +120,3 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

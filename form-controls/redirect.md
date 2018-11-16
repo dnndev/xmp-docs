@@ -2,7 +2,7 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.
 
@@ -17,7 +17,7 @@ New to Version 4.0! The Redirect action tag will send the user to the specified 
     Method="_string_" />  
 `</div>
 
- <a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+ 
 
 ## Remarks
 
@@ -43,7 +43,7 @@ New to Version 4.0! The Redirect action tag will send the user to the specified 
 
 *   **Target**: This is the URL to which the user will be sent if the IF property evaluates to True or there is no IF property specified. You can use a period (.) for the Target property's value. The period acts as shortcut to redirect to the current page.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Example
 
@@ -74,4 +74,3 @@ New to Version 4.0! The Redirect action tag will send the user to the specified 
 
 In the example above, there are 3 possible redirections that can occur based on user input. If the user enters a last name of "Smith" or "smith" she will be redirected to the URL: /Find.aspx?ln=Smith. If the user enters "Jones" or "jones" then they will be redirected to the URL: /Find.aspx?ln=Jones. If the user doesn't enter anything or enters some other name or value, they will be sent to the default URL specified on the AddButton tag: /Find.aspx where, presumably, all records - regardless of last name - would be listed.
 
-[Back to top](#top)

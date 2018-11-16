@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Register tag enables you to use third-party controls in your XMod Pro forms. Note that only controls created specifically for XMod Pro can be used.
 
@@ -30,7 +30,7 @@ The Register tag enables you to use third-party controls in your XMod Pro forms.
 
 *   **Assembly**: This is the name of the assembly (DLL) in which the controls reside. Note, you do not specify the path to the DLL or the ".dll" extension. This information should be supplied by the control developer.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -58,4 +58,3 @@ The Register tag enables you to use third-party controls in your XMod Pro forms.
 `  </table>  
 ``</AddForm>`</div>
 
-[Back to top](#top)

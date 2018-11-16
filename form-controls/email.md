@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Email tag does not render visibly at run-time. It is a behind-the-scenes operator. Upon successful submission of the form, XMod Pro will send an email based on the information provided in this tag. You may include more than one Email tag in each form. The Email tag can be used to send multiple emails but it is not intended as a bulk email mechanism.
 
@@ -74,7 +74,7 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
 
 *   **To**: A single email address or comma-delimited list of email addresses that should receive the email. NOTE, you may use email addresses derived from list controls as well. The list control must use the pipe (|) separator to separate its values for this to work correctly.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -108,4 +108,3 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
   </Email>  
 ``</AddForm>`</div>
 
-[Back to top](#top)

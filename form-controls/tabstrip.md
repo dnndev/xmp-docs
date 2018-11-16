@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Tabstrip tag renders as a series of tabs that, when clicked, shows the corresponding content within that tab. This control requires that Javascript be enabled in the browser to function correctly.
 
@@ -27,21 +27,20 @@ This tag allows you to create a tabbed user interface for your form much like a 
 
 *   **BackColor**: Color of the background of the control.
 *   **BorderColor**: Color of the border around the control.
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).
+*   **Height**: Height of the control, specified in [units](../unit-types.md).
 *   **HoverBackColor**: Color of the background of each tab when the mouse hovers over it.
 *   **HoverForeColor**: Color of the text in the tab when the mouse hovers over it.
 *   **SelectedBackColor**: Color of the background of the currently selected tab.
 *   **SelectedForeColor**: Color of the text of the currently selected tab.
 *   **Visible**: Determines if the control is visible (true) or hidden (false).
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
     <AddForm>
 
-[Back to top](#top)

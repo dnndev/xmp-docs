@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The DropdownList tag renders as a drop-down list control at run-time.
 
@@ -65,7 +65,7 @@ The DropdownList tag renders as a drop-down list control at run-time.
 *   **BorderStyle**: Style of the border around the control.  
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
-     ](units.html)
+     ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
@@ -81,10 +81,10 @@ The DropdownList tag renders as a drop-down list control at run-time.
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+     ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
@@ -104,7 +104,7 @@ The DropdownList tag renders as a drop-down list control at run-time.
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Usage**<span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml">  The drop-down list allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the control's "DataSourceId" attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>
 
@@ -154,7 +154,7 @@ Next, we need to setup the Country drop-down list to send its value to the Regio
 
 So, when a country is selected, a parameter will be created with the name "ParentID". It's value will be set to the **value** (not the display text) of the currently selected country. That parameter will then be passed to the target ControlDataSource (dsRegions) and the target control (ddlRegions) will be re-bound to the data.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example 1 - General Usage
 
@@ -233,4 +233,3 @@ This example shows how you can require that the user choose an item from your da
 
 <pre xml:space="preserve" xmlns=""></AddForm></pre>
 
-[Back to top](#top)

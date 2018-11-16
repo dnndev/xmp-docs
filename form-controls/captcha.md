@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Captcha tag renders as a CAPTCHA control at run time.
 
@@ -70,7 +70,7 @@ If your forms are available to the public, chances are you'll get web 'bots fill
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CaptchaChars**: If you wish to specify your own characters that will be used to make up the code the user must type, you can specify them in this property.  
 
 *   **CaptchaHeight**: The height of the area in which the characters will be displayed.  
@@ -89,18 +89,18 @@ If your forms are available to the public, chances are you'll get web 'bots fill
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **Text**: The caption to display.  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -134,4 +134,3 @@ If your forms are available to the public, chances are you'll get web 'bots fill
 <div xmlns="">  
 `</AddForm>`</div>
 
-[Back to top](#top)

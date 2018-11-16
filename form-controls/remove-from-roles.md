@@ -2,7 +2,7 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 **New to Version 4.0!** The RemoveFromRoles tag will remove a user from one or more DotNetNuke security roles after the form has been successfully submitted.
 
@@ -15,7 +15,7 @@
         UserId="integer" 
     />
 
-<a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Remarks
 
@@ -29,7 +29,7 @@
 
 *   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to remove from a role. You can use the [[User:Id]] token to get the current user's ID or you can use a field token that might store a user id like: [[User]] to retrieve a valid user ID from a form control whose DataField is set to User.  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Example
 
@@ -57,4 +57,3 @@
 `  </table>  
 </AddForm>`</div>
 
-[Back to top](#top)

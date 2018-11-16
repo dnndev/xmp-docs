@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The DateInput tag renders as a single-line textbox at run time that accepts dates and, optionally, time. .
 
@@ -51,13 +51,13 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
 *   **BackColor**: Color of the background of the control.
 *   **BorderColor**: Color of the border around the control
 *   **BorderStyle**: Style of the border around the control.
-*   **BorderWidth**: Width of the border around the control, specified in [units](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control
 *   **Culture**: A locale ID identifying the culture that should be used when converting the control's input to a date for use by the database. Some examples: en-GB, es-MX, es-SP, en-US. If no culture is specified the system's current culture is used.
 *   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
 *   **DateOnly**: (new to version 3.1) When set to True, the control only processes the date portion of the value entered. While a time may be entered by the user, it will not be sent to the database. When a date if retrieved from the database for editing, only the date will be displayed. It's important to remember that when the DataType is set to DateTime, there is always a time component - even if it isn't visible in the control. So, when DataType is DateTime and DateOnly is true, the time component will always be set to 12:00:00 AM. When DataType is set to Date, only the date component is processed and stored in the database and he DateOnly property does not need to be set.
 *   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). . This attribute is required if the control will participate in operations with your form's data commands. The DateInput uses datetime by default.
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.
 *   **Format**: When a record is being edited and a date value is read from the database and placed in the control, the Format attribute determines how it will be displayed. You can use standard date formatting expressions here:
     *   d: Represents the day of the month as a number from 1 through 31
@@ -74,7 +74,7 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
     *   mm: Represents the minute as a number from 00 to 59
     *   s: Represents the second as a number from 0 to 59
     *   ss: Represents the second as number from 00 to 59
-*   **Height**: Height of the control, specified in [units](units.html).
+*   **Height**: Height of the control, specified in [units](../unit-types.md).
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
 *   **Nullable**: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string.
 *   **ReadOnly**: If True, the contents of the control cannot be changed. The default value is False.
@@ -83,9 +83,9 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
 *   **Tabindex**: Sets the tab index for the control
 *   **Tooltip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control
 *   **Visible**: Determines if the control is visible (true) or hidden (false)
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -107,4 +107,3 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
 `  </table>`  
 `</addform>`</div>
 
-[Back to top](#top)

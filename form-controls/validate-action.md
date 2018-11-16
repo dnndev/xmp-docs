@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Validate tag whose type is set to "action" is referred to as an Action Validator and is used to display special error messages thrown from the action tags in your form.
 
@@ -28,7 +28,7 @@ The action validator is a special type of `<Validate>` tag. When the "type" attr
 
 *   **Type**: When the "type" attribute is set to **Action**, the control will display the error message thrown by an action tag such as <AddUser>.
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -110,4 +110,3 @@ In the example above, we've highlighted the three key components at work here - 
 
 </div>
 
-[Back to top](#top)

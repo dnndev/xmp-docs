@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders. Primarily, though, it is used to show/hide parts of the form based on what role the current user is in. So, for instance, you can include controls that will only be available to administrators or editors or registered users, etc.
 
@@ -36,10 +36,10 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **HorizontalAlign**: Sets the horizontal alignment of controls within the panel.  
 
@@ -66,11 +66,11 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Wrap**: If true (default), content within the panel wraps. If false, content does not wrap.  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example:
 
@@ -112,4 +112,3 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 `</AddForm>`</div>
 
-[Back to top](#top)

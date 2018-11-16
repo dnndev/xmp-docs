@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The ScriptBlock tag is used to inject HTML<script> tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert <style> tags into the page using this tag.
 
@@ -38,7 +38,7 @@ The ScriptBlock tag is used to inject HTML<script> tags into one of several diff
 
 *   **Url**: If the BlockType is set to ClientScriptInclude, this is the path to the Javascript file you wish to include. It is ignored if BlockType is set to a different value. You may optionally use the tilde (~) character in the URL to represent the path to the root of the web application.
 
-[Back to top](#top)  
+  
 <a name="example"></a>
 
 ## Example
@@ -71,4 +71,3 @@ The ScriptBlock tag is used to inject HTML<script> tags into one of several diff
   </table>  
 </AddForm>`` ```` ````</div>
 
-[Back to top](#top)

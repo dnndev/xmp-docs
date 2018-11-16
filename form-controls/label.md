@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Label tag renders as a static text at run-time.
 
@@ -34,7 +34,7 @@ The Label tag provides the ability to offer better accessibility to your users b
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false). Default set to "True".
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -61,4 +61,3 @@ The Label tag provides the ability to offer better accessibility to your users b
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

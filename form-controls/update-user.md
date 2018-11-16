@@ -2,7 +2,7 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 **New to Version 4.0!** The UpdateUser tag will register a user in the DNN site and optionally add that user to one or more DotNetNuke security roles after the form has been successfully submitted.
 
@@ -24,7 +24,7 @@
         FirstName="string"
         LastName="string"
 
- <a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+ 
 
 ## Remarks
 
@@ -74,7 +74,7 @@
 
 *   **UserId**: Required. A numeric value that uniquely identifies the user account to be updated. This must be the UserID assigned to the user when the account was created. You can use the [[User:Id]] token to get the current user's ID or you can use a field token like: [[User]] to retreive a valid user ID from a form control (perhaps a drop-down list that contains users and their ID's).  
 
-[Back to top](#top)<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Example`  
 <AddForm>`  
@@ -126,4 +126,3 @@
    <TextBox Id="txtUserId" Visible="False" DataField="UserId" DataType="Int32" />  
 </AddForm>`</div>
 
-[Back to top](#top)

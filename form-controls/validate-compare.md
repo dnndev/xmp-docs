@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Validate tag whose type is set to "compare" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the value in a second control. It is useful when prompting the user for an email address or password.
 
@@ -54,7 +54,7 @@ When the "type" attribute is set to **Compare**, the control prevents the form f
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CompareTarget**: Place the second control's ID here to compare the target control with the value of a second control, and do not define the "comparevalue" attribute.  
 
 *   **CompareValue**: To compare the target control with a hard-coded value, place that value in the "comparevalue" attribute and do not define the "comparetarget" attribute.  
@@ -69,10 +69,10 @@ When the "type" attribute is set to **Compare**, the control prevents the form f
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml"><ValidationSummary</span>, then this is the message that will be displayed in the <span style="font-family: monospace;" xmlns="http://www.w3.org/1999/xhtml"><ValidationSummary></span> when validation fails.  
 
@@ -84,9 +84,9 @@ When the "type" attribute is set to **Compare**, the control prevents the form f
 
 *   **Type**: When the "type" attribute is set to **Compare**, the control prevents the form from being submitted if its associated control does not match a value - either a hard-coded value or the value in a second control.  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -115,4 +115,3 @@ When the "type" attribute is set to **Compare**, the control prevents the form f
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

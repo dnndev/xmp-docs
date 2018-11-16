@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Textarea tag renders as a multi-line text input box at run time.
 
@@ -64,7 +64,7 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CharacterCount**: Defaults to None. When set to CountUp, the number of characters the user has typed into the control will be displayed just after the control. If the value is set to CountDown, the number of characters remaining will be displayed. Remaining characters are calculated based on the MaxLength property. _This feature requires Javascript and jQuery_. (New to version 2.1)  
 
 *   **CharacterCountLabel**: Text to be displayed next to the number displayed in CharacterCount. This label is only displayed when CharacterCount is set to CountUp or CountDown. NOTE: You should precede your label text with a space. Otherwise the text will butt up against the character count number. (New to version 2.1)  
@@ -81,10 +81,10 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **HtmlEncode**: When set to true, the content of the control will have any HTML encoded before sending it to the SubmitCommand for processing. Note that setting this to true can help protect against scripting attacks but it will also enlarge the size of the text that is saved (<) becomes (&lt;), for instance.  
 
@@ -108,11 +108,11 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Wrap**: If True, text in the textarea wraps. If False, text does not wrap. The default is True.  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -139,4 +139,3 @@ If no "datatype" is supplied, the Textarea control defaults to **string**.
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

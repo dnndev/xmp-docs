@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Validate tag whose type is set to "Database" is referred to as a Database Validator and is used to display error messages thrown from the database.
 
@@ -43,7 +43,7 @@ The database validator is a special type of `<Validate>` tag. When the "type" at
 
 6.  In your stored procedure, set the @ERROR parameter to be an OUTPUT parameter and set its value to whatever message you want to return.  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -117,4 +117,3 @@ Here's what the example form looks like after the user has submitted the form an
 
 </div>
 
-[Back to top](#top)

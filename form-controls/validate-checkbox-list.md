@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Validate tag whose type is set to "checkboxlist" is referred to as a CheckBoxList Validator and is used to ensure the user checks at least one box in the list. NOTE: This validator runs on the server only. A form must pass all client-side validation and be submitted to the server before this validation will trigger.
 
@@ -45,7 +45,7 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 
 *   **BorderStyle**: Style of the border around the control. Defaults to NotSet.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.](units.html)  
+*   **BorderWidth**: Width of the border around the control, specified in [units.](../unit-types.md)  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
@@ -53,10 +53,10 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **Message**: This is the text that will be displayed to the user, in the <span style="font-family: monospace;"><ValidationSummary></span>, when validation fails.  
 
@@ -66,9 +66,9 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 
 *   **Type**: When the "type" attribute is set to **CheckboxList**, the control prevents the form from being submitted if its associated control does not have any boxes ticked.  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -103,4 +103,3 @@ The CheckboxList validator is one type of the `<Validate>` tag. When the "type" 
 `    </table>`  
 `</addform>`</div>
 
-[Back to top](#top)

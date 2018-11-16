@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The HtmlInput tag renders as a rich text editor at run time. It uses the current HTML Editor provider for your DotNetNuke site.
 
@@ -33,13 +33,13 @@ The HtmlInput control has the following attributes:
 *   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
 *   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](datatypes.html). The datatype for the HtmlInput is always string..  
 
-*   **Height**: Height of the control, specified in [units](units.html).
+*   **Height**: Height of the control, specified in [units](../unit-types.md).
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
 *   **Nullable**: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string. NOTE: Different HTML editors may function differently. XMod Pro will set/read the "StringValue" property on the underlying editor provider. What the individual editor does with that is up to the editor.
 *   **Visible**: Determines if the control is visible (true) or hidden (false)
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -62,4 +62,3 @@ The HtmlInput control has the following attributes:
 `  </table>`  
 `</addform>`</div>
 
-[Back to top](#top)

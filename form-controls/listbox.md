@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The ListBox tag renders as a single or multi-select listbox at run-time.
 
@@ -63,7 +63,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
@@ -80,10 +80,10 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
@@ -107,11 +107,11 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Usage**<span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml"> The Listbox can operate in one of two modes: single selection, where only one item is allowed to be selected at a time, and multiple selection, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's "DataSourceId" attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>  
 
-[Back to top](#top)
+
 
 ## <a name="example"></a>Example
 
@@ -170,4 +170,3 @@ This example shows how to use the AppendDataBoundItems property to add a "None S
 
 <pre xml:space="preserve" xmlns=""></AddForm></pre>
 
-[Back to top](#top)

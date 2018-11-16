@@ -1,12 +1,12 @@
 # <AjaxLink>
 
-<a name="top" madcap:conditions="" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
+
 
 The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It requires jQuery be included in the page and that Javascript be enabled in the end-user's browser.
 
-<a name="syntax" madcap:conditions="" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Syntax
 
@@ -41,7 +41,7 @@ The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dyn
 
 `</div>
 
-<a name="remarks" xmlns="http://www.w3.org/1999/xhtml"></a>
+
 
 ## Remarks
 
@@ -54,14 +54,14 @@ The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dyn
 *   **BorderStyle**: Style of the border around the control.  
 
 *   **BorderWidth**: Width of the border around the control, specified in [units  
-     ](units.html)
+     ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+     ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **LoadingCssClass**: A CSS class name to assign to the image which appears after the button has been clicked - to indicate content is being loaded. This property is ignored if no LoadingImageUrl is specified.  
 
@@ -93,10 +93,10 @@ The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dyn
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)  
-<a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
+  
+
 
 ## Example
 
@@ -118,4 +118,3 @@ The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dyn
 </AddForm>  
  ````</div>
 
-[Back to top](#top)

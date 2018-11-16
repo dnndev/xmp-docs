@@ -2,7 +2,7 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+
 
 The Calendar tag renders as a push-button at run-time. When clicked, a calendar date-picker pops up to enable the user to select a date.
 
@@ -26,17 +26,17 @@ The Calendar tag renders as a push-button at run-time. When clicked, a calendar 
 
 *   **BorderWidth**: Width of the border around the control, specified in [units.  
 
-    ](units.html)
+    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
 
-    ](fontproperties.html)
+    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Format**: If specified, this overrides the default date format used by the pop-up calendar. If left blank, the web server's default short date format will be used. An example format would be: format="yyyy-MM-dd" where "yyyy" returns the four digit year, "MM" returns a two-digit month, and "dd" returns a two-digit day. If you need the value to stay in that format, consider also using the <validate type="regex"> tag to validate the target control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
 
@@ -48,9 +48,9 @@ The Calendar tag renders as a push-button at run-time. When clicked, a calendar 
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).
+*   **Width**: Width of the control in [units](../unit-types.md).
 
-[Back to top](#top)<a name="example"></a>
+<a name="example"></a>
 
 ## Example
 
@@ -73,4 +73,3 @@ The Calendar tag renders as a push-button at run-time. When clicked, a calendar 
 `  </table>  
 ``</AddForm>`</div>
 
-[Back to top](#top)
