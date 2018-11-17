@@ -1,23 +1,14 @@
 # `<Redirect>`
 
-
-
-
-
 New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.
 
-
-
 ## Syntax
-
-<div xmlns="http://www.w3.org/1999/xhtml">`<Redirect`  
-`    If="_expression_"`</div>
-
-<div xmlns="">`    Target="_Redirect address_"  
-    Method="_string_" />  
-`</div>
-
- 
+```html
+<Redirect 
+    If="expression"
+    Target="Redirect address"
+    Method="string" />
+```
 
 ## Remarks
 
@@ -34,43 +25,44 @@ New to Version 4.0! The Redirect action tag will send the user to the specified 
 
     In this example we are taking the value of the "Department" column and comparing it to "Sales". If they are equal, the user will be sent to the sales.aspx page. If they are not, XMod Pro will look for the next Redirect tag and evaluate it.  
 
-    NOTE: Comparisons are text-only and are not case-sensitive. You can test for equality using the "=" operator or inequality using the "<>" operator.  
+    NOTE: Comparisons are text-only and are not case-sensitive. You can test for equality using the `=` operator or inequality using the `<>` operator.  
 
 *   **Method**: Determines how the redirection will be sent. The default value is Get. Valid values are:  
 
-    *   **Get**: The user is redirected via the HTTP GET method (i.e. the normal method when navigating between web pages)
-    *   **Post**: The user is redirected via the HTTP POST method.  
+    *   `Get`: The user is redirected via the HTTP GET method (i.e. the normal method when navigating between web pages)
+    *   `Post`: The user is redirected via the HTTP POST method.  
 
-*   **Target**: This is the URL to which the user will be sent if the IF property evaluates to True or there is no IF property specified. You can use a period (.) for the Target property's value. The period acts as shortcut to redirect to the current page.  
+*   **Target**: This is the URL to which the user will be sent if the IF property evaluates to True or there is no IF property specified. You can use a period (`.`) for the Target property's value. The period acts as shortcut to redirect to the current page.  
 
 
 
 ## Example
+```html {22-23}
+<AddForm>
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />
+  <table>
+    <tr>
+      <td>
+         <Label For="txtFirstName" Text="First Name" /> 
+         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+       </td>
+    </tr>
+    <tr>
+      <td>
+        <Label For="txtLastName" Text="Last Name" />
+        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add" Redirect="/Find.aspx" /> <CancelButton Text="Cancel"/>
+      </td>
+    </tr>
+  </table>
+  <Redirect Target="/Find.aspx?ln=Smith" Method="Get" If="[[LastName]] = Smith" />
+  <Redirect Target="/Find.aspx?ln=Jones" Method="Get" If="[[LastName]] = Jones" />
+</AddForm>
+```
 
-<div xmlns="http://www.w3.org/1999/xhtml">`<AddForm>`  
-`  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`         <Label For="txtFirstName" Text="First Name" />`  
-`         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtLastName" Text="Last Name" />  
-        <``TextBox Id="txtLastName" DataField="LastName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add" <span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">Redirect="/Find.aspx"</span> /> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>  
-<span style="color: #ff0000;"><Redirect Target="/Find.aspx?ln=Smith" Method="Get" If="[[LastName]] = Smith" /></span>  
-<span style="color: #ff0000;">  <Redirect Target="/Find.aspx?ln=Jones" Method="Get" If="[[LastName]] = Jones" /></span>  
-</AddForm>`</div>
-
-In the example above, there are 3 possible redirections that can occur based on user input. If the user enters a last name of "Smith" or "smith" she will be redirected to the URL: /Find.aspx?ln=Smith. If the user enters "Jones" or "jones" then they will be redirected to the URL: /Find.aspx?ln=Jones. If the user doesn't enter anything or enters some other name or value, they will be sent to the default URL specified on the AddButton tag: /Find.aspx where, presumably, all records - regardless of last name - would be listed.
+In the example above, there are 3 possible redirections that can occur based on user input. If the user enters a last name of `Smith` or `smith` she will be redirected to the URL: `/Find.aspx?ln=Smith`. If the user enters `Jones` or `jones` then they will be redirected to the URL: `/Find.aspx?ln=Jones`. If the user doesn't enter anything or enters some other name or value, they will be sent to the default URL specified on the AddButton tag: `/Find.aspx` where, presumably, all records - regardless of last name - would be listed.
 

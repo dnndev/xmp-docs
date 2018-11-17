@@ -1,24 +1,18 @@
 # `<SilentPost>`
 
-
-
-
-
 New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e. silently) without user interaction.
 
-
-
 ## Syntax
+```html
+<SilentPost 
+    If="expression"
+    Url="URL that should receive the POST request">
 
-<div xmlns="http://www.w3.org/1999/xhtml">`<SilentPost`  
-` If="_expression_"`  
-  ` Url="_URL that should receive the POST request_">  
+  Optional: 1 or more Field child tags that contain data to pass to the URL
+  <Field Name="string" Value="string" />
 
-_Optional 1 or more Field child tags that contain data to pass to the URL_  
-  <Field Name="_string_" Value="_string_" />  
-
-</SilentPost>`</div>
-
+</SilentPost>
+```
  
 
 ## Remarks
@@ -33,28 +27,30 @@ _Optional 1 or more Field child tags that contain data to pass to the URL_
 
     In this example we are taking the value of the "SubscribeMe" column and comparing it to "True. If they are equal, the user will be sent to the mailchimp.com page. If they are not, XMod Pro will look for the next SilentPost tag and evaluate it.  
 
-    NOTE: Comparisons are text-only and are not case-sensitive. You can test for equality using the "=" operator or inequality using the "<>" operator.
+    ::: tip 
+    Comparisons are text-only and are not case-sensitive. You can test for equality using the `=` operator or inequality using the `<>` operator.
+    :::
 
 *   **Using Tokens**: Unlike most form tags, which evaluate their tokens when the form is loaded, Action tags evaluate their tokens when they're executed (after successful form submission). This means that values passed into the form such as URL parameters will need to be stored in a hidden form control (typically a TextBox with its Visibility property set to False). On the other hand, this enables Action tags to use Field tokens as their property values so these tags can use values input by the user in the form.  
 
 *   **Url**: The URL that will receive the POST request and data.  
 
-*   **Fields**: You can optionally add one or more <Field> child tags to the SilentPost. These enable you to send data to the URL, specifying a Name and Value for each.  
+*   **Fields**: You can optionally add one or more `<Field>` child tags to the SilentPost. These enable you to send data to the URL, specifying a Name and Value for each.  
 
 
 
 ## Example
+```html {2-5}
+<AddForm>
+  <SilentPost Url="http://mysite.com/PostTest.aspx" If='[[P2=5]]'>
+    <Field Name="param1" Value="1" />
+    <Field Name="param2" Value='[[P2]]' />
+  </SilentPost>
 
-<div xmlns="http://www.w3.org/1999/xhtml">`<AddForm>  
-<span style="color: #ff0000;"><SilentPost Url="http://mysite.com/PostTest.aspx" If='[[P2=5]]'></span>  
-<span style="color: #ff0000;">    <Field Name="param1" Value="1" /></span>  
-<span style="color: #ff0000;">    <Field Name="param2" Value='[[P2]]' /></span>  
-<span style="color: #ff0000;">  </SilentPost></span>  
+  <TextBox Id="txtParam2" DataField="P2" DataType="String"></TextBox><br />
 
-  <TextBox Id="txtParam2" DataField="P2" DataType="String"></TextBox><br />  
-
-  <AddButton Text="Add" /> &nbsp;<CancelButton Text="Cancel" />  
-</AddForm>`</div>
-
-In the example above, we've setup a SilentPost that will send a POST request to http://mysite.com/PostTest.aspx. The request will incluce field called "param1" with a value of "1" and a field with a name of "param2" and a value that is pulled from the txtParam2 TextBox.
+  <AddButton Text="Add" /> &nbsp;<CancelButton Text="Cancel" />
+</AddForm>
+```
+In the example above, we've setup a SilentPost that will send a `POST` request to `http://mysite.com/PostTest.aspx`. The request will incluce field called `param1` with a value of **1** and a field with a name of `param2` and a value that is pulled from the `txtParam2` TextBox.
 

@@ -1,47 +1,41 @@
 # `<RadioButton>`
 
-
-
-
-
 The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive options. This can be a useful alternative to using a RadioButtonList. With the RadioButtonList, only one value is sent to the datasource. If you use RadioButton controls that are grouped, you get the same mutually-exclusive options, but you also have the ability to store the value of each RadioButton in its own data field.
 
-
-
 ## Syntax
-
-<div xmlns="">`<RadioButton`  
-``    AccessKey="_string_"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth="_size_"  
-    Checked="True|**False**"  
-    CssClass="_string_"  
-`    DataField="_string_"`  
-`    DataType="**Boolean**"`  
-    DataValueField="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    GroupName="_string_"  
-    Height="_size_"  
-    ID="_string_"  
-    Nullable="True|**False**"````  
-    Style="_string_"  
-    TabIndex="_integer_"``</div>
-
-<div>``    Text="_string_"  
-    TextAlign="Left|**Right**"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_"```  
-/>`</div>
+```html
+<RadioButton 
+    AccessKey="string" 
+    BackColor="color name|#dddddd" 
+    BorderColor="color name|#dddddd" 
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
+    BorderWidth="size" 
+    Checked="True|False"
+    CssClass="string" 
+    DataField="string" 
+    DataType="Boolean" 
+    DataValueField="string" 
+    Font-Bold="True|False" 
+    Font-Italic="True|False" 
+    Font-Names="string" 
+    Font-Overline="True|False" 
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
+    Font-Strikeout="True|False" 
+    Font-Underline="True|False" 
+    ForeColor="color name|#dddddd" 
+    GroupName="string"
+    Height="size" 
+    ID="string" 
+    Nullable="True|False" 
+    Style="string" 
+    TabIndex="integer"
+    Text="string"
+    TextAlign="Left|Right" 
+    ToolTip="string" 
+    Visible="True|False" 
+    Width="size"
+/>
+```
 
 ## Remarks
 
@@ -55,20 +49,18 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
-    ](../unit-types.md)
 *   **Checked**: Determines whether the radio button is checked.  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
+*   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: boolean only. This attribute is required if the control will participate in operations with your form's data commands.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
-    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **GroupName**: The name of the group the radio button belongs to. Use this to create a grouping of radio buttons that form a mutually exclusive list of options. When this property is specified, only one radio button may be selected within that group at any given time.  
@@ -94,29 +86,28 @@ The RadioButton tag renders as a radio button and associated label at run-time. 
 *   **Width**: Width of the control in [units](../unit-types.md).
 
 
-
 ## Example
-
-
-
-<div>`<AddForm>`  
-`  ...`  
-`  <table>`  
-`    <tr>`  
-`       <td>`  
-`        <Label Target="txtFirstName" Text="First Name" />`  
-`        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`<span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">`<RadioButton Id="optAgree" DataField="AgreeToTerms" DataType="boolean" Text="I agree to be bound by the terms of the contract"/>`</span>  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>`  
-`</AddForm>`</div>
-
+```html {12-13}
+<AddForm> 
+  ... 
+  <table> 
+    <tr> 
+       <td> 
+        <Label Target="txtFirstName" Text="First Name" /> 
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td>
+        <RadioButton Id="optAgree" DataField="AgreeToTerms" DataType="boolean" 
+          Text="I agree to be bound by the terms of the contract"/>  
+      </td> 
+    </tr> 
+    <tr> 
+      <td colspan="2"> 
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/> 
+      </td> 
+    </tr> 
+  </table> 
+</AddForm>
+```

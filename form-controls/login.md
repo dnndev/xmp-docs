@@ -1,24 +1,18 @@
 # `<Login>`
 
-
-
-
-
 **New to Version 4.0!** The Login tag will log the specified user into the DNN website.
 
-
-
 ## Syntax
-
-    <Login
-        FirstNameField="string"
-        LastNameField="string"
-        Password="string"
-        RememberMe="True|False"
-        UserIdField="string"
-        Username="string"
-        UsernameField="string" />
-
+```html
+<Login
+    FirstNameField="string"
+    LastNameField="string"
+    Password="string"
+    RememberMe="True|False"
+    UserIdField="string"
+    Username="string"
+    UsernameField="string" />
+```
  
 
 ## Remarks
@@ -33,24 +27,24 @@
 
 *   **LastNameField**: Optional. If you would like the tag to pass the user's LastName along to subsequent actions, specify the field name to use here. Later actions can then use that name in their field tokens. If not specified, this information will not be inserted into the action stream for use by later action tags.  
 
-*   **Password**: REQUIRED: The password for the user account that will be logged-in. Typically this will be a Field Token that is bound to a <Password> form control.  
+*   **Password**: REQUIRED: The password for the user account that will be logged-in. Typically this will be a Field Token that is bound to a `<Password>` form control.  
 
 *   **RememberMe**: This attribute stores the login information in a cookie and is the equivalent to DNN's login page Remember Me checkbox. Default set to "True".  
 
 *   **UserIdField**: Optional. If you would like the tag to pass the user's UserId along to subsequent actions, specify the field name to use here. Later actions can then use that name in their field tokens. If not specified, this information will not be inserted into the action stream for use by later action tags.  
 
-*   **Username**: REQUIRED: The username of the account to be logged in. Typically this will be a Field Token bound to a <TextBox> form control.  
+*   **Username**: REQUIRED: The username of the account to be logged in. Typically this will be a Field Token bound to a `<TextBox>` form control.  
 
 *   **UsernameField**: Optional. If you would like the tag to pass the user's Username along to subsequent actions, specify the field name to use here. Later actions can then use that name in their field tokens. If not specified, this information will not be inserted into the action stream for use by later action tags.  
 
 
 
 ## Example
-
-<pre xmlns="" xml:space="preserve"><AddForm>
-  <span style="color: #ff0000;"><Login Username='[[Uname]]' Password='[[Pword]]' UsernameField="UsrName" UserIdField="UsrId" /></span>
+```html {2}
+<AddForm>
+  <Login Username='[[Uname]]' Password='[[Pword]]' UsernameField="UsrName" UserIdField="UsrId" />
   <Redirect Target="~/Home.aspx?uid=[[UsrId]]&un=[[UsrName]]" />
-
+  
   <Label For="Uname" Text="Username:" />
   <TextBox Id="Uname" DataField="Uname" DataType="string" /> <br />
 
@@ -58,7 +52,8 @@
   <Password Id="Pword" DataField="Pword" DataType="string" /> <br />
 
   <AddButton Text="Add" /> &nbsp;<CancelButton Text="Cancel" />
-</AddForm></pre>
+</AddForm>
+```
 
-In the example above note how we're using Field Tokens ([[Uname]] and [[Pword]]) to grab the data from the form controls. Additionally, we're telling the Login tag to add the user's Username and UserID to any tags "downstream". The field names that will be used are "UsrName" for the Username and "UsrId" for the UserID. There is one "downstream" action - the <Redirect> tag. It's using those fields in its Target property to feed the data into the URL. NOTE that in this specific case (and unlike most other XMod Pro forms) we can simply put the field tokens [[UsrName]] and [[UsrId]] directly into the target property without having to use the JOIN() function.
+In the example above note how we're using Field Tokens (`[[Uname]]` and `[[Pword]]`) to grab the data from the form controls. Additionally, we're telling the Login tag to add the user's Username and UserID to any tags "downstream". The field names that will be used are `UsrName` for the Username and `UsrId` for the UserID. There is one "downstream" action - the `<Redirect>` tag. It's using those fields in its `Target` property to feed the data into the URL. NOTE that in this specific case (and unlike most other XMod Pro forms) we can simply put the field tokens `[[UsrName]]` and `[[UsrId]]` directly into the target property without having to use the JOIN() function.
 

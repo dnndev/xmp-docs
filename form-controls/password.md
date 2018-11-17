@@ -1,45 +1,38 @@
 # `<Password>`
 
-
-
-
-
 The Password tag renders as a single-line text input box at run time that masks user input so that passwords and other sensitive data isn't viewable by others looking at the screen.
 
-
-
 ## Syntax
-
-<div>`<Password`  
-`    AccessKey="_string_"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth="_size_"  
-    CssClass="_string_"  
-`    DataField="_string_"`  
-`    DataType="**string**|int32|int64|boolean|...."  
-`    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    ID="_string_"  
-    MaxLength="_integer_"  
-    Nullable="True|**False**"  
-    ReadOnly="True|**False**"  
-    Style="_string_"  
-    TabIndex="_integer_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_"`  
-`/> `</div>
-
- 
+```html
+<Password 
+    AccessKey="string" 
+    BackColor="color name|#dddddd" 
+    BorderColor="color name|#dddddd" 
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
+    BorderWidth="size" 
+    CssClass="string" 
+    DataField="string" 
+    DataType="string|int32|int64|boolean|...."
+    Font-Bold="True|False" 
+    Font-Italic="True|False" 
+    Font-Names="string" 
+    Font-Overline="True|False" 
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
+    Font-Strikeout="True|False" 
+    Font-Underline="True|False" 
+    ForeColor="color name|#dddddd" 
+    Height="size" 
+    ID="string" 
+    MaxLength="integer"
+    Nullable="True|False"
+    ReadOnly="True|False" 
+    Style="string" 
+    TabIndex="integer" 
+    ToolTip="string" 
+    Visible="True|False" 
+    Width="size" 
+/> 
+```
 
 ## Remarks
 
@@ -55,7 +48,6 @@ If no value is supplied for the "datatype" attribute, a data type of **string** 
 *   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
 *   **Height**: Height of the control, specified in [units](../unit-types.md).
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
 *   **Nullable**: If True (the default is False), the control will return a DBNull value if the control is blank or contains just whitespace. If a DBNull value is passed to the control, the control will be set to an empty string.
@@ -66,29 +58,28 @@ If no value is supplied for the "datatype" attribute, a data type of **string** 
 *   **Width**: Width of the control in [units](../unit-types.md).
 
 
-
 ## Example
-
-<div>`<addform>`  
-`  ...`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`        <label for="txtFirstName" text="First Name" />`  
-`        <textbox id="txtFirstName" datafield="FirstName" datatype="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`       <td>`  
-`         <label for="txtPassword" text="Enter your password" />`  
-`         <password id="txtPassword" datafield="Password" datatype="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`       <td colspan="2">`  
-`         <addbutton text="Add"/> <cancelbutton text="Cancel"/>`  
-`       </td>`  
-`    </tr>`  
-`  </table>`  
-`</addform>`</div>
+```html {13}
+<AddForm>
+  ...
+  <table>
+    <tr>
+      <td>
+        <Label for="txtFirstName" text="First Name" /> 
+        <Textbox id="txtFirstName" datafield="FirstName" datatype="string" />
+       </td>
+    </tr>
+    <tr>
+       <td>
+         <Label for="txtPassword" text="Enter your password" />
+         <Password id="txtPassword" datafield="Password" datatype="string" />
+       </td>
+    </tr>
+    <tr>
+       <td colspan="2">
+         <AddButton text="Add"/> <CancelButton text="Cancel"/>
+       </td>
+    </tr>
+  </table>
+</AddForm>
 

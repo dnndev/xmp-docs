@@ -1,57 +1,50 @@
 # `<RadioButtonList>`
 
-
-
-
-
 The RadioButtonList tag renders as a series of mutually-exclusive option button at run-time.
 
-
-
 ## Syntax
+```html
+<RadioButtonList 
+    AccessKey="string" 
+    AppendDataBoundItems="True|False" 
+    BackColor="color name|#dddddd" 
+    BorderColor="color name|#dddddd" 
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
+    BorderWidth="size" 
+    CellPadding="integer" 
+    CellSpacing="integer" 
+    CssClass="string" 
+    DataSourceID="string" 
+    DataTextField="string" 
+    DataTextFormatString="string" 
+    DataValueField="string" 
+    Enabled="True|False" 
+    Font-Bold="True|False" 
+    Font-Italic="True|False" 
+    Font-Names="string" 
+    Font-Overline="True|False" 
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
+    Font-Strikeout="True|False" 
+    Font-Underline="True|False" 
+    ForeColor="color name|#dddddd" 
+    Height="size" 
+    ID="string" 
+    Nullable="True|False"
+    RepeatColumns="integer" 
+    RepeatDirection="Horizontal|Vertical" 
+    RepeatLayout="Table|Flow" 
+    Style="string" 
+    TabIndex="integer" 
+    TextAlign="Left|Right" 
+    ToolTip="string" 
+    Visible="True|False" 
+    Width="size"> 
 
-<div>`<RadioButtonList`  
-``    AccessKey="_string_"  
-    AppendDataBoundItems="True|**False**"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="color name|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth="_size_"  
-    CellPadding="_integer_"  
-    CellSpacing="_integer_"  
-    CssClass="_string_"  
-    DataSourceID="_string_"  
-    DataTextField="_string_"  
-    DataTextFormatString="_string_"  
-    DataValueField="_string_"  
-    Enabled="**True**|False"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    ID="_string_"  
-    Nullable="True|**False**"  
-    RepeatColumns="_integer_"  
-    RepeatDirection="Horizontal|**Vertical**"  
-    RepeatLayout="**Table**|Flow"  
-    Style="_string_"  
-    TabIndex="_integer_"  
-    TextAlign="Left|**Right**"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_"``>``  
-
-`    <ListItem value="_string_" selected="True|**False**">Item1</ListItem >`  
-`    <ListItem value="_string_">Item2</ListItem >`  
-`    ...`  
-`</RadioButtonList>`</div>
-
-
+    <ListItem value="string" selected="True|False">Item1</ListItem > 
+    <ListItem value="string">Item2</ListItem > 
+    ... 
+</RadioButtonList>
+```
 
 ## Remarks
 
@@ -65,9 +58,8 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
-    ](../unit-types.md)
 *   **CellPadding**: For table layouts, sets the distance (in pixels) between the border and the content of the cells.  
 
 *   **CellSpacing**: For table layouts, sets the distance (in pixels) between cells.  
@@ -86,9 +78,8 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
-    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
@@ -115,36 +106,36 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**: <span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml">The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the DataSourceId attribute, the name of the column in the data source that should supply the display text for each list item in the DataTextField attribute, and the column in the data source that should supply the hidden value of each list item in the DataValueField attribute.</span>
+*   **Usage**: The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the `ID` of the `<ControlDataSource>` tag in the `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item in the `DataTextField` attribute, and the column in the data source that should supply the hidden value of each list item in the `DataValueField` attribute.</span>
 
 
 
 ## Example
-
-<div>`<AddForm>`  
-`  ...`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtFirstName" Text="First Name" />`  
-`        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`       <td>`  
-`         <Label For="rblColors" Text="Favorite Color" />  
-`<span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">`<RadioButtonList Id="rblColors" DataField="FavoriteColors" DataType="string">`  
-`           <ListItem Value="#00FF00">Green</ListItem >`  
-`           <ListItem Value="#FF0000" selected="true">Red</ListItem >`  
-`           <ListItem Value="#0000FF">Blue</ListItem >`  
-`         </RadioButtonList >`</span>  
-`        </td>`  
-`     </tr>`  
-`     <tr>`  
-`       <td colspan="2">`  
-`         <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`       </td>`  
-`     </tr>`  
-`   </table>`  
-`</AddForm>`</div>
-
+```html {13-17}
+<AddForm> 
+  ... 
+  <table> 
+    <tr> 
+      <td> 
+        <Label For="txtFirstName" Text="First Name" /> 
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td>
+        <Label For="rblColors" Text="Favorite Color" />
+        <RadioButtonList Id="rblColors" DataField="FavoriteColors" DataType="string">
+          <ListItem Value="#00FF00">Green</ListItem >
+          <ListItem Value="#FF0000" selected="true">Red</ListItem >
+          <ListItem Value="#0000FF">Blue</ListItem >
+        </RadioButtonList> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td colspan="2"> 
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/> 
+      </td> 
+    </tr> 
+  </table> 
+</AddForm>
+```

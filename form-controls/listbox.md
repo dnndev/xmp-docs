@@ -1,51 +1,47 @@
 # `<ListBox>`
 
-
-
-
-
 The ListBox tag renders as a single or multi-select listbox at run-time.
 
 ## Syntax
+```html
+<ListBox 
+    AccessKey="string" 
+    AppendDataBoundItems="True|False" 
+    BackColor="color name|#dddddd" 
+    BorderColor="color name|#dddddd" 
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
+    BorderWidth="size" 
+    CssClass="string" 
+    DataField="string"
+    DataSourceID="string" 
+    DataTextField="string" 
+    DataTextFormatString="string" 
+    DataType="string|int32|...."
+    DataValueField="string" 
+    Font-Bold="True|False" 
+    Font-Italic="True|False" 
+    Font-Names="string" 
+    Font-Overline="True|False" 
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
+    Font-Strikeout="True|False" 
+    Font-Underline="True|False" 
+    ForeColor="color name|#dddddd" 
+    Height="size" 
+    ID="string" 
+    Rows="integer" 
+    SelectedItemsSeparator="string||"
+    SelectionMode="Single|Multiple" 
+    Style="string" 
+    TabIndex="integer" 
+    ToolTip="string" 
+    Visible="True|False" 
+    Width="size"> 
 
-<div>`<ListBox`  
-`    AccessKey="_string_"  
-    AppendDataBoundItems="True|**False**"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth="_size_"  
-    CssClass="_string_"  
-`    DataField="_string_"  
-`    DataSourceID="_string_"  
-    DataTextField="_string_"  
-    DataTextFormatString="_string_"  
-    DataType="**string**|int32|...."  
-    DataValueField="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    ID="_string_"  
-    Rows="_integer_"  
-    SelectedItemsSeparator="_string_|**|**"  
-    SelectionMode="**Single**|Multiple"  
-    Style="_string_"  
-    TabIndex="_integer_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_">`  
-
-`    <ListItem Value="_string_" Selected="True|False">Item1</ListItem>`  
-`    <ListItem Value="_string_">Item2</ListItem>`  
-`    ...`  
-`</ListBox>`  
-</div>
+    <ListItem Value="string" Selected="True|False">Item1</ListItem> 
+    <ListItem Value="string">Item2</ListItem> 
+    ... 
+</ListBox> 
+```
 
 ## Remarks
 
@@ -61,9 +57,8 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
-    ](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
@@ -78,9 +73,8 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
-    ](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
@@ -97,7 +91,9 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
     So, for example, if your control had the following values selected: 32, 578, and 38, then the value returned to the database would be: 32|578|38\. If only the number 32 was selected, the value would be: 32\. When dealing with multiple selections, remember to set the DataType to "string" because while "32|578|38" is a series of numbers, for the database, it is first and foremost a string containing a numeric text and the pipe character.  
 
-    NOTE that if you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
+    ::: tip 
+    If you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
+    :::
 
 *   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
@@ -109,64 +105,62 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**<span style="font-weight: normal;" xmlns="http://www.w3.org/1999/xhtml"> The Listbox can operate in one of two modes: single selection, where only one item is allowed to be selected at a time, and multiple selection, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's "DataSourceId" attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>  
+*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>  
 
 
 
-## Example
-
-<div xmlns="">`<AddForm>`  
-`  ...`  
-`  <table>`  
-`    <tr>`  
-`       <td>`  
-`        <Label For="txtFirstName" Text="First Name" />`  
-`        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="lstColors" Text="Favorite Color" />`  
-<span class="CodeHighlight" xmlns="http://www.w3.org/1999/xhtml">`<ListBox Id="lstColors" DataField="FavoriteColors" DataType="string" SelectionMode="single">`  
-`          <ListItem Value="#00FF00">Green</ListItem>`  
-`          <ListItem value="#FF0000" selected="true">Red</ListItem>`  
-`          <ListItem value="#0000FF">Blue</ListItem>`  
-`         </ListBox>`</span>  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>`  
-`</AddForm>`</div>
+## Example 1 - Basic Usage
+```html {13-17}
+<AddForm> 
+  ... 
+  <table> 
+    <tr> 
+       <td> 
+        <Label For="txtFirstName" Text="First Name" /> 
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td> 
+        <Label For="lstColors" Text="Favorite Color" /> 
+        <ListBox Id="lstColors" DataField="FavoriteColors" DataType="string" SelectionMode="single">
+          <ListItem Value="#00FF00">Green</ListItem>
+          <ListItem value="#FF0000" selected="true">Red</ListItem>
+          <ListItem value="#0000FF">Blue</ListItem>
+        </ListBox> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td colspan="2"> 
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/> 
+      </td> 
+    </tr> 
+  </table> 
+</AddForm>
+```
 
 ## Example 2 - Binding to a Data Source
-
-<pre xml:space="preserve" xmlns=""><AddForm></pre>
-
-<pre xml:space="preserve" xmlns="">  ...
-  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
-  ...
-  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
-     DataField="FavoriteColor" DataType="Int32" /></pre>
-
-<pre xml:space="preserve" xmlns=""></AddForm></pre>
+```html {3,5-6}
+<AddForm>
+  ...
+  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
+  ...
+  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+     DataField="FavoriteColor" DataType="Int32" />
+</AddForm>
+```
 
 ## Example 3 - Adding Items to a Data-Bound List
 
 This example shows how to use the AppendDataBoundItems property to add a "None Selected" item to a list that is being populated from a table.
-
-<pre xml:space="preserve" xmlns=""><AddForm></pre>
-
-<pre xml:space="preserve" xmlns="">  ...
-  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
-  ...
-  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
-     DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True">
-    <ListItem Value="-1">(None Selected)</ListItem>
-  </ListBox></pre>
-
-<pre xml:space="preserve" xmlns=""></AddForm></pre>
-
+```html {3,5-8}
+<AddForm>
+  ...
+  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
+  ...
+  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+     DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True">
+    <ListItem Value="-1">(None Selected)</ListItem>
+  </ListBox>
+</AddForm>
+```

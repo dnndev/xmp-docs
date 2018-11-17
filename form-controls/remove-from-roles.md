@@ -1,19 +1,14 @@
 # `<RemoveFromRoles>`
 
-
-
-
-
 **New to Version 4.0!** The RemoveFromRoles tag will remove a user from one or more DotNetNuke security roles after the form has been successfully submitted.
 
-
-
 ## Syntax
-
-    <RemoveFromRoles
-        RoleNames="comma-delimited list of DNN roles" 
-        UserId="integer" 
-    />
+```html
+<RemoveFromRoles
+    RoleNames="comma-delimited list of DNN roles" 
+    UserId="integer" 
+/>
+```
 
 
 
@@ -27,33 +22,34 @@
 
 *   **RoleNames**: Required. One or more DotNetNuke security role names you want to remove the user from. If more than one role is specified, separate them with commas.  
 
-*   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to remove from a role. You can use the [[User:Id]] token to get the current user's ID or you can use a field token that might store a user id like: [[User]] to retrieve a valid user ID from a form control whose DataField is set to User.  
+*   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to remove from a role. You can use the `[[User:Id]]` token to get the current user's ID or you can use a field token that might store a user id like: `[[User]]` to retrieve a valid user ID from a form control whose DataField is set to User.  
 
 
 
 ## Example
-
-<div xmlns="">`<AddForm>`  
-`  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />`  
-`  <RemoveFromRoles RoleNames="Role1,Editors" UserId='[[User:Id]]' />`  
-`  <table>`  
-`    <tr>`  
-`      <td>`  
-`         <Label For="txtFirstName" Text="First Name" />`  
-`         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />`  
-`       </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td>`  
-`        <Label For="txtLastName" Text="Last Name" />`  
-                 `<TextBox Id="txtLastName" DataField="LastName" DataType="string" />`  
-`      </td>`  
-`    </tr>`  
-`    <tr>`  
-`      <td colspan="2">`  
-`        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>`  
-`      </td>`  
-`    </tr>`  
-`  </table>  
-</AddForm>`</div>
-
+```html {4}
+<AddForm>
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) 
+                              VALUES(@FirstName, @LastName)" />
+  <RemoveFromRoles RoleNames="Role1,Editors" UserId='[[User:Id]]' />
+  <table>
+    <tr>
+      <td>
+         <Label For="txtFirstName" Text="First Name" /> 
+         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+       </td>
+    </tr>
+    <tr>
+      <td>
+        <Label For="txtLastName" Text="Last Name" />
+        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>
+      </td>
+    </tr>
+  </table>
+</AddForm>
+```
