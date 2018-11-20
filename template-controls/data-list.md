@@ -56,7 +56,6 @@ You can use multiple DataList tags, enabling you to have side-by-side (or howeve
     <NoItemsTemplate>...</NoItemsTemplate>`  
 `</xmod:DataList>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -134,9 +133,6 @@ You can use multiple DataList tags, enabling you to have side-by-side (or howeve
 
 *   **Field Tokens**: In order to display data from your data source, XMod Pro uses "field tokens". These are essentially placeholders that contain the name of the column or field in your data source. At run-time, these tokens are replaced with the value from record. Field Tokens are written in this form: `[[FieldName]]` "FieldName" is the name of the field or column in your data source. This name is case sensitive and must match the field/column's name exactly. It must be surrounded by [[ and ]]. You can use the Field Token in many places. However, when you use it as the attribute value for an XMod Pro tag or other third party control, you must delimit the attribute value with single quotes, rather than double quotes. See the `<xmod:detailbutton>` code in the example. When used in the `<parameter>` tag, the attribute is written as: `value='[[UserID]'` rather than: `value="[[UserID]]"`. When using a Field Token with HTML tag attributes, this is not necessary.
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<xmod:DataList AddRoles="SampleRole1;SampleRole2">`  
@@ -169,4 +165,3 @@ You can use multiple DataList tags, enabling you to have side-by-side (or howeve
     </NoItemsTemplate>`  
 `</xmod:DataList>`</div>
 
-[Back to top](#top)

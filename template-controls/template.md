@@ -52,7 +52,6 @@ The template tag is the primary workhorse of XModPro. It contains the data comma
     <NoItemsTemplate>...</NoItemsTemplate>`  
 `<span style="font-size: 9pt;" xmlns="http://www.w3.org/1999/xhtml"></xmod:Template></span>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -159,9 +158,6 @@ The template tag is the primary workhorse of XModPro. It contains the data comma
 
 *   **Field Tokens**: In order to display data from your data source, XMod Pro uses "field tokens". These are essentially placeholders that contain the name of the column or field in your data source. At run-time, these tokens are replaced with the value from record. Field Tokens are written in this form: `[[FieldName]]` "FieldName" is the name of the field or column in your data source. This name is case sensitive and must match the field/column's name exactly. It must be surrounded by [[ and ]]. You can use the Field Token in many places. However, when you use it as the attribute value for an XMod Pro tag or other third party control, you must delimit the attribute value with single quotes, rather than double quotes. See the `<xmod:DetailButton>` code in the example. When used in the `<Parameter>` tag, the attribute is written as: `value='[[UserID]'` rather than:<span style="font-size: 9pt;"> </span>`value="[[UserID]]"`. When using a Field Token with HTML tag attributes, this is not necessary.
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<xmod:Template AddRoles="SampleRole1;SampleRole2">`  
@@ -195,4 +191,3 @@ The template tag is the primary workhorse of XModPro. It contains the data comma
 `    </DetailTemplate>`  
 `</xmod:Template>`</div>
 
-[Back to top](#top)

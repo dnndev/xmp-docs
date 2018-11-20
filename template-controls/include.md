@@ -14,8 +14,7 @@ The Include tag injects the raw contents of the specified file into the template
 ``    FileName="_string_"`  
 ``/> `</div>
 
- <a name="remarks"></a>
-
+ 
 ## Remarks
 
 The main purpose of the Include tag is to render the content of a file directly into the output stream. It is most beneficial if there is common HTML or text that you want to share among forms and templates. The content of the file is read-from and written to the stream in place of the Include tag. No formatting, processing, or checking occurs on the contents. The file must reside on your web server.
@@ -25,8 +24,6 @@ Please note that every time XMP renders an Include tag, it attempts to read the
 ## Attributes  
 
 *   **FileName**: The full path and filename of the file to include. You may use the tilde (~) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
-
-[Back to top](#top)<a name="example"></a>
 
 ## Example
 
@@ -88,4 +85,3 @@ By using the <Include> tag before the table, we're able to inject that HTML righ
 `  </table>`  
 `</AddForm>`</div>
 
-[Back to top](#top)

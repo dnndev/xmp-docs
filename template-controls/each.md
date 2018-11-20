@@ -23,7 +23,6 @@ The Each tag (new to version 4.6) is used to split a delimited value - such as a
     <SeparatorTemplate>...Text, HTML**{index}**, **{count}**, **{value}**...</SeparatorTemplate>  
 </xmod:Each>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -46,9 +45,6 @@ The Each tag (new to version 4.6) is used to split a delimited value - such as a
 *   **{count} Placeholder**: This will be replaced at run-time by the total count of items in the list. So, in a 10-item list, this will be 10.  
 
 *   **{value} Placeholder**: This will be replaced at run-time by the value of the current item. So, if the original value being processed was: Red|Green|Blue and the tag is processing the 2nd item in the list, {value} will be replaced by Green.
-
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -81,4 +77,3 @@ The Each tag (new to version 4.6) is used to split a delimited value - such as a
   </table>  
 </div>`</div>
 
-[Back to top](#top)

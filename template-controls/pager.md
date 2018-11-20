@@ -46,7 +46,6 @@ NOTE: To turn off paging for the view, use the **UsePaging** attribute of the `[
 <div xmlns="" style="text-align: left; font-family: monospace;">  
 `</xmod:Template|DataList>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -104,9 +103,6 @@ NOTE: To turn off paging for the view, use the **UsePaging** attribute of the `[
     *   **{PageCount}**: Will be replaced with the total number of pages.
     *   **{Pager}**: Will be replaced with the navigation links (First, Previous, Next, Last, and the page number links)
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<xmod:Template ...>`  
@@ -123,4 +119,3 @@ NOTE: To turn off paging for the view, use the **UsePaging** attribute of the `[
     ...`  
 `</xmod:Template>`</div>
 
-[Back to top](#top)

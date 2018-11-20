@@ -20,7 +20,6 @@ The NavigateUrl tag (new to version 4.6) allows you to call the DNN API functio
 <div xmlns="">`  
 </xmod:NavigateUrl>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -29,9 +28,6 @@ The NavigateUrl tag (new to version 4.6) allows you to call the DNN API functio
 *   **TabId**: Optional. The unique numeric value that represents the page. "Tab" is used for historical reasons. Pages in DNN used to be called Tabs. If no TabId is provided, NavigateUrl will return the current page's URL.  
 
 *   **Parameter**: Optional. You can specify multiple Parameter tags. These child tags are used to pass parameters via the rendered URL. The tag will URLEncode the value prior to passing it to DNN. The URL parameter name is the value of the Name property. The parameter's value is defined in the Value property. All values are passed as text so no data type can be specified.
-
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -56,4 +52,3 @@ The NavigateUrl tag (new to version 4.6) allows you to call the DNN API functio
   </table>  
 </div>`</div>
 
-[Back to top](#top)

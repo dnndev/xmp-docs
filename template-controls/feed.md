@@ -51,7 +51,6 @@ It's important to note that feeds, by their nature, are typically intended to be
 
 `</xmod:Feed>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -103,9 +102,6 @@ It's important to note that feeds, by their nature, are typically intended to be
 
 *   **ViewRoles**: New to version 4.0\. Takes a comma-delimited list of DNN security roles. If the user is logged in and is a member of one of the roles, or is a Host/SuperUser or Admin, the user will be able to see the feed. If the user is not logged-in or is not in one of the roles, he or she will not be able to see the feed. If ViewRoles is empty or is not specified, all users will be able to see the feed.  
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">
@@ -122,4 +118,3 @@ It's important to note that feeds, by their nature, are typically intended to be
 
 </div>
 
-[Back to top](#top)

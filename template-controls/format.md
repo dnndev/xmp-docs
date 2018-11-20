@@ -2,7 +2,6 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The Format tag allows you to present your data in a more user-friendly format. With it, you can format currency, numbers, dates. You can perform text substitutions and regular expression substitutions. It also provides you with the ability to cloak text - i.e. obfuscate it so that web 'bots have more difficulty scraping your web pages for data like email addresses.
 
@@ -59,7 +58,6 @@ The Format tag will format values as numbers (no floating point), floating-point
 
     *   For example, the input value may be a US date, but you want to format it for display to a French audience. In that case, you would specify "en-US" as the InputCulture and "fr-FR" as the OutputCulture. When used this way, you can avoid using the pattern attribute altogether and rely on the default formatting for the respective cultures. See the "date" examples below for an example of this.
 
-[Back to top](#top)  
 <a name="example" xmlns=""></a>
 
 ## Example
@@ -128,4 +126,3 @@ The Format tag will format values as numbers (no floating point), floating-point
 `    ...`  
 `</xmod:Template>`</div>
 
-[Back to top](#top)

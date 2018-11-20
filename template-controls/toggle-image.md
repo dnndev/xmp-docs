@@ -2,7 +2,6 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The ToggleImage tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done- no scripting necessary.
 
@@ -56,17 +55,13 @@ Note: This tag leverages and assumes the jQuery library is included in the page.
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-
-    ](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-
-    ](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
 
@@ -80,7 +75,7 @@ Note: This tag leverages and assumes the jQuery library is included in the page.
     *   **Fast**: the element fades in/out at a fast rate of speed - approximately .2 seconds.
     *   _Numeric Value_: You can control the rate of speed more exactly by specifying a number. The number represents the number of milliseconds the transition should take. So, specifying 100 would cause the transition to occur in 1 tenth of a second. 500 would be half a second, and 1000 would be one full second.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
 
 *   **Target**: The HTML ID of the element that will be toggled. The element can be any standard HTML element on the page. The element does not have to reside in the XMod Pro module instance.  
 
@@ -88,9 +83,8 @@ Note: This tag leverages and assumes the jQuery library is included in the page.
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)  
 <a name="example" xmlns=""></a>
 
 ## Example
@@ -130,4 +124,3 @@ Note: This tag leverages and assumes the jQuery library is included in the page.
   </table>  
 </div>` </div>
 
-[Back to top](#top)

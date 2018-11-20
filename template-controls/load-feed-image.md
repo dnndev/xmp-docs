@@ -2,7 +2,6 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The LoadFeedImage tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeedImage tag will grab the feed data when the user clicks the button.
 
@@ -59,7 +58,6 @@ _<Field Name="string" Value="string" />_
 
 *   **Field Tags**: If you need to pass additional information to your feed, use the child Field tags. The Field's Name property should be the name of the parameter your feed is looking for and the Value of that Field will be the value you pass in for the parameter.  
 
-[Back to top](#top)  
 <a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
 
 ## Example
@@ -183,4 +181,3 @@ This feed is designed to work with the template specified above. There are sever
   </ItemTemplate>  
 </xmod:Feed></div>
 
-[Back to top](#top)

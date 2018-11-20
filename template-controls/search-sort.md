@@ -47,7 +47,6 @@ The SearchSort tag can only be used within a Template tag or DataList tag. The t
 `  
 `</xmod:Template|DataList>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -90,9 +89,6 @@ The SearchSort tag can only be used within a Template tag or DataList tag. The t
     *   **{ReverseSort}**: Will be replaced by the checkbox that, when ticked, will cause the results to be sorted in reverse, order.
     *   **{SortButton}**: Will be replaced by the button used to initiate the sort.
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<xmod:Template ...>`  
@@ -113,4 +109,3 @@ The SearchSort tag can only be used within a Template tag or DataList tag. The t
     ...`  
 `</xmod:Template>`</div>
 
-[Back to top](#top)

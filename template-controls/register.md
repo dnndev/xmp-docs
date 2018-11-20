@@ -18,8 +18,7 @@ The Register tag enables you to use third-party controls in your XMod Pro templa
 <div xmlns="">`    Assembly="_string_"`  
 `/> `</div>
 
- <a name="remarks"></a>
-
+ 
 ## Remarks
 
 *   Usage: Should you choose to use third-party controls, you'll need to add a Register tag to your template definition for each collection. Register tags tell XMod Pro where to find the controls you use. You only use the tag once per library. The register tag is declared outside all the <span style="font-family: Verdana;" xmlns="http://www.w3.org/1999/xhtml"><xmod:Template></span> tags in your template. This allows you to use the library in all your template tags.  
@@ -29,8 +28,6 @@ The Register tag enables you to use third-party controls in your XMod Pro templa
 *   **Namespace**: The namespace in which custom control resides. This information should be supplied by the control developer.  
 
 *   **Assembly**: This is the name of the assembly (DLL) in which the controls reside. Note, you do not specify the path to the DLL or the ".dll" extension. This information should be supplied by the control developer.  
-
-[Back to top](#top)<a name="example"></a>
 
 ## Example
 
@@ -54,4 +51,3 @@ The Register tag enables you to use third-party controls in your XMod Pro templa
   </FooterTemplate>  
 ``</xmod:Template>`</div>
 
-[Back to top](#top)

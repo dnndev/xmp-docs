@@ -38,7 +38,6 @@ The EditButton tag renders as a push-button at run-time. It is used to show the 
       ..._additional parameters as needed ...  
 _</xmod:EditButton>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -48,21 +47,19 @@ _</xmod:EditButton>`</div>
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-     ](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Form**: (New to version 4.7) This property allows you to specify an alternate form to display. It overrides the form specified in the module's configuration for the button. Use this property to be able to use additional forms. It is helpful if you are using multiple template tags with different content and want to allow the user to manage data directly from that template's tag without having to go to a different page.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -70,10 +67,7 @@ _</xmod:EditButton>`</div>
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
-
-[Back to top](#top)  
-<a name="example"></a>
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
 
@@ -115,4 +109,3 @@ _</xmod:EditButton>`</div>
     ...  
 </EditForm>`` </div>
 
-[Back to top](#top)

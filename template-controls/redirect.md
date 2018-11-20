@@ -28,7 +28,6 @@ _additional fields as needed ..._
 
 </xmod:Redirect>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -60,9 +59,6 @@ _additional fields as needed ..._
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<div>  
@@ -83,4 +79,3 @@ _additional fields as needed ..._
   </table>  
 </div>` </div>
 
-[Back to top](#top)

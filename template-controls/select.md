@@ -2,7 +2,6 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The `<xmod:Select>` gives you a lot of flexibility in creating your display template. It's similar in function to Visual Basic's Select/Case statement and Javascript's switch/case statement. For non-programmer's you can think of it as a multiple choice tag. The tag can be used both within a template and outside of a template. In fact, it can be used to hide or show templates as well as other text and HTML.
 
@@ -67,7 +66,6 @@ The `<xmod:Select>` gives you a lot of flexibility in creating your display temp
 
     *   **Culture**: This can be set to a LocaleID (a culture ID) that will instruct the tag that comparisons should be made using the settings of that culture. If no culture attribute is set, the tag will attempt to use the current culture. NOTE: Boolean comparisons do not use a culture setting. Additionally, regular expressions use the system's culture by default. You cannot specify a culture for them. However, as with all comparisons, you can specify "invariant" as the culture to perform a culturally neutral comparison.  
 
-[Back to top](#top)  
 <a name="example" xmlns=""></a>
 
 ## Example
@@ -102,4 +100,3 @@ The `<xmod:Select>` gives you a lot of flexibility in creating your display temp
 `    ...`  
 `</xmod:Template>`</div>
 
-[Back to top](#top)

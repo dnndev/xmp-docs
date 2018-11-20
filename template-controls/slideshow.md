@@ -30,7 +30,6 @@ Unlike the Template or DataList tags, the Slideshow doesn't allow any data comma
 
 `</xmod:Slideshow>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -53,9 +52,6 @@ Unlike the Template or DataList tags, the Slideshow doesn't allow any data comma
 
 *   **ListDataSource**: Provides the data for the DataList when it is displaying in list view. It accepts <parameter> tags to pass parameters as part of the command. The "alias" attribute is optional and is used to avoid conflicts or to accept a parameter with a specific name (the "name" attribute) but use a different parameter name in the command (the "alias" attribute). If no "alias" is specified, the "name" will be used.
 
-[Back to top](#top)  
-<a name="example"></a>
-
 ## Example
 
 <div xmlns="">`<xmod:Slideshow ImageField="EmployeePicUrl" Height="250" width="200" Timeout="6000" BasePath="/images/employees/">`  
@@ -63,4 +59,3 @@ Unlike the Template or DataList tags, the Slideshow doesn't allow any data comma
 
 `</xmod:Slideshow>`</div>
 
-[Back to top](#top)

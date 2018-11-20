@@ -42,7 +42,6 @@ _additional parameters as needed ..._
 _additional commands as needed ..._  
 </xmod:CommandLink>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -56,15 +55,13 @@ _additional commands as needed ..._
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-     ](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
@@ -72,7 +69,7 @@ _additional commands as needed ..._
 
 *   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -80,10 +77,7 @@ _additional commands as needed ..._
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
-
-[Back to top](#top)  
-<a name="example"></a>
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
 
@@ -145,4 +139,3 @@ _additional commands as needed ..._
   </table>  
 </div>` </div>
 
-[Back to top](#top)

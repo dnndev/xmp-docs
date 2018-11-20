@@ -22,7 +22,6 @@ The xmod:ScriptBlock tag is used to inject HTML<script> tags into one of several
 
 </xmod:ScriptBlock>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -37,9 +36,6 @@ The xmod:ScriptBlock tag is used to inject HTML<script> tags into one of several
 *   **RegisterOnce**: If this value is set to True, the tag will first check to see if a code block with ScriptId has been registered in the page. If not, it will register your block. If it has been registered already, then no action is taken. If this value is False, the default value, then your script block will be inserted, regardless of any previously registered block. The RegisterOnce is only available for ClientScript, ClientScriptInclude, and StartupScript block types.  
 
 *   **Url**: If the BlockType is set to ClientScriptInclude, this is the path to the Javascript file you wish to include. It is ignored if BlockType is set to a different value. You may optionally use the tilde (~) character in the URL to represent the path to the root of the web application.
-
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -71,4 +67,3 @@ The xmod:ScriptBlock tag is used to inject HTML<script> tags into one of several
   </table>  
 </div>`` ```````` </div>
 
-[Back to top](#top)

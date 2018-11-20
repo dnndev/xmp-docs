@@ -2,7 +2,6 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in the page. This tag requires jQuery be included in the page.
 
@@ -20,7 +19,6 @@ _[jQuery and/or Javascript script]_
 
 *   **Usage**: Use this tag to quickly insert Javascript and/or jQuery code that should only be run after the document's DOM has been loaded. The jQuery(document).ready() function is standard fare when working with jQuery. This tag allows you to forget about the boilerplate script and focus on your script. The tag will place your script near the bottom of the page - standard practice for improving page load times. Importantly, the tag automatically creates a "closure" for your script allowing you to use the "$" shortcut instead of "jQuery" in your code. Use of the closure also helps ensure your script operates in its own scope and will be not be impacted by other Javascript on the page. This tag requires jQuery be included in the page.
 
-[Back to top](#top)  
 <a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
 
 ## Example
@@ -57,4 +55,3 @@ In the example below, we've set the DIV tag containing the Employee's biography 
 <span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">  </xmod:jQueryReady></span>  
 </div>`</div>
 
-[Back to top](#top)

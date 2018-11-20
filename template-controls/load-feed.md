@@ -2,7 +2,6 @@
 
 <a name="top" xmlns="http://www.w3.org/1999/xhtml"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeed tag will grab the feed data when the page is loaded. Depending on the complexity of your page, it is possible the HTML element which will house the results may not be rendered yet. It is good practice to place the load feed tags after the HTML elements in the page if this is an issue.To allow the user to trigger the loading of a feed see: <xmod:LoadFeedButton>, <xmod:LoadFeedImage>, and <xmod:LoadFeedLink>.
 
@@ -33,7 +32,6 @@ _<Field Name="string" Value="string" />_
 
 *   **Field Tags**: If you need to pass additional information to your feed, use the child Field tags. The Field's Name property should be the name of the parameter your feed is looking for and the Value of that Field will be the value you pass in for the parameter.  
 
-[Back to top](#top)  
 <a name="example" xmlns="http://www.w3.org/1999/xhtml"></a>
 
 ## Example
@@ -108,4 +106,3 @@ This example shows that you don't even need <xmod:Template> tags in your templat
   </FooterTemplate>  
 </xmod:Feed></div>
 
-[Back to top](#top)

@@ -19,7 +19,6 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
 
 </xmod:MetaTags>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -30,9 +29,6 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
 *   **Description**: The page's Description will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Description. Note: for this tag to function correctly, you should set the default Description in the DNN Site Settings page for your website.  
 
 *   **Redirect**: This will insert a 'refresh' meta tag into the page that will redirect the browser to another URL. The Delay value indicates the number of seconds before the redirect takes place. If you set delay to 0 the redirect will take place immediately. (new to version 4.3)  
-
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -64,4 +60,3 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
   </table>  
 </div>`</div>
 
-[Back to top](#top)

@@ -7,5 +7,7 @@
 			"path": "C:\\DNNDev\\xmp\\Documentation\\XModPro\\Content"
 		}
 	],
-  "settings": {}
+  "settings": {
+    "search.usePCRE2": true
+  }
 }

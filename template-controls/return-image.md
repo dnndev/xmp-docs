@@ -2,7 +2,6 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The ReturnImage tag renders as a clickable image at run-time. It is used to return the user from a detail view to the previously viewed list view.
 
@@ -49,15 +48,13 @@ The ReturnImage tag renders as a clickable image at run-time. It is used to retu
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-     ](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
 
@@ -71,9 +68,8 @@ The ReturnImage tag renders as a clickable image at run-time. It is used to retu
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
-[Back to top](#top)  
 <a name="example" xmlns=""></a>
 
 ## Example
@@ -116,4 +112,3 @@ The ReturnImage tag renders as a clickable image at run-time. It is used to retu
   </table>  
 </div>`` </div>
 
-[Back to top](#top)

@@ -2,7 +2,6 @@
 
 <a name="top"></a>
 
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
 
 The AddImage tag renders as a clickable image at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.
 
@@ -42,7 +41,6 @@ The AddImage tag renders as a clickable image at run-time. It is used to show th
 _  
 </xmod:AddImage>`` </div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
@@ -54,17 +52,15 @@ _
 
 *   **BorderStyle**: Style of the border around the control.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units.  
-     ](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Form**: (New to version 4.7) This property allows you to specify an alternate form to display. It overrides the form specified in the module's configuration for the button. Use this property to be able to use additional forms. It is helpful if you are using multiple template tags with different content and want to allow the user to manage data directly from that template's tag without having to go to a different page.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
 
@@ -72,18 +68,16 @@ _
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. "color: red; border: solid 1px black;").  
+*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
 
 *   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
 
 *   **Visible**: Determines if the control is visible (true) or hidden (false).  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 *   **Parameter Tags**: Use of the `<Parameter>` tags is optional. Use them if you want to pass values to the `<AddForm>`.
 
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -115,4 +109,3 @@ _
   </table>  
 </div>` </div>
 
-[Back to top](#top)

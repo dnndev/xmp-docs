@@ -16,15 +16,11 @@
 _...Content Goes Here..._  
 ``</xmod:IfNotEmpty>`</div>
 
-<a name="remarks"></a>
 
 ## Remarks
 
 *   **Value**: This can be a hard-coded string value theoretically, however, the main purpose is to accept a Field Token. NOTE, when using a Field Token, you must use single quotes rather than double quotes to delimit it:  
     `<xmod:IfNotEmpty Value='[[MyField]]'>...</xmod:IfNotEmpty>`
-
-[Back to top](#top)  
-<a name="example"></a>
 
 ## Example
 
@@ -62,4 +58,3 @@ _...Content Goes Here..._
   </table>  
 </div>`</div>
 
-[Back to top](#top)
