@@ -12,4 +12,4 @@ XMod Pro forms also come with a complement of controls you can use to build your
 
 The original XMod is a great product for quickly building solutions for DotNetNuke. However, interacting directly with your tables and data required we develop a new foundation. As a result, XMod Pro is a completely independent product, with a new form and display engine. Even so, we worked hard to maintain the same type of syntax that devoted XMod users have come to love. Not every thing is the same, but XMod users will feel right at home in XMod Pro.
 
-**Next Step**: [Getting Started](GettingStarted.htm)
+**Next Step**: [Getting Started](getting-started.md)
