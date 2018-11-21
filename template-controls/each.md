@@ -1,28 +1,22 @@
-# <xmod:Each>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:Each>`
 
 The Each tag (new to version 4.6) is used to split a delimited value - such as a comma-separated or pipe-separated value in your database. You can then iterate through each of these values, rendering out HTML. In other words, if you have a list of images stored in an Images column in your table, you can build a bullet list from that.
 
 **NOTE**: The Each tag is designed to render Text and HTML. It will not render other XMod Pro tags.
 
-<a name="syntax"></a>
-
 ## Syntax
+```html
+<xmod:Each
+    Delimiter="string - defaults to pipe ( | ) character"
+    Value="string">
 
-<div xmlns="">`<xmod:Each  
-    Delimiter="string - defaults to pipe ( | ) character"  
-    Value="_string_">  
-``  
-    <FirstItemTemplate>...Text, HTML, **{index}**, **{count}**, **{value}**...</FirstItemTemplate>  
-    <ItemTemplate>...Text, HTML, **{index}**, **{count}**, **{value}**...</ItemTemplate>  
-    <AlternatingItemTemplate>...Text, HTML, **{index}**, **{count}**, **{value}**...</AlternatingItemTemplate>  
-    <LastItemTemplate>...Text, HTML, **{index}**, **{count}**, **{value}**...</LastItemTemplate>  
-    <SeparatorTemplate>...Text, HTML**{index}**, **{count}**, **{value}**...</SeparatorTemplate>  
-</xmod:Each>`</div>
-
+    <FirstItemTemplate>...Text, HTML, {index}, {count}, {value}...</FirstItemTemplate>
+    <ItemTemplate>...Text, HTML, {index}, {count}, {value}...</ItemTemplate>
+    <AlternatingItemTemplate>...Text, HTML, {index}, {count}, {value}...</AlternatingItemTemplate>
+    <LastItemTemplate>...Text, HTML, {index}, {count}, {value}...</LastItemTemplate>
+    <SeparatorTemplate>...Text, HTML{index}, {count}, {value}...</SeparatorTemplate>
+</xmod:Each>
+```
 
 ## Remarks
 
@@ -47,33 +41,34 @@ The Each tag (new to version 4.6) is used to split a delimited value - such as a
 *   **{value} Placeholder**: This will be replaced at run-time by the value of the current item. So, if the original value being processed was: Red|Green|Blue and the tag is processing the 2nd item in the list, {value} will be replaced by Green.
 
 ## Example
+```html {19-21}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">`<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <xmod:Template Id="Employees">
+          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
+            <Parameter Name="EmployeeId" Value='[[Url:eid]]' DataType="Int32" />
+          </DetailDataSource>
 
-        <xmod:Template Id="Employees">  
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">  
-            <Parameter Name="EmployeeId" Value='[[Url:eid]]' DataType="Int32" />  
-          </DetailDataSource>  
-``  
-          <DetailTemplate>  
-            <h1>Employee Profile</h1>  
-            <h3>[[FirstName]] [[LastName]]</h3>  
-            <h4>Biography:</h4>  
-            <h6>Images</h6  
-           <ul>  
-<span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">              <xmod:Each Delimiter="|" Value='[[Images]]'></span>  
-<span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">                <ItemTemplate><img src="/img/{value}" /></ItemTemplate></span>  
-<span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">              </xmod:Each></span>  
-            </ul>  
-          </DetailTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>`</div>
-
+          <DetailTemplate>
+            <h1>Employee Profile</h1>
+            <h3>[[FirstName]] [[LastName]]</h3>
+            <h4>Biography:</h4>
+            <h6>Images</h6
+            <ul>
+              <xmod:Each Delimiter="|" Value='[[Images]]'>
+                <ItemTemplate><img src="/img/{value}" /></ItemTemplate>
+              </xmod:Each>
+            </ul>
+          </DetailTemplate>
+        
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>
+```

@@ -1,25 +1,19 @@
-# <xmod:NavigateUrl>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:NavigateUrl>`
 
 The NavigateUrl tag (new to version 4.6) allows you to call the DNN API function NavigateUrl(). This allows you to generate URLs that utilize the site's configured URL Provider and makes it easier to generate Friendly links.
 
-<a name="syntax"></a>
-
 ## Syntax
+```html
+<xmod:NavigateUrl
+    TabId="integer"
+    ControlKey="string">
 
-<div xmlns="">`<xmod:NavigateUrl  
-    TabId="integer"  
-    ControlKey="string" >  
-``  
-    <Parameter Name="string" Value="string" />  
-    ...`</div>
+    Optionally, add one or more Parameter tags
+    <Parameter Name="string" Value="string" />
+    ...
 
-<div xmlns="">`  
-</xmod:NavigateUrl>`</div>
-
+</xmod:NavigateUrl>
+```
 
 ## Remarks
 
@@ -30,25 +24,25 @@ The NavigateUrl tag (new to version 4.6) allows you to call the DNN API functio
 *   **Parameter**: Optional. You can specify multiple Parameter tags. These child tags are used to pass parameters via the rendered URL. The tag will URLEncode the value prior to passing it to DNN. The URL parameter name is the value of the Name property. The parameter's value is defined in the Value property. All values are passed as text so no data type can be specified.
 
 ## Example
+```html {13}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">`<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <xmod:Template Id="Employees">
+          <ListDatasource commandtext="SELECT * FROM XMPDemo_Employees" />
 
-        <xmod:Template Id="Employees">  
-          <ListDatasource commandtext="SELECT * FROM XMPDemo_Employees" />  
-``  
-          <ItemTemplate>  
-            [[FirstName]] [[LastName]]<br />  
-            <a href="<span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml"><xmod:NavigateUrl TabId="237"><Parameter Name="eid" Value='[[Id]]' /></xmod:NavigateUrl></span>">View Work History</a>  
-          </ItemTemplate>  
-``  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>`</div>
+          <ItemTemplate>
+            [[FirstName]] [[LastName]]<br />
+            <a href="<xmod:NavigateUrl TabId="237"><Parameter Name="eid" Value='[[Id]]' /></xmod:NavigateUrl>">View Work History</a>
+          </ItemTemplate>
 
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>
+```

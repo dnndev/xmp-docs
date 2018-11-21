@@ -64,7 +64,7 @@ Form tags rely on "command" tags (`<SelectCommand>`, `<SubmitCommand>`) to perfo
 
 `<ControlDataSource>`
 
-Use this optional tag if you want to bind a list-based control to a set of data. [More Information](form_controldatasource.html)
+Use this optional tag if you want to bind a list-based control to a set of data. [More Information](control-datasource.md)
 
 ## Using `[[Field]]` Tokens
 

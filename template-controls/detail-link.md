@@ -1,42 +1,37 @@
-# <xmod:DetailLink>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:DetailLink>`
 
 The DetailLink tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>` tag.
 
-<a name="syntax"></a>
-
 ## Syntax
+```html
+<xmod:DetailLink
+    BackColor="color name|#dddddd"
+    BorderColor="color name|#dddddd"
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
+    BorderWidth="size"
+    CssClass="string"
+    Font-Bold="True|False"
+    Font-Italic="True|False"
+    Font-Names="string"
+    Font-Overline="True|False"
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
+    Font-Strikeout="True|False"
+    Font-Underline="True|False"
+    ForeColor="color name|#dddddd"
+    Height="size"
+    OnClientClick="javascript"
+    Style="string"
+    Text="string"
+    ToolTip="string"
+    Visible="True|False"
+    Width="size" >
 
-<div xmlns="">`<xmod:DetailLink  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth_="size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    OnClientClick="_javascript_"  
-    Style="_string_"  
-    Text="_string_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_" >  
+      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
+      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
+      ...additional parameters as needed ...
 
-      <Parameter Name="_string_" Value="_string_" Datatype="_boolean_|_string_|_int32_" />  
-      <Parameter Name="_string_" Value="_string_" Datatype="_boolean_|_string_|_int32_" />  
-      ..._additional parameters as needed ...  
-_  
-</xmod:DetailLink>` </div>
+</xmod:DetailLink>  
+```
 
 
 ## Remarks
@@ -50,15 +45,18 @@ _
 *   **BorderStyle**: Style of the border around the control.  
 
 *   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
+
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
+
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
+
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -69,45 +67,46 @@ _
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
+```html {24-26}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">``````````<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <xmod:Template Id="Employees">
+          <ListDataSource CommandText="SELECT EmployeeId, FirstName, LastName FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
+           <Parameter Name="DepartmentId" Alias="DepartmentId"/>
+          </ListDataSource >
 
-        <xmod:Template Id="Employees">  
-`          <ListDataSource CommandText="SELECT EmployeeId, FirstName, LastName FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId">  
-           <Parameter Name="DepartmentId" Alias="DepartmentId"/>  
-          </ListDataSource >  
+          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">
+            <Parameter Name="EmployeeId" />
+          </DetailDataSource>
 
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">  
-            <Parameter Name="EmployeeId" />  
-          </DetailDataSource>  
+          <HeaderTemplate>
+            <p>Employees</p>
+          </HeaderTemplate>
 
-``<HeaderTemplate>  
-            <p>Employees</p>  
-          </HeaderTemplate>```````````</div>
-
-<div xmlns="">``````````  
-          <ItemTemplate>  
-            <div style="text-align: middle;">  
-              <strong>[[FirstName]] [[LastName]]</strong>  
-<span class="CodeHighlight">              <xmod:DetailLink Text="View Profile"></span>  
-<span class="CodeHighlight">                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' Datatype="int32" /></span>  
-<span class="CodeHighlight">              </xmod:DetailLink ></span>  
-            </div>  
-          </ItemTemplate>  
-          <DetailTemplate>  
-            <h1>Employee Profile</h1>  
-            <h3>[[FirstName]] [[LastName]]</h3>  
-            <h4>Biography:</h4>  
-            <div>[[Bio]]</div>  
-          </DetailTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>`` ```````` </div>
-
+          <ItemTemplate>
+            <div style="text-align: middle;">
+              <strong>[[FirstName]] [[LastName]]</strong>
+              <xmod:DetailLink Text="View Profile">
+                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' Datatype="int32" />
+              </xmod:DetailLink >
+            </div>
+          </ItemTemplate>
+          
+          <DetailTemplate>
+            <h1>Employee Profile</h1>
+            <h3>[[FirstName]] [[LastName]]</h3>
+            <h4>Biography:</h4>
+            <div>[[Bio]]</div>
+          </DetailTemplate>
+        
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>  
+```

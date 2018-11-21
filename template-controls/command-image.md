@@ -1,51 +1,43 @@
-# <xmod:CommandImage>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:CommandImage>`
 
 The CommandImage tag renders as a clickable image at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandImage in template #1 to pass a parameter to the `<ListDataSource>` of template #2, causing that template to re-load with the new result set.
 
-<a name="syntax"></a>
-
 ## Syntax
-
-<div xmlns="">`<xmod:CommandImage  
-    AlternateText="_string_"  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth_="size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"  
-    ImageUrl="_url_"`</div>
-
-<div xmlns="">`  OnClientClick="_javascript_"``  
-    Redirect="_url_"  
-    RedirectMethod="**Get**|Post"  
-    Style="_string_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_">`</div>
-
-<div xmlns="">`   
-    <Command Target="_string_" Type="List|Detail">  
-        <Parameter Name="_string_" Value="_string_" />  
-        <Parameter Name="_string_" Value="_string_" />  
-_additional parameters as needed ..._  
-    </Command>  
-_additional commands as needed ..._  
-</xmod:CommandImage>`</div>
-
+```html
+<xmod:CommandImage
+    AlternateText="string"
+    BackColor="color name|#dddddd"
+    BorderColor="color name|#dddddd"
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
+    BorderWidth="size"
+    CssClass="string"
+    Font-Bold="True|False"
+    Font-Italic="True|False"
+    Font-Names="string"
+    Font-Overline="True|False"
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
+    Font-Strikeout="True|False"
+    Font-Underline="True|False"
+    ForeColor="color name|#dddddd"
+    Height="size"
+    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"
+    ImageUrl="url"
+  OnClientClick="javascript" 
+    Redirect="url"
+    RedirectMethod="Get|Post"
+    Style="string"
+    ToolTip="string"
+    Visible="True|False"
+    Width="size">
+ 
+    <Command Target="string" Type="List|Detail">
+      <Parameter Name="string" Value="string" />
+      <Parameter Name="string" Value="string" />
+      additional parameters as needed ...
+    </Command>
+    additional commands as needed ...
+</xmod:CommandImage>
+```
 
 ## Remarks
 
@@ -62,9 +54,11 @@ _additional commands as needed ..._
 *   **BorderStyle**: Style of the border around the control.  
 
 *   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
+
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
+
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
@@ -79,7 +73,7 @@ _additional commands as needed ..._
 
 *   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
 
@@ -88,66 +82,65 @@ _additional commands as needed ..._
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
+```html {34-38}
+<div>
+  <table width="100%">
+    <tr>
+      <td colspan="2">
 
-<div xmlns="">`<div>  
-  <table width="100%">  
-    <tr>  
-      <td colspan="2">  
-        <!-- DEPARTMENTS TEMPLATE -->  
-        <xmod:Template Id="Departments">  
-          <ListDataSource CommandText="SELECT DepartmentId, DepartmentName FROM XMPDemo_Departments ORDER BY DepartmentName" />  
-          <ItemTemplate>  
-<span><xmod:CommandButton Text='[[DepartmentName]]'></span>  
-<span>              <Command Target="Employees" Type="list"></span>  
-<span>                <Parameter Name="DepartmentId" Value='[[DepartmentId]]' /></span>  
-<span>              </Command ></span>  
-<span>              <Command Target="EmployeeProfile" Type="detail"></span>  
-<span>                <Parameter Name="EmployeeId" Value="-1" /></span>  
-<span>              </Command></span>  
-<span>            </xmod:CommandButton></span>&nbsp;  
-          </ItemTemplate>  
-        </xmod:Template>  
-      </td>  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- DEPARTMENTS TEMPLATE -->
+        <xmod:Template Id="Departments">
+          <ListDataSource CommandText="SELECT DepartmentId, DepartmentName FROM XMPDemo_Departments ORDER BY DepartmentName" />
+          <ItemTemplate>
+            <xmod:CommandButton Text='[[DepartmentName]]'>
+              <Command Target="Employees" Type="list">
+                <Parameter Name="DepartmentId" Value='[[DepartmentId]]' />
+              </Command >
+              <Command Target="EmployeeProfile" Type="detail">
+                <Parameter Name="EmployeeId" Value="-1" />
+              </Command>
+            </xmod:CommandButton>&nbsp;
+          </ItemTemplate>
+        </xmod:Template>
+      </td>
+    <tr>
+      <td width="250" valign="top">
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <!-- EMPLOYEES TEMPLATE -->
+        <xmod:Template Id="Employees">
+          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
+            <Parameter Name="DepartmentId" Alias="DepartmentId" />
+          </ListDataSource>
+          <HeaderTemplate>
+            <p>Employees</p>
+          </HeaderTemplate>
+          <ItemTemplate>
+            <div style="text-align: middle;">
+              <xmod:CommandImage Text="Profile" ImageUrl="~/images/icon_hostusers_32px.gif" ImageAlign="absmiddle">
+                <Command Type="detail" Target="EmployeeProfile">
+                  <Parameter Name="EmployeeId" Value='[[EmployeeId]]' />
+                </Command>
+              </xmod:CommandImage> &nbsp;<strong>[[FirstName]] [[LastName]]</strong>
+            </div>
+          </ItemTemplate>
+        </xmod:Template>
+      </td>
+      <td width="500" valign="top">
 
-        <xmod:Template Id="Employees">  
-          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId">  
-           <Parameter Name="DepartmentId" Alias="DepartmentId" />  
-         </ListDataSource>  
-``<HeaderTemplate>  
-            <p>Employees</p>  
-          </HeaderTemplate>  
-          <ItemTemplate>  
-            <div style="text-align: middle;">  
-<span style="color: #ff0000;">              <xmod:CommandImage Text="Profile" ImageUrl="~/images/icon_hostusers_32px.gif" ImageAlign="absmiddle"></span>  
-<span style="color: #ff0000;">                <Command Type="detail" Target="EmployeeProfile"></span>  
-<span style="color: #ff0000;">                  <Parameter Name="EmployeeId" Value='[[EmployeeId]]' /></span>  
-<span style="color: #ff0000;">                </Command></span>  
-<span style="color: #ff0000;">              </xmod:CommandImage> &nbsp;<strong>[[FirstName]] [[LastName]]</strong></span>  
-            </div>  
-          </ItemTemplate>  
-        </xmod:Template>  
-      </td>  
-      <td width="500" valign="top">  
-
-        <!-- EMPLOYEE PROFILE TEMPLATE -->  
-
-        <xmod:Template Id="EmployeeProfile">  
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">  
-            <Parameter Name="EmployeeId" Alias="EmployeeId" Value="-1" />  
-          </DetailDataSource>  
-          <DetailTemplate>  
-            <h1>Employee Profile</h2>  
-            <p style="font-size: 14px; font-weight: bold;">[[FirstName]] [[LastName]]</p>  
-            <p style="font-size: 12px; font-weight: bold;"><em>[[JobTitle]]</em></p>  
-            <p>[[Resume]]</p>  
-          </DetailTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>` </div>
-
+        <!-- EMPLOYEE PROFILE TEMPLATE -->
+        <xmod:Template Id="EmployeeProfile">
+          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">
+            <Parameter Name="EmployeeId" Alias="EmployeeId" Value="-1" />
+          </DetailDataSource>
+          <DetailTemplate>
+            <h1>Employee Profile</h2>
+            <p style="font-size: 14px; font-weight: bold;">[[FirstName]] [[LastName]]</p>
+            <p style="font-size: 12px; font-weight: bold;"><em>[[JobTitle]]</em></p>
+            <p>[[Resume]]</p>
+          </DetailTemplate>
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>  
+```

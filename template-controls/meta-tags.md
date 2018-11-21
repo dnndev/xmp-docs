@@ -1,24 +1,16 @@
-# <xmod:MetaTags>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:MetaTags>`
 
 The MetaTags tag is used to alter the host page's Title, Description, and Keywords. This is useful for Search Engine Optimization (SEO) as well as being an aid for your users.
 
-<a name="syntax"></a>
-
 ## Syntax
-
-<div xmlns="">`<xmod:MetaTags>  
-``  
-    <Title Append="True|**False**">...Title Text...</Title>  
-    <Keywords Append="True|**False**">...Keywords...</Keywords>  
-    <Description Append="True|**False**">...Description...</Description>  
-    <Redirect Delay="integer" Url="_string_" />  
-
-</xmod:MetaTags>`</div>
-
+```html
+<xmod:MetaTags>
+    <Title Append="True|False">...Title Text...</Title>
+    <Keywords Append="True|False">...Keywords...</Keywords>
+    <Description Append="True|False">...Description...</Description>
+    <Redirect Delay="integer" Url="string" />
+</xmod:MetaTags>
+```
 
 ## Remarks
 
@@ -31,32 +23,32 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
 *   **Redirect**: This will insert a 'refresh' meta tag into the page that will redirect the browser to another URL. The Delay value indicates the number of seconds before the redirect takes place. If you set delay to 0 the redirect will take place immediately. (new to version 4.3)  
 
 ## Example
+```html {18-21}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">`<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <xmod:Template Id="Employees">
+          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
+            <parameter name="EmployeeId" alias="EmpID" />
+          </DetailDataSource>
 
-        <xmod:Template Id="Employees">  
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">  
-            <parameter name="EmployeeId" alias="EmpID" />  
-          </DetailDataSource>  
-``  
-          <DetailTemplate>  
-            <h1>Employee Profile</h1>  
-            <h3>[[FirstName]] [[LastName]]</h3>  
-            <h4>Biography:</h4>  
-            <div>[[Bio]]</div>  
-<span class="CodeHighlight">            <xmod:MetaTags></span>  
-<span class="CodeHighlight">              <Title>Employee Profile for [[FirstName]] [[LastName]]</Title></span>  
-<span class="CodeHighlight">              <Keywords append="true">[[FirstName]],[[LastName]]</Keywords></span>  
-<span class="CodeHighlight">            </xmod:MetaTags></span>  
-          </DetailTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>`</div>
-
+          <DetailTemplate>
+            <h1>Employee Profile</h1>
+            <h3>[[FirstName]] [[LastName]]</h3>
+            <h4>Biography:</h4>
+            <div>[[Bio]]</div>
+            <xmod:MetaTags>
+              <Title>Employee Profile for [[FirstName]] [[LastName]]</Title>
+              <Keywords append="true">[[FirstName]],[[LastName]]</Keywords>
+            </xmod:MetaTags>
+          </DetailTemplate>
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>
+```

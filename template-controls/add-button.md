@@ -1,4 +1,4 @@
-# <xmod:AddButton>
+# `<xmod:AddButton>`
 
 The AddButton tag renders as a push-button at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.
 
@@ -55,7 +55,7 @@ The AddButton tag renders as a push-button at run-time. It is used to show the f
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -68,7 +68,7 @@ The AddButton tag renders as a push-button at run-time. It is used to show the f
 *   **Parameter Tags**: Use of the `<Parameter>` tags is optional. Use them if you want to pass values to the `<AddForm>`.  
 
 ## Example
-```html
+```html {19}
 <div>
   <table width="100%">
     <tr>

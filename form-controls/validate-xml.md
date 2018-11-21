@@ -40,7 +40,7 @@ The XML validator is one type of the `<Validate>` tag. When the `Type` attribute
 
 *   **BorderStyle**: Style of the border around the control. Defaults to NotSet.  
 
-*   **BorderWidth**: Width of the border around the control, specified in [units](units.html)
+*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
@@ -48,11 +48,11 @@ The XML validator is one type of the `<Validate>` tag. When the `Type` attribute
 
 *   **EnableClientScript**: Use the `EnableClientScript` property to specify whether client-side validation is enabled. Defaults to **True**.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](fontproperties.html)
+*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
-*   **Height**: Height of the control, specified in [units](units.html).  
+*   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the `<ValidationSummary>`, then this is the message that will be displayed in the `<ValidationSummary>` when validation fails.  
 
@@ -62,7 +62,7 @@ The XML validator is one type of the `<Validate>` tag. When the `Type` attribute
 
 *   **Type**: When the `Type` attribute is set to **xml**, the control prevents the form from being submitted if its associated control does not contain well-formed XML.  
 
-*   **Width**: Width of the control in [units](units.html).  
+*   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
 ```html {21,27}

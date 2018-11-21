@@ -1,44 +1,38 @@
-# <xmod:AddLink>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:AddLink>`
 
 The AddLink tag renders as a clickable image at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.
 
-<a name="syntax"></a>
-
 ## Syntax
+```html
+<xmod:AddLink
+    BackColor="color name|#dddddd"
+    BorderColor="color name|#dddddd"
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
+    BorderWidth="size"
+    CssClass="string"
+    Font-Bold="True|False"
+    Font-Italic="True|False"
+    Font-Names="string"
+    Font-Overline="True|False"
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
+    Font-Strikeout="True|False"
+    Font-Underline="True|False"
+    ForeColor="color name|#dddddd"
+    Form="form name"
+    Height="size"
+    OnClientClick="javascript"
+    Style="string"
+    Text="string"
+    ToolTip="string"
+    Visible="True|False"
+    Width="size" >
 
-<div xmlns="">`<xmod:AddLink  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth_="size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Form="_form name_"  
-    Height="_size_"  
-    OnClientClick="_javascript_"  
-    Style="_string_"  
-    Text="_string_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_" `>  
+      <Parameter Name="string" Value="string" />
+      <Parameter Name="string" Value="string" />
+      ...additional parameters as needed ...
 
-      <Parameter Name="_string_" Value="_string_" />  
-      <Parameter Name="_string_" Value="_string_" />  
-      ..._additional parameters as needed ...  
-_  
-</xmod:AddLink>`` </div>
-
+</xmod:AddLink>  
+```
 
 ## Remarks
 
@@ -60,7 +54,7 @@ _
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -73,32 +67,32 @@ _
 *   **Parameter Tags**: Use of the `<Parameter>` tags is optional. Use them if you want to pass values to the `<AddForm>`.  
 
 ## Example
+```html {21}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">``<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
-
-        <xmod:Template Id="Employees">  
-          <ListDataSource commandtext="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId">  
-           <Parameter Name="DepartmentId" Alias="DepartmentId"/>  
-         </ListDataSource>  
-``<HeaderTemplate>  
-            <p>Employees</p>  
-          </HeaderTemplate>  
-          <ItemTemplate>  
-            <div style="text-align: middle;">  
-              <strong>[[FirstName]] [[LastName]]</strong>  
-            </div>  
-          </ItemTemplate>  
-          <FooterTemplate>  
-<span class="CodeHighlight">            <xmod:AddLink Text="New Employee" /></span>  
-          </FooterTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>` `</div>
-
+        <xmod:Template Id="Employees">
+          <ListDataSource commandtext="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
+            <Parameter Name="DepartmentId" Alias="DepartmentId"/>
+          </ListDataSource>
+          <HeaderTemplate>
+            <p>Employees</p>
+          </HeaderTemplate>
+          <ItemTemplate>
+            <div style="text-align: middle;">
+              <strong>[[FirstName]] [[LastName]]</strong>
+            </div>
+          </ItemTemplate>
+          <FooterTemplate>
+            <xmod:AddLink Text="New Employee" />
+          </FooterTemplate>
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div> 
+```

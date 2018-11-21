@@ -1,6 +1,8 @@
 # Creating Forms with the Form Builder
 
-**NOTE**: <span style="color: #ff0000;" xmlns="http://www.w3.org/1999/xhtml">The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning with version 3, you'll find the FormBuilder on the ManageForms page.</span> [It is described here](ManageForms.html)
+::: tip NOTE
+The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning with version 3, you'll find the FormBuilder on the ManageForms page. [It is described here](manage-forms.md)
+:::
 
 The Form Builder, introduced in version 2, provides you with a simple point, click, and drag interface that makes it easy to create attractive, styled data entry forms from the tables in your DNN database. .....You can also create basic forms on the Manage Forms page using the Quick Form Creator....... That option provides fewer options than the Form Builder. The Form Builder is available on the Control Panel and is only available to Host or SuperUser accounts. To get there, select "Control Panel" from the module's Actions Menu:
 

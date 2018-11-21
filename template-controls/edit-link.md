@@ -1,43 +1,37 @@
-# <xmod:EditLink>
-
-<a name="top"></a>
-
-[Syntax](#syntax) [Remarks](#remarks) [Example](#example)
+# `<xmod:EditLink>`
 
 The EditLink tag renders as a clickable link at run-time. It is used to show the form defined by the `<EditForm>` tag in the module instance's selected form.
 
-<a name="syntax"></a>
-
 ## Syntax
+```html
+<xmod:EditLink
+    BackColor="color name|#dddddd"
+    BorderColor="color name|#dddddd"
+    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
+    BorderWidth="size"
+    CssClass="string"
+    Font-Bold="True|False"
+    Font-Italic="True|False"
+    Font-Names="string"
+    Font-Overline="True|False"
+    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
+    Font-Strikeout="True|False"
+    Font-Underline="True|False"
+    ForeColor="color name|#dddddd"
+    Form="form name"
+    Height="size"
+    OnClientClick="javascript"
+    Style="string"
+    Text="string"
+    ToolTip="string"
+    Visible="True|False"
+    Width="size" >
 
-<div xmlns="">`<xmod:EditLink  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth_="size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Form="_form name_"  
-    Height="_size_"  
-    OnClientClick="_javascript_"  
-    Style="_string_"  
-    Text="_string_"  
-    ToolTip="_string_"  
-    Visible="**True**|False"  
-    Width="_size_" >  
-
-      <Parameter Name="_string_" Value="_string_" Datatype="_boolean_|_string_|_int32_" />  
-      <Parameter Name="_string_" Value="_string_" Datatype="_boolean_|_string_|_int32_" />  
-      ..._additional parameters as needed ...  
-_</xmod:EditLink>` </div>
-
+      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
+      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
+      ...additional parameters as needed ...
+</xmod:EditLink>  
+```
 
 ## Remarks
 
@@ -48,9 +42,11 @@ _</xmod:EditLink>` </div>
 *   **BorderStyle**: Style of the border around the control.  
 
 *   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
+
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
+
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Form**: (New to version 4.7) This property allows you to specify an alternate form to display. It overrides the form specified in the module's configuration for the button. Use this property to be able to use additional forms. It is helpful if you are using multiple template tags with different content and want to allow the user to manage data directly from that template's tag without having to go to a different page.  
@@ -59,7 +55,7 @@ _</xmod:EditLink>` </div>
 
 *   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
 
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `"color: red; border: solid 1px black;"`).  
+*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
 *   **Text**: The caption that will be displayed on the control.  
 
@@ -70,42 +66,42 @@ _</xmod:EditLink>` </div>
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
 ## Example
+```html {20-22,35}
+<div>
+  <table width="100%">
+    <tr>
+      <td width="250" valign="top">
 
-<div xmlns="">`````<div>  
-  <table width="100%">  
-    <tr>  
-      <td width="250" valign="top">  
+        <!-- EMPLOYEES TEMPLATE -->
 
-        <!-- EMPLOYEES TEMPLATE -->  
+        <xmod:Template Id="Employees">
+          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
+            <Parameter Name="DepartmentId" Alias="DepartmentId" />
+          </ListDataSource>
 
-        <xmod:Template Id="Employees">  
-          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId">  
-           <Parameter Name="DepartmentId" Alias="DepartmentId" />  
-         </ListDataSource>`````</div>
+          <HeaderTemplate>
+            <p>Employees</p>
+          </HeaderTemplate>
 
-<div xmlns="">`````<HeaderTemplate>  
-            <p>Employees</p>  
-          </HeaderTemplate>`````</div>
+          <ItemTemplate>
+            <div style="text-align: middle;">
+              <strong>[[FirstName]] [[LastName]]</strong>
+              <xmod:EditLink text="Edit Employee">
+                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' Datatype="int32" />
+              </xmod:EditLink>
+            </div>
+          </ItemTemplate>
 
-<div xmlns="">`````  
-          <ItemTemplate>  
-            <div style="text-align: middle;">  
-              <strong>[[FirstName]] [[LastName]]</strong>  
-<span class="CodeHighlight">              <xmod:EditLink text="Edit Employee"<span class="CodeHighlight">>  
-                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' Datatype="int32" />  
-              </xmod:EditLink></span></span>  
-            </div>  
-          </ItemTemplate>  
-        </xmod:Template>  
-      </td>  
-    </tr>  
-  </table>  
-</div>`` `` ``  
+        </xmod:Template>
+      </td>
+    </tr>
+  </table>
+</div>  
 
-----------------------------  
-...  
-<EditForm>  
-  <SelectCommand CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId=@EmployeeId" />  
-    ...  
-</EditForm>`````</div>
-
+----------------------------
+...
+<EditForm>
+  <SelectCommand CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId=@EmployeeId" />
+    ...
+</EditForm> 
+```
