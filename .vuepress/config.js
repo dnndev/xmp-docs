@@ -1,5 +1,6 @@
 module.exports = {
   title: "XMod Pro Documentation",
+  base: "/help/xmodpro/",
   markdown: {
     lineNumbers: true
   },
