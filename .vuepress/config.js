@@ -8,6 +8,7 @@ module.exports = {
     '@vuepress/back-to-top'
   ],
   themeConfig: {
+    repo: "dnndev/xmp-docs",
     sidebar: [
       "/",
       "/activating",
