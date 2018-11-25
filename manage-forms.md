@@ -15,11 +15,11 @@ On the Control Panel Page, select "Manage Forms":
 
 ![](./img/XMP4_ControlPanel_Toolbar_ManageForms.png)
 
-As you can see in the image below, any forms you've already created will be displayed within a two-column grid
+As you can see in the image below, any forms you've already created will be displayed within a six-column grid
 
 ![](./img/XMP4_ManageFormsPage.png)
 
-Buttons to Preview ![](./img/preview.png), Edit ![](./img/edit.gif), Rename ![](./img/rename.png), Copy ![](./img/copy.png), or Delete ![](./img/delete.gif)each form are listed in the left column, followed by the Form's Name. The right-most columns list the date and time the form was last Modified and when it was originally created. You can sort your forms by clicking the header of each column. Click it a second time to reverse the sort order.
+Buttons to Preview ![](./img/preview.png), Edit ![](./img/edit.gif), Rename ![](./img/rename.png), Copy ![](./img/copy.png), or Delete ![](./img/delete.gif) each form are listed in the left column, followed by the Form's Name and whether the form was built with the form builder (Auto-Layout) or is a custom HTML layout (Custom). The right-most columns list the date and time the form was last Modified and when it was originally created. You can sort your forms by clicking the header of each column. Click it a second time to reverse the sort order.
 
 ## Form Types
 
