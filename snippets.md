@@ -2,7 +2,7 @@
 
 Beginning with version 4.3, XMod Pro introduced "snippets" to its text-based editors. If you're a programmer or web developer, you've probably run into snippets in various development environments and editors. Snippets are a quick and convenient way to store and leverage often used code or text. Snippets are available in the toolbar of the form, template, and feed text editors.
 
-![](/img/SnippetToolbar2.png)
+![](./img/SnippetToolbar2.png)
 
 When you first install XMod Pro or after you upgrade from a version earlier than 4.3, the Snippets box will be empty. Snippets are a very personal thing for most developers. They're collections of often used code bits, script, styling, and more. Because of that we couldn't simply give you a list of snippets and expect you to be happy :) Rather, we've made it possible for you to easily create your own snippets.
 
