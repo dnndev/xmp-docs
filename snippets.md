@@ -8,7 +8,7 @@ When you first install XMod Pro or after you upgrade from a version earlier than
 
 Snippets are stored in a Javascript file in your website. However, you don't need to be a Javascript expert to create them. You can use the format we layout here and just customize it with your own text.
 
-The file is called `snippets.js` and it's stored in `/Portals/_default/XModPro/`. So the first thing to do is fire up your favorite Javascript editor (or notepad if you're old-school).
+The file is called `snippets.config` and it's stored in `/Portals/_default/XModPro/`. So the first thing to do is fire up your favorite Javascript editor (or notepad if you're old-school).
 
 Here's what a typical snippets file might look like:
 
@@ -108,7 +108,7 @@ This snippet has a name, context, desc, author, email, website, and snippet prop
 *   **website**: (Optional) Provide the URL to a website where users of the snippet can reach you.
 *   **snippet**: (Required) Of course, it doesn't make sense to have a snippet without an actual snippet. Notice that because we're working with Javascript, you should escape any characters like quotes and line breaks. The snippet can contain virtually any text - plain text, HTML, XMod Pro tags, and even Javascript (as in the example above).
 
-Once you've finished your snippets, save it with the name "snippets.js" and upload it to the `/Portals/_default/XModPro` directory and you're ready to go - but read the notes below...
+Once you've finished your snippets, save it with the name `snippets.config` and upload it to the `/Portals/_default/XModPro` directory and you're ready to go - but read the notes below...
 
 ::: warning
 **IMPORTANT SECURITY NOTE**: Please remember that the snippets file is a simple Javascript file which can usually be accessed directly via URL. This means you SHOULD NOT PUT SENSITIVE DATA IN THE FILE as it could be read by an outside party.
