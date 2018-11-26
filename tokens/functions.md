@@ -24,7 +24,7 @@ As with all tokens, it starts with two open brackets `[[`. These are followed by
     Result: Hello, John (presuming the value in the FirstName field is "John"
 *   `[[Join("{0} plus {1} equals {2}", "1", "2", "3")]]`  
     **Result**: 1 plus 2 equals 3
-*   `[[Join("{1} plus {0} equals {2}}, "1", "2", "3")]]`  
+*   `[[Join("{1} plus {0} equals {2}", "1", "2", "3")]]`  
     **Result**: 2 plus 1 equals 3
 *   `[[Join("alert(""Hello {0}"");return false;", [[FirstName]])]]`  
     **Result**: A Javascript alert dialog saying Hello John, presuming the value of in the FirstName field is "John". NOTE: When you need to use double quotes within your Javascript call, escape them by using two double quotes in a row as in this example.
