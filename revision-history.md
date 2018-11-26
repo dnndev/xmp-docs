@@ -1,5 +1,19 @@
 # Revision History
 
+## 4.8.0
+
+*   ADDED: Robots property added to `<MetaTags>` control.
+
+*   ADDED: You can now specify external database connections for the DNN search configuration, whereas previously the default DNN database connection was used.
+
+*   ADDED: `<Email>` form action now allows multiple file attachments (i.e. /path/to/file.ext|/path/to/file2.ext) by passing in a pipe delimited string. In addition, you can now use a relative path by prefixing with "~" (i.e. ~/path/to/file.ext).
+
+*   FIXED: Issue where CancelButton in edit form still processed the `<Redirect>` control.
+
+*   UPDATED: Better error handling when a referenced `<ControlDataSource>` in a form did not exist or contained incorrect syntax (i.e. additional quotes) that invalidated the control.
+
+*   UPDATED: Better error handling for a `<ListBox>` control when referencing a `<ControlDataSource>`.
+
 ## 4.7.6  
 
 *   FIXED: Issue when using the HeadScript BlockType of the ScriptBlock tag to load jQuery-dependent code. Versions prior to 4.7.5 would load your script after DNN injected jQuery. Version 4.7.5 loaded your script _before_ jQuery was loaded, causing 'jQuery undefined' errors.

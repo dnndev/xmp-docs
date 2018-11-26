@@ -28,12 +28,14 @@ New to version 4.0: XMod Pro now allows you to get your data indexed by DNN's Se
 
 As with all things XMod, we made **Search Integration** as flexible as possible to better accommodate the different scenarios in which it might be used.
 
-![](./img/XMP43_Configure_DNNSearchTab.png)
+![](./img/XMP48_Configure_DNNSearchTab.png)
 
 *   **Data Command**: Just like you would enter SQL for a ListDataSource in a template tag, do the same here to retrieve all the records that should be indexed through this module instance. You can use certain tokens like `[[Portal:ID]]` and `[[Module:ID]]` but not user or session specific tokens like `[[User:ID]]`, `[[Url:paramName]]`, or `[[Form:paramName]]` since this will be executed by DNN without a web page being loaded (and thus no user session). 
 ::: tip
 Simply embed your tokens in the command and they'll be replaced at run-time. This is different than you would do for data commands in your templates. Field tokens are not allowed in the Data Command. 
 :::
+
+*   **Connection String**: (New to v4.8) Defaults to the DNN database. To utilize a different connection string, simply add it to your web.config `<connectionStrings>...</connectionStrings>` node.
 
 *   **Title**: The title for the record that will appear on the DNN Search Results page. Titles can be a maximum length of 200 characters. As shown in the example, you can use field tokens combined with plain text for your title. Note that the maximum length is the rendered length - after any field tokens have been processed.  
 
