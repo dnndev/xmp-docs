@@ -6,7 +6,7 @@
 
 *   ADDED: You can now specify external database connections for the DNN search configuration, whereas previously the default DNN database connection was used.
 
-*   ADDED: `<Email>` form action now allows multiple file attachments (i.e. /path/to/file.ext|/path/to/file2.ext) by passing in a pipe delimited string. In addition, you can now use a relative path by prefixing with "~" (i.e. ~/path/to/file.ext).
+*   ADDED: `<Email>` form action now allows multiple file attachments (i.e. /path/to/file.ext|/path/to/file2.ext) by passing in a pipe delimited string. In addition, you can now use a relative path by prefixing with a tilde (i.e. `~/path/to/file.ext`).
 
 *   FIXED: Issue where CancelButton in edit form still processed the `<Redirect>` control.
 
