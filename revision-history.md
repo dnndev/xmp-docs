@@ -12,7 +12,7 @@
 
 * ADDED: Robots meta tag to `<xmod:Meta>` tag.
 
-## 4.7.6  
+## 4.7.7  
 
 * COMPATIBILITY RELEASE: This is a special compatibility-only release for DNN 9.2.0 and later. In that version DNN removed over 500 API calls that had been previously deprecated. This necessitated we split development of XMod Pro into a special 9.2+ branch. There were no bug fixes or features added. Additionally, there was no release for older versions of DNN. 
 
