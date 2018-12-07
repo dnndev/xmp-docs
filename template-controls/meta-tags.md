@@ -8,6 +8,7 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
     <Title Append="True|False">...Title Text...</Title>
     <Keywords Append="True|False">...Keywords...</Keywords>
     <Description Append="True|False">...Description...</Description>
+    <Robots Append="True|False">...Robots...</Robots>
     <Redirect Delay="integer" Url="string" />
 </xmod:MetaTags>
 ```
@@ -19,6 +20,8 @@ The MetaTags tag is used to alter the host page's Title, Description, and Keywor
 *   **Keywords**: The page's Keywords will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Keywords. Note: for this tag to function correctly, you should set the default Keywords in the DNN Site Settings page for your website.  
 
 *   **Description**: The page's Description will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Description. Note: for this tag to function correctly, you should set the default Description in the DNN Site Settings page for your website.  
+
+*   **Robots**: (New to v4.8) The page's Robots will be replaced with the tag's inner content. If append is specified and is True, then the content will be appended to the page's Robots.
 
 *   **Redirect**: This will insert a 'refresh' meta tag into the page that will redirect the browser to another URL. The Delay value indicates the number of seconds before the redirect takes place. If you set delay to 0 the redirect will take place immediately. (new to version 4.3)  
 

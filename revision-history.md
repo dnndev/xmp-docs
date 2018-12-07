@@ -2,19 +2,21 @@
 
 ## 4.8.0
 
-* FIXED: `<CancelButton>` fires `<Redirect>` when it should not do so. Issue #50
+*   ADDED: Robots property added to `<MetaTags>` control.
 
-* ADDED: Enable ConnectionString use with DNN Search Integration so external data can be indexed in DNN. (Issue #56)
+*   ADDED: You can now specify external database connections for the DNN search configuration, whereas previously the default DNN database connection was used.
 
-* ADDED: Improved error handling when using double-quotes in a `CommandText` as well as when a referenced `ControlDataSource` is missing. (Issue #52)
+*   ADDED: `<Email>` form action now allows multiple file attachments (i.e. /path/to/file.ext|/path/to/file2.ext) by passing in a pipe delimited string. In addition, you can now use a relative path by prefixing with a tilde (i.e. `~/path/to/file.ext`).
 
-* ADDED: Emails sent from the form can now include multiple file attachments.
+*   FIXED: Issue where CancelButton in edit form still processed the `<Redirect>` control.
 
-* ADDED: Robots meta tag to `<xmod:Meta>` tag.
+*   UPDATED: Better error handling when a referenced `<ControlDataSource>` in a form did not exist or contained incorrect syntax (i.e. additional quotes) that invalidated the control.
+
+*   UPDATED: Better error handling for a `<ListBox>` control when referencing a `<ControlDataSource>`.
 
 ## 4.7.7  
 
-* COMPATIBILITY RELEASE: This is a special compatibility-only release for DNN 9.2.0 and later. In that version DNN removed over 500 API calls that had been previously deprecated. This necessitated we split development of XMod Pro into a special 9.2+ branch. There were no bug fixes or features added. Additionally, there was no release for older versions of DNN. 
+* COMPATIBILITY RELEASE: This is a special compatibility-only release for DNN 9.2.0 and later. In that version DNN removed over 500 API calls that had been previously deprecated. This necessitated we split development of XMod Pro into a special 9.2+ branch. There were no bug fixes or features added. Additionally, there was no release for older versions of DNN.
 
 ## 4.7.6  
 

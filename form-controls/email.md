@@ -12,7 +12,7 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
   ReplyTo="string"
   Subject="string"
   Format="Text|Html"
-  Attachment="mapped path and filename of attachment"
+  Attachment="mapped or relative path and filename of attachment"
   SendIf="expression"
   EnableSsl="False|True"
   SmtpPassword="string"
@@ -30,7 +30,24 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
 
 *   **Field Tokens** may be used in the email attributes and in the body of the email.  
 
-*   **Attachment**: Attaches a file in the file system of the website to the email. The value must be a file system-based path (mapped path) and filename.  
+*   **Attachment**: Attaches a file(s) in the file system of the website to the email. The value must be a file system-based path (mapped path) and filename, or a relative path prefixed with a tilde (`~`) (New to version 4.8). You can send multiple attachments by passing in a pipe (`|`) delimited string.  
+
+    Example 1 (mapped path):
+		
+    `Attachment='/files/filename.ext'`
+
+    Example 2 (mapped path with drive):
+
+    `Attachment='c:/files/filename.ext'`
+
+    Example 3 (relative path):
+
+    `Attachment='~/portals/0/files/filename.ext'`
+
+    Example 4 (multiple attachments):
+
+    `Attachment='~/portals/0/files/filename.ext|~/portals/0/files/filename2.ext'`
+
 
 *   **BCC**: Blind Carbon Copy - email addresses will receive a copy of the email but will not show up in the list of recipients. You may specify a single email address or a list of addresses. Addresses can be separated by commas. NOTE, you may use email addresses derived from list controls as well. The list control must use the pipe (`|`) separator to separate its values for this to work correctly. (added in version 2.1)  
 
