@@ -1,5 +1,21 @@
 # Revision History
 
+## 4.8.0
+
+* FIXED: `<CancelButton>` fires `<Redirect>` when it should not do so. Issue #50
+
+* ADDED: Enable ConnectionString use with DNN Search Integration so external data can be indexed in DNN. (Issue #56)
+
+* ADDED: Improved error handling when using double-quotes in a `CommandText` as well as when a referenced `ControlDataSource` is missing. (Issue #52)
+
+* ADDED: Emails sent from the form can now include multiple file attachments.
+
+* ADDED: Robots meta tag to `<xmod:Meta>` tag.
+
+## 4.7.6  
+
+* COMPATIBILITY RELEASE: This is a special compatibility-only release for DNN 9.2.0 and later. In that version DNN removed over 500 API calls that had been previously deprecated. This necessitated we split development of XMod Pro into a special 9.2+ branch. There were no bug fixes or features added. Additionally, there was no release for older versions of DNN. 
+
 ## 4.7.6  
 
 *   FIXED: Issue when using the HeadScript BlockType of the ScriptBlock tag to load jQuery-dependent code. Versions prior to 4.7.5 would load your script after DNN injected jQuery. Version 4.7.5 loaded your script _before_ jQuery was loaded, causing 'jQuery undefined' errors.
