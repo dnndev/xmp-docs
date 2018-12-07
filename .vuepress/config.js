@@ -1,17 +1,24 @@
 module.exports = {
   title: "XMod Pro Documentation",
   base: "/help/xmodpro/",
+  ga: "UA-1237368-1",
   markdown: {
     lineNumbers: true
   },
   plugins: [
-    '@vuepress/back-to-top'
+    ["@vuepress/back-to-top", true],
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-1237368-1"
+      }
+    ]
   ],
   themeConfig: {
     repo: "dnndev/xmp-docs",
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
-    editLinkText: 'Help us improve this page!',
+    editLinkText: "Help us improve this page!",
     sidebar: [
       "/",
       "/activating",
