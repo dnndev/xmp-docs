@@ -54,8 +54,9 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
 *   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 *   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.
 *   **Format**: When a record is being edited and a date value is read from the database and placed in the control, the Format attribute determines how it will be displayed. You can use standard date formatting expressions here:
-    *   `d`: Represents the day of the month as a number from 1 through 31
+    *   `d`: Represents the day of the month as a number from 1 through 31.  ** When used by itself, `d` represents the date as a short date pattern. i.e 2009-06-15T13:45:30 becomes 6/15/2009 The results are culture-dependent.
     *   `dd`: Represents the day of the month as a number from 01 through 31
+    *   `D` : Represents the date as a long date pattern. i.e. 2009-06-15T13:45:30 becomes Monday, June 15, 2009. The results are culture-dependent.
     *   `M`: Represents the month as a number from 1 to 12
     *   `MM`: Represents the month as number from 01 to 12
     *   `yy`: Represents the year as a two digit number. 2008 would be 08, 1999 would be 99
@@ -68,8 +69,8 @@ When you need to enter dates in your forms, the DateInput tag will help. It allo
     *   `mm`: Represents the minute as a number from 00 to 59
     *   `s`: Represents the second as a number from 0 to 59
     *   `ss`: Represents the second as number from 00 to 59
-    *   `t`: Represents the time as a short time pattern i.e 2009-06-15T13:45:30 -> 1:45 PM. The results are culture-dependent.
-    *   `T`: Represents the time as a long time pattern i.e 2009-06-15T13:45:30 -> 1:45:30 PM. The results are culture-dependent.
+    *   `t`: Represents the time as a short time pattern i.e 2009-06-15T13:45:30 becomes 1:45 PM. The results are culture-dependent.
+    *   `T`: Represents the time as a long time pattern i.e 2009-06-15T13:45:30 becomes 1:45:30 PM. The results are culture-dependent.
 *   **Height**: Height of the control, specified in [units](../unit-types.md).
 *   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
 *   **Nullable**: If True (the default is False), the control will return a `DBNull` value if the control is blank or contains just whitespace. If a `DBNull` value is passed to the control, the control will be set to an empty string.
