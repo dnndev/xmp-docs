@@ -1,8 +1,8 @@
 # Introduction
 
-XMod revolutionized how solutions were created for the DotNetNuke environment. Instead of having to be a web programmer or hire one to develop each of your modules, XMod enabled anyone with a basic knowledge of HTML to easily create as many different modules as they needed.
+XMod revolutionized how solutions were created for the DNN (formerly DotNetNuke) platform. Instead of having to be a web programmer or hire one to develop each of your modules, XMod enabled anyone with a basic knowledge of HTML to easily create as many different modules as they needed.
 
-Although XMod has been a best-seller virtually every day since its release, we started to hear from people building web sites that needed more direct control over the database on the backend. What they wanted was the flexibility and convenience of XMod combined with the ability to connect it to their own data. XMod Pro is our answer to the needs of our power users and is the next step in the evolution of XMod.
+Although XMod had been a top DNN module virtually every day since its release, we started to hear from people building web sites that needed more direct control over the database on the backend. What they wanted was the flexibility and convenience of XMod combined with the ability to connect it to their own data. XMod Pro is our answer to the needs of our power users and is the next step in the evolution of XMod.
 
 With XMod Pro, you are in control. You create templates and forms made up of standard HTML. You can create templates for displaying lists of data and templates for displaying a single record. But how does XMod Pro link up with our data? You simply supply standard SQL commands such as SELECT commands and stored procedures. Then, for templates, where ever you want to display the value of a given field, use a field "token" like [[FirstName]] to display the value in the FirstName field. For forms, you simply assign a field name to a given control to 'bind' it to that field.
 
