@@ -3,7 +3,7 @@
 ## General
 
 *   **Can users other than Hosts or SuperUser accounts add, edit, and delete forms and templates?**  
-    No. XMod Pro enables you full access to your database. This provides you with enormous power. However, it also means it's possible to do quite a bit of damage to your data. It is possible to not only wipe out the data in your portal's database, but the data in every other portal. Because of this, we decided to only allow access to Hosts. However, Administrators of individual portals can configure their modules, selecting forms and templates you've created. As a Host, once you create a form/template while logged into a given portal, that form/template then becomes available to the Admin of that portal for use.
+    No. XMod Pro enables full access to your database. This provides you with enormous power. However, it also means it's possible to do quite a bit of damage to your data. It is possible to not only wipe out the data in your portal's database, but the data in every other portal. Because of this, we decided to only allow access to Hosts. However, Administrators of individual portals can configure their modules, selecting forms and templates you've created. As a Host, once you create a form/template while logged into a given portal, that form/template then becomes available to the Admin of that portal for use.
 
 ## Forms
 

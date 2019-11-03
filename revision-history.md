@@ -1,5 +1,13 @@
 # Revision History
 
+## 4.9.0
+
+* ADDED: `<xmod:Markdown>` tempalte tag to render markdown-formatted content as HTML. The tag even has a `Bootstrap` property to add Bootstrap-specific classes to the output if you're using that CSS framework in your skin.
+* ADDED: `<Markdown>` form control. The control is not required to render markdown using the `<xmod:Markdown>` template tag. However, it provides an attractive, syntax-highligted editing environment complete with line numbers (should you want that).
+* FIXED: Inline editor is no longer over-lapped by the Persona Bar in DNN 9.2+.
+* FIXED: The Inline editor's success message is now displayed to the right of the dialog buttons. You no longer have to scroll down to see it.
+* POSSIBLE BREAKING CHANGE: Only applies to very old DNN implementations. XMod Pro now requires .NET 3.5 or later for DNN versions lower than 9.2. Practically speaking, this should not affect most users since DNN has been requiring .NET 3.5 since version 5. If you are running DNN 9.2 or later, XMP still requires .NET 4.5 or later. 
+
 ## 4.8.0
 
 *   ADDED: Robots property added to `<MetaTags>` control.
