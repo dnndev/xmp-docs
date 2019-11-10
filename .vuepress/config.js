@@ -1,6 +1,6 @@
 module.exports = {
   title: "XMod Pro Documentation",
-  base: "/",
+  base: "/help/xmodpro/",
   ga: "UA-1237368-1",
   markdown: {
     lineNumbers: true
