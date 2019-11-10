@@ -12,7 +12,8 @@ module.exports = {
       {
         ga: "UA-1237368-1"
       }
-    ]
+    ],
+    ["@vuepress/search", true]
   ],
   themeConfig: {
     repo: "dnndev/xmp-docs",
