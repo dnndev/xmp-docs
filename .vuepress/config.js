@@ -26,7 +26,7 @@ module.exports = {
     sidebar: [
       "/",
       "/activating",
-      "/getting-started",
+      "getting-started",
       "/control-panel",
       "/manage-forms",
       "/form-builder",
