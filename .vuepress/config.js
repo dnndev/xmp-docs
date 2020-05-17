@@ -12,17 +12,22 @@ module.exports = {
       {
         ga: "UA-1237368-1"
       }
-    ]
+    ],
+    ["@vuepress/search", true]
   ],
   themeConfig: {
     repo: "dnndev/xmp-docs",
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
     editLinkText: "Help us improve this page!",
+    algolia: {
+      apiKey: 'e151b39c75271f8362bee7f5caad0a7d',
+      indexName: 'xmodpro'
+    },
     sidebar: [
       "/",
       "/activating",
-      "/getting-started",
+      "getting-started",
       "/control-panel",
       "/manage-forms",
       "/form-builder",

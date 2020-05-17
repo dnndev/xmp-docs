@@ -74,7 +74,7 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
     *   `Both`: Both horizontal and vertical scroll bars are shown
     *   `Auto`: Horizontal and/or vertical scroll bars are show - only if necessary  
 
-*   **ShowIf**: (New to version 4.7) An expression that, when it evaluates to True, shows the content inside the panel tag. This operates as a simple boolean check. If A = B or if A <> B or if A > B etc.  
+*   **ShowIf**: (New to version 4.7) An expression that, when it evaluates to True, shows the content inside the panel tag. This operates as a simple boolean check. If A = B or if A <> B.  
     This property works in conjunction with the _ShowRoles_ property. If ShowRoles is not specified, then _ShowIf_ will determine if the content is shown. If ShowRoles is specified, then it must evaluate to True and _ShowIf_ must be True for the content to be shown. If _ShowRoles_ evaluates to False, then _EvaluateIf_ is ignored. The content will not be shown.
     *   Example 1: `ShowIf="1=1"`. In this example we are taking the value of the number "1" and comparing it to "1". If they are equal, this evaluates to TRUE and the contents of panel tag are shown.
 
