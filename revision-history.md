@@ -1,5 +1,9 @@
 # Revision History
 
+## 4.9.1
+
+* FIXED: `Object Reference Not Set` error when clicking the Cancel button on the License/Activation page.
+
 ## 4.9.0
 
 * ADDED: `<xmod:Markdown>` template tag to render markdown-formatted content as HTML. The tag even has a `Bootstrap` property to add Bootstrap-specific classes to the output if you're using that CSS framework in your skin.
