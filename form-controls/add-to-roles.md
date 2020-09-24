@@ -8,7 +8,8 @@
     Culture="locale-id"
     EndDate="date"
     If="basic conditional equality expression"
-    RoleNames="comma-delimited list of DNN roles"
+    RoleDelimiter="|"
+    RoleNames="delimited list of DNN roles"
     StartDate="date" 
     UserId="integer" 
 />
@@ -34,7 +35,9 @@
     Comparisons are text-only and are not case-sensitive. You can test for equality using the "=" operator or inequality using the "<>" operator.
     :::
 
-*   **RoleNames**: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with commas. Field tokens may be used to populate this property.  
+*   **RoleDelimiter**: optional. When listing more than one Role Name in the `RoleNames` property, this value determines what character is used to separate them. By default, the values is the pipe `|` character. Often users will set the RoleDelimiter to the comma `,` character.
+
+*   **RoleNames**: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with the pipe `|` character (by default) or the character specified in the `RoleDelimiter` property. Field tokens may be used to populate this property.  
 
 *   **StartDate**: optional. When specified, this is the date on which the user will be placed in the role - i.e. the Effective Date. Field tokens may be used to populate this property. New to version 4.1  
 
@@ -43,13 +46,13 @@
 
 ## Example
 
-In the example below, we're using a `<Variable>` tag to retrieve the current user's ID and make it available to the `<AddToRoles>` tag. The variable has a name of "uid" and we set the UserId property of the `<AddToRoles>` tag to `[[uid]]`.
+In the example below, we're using a `<Variable>` tag to retrieve the current user's ID and make it available to the `<AddToRoles>` tag. The variable has a name of "uid" and we set the UserId property of the `<AddToRoles>` tag to `[[uid]]`. Since we are specifying a comma-delimited set of roles, we specify a `RoleDelimiter` of comma `,` and separate the roles in the `RoleNames` property with commas. If we didn't set the `RoleDelimiter` property, we would, instead, need to separate our role names with the pipe `|` like so: `RoleNames="Role1|Editors"`.
 
 ```html {20}
 <AddForm>  
   <Variable Name="uid" Value='[[User:Id]]' />  
   <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
-  <AddToRoles RoleNames="Role1,Editors" UserId='[[uid]]' />  
+  <AddToRoles RoleNames="Role1,Editors" UserId='[[uid]]' RoleDelimiter="," />  
   <table>  
     <tr>  
       <td>  
@@ -60,7 +63,7 @@ In the example below, we're using a `<Variable>` tag to retrieve the current use
     <tr>  
       <td>  
         <Label For="txtLastName" Text="Last Name" />  
-                <TextBox Id="txtLastName" DataField="LastName" DataType="string" />  
+        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />  
       </td>  
     </tr>  
     <tr>  
