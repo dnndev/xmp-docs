@@ -1,5 +1,8 @@
 # Revision History
 
+## 4.9.2
+* FIXED: `<AddUser>` action: On DNN 9.3.2 and later, sites set to verified registration would not receive verification emails, which could prevent them from validating their email. This is due to the way enumerations were incorrectly defined and later modified in the DNN project. This version now accounts for those changes. 
+
 ## 4.9.1
 
 * FIXED: `Object Reference Not Set` error when clicking the Cancel button on the License/Activation page.
