@@ -1,5 +1,9 @@
 # Revision History
 
+## 4.9.3
+* FIXED: DNN Search Integration stopped working in sites running DNN 9.6+
+* FIXED: `<RemoveFromRoles>` form action does not remove a role from the specified user in DNN 9.2+
+
 ## 4.9.2
 * FIXED: `<AddUser>` action: On DNN 9.3.2 and later, sites set to verified registration would not receive verification emails, which could prevent them from validating their email. This is due to the way enumerations were incorrectly defined and later modified in the DNN project. This version now accounts for those changes. 
 
