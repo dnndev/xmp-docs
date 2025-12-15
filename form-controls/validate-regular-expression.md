@@ -6,7 +6,9 @@ context: form
 summary: >-
   The Validate tag whose type is set to "regex" is referred to as a Regular
   Expression Validator and is used to ensure the value of the target control
-  matches the specified regular expression pattern.
+  matches the specified regular expression pattern. This can be used, for
+  example, to ensure a phone number matches the format you specify or that an
+  email address is properly formatted.
 keywords:
   - validate
   - type="

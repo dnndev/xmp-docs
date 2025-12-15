@@ -6,7 +6,10 @@ context: form
 summary: >-
   Use this optional tag if you want to bind a list-based control to a set of
   data. A good example would be providing the user with a drop down list of
-  states (in the US) or a list of departments in a co...
+  states (in the US) or a list of departments in a company or a list of job
+  titles, etc. You can supply more than one `<ControlDataSource>` per form
+  definition and you can use the `<ControlDataSource>` as the source for
+  multiple controls within your form.
 keywords:
   - control
   - data

@@ -6,7 +6,9 @@ context: template
 summary: >-
   The Markdown tag, first introduced in version 4.9, is used to convert
   markdown-formatted content for display using HTML. The content can be created
-  using the [`<Markdown>`](../form-controls/markdown.
+  using the `<Markdown>` form input tag (which provides a markdown editor),
+  though since markdown is plain text, it could come from a `<Textarea>` or any
+  other text editor.
 keywords:
   - markdown
   - template

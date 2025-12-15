@@ -6,7 +6,8 @@ context: form
 summary: >-
   The ScriptBlock tag is used to inject HTML `<script>` tags into one of several
   different locations in the page. Typically this is used to insert Javascript
-  functions and/or libraries into the page.
+  functions and/or libraries into the page. You can also insert `<style>` tags
+  into the page using this tag.
 keywords:
   - script
   - block

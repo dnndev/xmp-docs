@@ -5,7 +5,12 @@ category: Display Controls
 context: template
 summary: >-
   The template tag is the primary workhorse of XModPro. It contains the data
-  commands and layout instructions for your display.
+  commands and layout instructions for your display. Additionally, it enables
+  you to specify who is allowed to add, edit, and delete records as well as who
+  is allowed to view the details of records. You can use multiple Template tags,
+  enabling you to have side-by-side (or however you want to lay them out using
+  HTML) displays within the same module instance, each being fed by different
+  datasources.
 keywords:
   - template
 ---

@@ -5,7 +5,12 @@ category: Feed Controls
 context: template
 summary: >-
   The JsonFeed tag, first introduced in version 4.3, is used to easily generate
-  JSON output from your data.
+  JSON output from your data. JSON is the lingua franca of client-server
+  communication these days and many Javascript and jQuery plugins natively
+  consume it. You could create a JSON feed using the standard feed tag, but the
+  JsonFeed tag saves you a lot of typing. There may still be times when you want
+  to use special layouts or formatting in your feed that you'll want to use the
+  Feed tag, but in most situations, the JsonFeed is all you need.
 keywords:
   - json
   - feed

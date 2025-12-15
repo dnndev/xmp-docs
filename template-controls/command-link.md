@@ -5,7 +5,10 @@ category: Action Links
 context: template
 summary: >-
   The CommandLink tag renders as a hyperlink at run-time. It is used to execute
-  data commands in another template within the module instance.
+  data commands in another template within the module instance. For instance, if
+  you had two templates, you might put a CommandLink in template #1 to pass a
+  parameter to the `<listdatasource>` of template #2, causing that template to
+  re-load with the new result set.
 keywords:
   - command
   - link

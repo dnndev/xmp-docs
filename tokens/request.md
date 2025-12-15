@@ -5,7 +5,12 @@ category: Request Tokens
 context: all
 summary: >-
   Tokens provide you with the ability to use information about the current HTTP
-  Request at run-time such as the current URL, the referring URL, etc.
+  Request at run-time such as the current URL, the referring URL, etc. Note that
+  some or none of these settings may be available. If they are, the information
+  may not be useful. Internet security/privacy software can block many of these
+  settings and other settings can be forged for benign or malicious reasons.
+  This information is passed through the DotNetNuke filters to remove markup,
+  scripting, and SQL.
 keywords:
   - request
   - tokens

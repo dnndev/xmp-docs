@@ -5,7 +5,11 @@ category: Tutorials
 context: all
 summary: >-
   In this tutorial, we're going to cover the basic mechanics of displaying some
-  data in your database in a list-based view.
+  data in your database in a list-based view. We'll keep it as simple as
+  possible, so you can see the basic steps involved in the process and then be
+  able to apply those concepts to other tutorials and projects. Since we don't
+  want you to have to create any tables in your database, we'll choose one that
+  every DotNetNuke (DNN) installation has: the Users table.
 keywords:
   - create
   - list

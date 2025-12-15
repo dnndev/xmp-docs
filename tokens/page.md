@@ -6,6 +6,7 @@ context: all
 summary: >-
   Page Tokens provide you with the ability to use information about the current
   page on which the XMod Pro module instance is sitting such as the page's ID.
+  Additional Module Tokens will be added to this topic as they become available.
 keywords:
   - page
   - tokens

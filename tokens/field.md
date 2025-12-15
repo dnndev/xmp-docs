@@ -6,7 +6,12 @@ context: all
 summary: >-
   Field Tokens are the mechanism used to display values from your datasource in
   your templates. If you've used XMod, then you can think of field tokens as the
-  replacement for the old `<xmod:Field>` tag.
+  replacement for the old `<xmod:Field>` tag. The token syntax is much simpler.
+  Simply start with two open brackets (`[[`) followed by the exact name of the
+  field you want to display (this is case-sensitive) and then follow that with
+  two closing brackets (`]]`). At run-time, XMod Pro will replace that token
+  with the value from that field for each record. There are some usage rules
+  you'll need follow. They are described in the Remarks section.
 keywords:
   - field
   - tokens

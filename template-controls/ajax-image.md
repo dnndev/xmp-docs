@@ -6,7 +6,8 @@ context: template
 summary: >-
   The AjaxImage tag renders as a push-button at run-time that, when clicked,
   will dynamically insert HTML returned from a URL into an element on the page -
-  without a postback.
+  without a postback. This is a jQuery based control. It required jQuery be
+  included in the page and that Javascript be enabled in the end-user's browser.
 keywords:
   - ajax
   - image

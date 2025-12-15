@@ -5,7 +5,10 @@ category: Buttons
 context: form
 summary: >-
   The ContinueButton tag renders as a push-button at run-time. It is only valid
-  within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`.
+  within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`. When clicked, the
+  user is returned either to the page that would have been displayed after
+  successfully submitting the form or to the URL specified in the Redirect
+  attribute.
 keywords:
   - continue
   - button

@@ -6,7 +6,9 @@ context: form
 summary: >-
   The Validate tag whose type is set to "range" is referred to as a Range
   Validator and is used to ensure the value of the target control falls within
-  the specified range of values.
+  the specified range of values. This can be used, for example, to ensure that
+  only a limited number of tickets can be purchased - that the number of tickets
+  ordered is at least one but not more than five.
 keywords:
   - validate
   - type="

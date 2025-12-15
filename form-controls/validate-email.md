@@ -6,7 +6,8 @@ context: form
 summary: >-
   The Validate tag whose type is set to "email" is referred to as an Email
   Validator and is used to ensure the value of the target control matches the
-  form of a valid email address.
+  form of a valid email address. It does not validate the email account is valid
+  or active.
 keywords:
   - validate
   - type="

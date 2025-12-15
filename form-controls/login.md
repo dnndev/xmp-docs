@@ -5,7 +5,14 @@ category: User Actions
 context: form
 summary: >-
   In the example above note how we're using Field Tokens (`[[Uname]]` and
-  `[[Pword]]`) to grab the data from the form controls.
+  `[[Pword]]`) to grab the data from the form controls. Additionally, we're
+  telling the Login tag to add the user's Username and UserID to any tags
+  "downstream". The field names that will be used are `UsrName` for the Username
+  and `UsrId` for the UserID. There is one "downstream" action - the
+  `<Redirect>` tag. It's using those fields in its `Target` property to feed the
+  data into the URL. NOTE that in this specific case (and unlike most other XMod
+  Pro forms) we can simply put the field tokens `[[UsrName]]` and `[[UsrId]]`
+  directly into the target property without having to use the JOIN() function.
 keywords:
   - login
   - form

@@ -6,7 +6,9 @@ context: template
 summary: >-
   The Feed tag, first introduced in version 3.0, is used to define the output of
   feeds. A feed typically is thought of as an RSS feed, but it can be much more
-  than that.
+  than that. With the Feed tag, you can produce virtually any XML-based output,
+  a printer-friendly HTML page, a plain text page, even a comma-delimited file
+  that can be automatically opened by Excel or a similar program.
 keywords:
   - feed
   - template

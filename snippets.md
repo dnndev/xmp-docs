@@ -6,7 +6,9 @@ context: all
 summary: >-
   Beginning with version 4.3, XMod Pro introduced "snippets" to its text-based
   editors. If you're a programmer or web developer, you've probably run into
-  snippets in various development environments and...
+  snippets in various development environments and editors. Snippets are a quick
+  and convenient way to store and leverage often used code or text. Snippets are
+  available in the toolbar of the form, template, and feed text editors.
 keywords:
   - snippets
 ---

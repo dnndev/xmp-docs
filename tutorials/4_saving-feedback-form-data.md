@@ -4,8 +4,22 @@ title: '4: Save Form Data'
 category: Tutorials
 context: all
 summary: >-
-  This tutorial assumes you have successfully completed [Tutorial Three
-  "Creating A Feedback Form"](3_feedback-form.md).
+  This tutorial assumes you have successfully completed Tutorial Three "Creating
+  A Feedback Form". In the last tutorial, you created a form to have customer
+  feedback sent via email. This is great if you just need customers to send you
+  information, but what if you want to save that data for later reference or
+  use? That's what we'll be covering in this tutorial. Before you start, you'll
+  need to create a table in your DotNetNuke database to store the information.
+  You can create the table using your database tools or execute a script. The
+  table is simple. It contains a column for each field in the form and an
+  additional column to store a unique numeric ID for each submission we receive.
+  The table should be named "XMP_Feedback". The table information is described
+  below. Following that is a sample SQL script you can use or modify to create
+  your table. | Column Name | Data Type | Size | Allow Nulls | Additional Info |
+  | ----------- | --------- | ---- | ----------- |
+  -------------------------------------------- | | FeedbackId | int | | No |
+  IDENTITY, StartingValue 1, Increment Size: 1 | | Name | nvarchar | 50 | Yes |
+  | | Question | ntext | | Yes | | | Email | nvarchar | 50 | No | |
 keywords:
   - save
   - form

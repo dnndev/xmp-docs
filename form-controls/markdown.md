@@ -5,7 +5,12 @@ category: Input Controls
 context: form
 summary: >-
   The Markdown control, first introduced with version 4.9, renders as a
-  multi-line, syntax-highlighted editor for entering markdown text.
+  multi-line, syntax-highlighted editor for entering markdown text. Markdown is,
+  ultimately, just plain text so a Textarea control would work just as well.
+  However, this control is designed to make markdown editing more pleasant. You
+  can optionally decorate it with line numbers and assign a theme. The control
+  does not attempt to enforce markdown syntax or other rules on the supplied
+  text. This control pairs well with the `<xmod:Markdown>`.
 keywords:
   - markdown
   - form

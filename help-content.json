@@ -1,6 +1,6 @@
 {
   "version": "5.0.0",
-  "generated": "2025-12-15T14:59:29.258Z",
+  "generated": "2025-12-15T22:14:52.617Z",
   "topicCount": 141,
   "categories": {
     "form": [
@@ -97,7 +97,7 @@
       "title": "`<AddForm>`, `<EditForm>`",
       "category": "Structure",
       "context": "form",
-      "summary": "Forms in XMod Pro are defined using HTML and special XMod Pro tags. XMod Pro provides you with the ability to define separate forms to use for adding a record (using the `<AddForm>` tag) and for editi...",
+      "summary": "Forms in XMod Pro are defined using HTML and special XMod Pro tags. XMod Pro provides you with the ability to define separate forms to use for adding a record (using the `<AddForm>` tag) and for editing a record (using the `<EditForm>` tag). To use third party libraries containing XMod Pro-compatible controls, you use the `<Register>` tag. This makes the library available to both your Add and Edit Form.",
       "path": "/form-controls/add-edit-form",
       "keywords": [
         "add",
@@ -125,7 +125,7 @@
       "title": "1: Create a List View",
       "category": "Tutorials",
       "context": "all",
-      "summary": "In this tutorial, we're going to cover the basic mechanics of displaying some data in your database in a list-based view.",
+      "summary": "In this tutorial, we're going to cover the basic mechanics of displaying some data in your database in a list-based view. We'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other tutorials and projects. Since we don't want you to have to create any tables in your database, we'll choose one that every DotNetNuke (DNN) installation has: the Users table.",
       "path": "/tutorials/1_listing-users",
       "keywords": [
         "create",
@@ -139,7 +139,7 @@
       "title": "2: Create a Detail View",
       "category": "Tutorials",
       "context": "all",
-      "summary": "In this tutorial, we're going to enhance the List View created in [Tutorial One](1_listing-users.md) by adding a way to view the details of a user's record.",
+      "summary": "In this tutorial, we're going to enhance the List View created in Tutorial One by adding a way to view the details of a user's record. As with the first tutorial, we'll keep it as simple as possible, so you can see the basic steps involved in the process and then be able to apply those concepts to other tutorials and projects.",
       "path": "/tutorials/2_user-detail-view",
       "keywords": [
         "create",
@@ -153,7 +153,7 @@
       "title": "3: Create a Feedback Form",
       "category": "Tutorials",
       "context": "all",
-      "summary": "In the first two tutorials, you created a list-based view of your data and then added the ability to view the details of each record.",
+      "summary": "In the first two tutorials, you created a list-based view of your data and then added the ability to view the details of each record. In this tutorial, we're going to switch gears from displaying data, to enabling the input of data via XMod Pro's custom forms. We'll be creating a simple Feedback form that will allow site visitors to enter their Name, Email Address, and Question. The form will then send that information, via email to our site administrator. To keep things simple, no data will be saved to the database. 1. If you haven't done so already, install the FormView module that came with XMod Pro. You'll find it in the Installation folder alongside the XMod Pro installation file. 2. Next, open a page in your site and add an XMod Pro FormView instance to the page. 3. Ensure you're logged-in as Host or SuperUser. 4. We're going to create a form. So, from the Actions menu, select **Manage Forms**.",
       "path": "/tutorials/3_feedback-form",
       "keywords": [
         "create",
@@ -167,7 +167,7 @@
       "title": "4: Save Form Data",
       "category": "Tutorials",
       "context": "all",
-      "summary": "This tutorial assumes you have successfully completed [Tutorial Three \"Creating A Feedback Form\"](3_feedback-form.md).",
+      "summary": "This tutorial assumes you have successfully completed Tutorial Three \"Creating A Feedback Form\". In the last tutorial, you created a form to have customer feedback sent via email. This is great if you just need customers to send you information, but what if you want to save that data for later reference or use? That's what we'll be covering in this tutorial. Before you start, you'll need to create a table in your DotNetNuke database to store the information. You can create the table using your database tools or execute a script. The table is simple. It contains a column for each field in the form and an additional column to store a unique numeric ID for each submission we receive. The table should be named \"XMP_Feedback\". The table information is described below. Following that is a sample SQL script you can use or modify to create your table. | Column Name | Data Type | Size | Allow Nulls | Additional Info | | ----------- | --------- | ---- | ----------- | -------------------------------------------- | | FeedbackId | int | | No | IDENTITY, StartingValue 1, Increment Size: 1 | | Name | nvarchar | 50 | Yes | | | Question | ntext | | Yes | | | Email | nvarchar | 50 | No | |",
       "path": "/tutorials/4_saving-feedback-form-data",
       "keywords": [
         "save",
@@ -181,7 +181,7 @@
       "title": "5: Display Form Data",
       "category": "Tutorials",
       "context": "all",
-      "summary": "This tutorial assumes you have successfully completed [Tutorial Four \"Saving Data From The Feedback Form\"](./4_saving-feedback-form-data.md).",
+      "summary": "This tutorial assumes you have successfully completed Tutorial Four \"Saving Data From The Feedback Form\". In the last tutorial, we modified our feedback form so that it now saves data to the database. Now we'll create a template to display that data. 1. In Tutorial 3 and 4, we used the **FormView** module. This is useful if we just want to display a form. However, since we'll be displaying the data from that form as well, we'll need to use the main XMod Pro module. So, open a page on your site and place an XMod Pro module instance on that page, configuring it to use the \"Feedback Form\" form. 2. Ensure you're logged-in as Host or SuperUser. 3. We're going to create a new template. So, from the Actions menu, select **Manage Templates**.",
       "path": "/tutorials/5_displaying-feedback-form-data",
       "keywords": [
         "display",
@@ -195,7 +195,7 @@
       "title": "6: Modify Form Data",
       "category": "Tutorials",
       "context": "all",
-      "summary": "This tutorial assumes you have successfully completed [Tutorial Five \"Displaying The Feedback Form Data\"](5_displaying-feedback-form-data.md).",
+      "summary": "This tutorial assumes you have successfully completed Tutorial Five \"Displaying The Feedback Form Data\". In the last tutorial, we created a template to display a list of the feedback we've received from customers and provided a button to add feedback. Now we'll modify that template and the feedback form to enable us to edit and delete feedback. 1. If you haven't done so already open the page in your site that contains the Feedback form and its display template we've been working with. 2. Ensure you're logged-in as Host or SuperUser. 3. We're going to modify our existing template. So, from the Actions menu, select **Manage Templates**.",
       "path": "/tutorials/6_editing-deleting-feedback-form-data",
       "keywords": [
         "modify",
@@ -209,7 +209,7 @@
       "title": "7: Multi-View Templates",
       "category": "Tutorials",
       "context": "all",
-      "summary": "In most cases, all you'll need to do in XMod Pro is setup solutions that add, edit, delete, and display data, but XMod Pro is much more powerful than that.",
+      "summary": "In most cases, all you'll need to do in XMod Pro is setup solutions that add, edit, delete, and display data, but XMod Pro is much more powerful than that. In this tutorial, we'll discuss how to create multiple views within the same template. By leveraging this capability, you can create very powerful self-contained solutions. In this tutorial we won't be creating all the components of a sample application. In this example, we want to focus on the mechanisms for creating multi-view templates without bogging down in the details of creating templates and forms as well as adding/editing/deleting the data. Those concepts have been covered elsewhere and we assume you're comfortable with them. Previously, you've created a template using a single `<xmod:template>` tag. This creates a single view that can comprise a list view of your data and a detail view that displays the information contained within a single record. When the detail view is displayed, it replaces the list view. That's all well and good for most situations but what if you want to display a list of news headlines on the left side of your module and, when you click a headline, the full article is displayed on the right side of your module? With most modules, you're out of luck, but not with XMod Pro. All it takes is a second `<xmod:template>` tag and a new button type.",
       "path": "/tutorials/7_templates-with-multiple-views",
       "keywords": [
         "multi",
@@ -344,7 +344,7 @@
       "title": "AddToRoles",
       "category": "User Actions",
       "context": "form",
-      "summary": "In the example below, we're using a `<Variable>` tag to retrieve the current user's ID and make it available to the `<AddToRoles>` tag.",
+      "summary": "In the example below, we're using a `<Variable>` tag to retrieve the current user's ID and make it available to the `<AddToRoles>` tag. The variable has a name of \"uid\" and we set the UserId property of the `<AddToRoles>` tag to `[[uid]]`. Since we are specifying a comma-delimited set of roles, we specify a `RoleDelimiter` of comma `,` and separate the roles in the `RoleNames` property with commas. If we didn't set the `RoleDelimiter` property, we would, instead, need to separate our role names with the pipe `|` like so: `RoleNames=\"Role1|Editors\"`.",
       "path": "/form-controls/add-to-roles",
       "keywords": [
         "add",
@@ -369,7 +369,7 @@
       "title": "AddUser",
       "category": "User Actions",
       "context": "form",
-      "summary": "You MUST take care to properly validate user input. Additionally you should place this tag only on forms that are properly secured so that only users you intend to have access can use the form. :::",
+      "summary": "You MUST take care to properly validate user input. Additionally you should place this tag only on forms that are properly secured so that only users you intend to have access can use the form.",
       "path": "/form-controls/add-user",
       "keywords": [
         "add",
@@ -409,7 +409,7 @@
       "title": "AjaxButton",
       "category": "Buttons",
       "context": "form",
-      "summary": "The AjaxButton tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxButton tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/form-controls/ajax-button",
       "keywords": [
         "ajax",
@@ -446,7 +446,7 @@
       "title": "AjaxImage",
       "category": "Buttons",
       "context": "form",
-      "summary": "The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/form-controls/ajax-image",
       "keywords": [
         "ajax",
@@ -484,7 +484,7 @@
       "title": "AjaxLink",
       "category": "Buttons",
       "context": "form",
-      "summary": "The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It requires jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/form-controls/ajax-link",
       "keywords": [
         "ajax",
@@ -728,7 +728,7 @@
       "title": "Captcha",
       "category": "Input Controls",
       "context": "form",
-      "summary": "The Captcha tag renders as a CAPTCHA control at run time. ::: warning NOTE Due to a limitation in the underlying DNN CAPTCHA control, this tag can only be used in the FormView module. :::",
+      "summary": "The Captcha tag renders as a CAPTCHA control at run time.",
       "path": "/form-controls/captcha",
       "keywords": [
         "captcha",
@@ -764,7 +764,7 @@
       "title": "CheckBox",
       "category": "Selection Controls",
       "context": "form",
-      "summary": "The CheckBox tag renders as a checkbox and associated label at run-time. A series of CheckBox controls provides a useful alternative to the CheckBoxList.",
+      "summary": "The CheckBox tag renders as a checkbox and associated label at run-time. A series of CheckBox controls provides a useful alternative to the CheckBoxList. With the CheckBoxList, all selected values are placed into a single string value that is sent to the data source. However, a series of individual CheckBox controls provides you with the same basic functionality as the CheckBoxList, but you also have the ability to store the value of each CheckBox in its own data field.",
       "path": "/form-controls/checkbox",
       "keywords": [
         "check",
@@ -851,7 +851,7 @@
       "title": "Control Panel",
       "category": "Configuration",
       "context": "all",
-      "summary": "Beginning with version 2, most administrative tasks have been consolidated and placed in the Control Panel. It is only available to Host and SuperUser accounts.",
+      "summary": "Beginning with version 2, most administrative tasks have been consolidated and placed in the Control Panel. It is only available to Host and SuperUser accounts. You can access the Control Panel by selecting it from the Actions/Manage menu.",
       "path": "/control-panel",
       "keywords": [
         "control",
@@ -864,7 +864,7 @@
       "title": "ControlDataSource",
       "category": "Data",
       "context": "form",
-      "summary": "Use this optional tag if you want to bind a list-based control to a set of data. A good example would be providing the user with a drop down list of states (in the US) or a list of departments in a co...",
+      "summary": "Use this optional tag if you want to bind a list-based control to a set of data. A good example would be providing the user with a drop down list of states (in the US) or a list of departments in a company or a list of job titles, etc. You can supply more than one `<ControlDataSource>` per form definition and you can use the `<ControlDataSource>` as the source for multiple controls within your form.",
       "path": "/form-controls/control-datasource",
       "keywords": [
         "control",
@@ -898,7 +898,7 @@
       "title": "Creating Forms with the Form Builder",
       "category": "Form Builder",
       "context": "all",
-      "summary": "The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning with version 3, you'll find the FormBuilder on the ManageForms page. [It is described here](manage-forms.",
+      "summary": "The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning with version 3, you'll find the FormBuilder on the ManageForms page. It is described here",
       "path": "/form-builder",
       "keywords": [
         "creating",
@@ -914,7 +914,7 @@
       "title": "Data Parameter Tokens",
       "category": "Field Tokens",
       "context": "all",
-      "summary": "Tokens are the mechanism used to display OUTPUT and standard parameter values from your datasource in your templates.",
+      "summary": "Tokens are the mechanism used to display OUTPUT and standard parameter values from your datasource in your templates. At run-time, XMod Pro will replace that token with the value stored in that parameter. There are some additional usage rules you'll need to adhere to. They are described in the Remarks section.",
       "path": "/tokens/data",
       "keywords": [
         "data",
@@ -929,20 +929,20 @@
       "title": "Data Types",
       "category": "Reference",
       "context": "all",
-      "summary": "XMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow b...",
+      "summary": "XMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow boolean values). The list of valid data types is below.",
       "path": "/data-types",
       "keywords": [
         "data",
         "types"
       ],
-      "content": "# Data Types\r\n\r\nXMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow boolean values). The list of valid data types is below:\r\n\r\n*   Boolean\r\n*   DateTime\r\n*   Decimal\r\n*   Double\r\n*   Byte\r\n*   Int16\r\n*   Int32\r\n*   Int64\r\n*   Single\r\n*   String\r\n\r\n### SQL Server Data Type to XMod Pro Data Type Conversion\r\n\r\nTo make the process of linking your fields up with XMod Pro, we've created a table listing the SQL Server data type and its XMod Pro equivalent, if available. While currently, XMod Pro is designed for SQL Server, it does not support every field type. The goal is to keep XMod Pro loosely coupled so that other databases and data sources can be added in the future. Also, keep in mind that while a certain data type may have an XMod Pro equivalent, you should ensure that the values accepted from your users do not exceed the limitations of the data type. For instance, if you choose the NChar datatype in SQL Server, you should use the String XMod Pro data type. However, you need to ensure the text entered falls within the limits of the NChar field (4,000 characters for SQL Server 2005). We have noted limitations for some data types.\r\n\r\n| SQL Server Data Type | XMod Pro Data Type |\r\n| -------------------- | ------------------ |\r\n| BigInt | Int64 | \r\n| Binary | Not Supported | \r\n| Bit | Boolean | \r\n| Char | String (subject to Char size limits) | \r\n| Date | Date (supported as of XMod Pro 3.1) | \r\n| DateTime | DateTime | \r\n| DateTime2 | DateTime (supported as of XMod Pro 3.1) | \r\n| DateTimeOffset | Not Supported | \r\n| Decimal | Decimal | \r\n| Float | Double \r\n| Image | Not Supported | \r\n| Int | Int32 | \r\n| Money | Decimal. Do not include currency symbols (i.e $) in value. | \r\n| NChar | String (subject to NChar size limits) | \r\n| NText | String | \r\n| NVarChar | String (subject to NVarChar size limits) | \r\n| Real | Single | \r\n| SmallDateTime | DateTime (subject to SmallDateTime size limits) | \r\n| SmallInt | Int16 | \r\n| SmallMoney | Decimal (subject to SmallMoney size limits). Do not include currency symbols (i.e $) in value. | \r\n| Structured | Not Supported | \r\n| Text | String | \r\n| Time | Use SQL DateTime data type instead) | \r\n| Timestamp | Not Supported | \r\n| TinyInt | Byte (supported as of XMod Pro 3.1) | \r\n| Udt | Not Supported | \r\n| UniqueIdentifier | String (supported as of XMod Pro 3.1) Ensure your data is formatted accordingly | \r\n| VarBinary | Not Supported | \r\n| VarChar | String (subject to VarChar size limits) | \r\n| Variant | Not Supported | \r\n| Xml | String (supported as of XMod Pro 3.1) |"
+      "content": "# Data Types\r\n\r\nXMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow boolean values). The list of valid data types is below:\r\n\r\n*   Boolean\r\n*   DateTime\r\n*   Decimal\r\n*   Double\r\n*   Byte\r\n*   Int16\r\n*   Int32\r\n*   Int64\r\n*   Single\r\n*   String\r\n\r\n### SQL Server Data Type to XMod Pro Data Type Conversion\r\n\r\nTo make the process of linking your fields up with XMod Pro, we've created a table listing the SQL Server data type and its XMod Pro equivalent, if available. While currently, XMod Pro is designed for SQL Server, it does not support every field type. The goal is to keep XMod Pro loosely coupled so that other databases and data sources can be added in the future. Also, keep in mind that while a certain data type may have an XMod Pro equivalent, you should ensure that the values accepted from your users do not exceed the limitations of the data type. For instance, if you choose the NChar datatype in SQL Server, you should use the String XMod Pro data type. However, you need to ensure the text entered falls within the limits of the NChar field (4,000 characters for SQL Server 2005). We have noted limitations for some data types.\r\n\r\n| SQL Server Data Type | XMod Pro Data Type |\r\n| -------------------- | ------------------ |\r\n| BigInt | Int64 | \r\n| Binary | Not Supported | \r\n| Bit | Boolean | \r\n| Char | String (subject to Char size limits) | \r\n| Date | Date (supported as of XMod Pro 3.1) | \r\n| DateTime | DateTime | \r\n| DateTime2 | DateTime (supported as of XMod Pro 3.1) | \r\n| DateTimeOffset | Not Supported | \r\n| Decimal | Decimal | \r\n| Float | Double |\r\n| Image | Not Supported | \r\n| Int | Int32 | \r\n| Money | Decimal. Do not include currency symbols (i.e $) in value. | \r\n| NChar | String (subject to NChar size limits) | \r\n| NText | String | \r\n| NVarChar | String (subject to NVarChar size limits) | \r\n| Real | Single | \r\n| SmallDateTime | DateTime (subject to SmallDateTime size limits) | \r\n| SmallInt | Int16 | \r\n| SmallMoney | Decimal (subject to SmallMoney size limits). Do not include currency symbols (i.e $) in value. | \r\n| Structured | Not Supported | \r\n| Text | String | \r\n| Time | Use SQL DateTime data type instead) | \r\n| Timestamp | Not Supported | \r\n| TinyInt | Byte (supported as of XMod Pro 3.1) | \r\n| Udt | Not Supported | \r\n| UniqueIdentifier | String (supported as of XMod Pro 3.1) Ensure your data is formatted accordingly | \r\n| VarBinary | Not Supported | \r\n| VarChar | String (subject to VarChar size limits) | \r\n| Variant | Not Supported | \r\n| Xml | String (supported as of XMod Pro 3.1) |"
     },
     {
       "id": "database-tools",
       "title": "Database Tools",
       "category": "Tools",
       "context": "all",
-      "summary": "Beginning with version 2, XMod Pro provides you with a Table Designer that allows you to quickly define and create basic tables in your DNN database.",
+      "summary": "Beginning with version 2, XMod Pro provides you with a Table Designer that allows you to quickly define and create basic tables in your DNN database. Additionally, you can optionally instruct XMod Pro to auto-generate a form and template for the newly created table - giving you the ability to have a complete base solution up and running with just a few clicks. The Database Tools area is only available to Host and SuperUser accounts. You can access the Database Tools by selecting \"Control Panel\" from the Actions menu.",
       "path": "/database-tools",
       "keywords": [
         "database",
@@ -951,21 +951,17 @@
       "content": "# Database Tools\r\n\r\nBeginning with version 2, XMod Pro provides you with a Table Designer that allows you to quickly define and create basic tables in your DNN database. Additionally, you can optionally instruct XMod Pro to auto-generate a form and template for the newly created table - giving you the ability to have a complete base solution up and running with just a few clicks. The Database Tools area is only available to Host and SuperUser accounts. You can access the Database Tools by selecting \"Control Panel\" from the Actions menu:\r\n\r\n![](./img/XMP44_ControlPanelMenu.jpg)\r\n\r\nOn the Control Panel's toolbar, click \"Database Tools\":\r\n\r\n![](./img/XMP4_ControlPanel_Toolbar_DatabaseTools.png)\r\n\r\nThe Database Tools screen is displayed. This screen is designed to allow you to quickly create basic tables in your DNN database. It is not designed as a replacement for dedicated database tools such as SQL Server Management Studio. Rather, it is useful for prototyping or creating basic tables without having to use an external tool.\r\n\r\n![](./img/DatabaseTools.png)\r\n\r\nTo design your table, click the New Column button just beneath the Table Designer grid. This will add a new column to your table and give you the opportunity to modify its characteristics.\r\n\r\n![](./img/DatabaseTools_NewColumn.png)\r\n\r\nFirst, type a name for your column in the Column Name field.\r\n\r\nNext, select the data type for the column from the drop down list of options in the Data Type field.\r\n\r\nIf you have selected a text-type column that allows a size, the Size field will be available for you to specify the maximum number of characters allowed.\r\n\r\nOther options: You can check the Nulls checkbox to allow null values in the column, tick the Identity checkbox to have the database automatically generate a unique ID for the column - starting at 1 and incrementing by 1\\. Finally, you can specify a Default Value for your column too.\r\n\r\nNOTE: depending on the options you choose, other options may not be available. For instance, if you choose to make a column an Identity column, you cannot make the column nullable.\r\n\r\nIn the screen shot below, we've created a sample Contacts table:\r\n\r\n![](./img/DatabaseTools_TableDesignerWithColumns.png)\r\n\r\nOnce you've designed your table, give it a name (Contacts in our example):\r\n\r\n![](./img/DatabaseTools_TableName.png)\r\n\r\nOnce you're done, click the Create Table button and your table will be created."
     },
     {
-      "id": "data-list",
+      "id": "template-data-list",
       "title": "DataList",
       "category": "Display Controls",
       "context": "template",
-      "summary": "Displays records in a grid layout with configurable columns and direction. Supports paging, sorting, search, and detail views.",
+      "summary": "The DataList tag, like the Template tag, is a View control that is used for displaying and interacting with records from your datasource. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates. Like the Template tag, it contains the data commands and layout instructions for your display and enables you to specify who is allowed to add, edit, and delete records as well as who is allowed to view the details of records. The primary difference between the DataList and Template is that the DataList allows you to layout your records in a grid pattern.",
       "path": "/template-controls/data-list",
       "since": "1.0",
       "keywords": [
-        "datalist",
-        "grid",
+        "data",
         "list",
-        "records",
-        "display",
-        "columns",
-        "paging"
+        "template"
       ],
       "related": [
         "template",
@@ -1000,7 +996,7 @@
       "title": "DateAdd Token",
       "category": "Function Tokens",
       "context": "all",
-      "summary": "The DateAdd token provides you with the ability to generate a date, relative to the current date. This allows you to create a date that is, say, use information about the current module instance at ru...",
+      "summary": "The DateAdd token provides you with the ability to generate a date, relative to the current date. This allows you to create a date that is, say, use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.",
       "path": "/tokens/dateadd",
       "keywords": [
         "date",
@@ -1056,20 +1052,18 @@
       "content": "# `<DateInput>`\r\n\r\nThe DateInput tag renders as a single-line textbox at run time that accepts dates and, optionally, time. .\r\n\r\n## Syntax\r\n```html\r\n<DateInput \r\n    AccessKey=\"string\" \r\n    BackColor=\"color name|#dddddd\" \r\n    BorderColor=\"color name|#dddddd\" \r\n    BorderStyle=\"NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset\" \r\n    BorderWidth=\"size\" \r\n    CssClass=\"string\" \r\n    Culture=\"locale id\"\r\n    DataField=\"string\" \r\n    DataType=\"datetime|date\"\r\n    DateOnly=\"True|False\"\r\n    Font-Bold=\"True|False\" \r\n    Font-Italic=\"True|False\" \r\n    Font-Names=\"string\" \r\n    Font-Overline=\"True|False\" \r\n    Font-Size=\"string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large\" \r\n    Font-Strikeout=\"True|False\" \r\n    Font-Underline=\"True|False\" \r\n    ForeColor=\"color name|#dddddd\" \r\n    Format=\"date/time formatting expression\"\r\n    Height=\"size\" \r\n    ID=\"string\" \r\n    Nullable=\"True|False\"\r\n    ReadOnly=\"True|False\" \r\n    Style=\"string\" \r\n    TabIndex=\"integer\" \r\n    ToolTip=\"string\"\r\n    Visible=\"True|False\" \r\n    Width=\"size\"\r\n/> \r\n```\r\n \r\n\r\n## Remarks\r\n\r\nWhen you need to enter dates in your forms, the DateInput tag will help. It allows you to specify what **culture** XMod Pro should use when evaluating the input so it can better convert it to the appropriate datetime data type. Additionally, you can specify a **format** for the input that will be used when editing a record. The `datatype` attribute default is **datetime**.\r\n\r\n*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines)\r\n*   **BackColor**: Color of the background of the control.\r\n*   **BorderColor**: Color of the border around the control\r\n*   **BorderStyle**: Style of the border around the control.\r\n*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)\r\n*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control\r\n*   **Culture**: A locale ID identifying the culture that should be used when converting the control's input to a date for use by the database. Some examples: en-GB, es-MX, es-SP, en-US. If no culture is specified the system's current culture is used.\r\n*   **DataField**: Name of the parameter in the `<submitcommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<selectcommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.\r\n*   **DateOnly**: (new to version 3.1) When set to True, the control only processes the date portion of the value entered. While a time may be entered by the user, it will not be sent to the database. When a date if retrieved from the database for editing, only the date will be displayed. It's important to remember that when the DataType is set to DateTime, there is always a time component - even if it isn't visible in the control. So, when DataType is DateTime and DateOnly is true, the time component will always be set to 12:00:00 AM. When DataType is set to Date, only the date component is processed and stored in the database and he DateOnly property does not need to be set.\r\n*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). . This attribute is required if the control will participate in operations with your form's data commands. The DateInput uses datetime by default.\r\n*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)\r\n*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.\r\n*   **Format**: When a record is being edited and a date value is read from the database and placed in the control, the Format attribute determines how it will be displayed. You can use standard date formatting expressions here:\r\n    *   `d`: Represents the day of the month as a number from 1 through 31.  ** When used by itself, `d` represents the date as a short date pattern. i.e 2009-06-15T13:45:30 becomes 6/15/2009 The results are culture-dependent.\r\n    *   `dd`: Represents the day of the month as a number from 01 through 31\r\n    *   `D` : Represents the date as a long date pattern. i.e. 2009-06-15T13:45:30 becomes Monday, June 15, 2009. The results are culture-dependent.\r\n    *   `M`: Represents the month as a number from 1 to 12\r\n    *   `MM`: Represents the month as number from 01 to 12\r\n    *   `yy`: Represents the year as a two digit number. 2008 would be 08, 1999 would be 99\r\n    *   `yyyy`: Represents the year as a four digit number. 2008 would be 2008, 1999 would be 1999\r\n    *   `h`: Represents the hour as a number from 1 to 12, using a twelve hour clock\r\n    *   `hh`: Represents the hours as a number from 01 to 12 using a twelve hour clock\r\n    *   `H`: Represents the hour as a number from 1 to 24 using a 24 hour clock\r\n    *   `HH`: Represents the hour as a number from 01 to 24 using a 24 hour clock\r\n    *   `m`: Represents the minute as a number from 0 to 59\r\n    *   `mm`: Represents the minute as a number from 00 to 59\r\n    *   `s`: Represents the second as a number from 0 to 59\r\n    *   `ss`: Represents the second as number from 00 to 59\r\n    *   `t`: Represents the time as a short time pattern i.e 2009-06-15T13:45:30 becomes 1:45 PM. The results are culture-dependent.\r\n    *   `T`: Represents the time as a long time pattern i.e 2009-06-15T13:45:30 becomes 1:45:30 PM. The results are culture-dependent.\r\n*   **Height**: Height of the control, specified in [units](../unit-types.md).\r\n*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.\r\n*   **Nullable**: If True (the default is False), the control will return a `DBNull` value if the control is blank or contains just whitespace. If a `DBNull` value is passed to the control, the control will be set to an empty string.\r\n*   **ReadOnly**: If True, the contents of the control cannot be changed. The default value is False.\r\n*   **MaxLength**: The maximum number of characters allowed in the text box.\r\n*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`)\r\n*   **Tabindex**: Sets the tab index for the control\r\n*   **Tooltip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control\r\n*   **Visible**: Determines if the control is visible (true) or hidden (false)\r\n*   **Width**: Width of the control in [units](../unit-types.md).\r\n\r\n\r\n\r\n## Example\r\n```html {7-8}\r\n<AddForm>\r\n  ...\r\n  <table>\r\n    <tr>\r\n      <td>\r\n        <label for=\"txtEventDate\" text=\"Event Date\" /> \r\n        <DateInput id=\"txtEventDate\" datafield=\"EventDate\" datatype=\"datetime\" \r\n           culture=\"fr-FR\" format=\"dd-MM-yyyy\"/>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"2\">\r\n        <AddButton text=\"Add\"/>&nbsp;<CancelButton text=\"Cancel\"/>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</AddForm>\r\n```"
     },
     {
-      "id": "dropdown-list",
+      "id": "form-dropdown-list",
       "title": "DropDownList",
       "category": "List Controls",
       "context": "form",
-      "summary": "Drop-down selection list that can be populated with static items or bound to a data source. Supports cascading/dependent lists.",
+      "summary": "The DropdownList tag renders as a drop-down list control at run-time.",
       "path": "/form-controls/dropdown-list",
       "since": "1.0",
       "keywords": [
-        "dropdown",
-        "select",
+        "drop",
+        "down",
         "list",
-        "combo",
-        "cascading",
-        "dependent"
+        "form"
       ],
       "related": [
         "listbox",
@@ -1113,7 +1107,7 @@
       "title": "DualList",
       "category": "List Controls",
       "context": "form",
-      "summary": "New to version 1.5. The DualList tag renders as two listboxes at run-time. Each box is separated by a series of buttons that enable moving items from the first listbox to the second listbox and vice v...",
+      "summary": "New to version 1.5. The DualList tag renders as two listboxes at run-time. Each box is separated by a series of buttons that enable moving items from the first listbox to the second listbox and vice versa. NOTE: The DualList requires Javascript to function correctly.",
       "path": "/form-controls/dual-list",
       "keywords": [
         "dual",
@@ -1156,7 +1150,7 @@
       "title": "Email",
       "category": "Actions",
       "context": "form",
-      "summary": "The Email tag does not render visibly at run-time. It is a behind-the-scenes operator. Upon successful submission of the form, XMod Pro will send an email based on the information provided in this tag...",
+      "summary": "The Email tag does not render visibly at run-time. It is a behind-the-scenes operator. Upon successful submission of the form, XMod Pro will send an email based on the information provided in this tag. You may include more than one Email tag in each form. The Email tag can be used to send multiple emails but it is not intended as a bulk email mechanism.",
       "path": "/form-controls/email",
       "keywords": [
         "email",
@@ -1188,14 +1182,14 @@
       "summary": "Documentation for FAQ.",
       "path": "/faq",
       "keywords": [],
-      "content": "# FAQ\r\n\r\n## General\r\n\r\n*   **Can users other than Hosts or SuperUser accounts add, edit, and delete forms and templates?**  \r\n    No. XMod Pro enables full access to your database. This provides you with enormous power. However, it also means it's possible to do quite a bit of damage to your data. It is possible to not only wipe out the data in your portal's database, but the data in every other portal. Because of this, we decided to only allow access to Hosts. However, Administrators of individual portals can configure their modules, selecting forms and templates you've created. As a Host, once you create a form/template while logged into a given portal, that form/template then becomes available to the Admin of that portal for use.\r\n\r\n## Forms\r\n\r\n*   **How do I link controls in my form with fields in my data?**  \r\n    All controls designed to work with XMod Pro supply you with two attributes: DataField and DataType. Put the name of the field you want to link to the control in the DataField attribute. Next, specify what the data type of that field is. If it is text, use \"string\" at the datatype. If it is true/false, use \"boolean\", if it is a number, use \"int32\" or \"int64\", etc.\r\n*   **Can I use space and/or punctuation marks when naming my forms?**  \r\n    Only letters, numbers, hyphens (`-`), and underscores (`_`)are allowed. To help distinguish different words in the name, you can separate them with hyphens and/or underscores or you can use \"camel case\" where you capitalize the first letter in each word.\r\n\r\n## Templates\r\n\r\n*   **How Do I Tell XMod Pro Where to Display My Data?**  \r\n    Within your templates, use [Field Tokens](./tokens/field.md) to identify where to place your data.\r\n*   **Can I use space and/or punctuation marks when naming my templates?**  \r\n    Only letters, numbers, hyphens (`-`), and underscores (`_`) are allowed. To help distinguish different words in the name, you can separate them with hyphens and/or underscores or you can use \"camel case\" where you capitalize the first letter in each word. For example: MyForm"
+      "content": "# FAQ\r\n\r\n## General\r\n\r\n*   **Can users other than Hosts or SuperUser accounts add, edit, and delete forms and templates?**  \r\n    No. XMod Pro enables full access to your database. This provides you with enormous power. However, it also means it's possible to do quite a bit of damage to your data. It is possible to not only wipe out the data in your portal's database, but the data in every other portal. Because of this, we decided to only allow access to Hosts. However, Administrators of individual portals can configure their modules, selecting forms and templates you've created. As a Host, once you create a form/template while logged into a given portal, that form/template then becomes available to the Admin of that portal for use.\r\n\r\n## Forms\r\n\r\n*   **How do I link controls in my form with fields in my data?**  \r\n    All controls designed to work with XMod Pro supply you with two attributes: DataField and DataType. Put the name of the field you want to link to the control in the DataField attribute. Next, specify what the data type of that field is. If it is text, use \"string\" at the datatype. If it is true/false, use \"boolean\", if it is a number, use \"int32\" or \"int64\", etc. [See Data Types](./data-types.md)\r\n*   **Can I use space and/or punctuation marks when naming my forms?**  \r\n    Only letters, numbers, hyphens (`-`), and underscores (`_`)are allowed. To help distinguish different words in the name, you can separate them with hyphens and/or underscores or you can use \"camel case\" where you capitalize the first letter in each word.\r\n\r\n## Templates\r\n\r\n*   **How Do I Tell XMod Pro Where to Display My Data?**  \r\n    Within your templates, use [Field Tokens](./tokens/field.md) to identify where to place your data.\r\n*   **Can I use space and/or punctuation marks when naming my templates?**  \r\n    Only letters, numbers, hyphens (`-`), and underscores (`_`) are allowed. To help distinguish different words in the name, you can separate them with hyphens and/or underscores or you can use \"camel case\" where you capitalize the first letter in each word. For example: MyForm"
     },
     {
       "id": "tokens-field",
       "title": "Field Tokens",
       "category": "Field Tokens",
       "context": "all",
-      "summary": "Field Tokens are the mechanism used to display values from your datasource in your templates. If you've used XMod, then you can think of field tokens as the replacement for the old `<xmod:Field>` tag.",
+      "summary": "Field Tokens are the mechanism used to display values from your datasource in your templates. If you've used XMod, then you can think of field tokens as the replacement for the old `<xmod:Field>` tag. The token syntax is much simpler. Simply start with two open brackets (`[[`) followed by the exact name of the field you want to display (this is case-sensitive) and then follow that with two closing brackets (`]]`). At run-time, XMod Pro will replace that token with the value from that field for each record. There are some usage rules you'll need follow. They are described in the Remarks section.",
       "path": "/tokens/field",
       "keywords": [
         "field",
@@ -1238,13 +1232,13 @@
       "title": "Font Properties",
       "category": "Reference",
       "context": "all",
-      "summary": "Most standard controls accept attributes that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the \"style\" attribute available in most control...",
+      "summary": "Most standard controls accept attributes that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the \"style\" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.",
       "path": "/font-properties",
       "keywords": [
         "font",
         "properties"
       ],
-      "content": "# Font Properties\r\n\r\nMost standard controls accept attributes that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the \"style\" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.\r\n\r\n::: warning NOTE\r\nNot all properties will function in all controls and browsers.\r\n:::\r\n\r\nFont properties must start with `font-` and be followed by the name of the property you want to set. The following properties are available:\r\n\r\n*   **font-bold**:  Whether the font is bold. Value can be true or false. Default is false.\r\n*   **font-italic**: Whether is italic. Value can be `true` or `false`. Default is false.\r\n*   **font-names**:  Sequence of fonts that can be used to render the control. Ex: `Arial, Helvetica, sans-serif`\r\n*   **font-overline**: Whether the font contains an overline. Value can be `true` or `false`. Default is false.\r\n*   **font-size**: The size of the font. Ex: `12px` or `12pt`  \r\n*   **font-strikeout**: Whether the font has a strike through it (~~strikethrough~~). Value can be `true` or `false`. Default is false.\r\n*   **font-underline**: Whether the font is underlined. Value can be `true` or `false`. Default is false."
+      "content": "# Font Properties\n\nMost standard controls accept attributes\n that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the \"style\" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.\n\n::: warning NOTE\nWe **strongly encourage** you to avoid using these font properties. Modern web sites Use CSS classes or, if needed, the `style` property. Note also that not all properties will function in all controls and browsers.\n:::\n\nFont properties must start with `font-` and be followed by the name of the property you want to set. The following properties are available:\n\n*   **font-bold**:  Whether the font is bold. Value can be true or false. Default is false.\n*   **font-italic**: Whether is italic. Value can be `true` or `false`. Default is false.\n*   **font-names**:  Sequence of fonts that can be used to render the control. Ex: `Arial, Helvetica, sans-serif`\n*   **font-overline**: Whether the font contains an overline. Value can be `true` or `false`. Default is false.\n*   **font-size**: The size of the font. Ex: `12px` or `12pt`  \n*   **font-strikeout**: Whether the font has a strike through it (~~strikethrough~~). Value can be `true` or `false`. Default is false.\n*   **font-underline**: Whether the font is underlined. Value can be `true` or `false`. Default is false."
     },
     {
       "id": "tokens-functions",
@@ -1265,7 +1259,7 @@
       "title": "Getting Started",
       "category": "Getting Started",
       "context": "all",
-      "summary": "XMod Pro solutions consist of two fundamental components: forms and templates. Forms are used to add and edit data while templates are used to display data.",
+      "summary": "XMod Pro solutions consist of two fundamental components: forms and templates. Forms are used to add and edit data while templates are used to display data. While forms and templates generally work with the same data, there are no rules in XMod Pro that require that be the case. It's possible to use a form and template in the same module instance that operate on distinct data though most of the time they'll usually be linked.",
       "path": "/getting-started",
       "keywords": [
         "getting",
@@ -1303,7 +1297,7 @@
       "title": "Include",
       "category": "Structure",
       "context": "form",
-      "summary": "The Include tag injects the raw contents of the specified file into the form at the position of the tag.",
+      "summary": "The Include tag injects the raw contents of the specified file into the form at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.",
       "path": "/form-controls/include",
       "keywords": [
         "include",
@@ -1414,7 +1408,7 @@
       "title": "Login",
       "category": "User Actions",
       "context": "form",
-      "summary": "In the example above note how we're using Field Tokens (`[[Uname]]` and `[[Pword]]`) to grab the data from the form controls.",
+      "summary": "In the example above note how we're using Field Tokens (`[[Uname]]` and `[[Pword]]`) to grab the data from the form controls. Additionally, we're telling the Login tag to add the user's Username and UserID to any tags \"downstream\". The field names that will be used are `UsrName` for the Username and `UsrId` for the UserID. There is one \"downstream\" action - the `<Redirect>` tag. It's using those fields in its `Target` property to feed the data into the URL. NOTE that in this specific case (and unlike most other XMod Pro forms) we can simply put the field tokens `[[UsrName]]` and `[[UsrId]]` directly into the target property without having to use the JOIN() function.",
       "path": "/form-controls/login",
       "keywords": [
         "login",
@@ -1438,7 +1432,7 @@
       "title": "Managing Feeds",
       "category": "Managing Content",
       "context": "all",
-      "summary": "NEW TO VERSION 3.0: Feeds are a new feature as of XMod Pro 3\\. They greatly expand what you can do with XMod Pro.",
+      "summary": "NEW TO VERSION 3.0: Feeds are a new feature as of XMod Pro 3\\. They greatly expand what you can do with XMod Pro. With them, you can create RSS feeds, export data as CSV files, convert SQL data to XML files, even use them to display printer-friendly HTML files -- all using the same types of techniques you use to create templates. Feeds are created, edited, copied, and deleted within the Manage Feeds page. The Manage Feeds page is only available to Hosts or SuperUser accounts. To get there, select \"Control Panel\" from the module's Actions/Manage Menu.",
       "path": "/manage-feeds",
       "keywords": [
         "managing",
@@ -1451,7 +1445,7 @@
       "title": "Managing Forms",
       "category": "Managing Content",
       "context": "all",
-      "summary": "Don't Feel Like Reading? **Watch the videos** instead:",
+      "summary": "Don't Feel Like Reading? **Watch the videos** instead.",
       "path": "/manage-forms",
       "keywords": [
         "managing",
@@ -1464,7 +1458,7 @@
       "title": "Managing Templates",
       "category": "Managing Content",
       "context": "all",
-      "summary": "Data display templates are created, edited, copied, and deleted within the Manage Templates page. The Manage Templates page is only available to Hosts or SuperUser accounts.",
+      "summary": "Data display templates are created, edited, copied, and deleted within the Manage Templates page. The Manage Templates page is only available to Hosts or SuperUser accounts. To get there, select \"Control Panel\" from the module's Actions/Manage Menu.",
       "path": "/manage-templates",
       "keywords": [
         "managing",
@@ -1477,7 +1471,7 @@
       "title": "Markdown",
       "category": "Input Controls",
       "context": "form",
-      "summary": "The Markdown control, first introduced with version 4.9, renders as a multi-line, syntax-highlighted editor for entering markdown text.",
+      "summary": "The Markdown control, first introduced with version 4.9, renders as a multi-line, syntax-highlighted editor for entering markdown text. Markdown is, ultimately, just plain text so a Textarea control would work just as well. However, this control is designed to make markdown editing more pleasant. You can optionally decorate it with line numbers and assign a theme. The control does not attempt to enforce markdown syntax or other rules on the supplied text. This control pairs well with the `<xmod:Markdown>`.",
       "path": "/form-controls/markdown",
       "keywords": [
         "markdown",
@@ -1502,7 +1496,7 @@
       "title": "Module Tokens",
       "category": "Module Tokens",
       "context": "all",
-      "summary": "Module Tokens provide you with the ability to use information about the current module instance at run-time such as the module's ID.",
+      "summary": "Module Tokens provide you with the ability to use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.",
       "path": "/tokens/module",
       "keywords": [
         "module",
@@ -1520,7 +1514,7 @@
       "title": "Page Tokens",
       "category": "Module Tokens",
       "context": "all",
-      "summary": "Page Tokens provide you with the ability to use information about the current page on which the XMod Pro module instance is sitting such as the page's ID.",
+      "summary": "Page Tokens provide you with the ability to use information about the current page on which the XMod Pro module instance is sitting such as the page's ID. Additional Module Tokens will be added to this topic as they become available.",
       "path": "/tokens/page",
       "keywords": [
         "page",
@@ -1539,7 +1533,7 @@
       "title": "Pager",
       "category": "Navigation",
       "context": "template",
-      "summary": "The Pager tag can only be used within a Template or DataList tag. The tag defines how the pagers in the view will look and function.",
+      "summary": "The Pager tag can only be used within a Template or DataList tag. The tag defines how the pagers in the view will look and function. The Pager attributes provide the information necessary to define how the components of the top and bottom pagers will look while the inner content of the Pager allows you to use HTML to determine how the components are arranged. If no inner content is specified, the default layout will be used. If no tag is specified, the pagers will not be shown.",
       "path": "/template-controls/pager",
       "keywords": [
         "pager",
@@ -1582,7 +1576,7 @@
       "title": "Panel",
       "category": "Layout",
       "context": "form",
-      "summary": "The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders.",
+      "summary": "The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders. Primarily, though, it is used to show/hide parts of the form based on what role the current user is in. So, for instance, you can include controls that will only be available to administrators or editors or registered users, etc.",
       "path": "/form-controls/panel",
       "keywords": [
         "panel",
@@ -1676,7 +1670,7 @@
       "title": "RadioButton",
       "category": "Selection Controls",
       "context": "form",
-      "summary": "The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive o...",
+      "summary": "The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive options. This can be a useful alternative to using a RadioButtonList. With the RadioButtonList, only one value is sent to the datasource. If you use RadioButton controls that are grouped, you get the same mutually-exclusive options, but you also have the ability to store the value of each RadioButton in its own data field.",
       "path": "/form-controls/radio-button",
       "keywords": [
         "radio",
@@ -1763,7 +1757,7 @@
       "title": "Redirect",
       "category": "Actions",
       "context": "form",
-      "summary": "New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time.",
+      "summary": "New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.",
       "path": "/form-controls/redirect",
       "keywords": [
         "redirect",
@@ -1803,7 +1797,7 @@
       "title": "RemoveFromRoles",
       "category": "User Actions",
       "context": "form",
-      "summary": "In the example below, we are removing the currently logged-in user (specified by the `[[User:Id]]` token) from the \"Role1\" and \"Editors\" roles.",
+      "summary": "In the example below, we are removing the currently logged-in user (specified by the `[[User:Id]]` token) from the \"Role1\" and \"Editors\" roles. Since we are specifying a comma-delimited set of roles, we specify a `RoleDelimiter` of comma `,` and separate the roles in the `RoleNames` property with commas. If we didn't set the `RoleDelimiter` property, we would, instead, need to separate our role names with the pipe `|` like so: `RoleNames=\"Role1|Editors\"`.",
       "path": "/form-controls/remove-from-roles",
       "keywords": [
         "remove",
@@ -1825,7 +1819,7 @@
       "title": "Request Tokens",
       "category": "Request Tokens",
       "context": "all",
-      "summary": "Tokens provide you with the ability to use information about the current HTTP Request at run-time such as the current URL, the referring URL, etc.",
+      "summary": "Tokens provide you with the ability to use information about the current HTTP Request at run-time such as the current URL, the referring URL, etc. Note that some or none of these settings may be available. If they are, the information may not be useful. Internet security/privacy software can block many of these settings and other settings can be forged for benign or malicious reasons. This information is passed through the DotNetNuke filters to remove markup, scripting, and SQL.",
       "path": "/tokens/request",
       "keywords": [
         "request",
@@ -1850,7 +1844,7 @@
       "title": "ScriptBlock",
       "category": "Scripting",
       "context": "form",
-      "summary": "The ScriptBlock tag is used to inject HTML `<script>` tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page.",
+      "summary": "The ScriptBlock tag is used to inject HTML `<script>` tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert `<style>` tags into the page using this tag.",
       "path": "/form-controls/script-block",
       "keywords": [
         "script",
@@ -1872,7 +1866,7 @@
       "title": "SearchSort",
       "category": "Navigation",
       "context": "template",
-      "summary": "The SearchSort tag can only be used within a Template tag or DataList tag. The tag defines how the search and sort panel in the view will look and function.",
+      "summary": "The SearchSort tag can only be used within a Template tag or DataList tag. The tag defines how the search and sort panel in the view will look and function. The SearchSort tag attributes provide the information necessary to define how the components of the search and sort panel will look and function, while the tag's inner content, if specified, allow you to use HTML and SearchSort tokens to determine how the components of the search and sort panel are arranged.",
       "path": "/template-controls/search-sort",
       "keywords": [
         "search",
@@ -1904,7 +1898,7 @@
       "title": "SilentPost",
       "category": "Actions",
       "context": "form",
-      "summary": "New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e.",
+      "summary": "New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e. silently) without user interaction.",
       "path": "/form-controls/silent-post",
       "keywords": [
         "silent",
@@ -1925,7 +1919,7 @@
       "title": "Snippets",
       "category": "Editors",
       "context": "all",
-      "summary": "Beginning with version 4.3, XMod Pro introduced \"snippets\" to its text-based editors. If you're a programmer or web developer, you've probably run into snippets in various development environments and...",
+      "summary": "Beginning with version 4.3, XMod Pro introduced \"snippets\" to its text-based editors. If you're a programmer or web developer, you've probably run into snippets in various development environments and editors. Snippets are a quick and convenient way to store and leverage often used code or text. Snippets are available in the toolbar of the form, template, and feed text editors.",
       "path": "/snippets",
       "keywords": [
         "snippets"
@@ -2019,19 +2013,16 @@
       "content": "# `<Textarea>`\r\n\r\nThe Textarea tag renders as a multi-line text input box at run time.\r\n\r\n## Syntax\r\n```html\r\n<Textarea  \r\n    AccessKey=\"string\" \r\n    BackColor=\"color name|#dddddd\" \r\n    BorderColor=\"color name|#dddddd\" \r\n    BorderStyle=\"NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset\" \r\n    BorderWidth=\"size\" \r\n    CharacterCount=\"None|CountDown|CountUp\" \r\n    CharacterCountClass=\"CSS Class Name\"\r\n    CharacterCountLabel=\"string\"\r\n    Columns=\"integer\"\r\n    CssClass=\"string\" \r\n    DataField=\"string\"\r\n    DataType=\"string|int32|int64|boolean|....\"\r\n    Font-Bold=\"True|False\" \r\n    Font-Italic=\"True|False\" \r\n    Font-Names=\"string\" \r\n    Font-Overline=\"True|False\" \r\n    Font-Size=\"string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large\" \r\n    Font-Strikeout=\"True|False\" \r\n    Font-Underline=\"True|False\" \r\n    ForeColor=\"color name|#dddddd\" \r\n    Height=\"size\" \r\n    HtmlEncode=\"True|False\"\r\n    ID=\"string\" \r\n    MaxLength=\"integer\"\r\n    Nullable=\"True|False\"\r\n    ReadOnly=\"True|False\" \r\n    Rows=\"integer\"\r\n    Style=\"string\" \r\n    TabIndex=\"integer\" \r\n    ToolTip=\"string\" \r\n    Visible=\"True|False\" \r\n    Width=\"size\" \r\n    Wrap=\"True|False\"\r\n/> \r\n```\r\n \r\n\r\n## Remarks\r\n\r\nIf no `DataType` is supplied, the `<Textarea>` control defaults to **string**.\r\n\r\n*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  \r\n\r\n*   **BackColor**: Color of the background of the control.  \r\n\r\n*   **BorderColor**: Color of the border around the control.  \r\n\r\n*   **BorderStyle**: Style of the border around the control.  \r\n\r\n*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)\r\n\r\n*   **CharacterCount**: Defaults to None. When set to `CountUp`, the number of characters the user has typed into the control will be displayed just after the control. If the value is set to `CountDown`, the number of characters remaining will be displayed. Remaining characters are calculated based on the `MaxLength` property. _This feature requires Javascript and jQuery_. (New to version 2.1)  \r\n\r\n*   **CharacterCountLabel**: Text to be displayed next to the number displayed in `CharacterCount`. This label is only displayed when `CharacterCount` is set to `CountUp` or `CountDown`. \r\n    :::tip \r\n    You should precede your label text with a space. Otherwise the text will butt up against the character count number. (New to version 2.1) \r\n    :::\r\n\r\n*   **CharacterCountClass**: When `CharacterCount` is `CountUp` or `CountDown`, you can style the the displayed number and the `CharacterCountLabel` (if specified) by specifying a CSS class name for this property. (New to version 2.1)  \r\n\r\n*   **Columns**: The display width, in characters, of the control.  \r\n\r\n*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  \r\n\r\n*   **DataField**: Name of the parameter in the `<SubmitSommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  \r\n\r\n*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  \r\n\r\n*   **Font Properties**: A series of attributes such as `font-bold`, `font-size`, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)\r\n\r\n*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  \r\n\r\n*   **Height**: Height of the control, specified in [units](../unit-types.md).  \r\n\r\n*   **HtmlEncode**: When set to true, the content of the control will have any HTML encoded before sending it to the SubmitCommand for processing. Note that setting this to true can help protect against scripting attacks but it will also enlarge the size of the text that is saved (`<`) becomes (`&lt;`), for instance.  \r\n\r\n*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  \r\n\r\n*   **MaxLength**: For Use ONLY With `CharacterCount` attribute. Specifies the maximum number of characters the `CharacterCount` feature should allow. If not specified, the user's input will not be limited. \r\n    \r\n    ::: warning IMPORTANT\r\n    Unlike the TextBox's MaxLength attribute, this does not ensure that no more than the specified number of characters will be entered. You should still use normal validation methods for that. (New to version 2.1)\r\n    :::\r\n\r\n*   **Placeholder**: New to version 4.2. If this property is set, the value will be displayed in the textbox when it is empty. It is an HTML5 feature that will only function on capable browsers (all other browsers will ignore it). The purpose is to provide the user with some explanatory text in the control itself prior to the user entering any text. For instance, a contact form's About Me textarea might have \"Tell us about yourself\" as the `Placeholder`. When the user tabs into the control, the text will disappear. If the user tabs out without entering anything, the \"Tell us about yourself\" text will re-appear. The `Placeholder` value is not a default value for the control and will not be sent to the database.  \r\n\r\n*   **Nullable**: If True (the default is False), the control will return a `DBNull` value if the control is blank or contains just whitespace. If a `DBNull` value is passed to the control, the control will be set to an empty string.  \r\n\r\n*   **ReadOnly**: If True, the contents of the control cannot be changed. The default value is False.  \r\n\r\n*   **Rows**: The number of rows or lines displayed in the Textarea control.  \r\n\r\n*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  \r\n\r\n*   **Tabindex**: Sets the tab index for the control.  \r\n\r\n*   **Tooltip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  \r\n\r\n*   **Visible**: Determines if the control is visible (true) or hidden (false).  \r\n\r\n*   **Width**: Width of the control in [units](../unit-types.md).  \r\n\r\n*   **Wrap**: If True, text in the textarea wraps. If False, text does not wrap. The default is True.  \r\n\r\n\r\n\r\n## Example\r\n```html {13}\r\n<AddForm>\r\n  ...\r\n  <table>\r\n    <tr>\r\n      <td>\r\n        <Label for=\"txtFirstName\" text=\"First Name\" /> \r\n        <Textbox id=\"txtFirstName\" datafield=\"FirstName\" datatype=\"string\" />\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n       <td>\r\n         <Label for=\"txtBio\" text=\"Bio\" />\r\n         <Textarea id=\"txtBio\" datafield=\"Bio\" datatype=\"string\" />\r\n       </td>\r\n    </tr>\r\n    <tr>\r\n       <td colspan=\"2\">\r\n         <AddButton text=\"Add\"/> <CancelButton text=\"Cancel\"/>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</AddForm>\r\n```"
     },
     {
-      "id": "textbox",
+      "id": "form-textbox",
       "title": "Textbox",
       "category": "Input Controls",
       "context": "form",
-      "summary": "Single-line text input for entering names, addresses, and other short text values.",
+      "summary": "The Textbox tag renders as a single-line text input box at run time.",
       "path": "/form-controls/textbox",
       "since": "1.0",
       "keywords": [
-        "text",
-        "input",
-        "string",
-        "field",
-        "textfield"
+        "textbox",
+        "form"
       ],
       "related": [
         "textarea",
@@ -2070,7 +2061,7 @@
       "title": "Units",
       "category": "Reference",
       "context": "all",
-      "summary": "Units are typically used to specify the height and width of an element. Not all types are supported in all browsers. The most common types are Pixel and Percentage. Possible Unit Types Are:",
+      "summary": "Units are typically used to specify the height and width of an element. Not all types are supported in all browsers. The most common types are Pixel and Percentage. Possible Unit Types Are.",
       "path": "/unit-types",
       "keywords": [
         "units"
@@ -2181,7 +2172,7 @@
       "title": "UpdateUser",
       "category": "User Actions",
       "context": "form",
-      "summary": "You MUST take care to properly validate user input. Additionally you should place this tag only on forms that are properly secured so that only users you intend to have access can use the form. :::",
+      "summary": "You MUST take care to properly validate user input. Additionally you should place this tag only on forms that are properly secured so that only users you intend to have access can use the form.",
       "path": "/form-controls/update-user",
       "keywords": [
         "update",
@@ -2249,19 +2240,17 @@
       "content": "# Using Javascript\r\n\r\nThis topic won't teach you how to use Javascript. Instead, it provides techniques for incorporating your scripts into your XMod Pro solutions.  \r\n\r\n## Injecting Script Into the Page\r\n\r\nFor plain Javascript, you can simply type it into your form or template and it will be rendered out to the page at run-time. If you need to register a Javascript libraries in other files or inject a function or several functions, use a Script Block tag. Use the `<xmod:ScriptBlock>` tag in templates and the `<ScriptBlock>` tag in forms.\r\n\r\n## Using Script Inside XMod Pro Tag Attributes\r\n\r\nOften, you'll need to react to an event initiated by an XMod Pro control. The most obvious example is the Click event of buttons, links, and clickable images. For this, you should put your Javascript in the OnClientClick attribute of the control. Here's an example. Note that this is not a complete example of the tag since we're only focusing on the use of Javascript\r\n\r\n```xml\r\n<xmod:DeleteButton ...OnClientClick=\"return confirm('Delete This Record?');\" ...\r\n```\r\n\r\nWhen the button is clicked, the built-in Javascript function \"confirm\" is called. The confirmation function pops up a dialog which displays a message (\"Delete This Record\"), and prompts the user to click \"OK\" or \"Cancel\". If the user clicks \"OK\", the function returns \"true\". If the \"Cancel\" button is pressed, a value of \"false\" is returned.\r\n\r\nIt's important to return a value of true or false in cases like this. If false is returned, the button will stop its processing. In other words, it won't post back to the server and won't delete the record. If true is returned, then processing continues normally.\r\n\r\n## Doing More with [[Join()]]\r\n\r\nLet's say you want to pass one of your field values to a Javascript function. How would you do it? For this, you'll need to use XMod Pro's [Join function](./tokens/functions.md). The Join function allows you to merge text with field values and other token values. It can be used in plain text, but it's primary purpose is for use within tag attributes. See the Function Tokens help topic for the Join function's syntax:\r\n\r\n```xml\r\n<xmod:DeleteButton ... OnClientClick='[[Join(\"myFunction(\"\"{0}\"\");\", [[CompanyName]])]]' ...\r\n```\r\n\r\nThere are a number of things happening in the above snippet:\r\n\r\n1.  Since we're using a token, we have to delimit the OnClientClick attribute with **single quotes** (') instead of double-quotes (\").\r\n2.  Javascript is just text until it's interpreted by the browser, so we pass the Javascript call in as the Input to the Join function (the first parameter). Within the Javascript text, we use numbered placeholders (starting with zero) which correspond with the additional parameters we pass to the function. In this case, we just have one parameter, but we could have two or three or more. At run-time, the {0} will be replaced by the value of the CompanyName column.\r\n3.  For the sake of this example, let's say the _myFunction_ function expects a text value, so we have to delimit it with quotes. However, since we're delimiting the OnClientClick attribute with single quotes, we have to use double quotes. The problem, though, is that we're _also_ using the double quotes to delimit the Join function. What to do? We have to escape the double quotes by typing two consecutive double quote characters for each individual double quote character we need.  \r\n\r\n## Getting Form Control Client ID's\r\n\r\nIf you're using Javascript in your forms, you'll more than likely need to access the controls on the form from within your script. You'll quickly discover, though, that the ID value you use for your control in XMod Pro, doesn't match the ID that is rendered in the final HTML source code. ASP.NET works to ensure that ID's in the final page are unique within the page. So, it takes your ID and generates a long, but unique ID to use in the browser.\r\n\r\nWhile it's nice ASP.NET helps keep your code HTML compliant, all that re-naming ends up making it very difficult to write client-side script that uses those ID's. Well, XMod Pro has your back. The AddForm and EditForm tags each have an attribute called **ClientName**. Create a unique value and place it in this attribute. Then you can access your form controls with simple dot-notation:\r\n\r\n```xml\r\n<AddForm ClientName=\"MyUniqueId\">\r\n  ...\r\n  <TextBox ID=\"txtFirstName\" .../>\r\n  ...\r\n  <a href=\"#\" onclick=\"alert(document.getElementById(MyUniqueId.txtFirstName);return false;\">Click Me</a>\r\n  ...\r\n</AddForm>\r\n```\r\n\r\nAh, but wait... What if you are using a couple of FormView modules, each of which uses the SAME form. Your ClientName will no longer be unique in the page. It's not a likely scenario, but you can still pull it off. Use the [[Module:ID]] token and the [[Join()]] function to ensure uniqueness in the page:\r\n\r\n```xml\r\n<AddForm ClientName='[[Join(\"MyUniqueId{0}\", [[Module:ID]])'>\r\n  ...\r\n</AddForm>\r\n```\r\n\r\n[ ](#top)"
     },
     {
-      "id": "validate-required",
+      "id": "form-validate-required",
       "title": "Validate Required",
       "category": "Validation",
       "context": "form",
-      "summary": "Ensures the user provides input for a control before form submission. Displays error message when validation fails.",
+      "summary": "The Validate tag whose type is set to \"required\" is referred to as a Required Field Validator and is used to ensure the user provides some input for a given control.",
       "path": "/form-controls/validate-required",
       "since": "1.0",
       "keywords": [
         "validate",
         "required",
-        "validation",
-        "mandatory",
-        "field"
+        "form"
       ],
       "related": [
         "validate-compare",
@@ -2348,7 +2337,7 @@
       "title": "Validate type=\"checkboxlist\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"checkboxlist\" is referred to as a CheckBoxList Validator and is used to ensure the user checks at least one box in the list.",
+      "summary": "The Validate tag whose type is set to \"checkboxlist\" is referred to as a CheckBoxList Validator and is used to ensure the user checks at least one box in the list. NOTE: This validator runs on the server only. A form must pass all client-side validation and be submitted to the server before this validation will trigger.",
       "path": "/form-controls/validate-checkbox-list",
       "keywords": [
         "validate",
@@ -2379,7 +2368,7 @@
       "title": "Validate type=\"compare\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"compare\" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the valu...",
+      "summary": "The Validate tag whose type is set to \"compare\" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the value in a second control. It is useful when prompting the user for an email address or password.",
       "path": "/form-controls/validate-compare",
       "keywords": [
         "validate",
@@ -2437,7 +2426,7 @@
       "title": "Validate type=\"Email\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"email\" is referred to as an Email Validator and is used to ensure the value of the target control matches the form of a valid email address.",
+      "summary": "The Validate tag whose type is set to \"email\" is referred to as an Email Validator and is used to ensure the value of the target control matches the form of a valid email address. It does not validate the email account is valid or active.",
       "path": "/form-controls/validate-email",
       "keywords": [
         "validate",
@@ -2470,7 +2459,7 @@
       "title": "Validate type=\"Range\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"range\" is referred to as a Range Validator and is used to ensure the value of the target control falls within the specified range of values.",
+      "summary": "The Validate tag whose type is set to \"range\" is referred to as a Range Validator and is used to ensure the value of the target control falls within the specified range of values. This can be used, for example, to ensure that only a limited number of tickets can be purchased - that the number of tickets ordered is at least one but not more than five.",
       "path": "/form-controls/validate-range",
       "keywords": [
         "validate",
@@ -2506,7 +2495,7 @@
       "title": "Validate type=\"RegEx\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"regex\" is referred to as a Regular Expression Validator and is used to ensure the value of the target control matches the specified regular expression pattern.",
+      "summary": "The Validate tag whose type is set to \"regex\" is referred to as a Regular Expression Validator and is used to ensure the value of the target control matches the specified regular expression pattern. This can be used, for example, to ensure a phone number matches the format you specify or that an email address is properly formatted.",
       "path": "/form-controls/validate-regular-expression",
       "keywords": [
         "validate",
@@ -2541,7 +2530,7 @@
       "title": "Validate Type=\"XML\"",
       "category": "Validation",
       "context": "form",
-      "summary": "The Validate tag whose type is set to \"xml\" is referred to as an XML Validator and is used to ensure the user provides a well-formed XML snippet as input for a given control.",
+      "summary": "The Validate tag whose type is set to \"xml\" is referred to as an XML Validator and is used to ensure the user provides a well-formed XML snippet as input for a given control. **NOTE:** that this provides very basic verification the XML is well-formed. Deeper checks are not performed.",
       "path": "/form-controls/validate-xml",
       "keywords": [
         "validate",
@@ -2573,7 +2562,7 @@
       "title": "ValidationSummary",
       "category": "Validation",
       "context": "form",
-      "summary": "The `<ValidationSummary>` tag is used to group the display of all validation messages generated by `<Validate>` tags.",
+      "summary": "The `<ValidationSummary>` tag is used to group the display of all validation messages generated by `<Validate>` tags. The tags' `Message` value(s) will be displayed in the validation summary, while the tags' `Text` value(s) will be displayed in place of the `<Validate>` tag.",
       "path": "/form-controls/validation-summary",
       "keywords": [
         "validation",
@@ -2699,7 +2688,7 @@
       "title": "xmod:AjaxButton",
       "category": "Action Links",
       "context": "template",
-      "summary": "The AjaxButton tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxButton tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/template-controls/ajax-button",
       "keywords": [
         "ajax",
@@ -2736,7 +2725,7 @@
       "title": "xmod:AjaxImage",
       "category": "Action Links",
       "context": "template",
-      "summary": "The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/template-controls/ajax-image",
       "keywords": [
         "ajax",
@@ -2775,7 +2764,7 @@
       "title": "xmod:AjaxLink",
       "category": "Action Links",
       "context": "template",
-      "summary": "The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback.",
+      "summary": "The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It requires jQuery be included in the page and that Javascript be enabled in the end-user's browser.",
       "path": "/template-controls/ajax-link",
       "keywords": [
         "ajax",
@@ -2812,7 +2801,7 @@
       "title": "xmod:CommandButton",
       "category": "Action Links",
       "context": "template",
-      "summary": "The CommandButton tag renders as a push-button at run-time. It is used to execute data commands in another template within the module instance.",
+      "summary": "The CommandButton tag renders as a push-button at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandButton in template #1 to pass a parameter to the `<ListdataSource>` of template #2, causing that template to re-load with the new result set.",
       "path": "/template-controls/command-button",
       "keywords": [
         "command",
@@ -2845,7 +2834,7 @@
       "title": "xmod:CommandImage",
       "category": "Action Links",
       "context": "template",
-      "summary": "The CommandImage tag renders as a clickable image at run-time. It is used to execute data commands in another template within the module instance.",
+      "summary": "The CommandImage tag renders as a clickable image at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandImage in template #1 to pass a parameter to the `<ListDataSource>` of template #2, causing that template to re-load with the new result set.",
       "path": "/template-controls/command-image",
       "keywords": [
         "command",
@@ -2880,7 +2869,7 @@
       "title": "xmod:CommandLink",
       "category": "Action Links",
       "context": "template",
-      "summary": "The CommandLink tag renders as a hyperlink at run-time. It is used to execute data commands in another template within the module instance.",
+      "summary": "The CommandLink tag renders as a hyperlink at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandLink in template #1 to pass a parameter to the `<listdatasource>` of template #2, causing that template to re-load with the new result set.",
       "path": "/template-controls/command-link",
       "keywords": [
         "command",
@@ -2913,7 +2902,7 @@
       "title": "xmod:ContinueButton",
       "category": "Buttons",
       "context": "form",
-      "summary": "The ContinueButton tag renders as a push-button at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`.",
+      "summary": "The ContinueButton tag renders as a push-button at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.",
       "path": "/form-controls/continue-button",
       "keywords": [
         "continue",
@@ -2948,7 +2937,7 @@
       "title": "xmod:ContinueImage",
       "category": "Buttons",
       "context": "form",
-      "summary": "The ContinueImage tag renders as a clickable image at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag.",
+      "summary": "The ContinueImage tag renders as a clickable image at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.",
       "path": "/form-controls/continue-image",
       "keywords": [
         "continue",
@@ -2985,7 +2974,7 @@
       "title": "xmod:ContinueLink",
       "category": "Buttons",
       "context": "form",
-      "summary": "The ContinueLink tag renders as a hyperlink at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag.",
+      "summary": "The ContinueLink tag renders as a hyperlink at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.",
       "path": "/form-controls/continue-link",
       "keywords": [
         "continue",
@@ -3116,7 +3105,7 @@
       "title": "xmod:DetailButton",
       "category": "Action Links",
       "context": "template",
-      "summary": "The DetailButton tag renders as a push-button at run-time. It is used to retrieve the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in t...",
+      "summary": "The DetailButton tag renders as a push-button at run-time. It is used to retrieve the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>` tag.",
       "path": "/template-controls/detail-button",
       "keywords": [
         "detail",
@@ -3148,7 +3137,7 @@
       "title": "xmod:DetailImage",
       "category": "Action Links",
       "context": "template",
-      "summary": "The DetailImage tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in...",
+      "summary": "The DetailImage tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>` tag.",
       "path": "/template-controls/detail-image",
       "keywords": [
         "detail",
@@ -3182,7 +3171,7 @@
       "title": "xmod:DetailLink",
       "category": "Action Links",
       "context": "template",
-      "summary": "The DetailLink tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in...",
+      "summary": "The DetailLink tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>` tag.",
       "path": "/template-controls/detail-link",
       "keywords": [
         "detail",
@@ -3214,7 +3203,7 @@
       "title": "xmod:Each",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The Each tag (new to version 4.6) is used to split a delimited value - such as a comma-separated or pipe-separated value in your database.",
+      "summary": "The Each tag (new to version 4.6) is used to split a delimited value - such as a comma-separated or pipe-separated value in your database. You can then iterate through each of these values, rendering out HTML. In other words, if you have a list of images stored in an Images column in your table, you can build a bullet list from that.",
       "path": "/template-controls/each",
       "keywords": [
         "each",
@@ -3336,7 +3325,7 @@
       "title": "xmod:Feed",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The Feed tag, first introduced in version 3.0, is used to define the output of feeds. A feed typically is thought of as an RSS feed, but it can be much more than that.",
+      "summary": "The Feed tag, first introduced in version 3.0, is used to define the output of feeds. A feed typically is thought of as an RSS feed, but it can be much more than that. With the Feed tag, you can produce virtually any XML-based output, a printer-friendly HTML page, a plain text page, even a comma-delimited file that can be automatically opened by Excel or a similar program.",
       "path": "/template-controls/feed",
       "keywords": [
         "feed",
@@ -3364,7 +3353,7 @@
       "title": "xmod:Format",
       "category": "Formatting",
       "context": "template",
-      "summary": "The Format tag allows you to present your data in a more user-friendly format. With it, you can format currency, numbers, dates.",
+      "summary": "The Format tag allows you to present your data in a more user-friendly format. With it, you can format currency, numbers, dates. You can perform text substitutions and regular expression substitutions. It also provides you with the ability to cloak text - i.e. obfuscate it so that web 'bots have more difficulty scraping your web pages for data like email addresses.",
       "path": "/template-controls/format",
       "keywords": [
         "format",
@@ -3416,7 +3405,7 @@
       "title": "xmod:Include",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The Include tag injects the raw contents of the specified file into the template at the position of the tag.",
+      "summary": "The Include tag injects the raw contents of the specified file into the template at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.",
       "path": "/template-controls/include",
       "keywords": [
         "include",
@@ -3451,7 +3440,7 @@
       "title": "xmod:JsonFeed",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The JsonFeed tag, first introduced in version 4.3, is used to easily generate JSON output from your data.",
+      "summary": "The JsonFeed tag, first introduced in version 4.3, is used to easily generate JSON output from your data. JSON is the lingua franca of client-server communication these days and many Javascript and jQuery plugins natively consume it. You could create a JSON feed using the standard feed tag, but the JsonFeed tag saves you a lot of typing. There may still be times when you want to use special layouts or formatting in your feed that you'll want to use the Feed tag, but in most situations, the JsonFeed is all you need.",
       "path": "/template-controls/json-feed",
       "keywords": [
         "json",
@@ -3474,7 +3463,7 @@
       "title": "xmod:LoadFeed",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeed tag will grab the feed data when the page is loaded.",
+      "summary": "The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeed tag will grab the feed data when the page is loaded. Depending on the complexity of your page, it is possible the HTML element which will house the results may not be rendered yet. It is good practice to place the load feed tags after the HTML elements in the page if this is an issue.To allow the user to trigger the loading of a feed see: `<xmod:LoadFeedButton>`, `<xmod:LoadFeedImage>`, and `<xmod:LoadFeedLink>`.",
       "path": "/template-controls/load-feed",
       "keywords": [
         "load",
@@ -3496,7 +3485,7 @@
       "title": "xmod:LoadFeedButton",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The LoadFeedButton tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page.",
+      "summary": "The LoadFeedButton tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeedButton tag will grab the feed data when the user clicks the button.",
       "path": "/template-controls/load-feed-button",
       "keywords": [
         "load",
@@ -3523,7 +3512,7 @@
       "title": "xmod:LoadFeedImage",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The LoadFeedImage tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page.",
+      "summary": "The LoadFeedImage tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeedImage tag will grab the feed data when the user clicks the button.",
       "path": "/template-controls/load-feed-image",
       "keywords": [
         "load",
@@ -3550,7 +3539,7 @@
       "title": "xmod:LoadFeedLink",
       "category": "Feed Controls",
       "context": "template",
-      "summary": "The LoadFeedLink tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page.",
+      "summary": "The LoadFeedLink tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeedLink tag renders as a hyperlink at run-time and will grab the feed data when clicked.",
       "path": "/template-controls/load-feed-link",
       "keywords": [
         "load",
@@ -3577,7 +3566,7 @@
       "title": "xmod:Markdown",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The Markdown tag, first introduced in version 4.9, is used to convert markdown-formatted content for display using HTML. The content can be created using the [`<Markdown>`](../form-controls/markdown.",
+      "summary": "The Markdown tag, first introduced in version 4.9, is used to convert markdown-formatted content for display using HTML. The content can be created using the `<Markdown>` form input tag (which provides a markdown editor), though since markdown is plain text, it could come from a `<Textarea>` or any other text editor.",
       "path": "/template-controls/markdown",
       "keywords": [
         "markdown",
@@ -3618,7 +3607,7 @@
       "title": "xmod:NavigateUrl",
       "category": "SEO",
       "context": "template",
-      "summary": "The NavigateUrl tag (new to version 4.6) allows you to call the DNN API function NavigateUrl(). This allows you to generate URLs that utilize the site's configured URL Provider and makes it easier to...",
+      "summary": "The NavigateUrl tag (new to version 4.6) allows you to call the DNN API function NavigateUrl(). This allows you to generate URLs that utilize the site's configured URL Provider and makes it easier to generate Friendly links.",
       "path": "/template-controls/navigate-url",
       "keywords": [
         "navigate",
@@ -3639,7 +3628,7 @@
       "title": "xmod:Redirect",
       "category": "Actions",
       "context": "template",
-      "summary": "The Redirect tag is a great way to extend XMod Pro's ability to interact with other applications and services. Its sole purpose is to send data to other URL's.",
+      "summary": "The Redirect tag is a great way to extend XMod Pro's ability to interact with other applications and services. Its sole purpose is to send data to other URL's. You tell it which data to send by adding `<Field>` tags. At run-time, it renders as a hyperlink, a push-button, or a clickable image (depending on its settings) and, when clicked will send the information it finds in the `<Field>` tags to URL you specify. Data can be sent via HTTP POST (the same method used when you click the Submit button on a standard web form) or HTTP GET (which passes your data as parameters in the URL).",
       "path": "/template-controls/redirect",
       "keywords": [
         "redirect",
@@ -3781,7 +3770,7 @@
       "title": "xmod:ScriptBlock",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The `<xmod:ScriptBlock>` tag is used to inject HTML `<script>` tags into one of several different locations in the page.",
+      "summary": "The `<xmod:ScriptBlock>` tag is used to inject HTML `<script>` tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert `<style>` tags into the page using this tag.",
       "path": "/template-controls/script-block",
       "keywords": [
         "script",
@@ -3803,7 +3792,7 @@
       "title": "xmod:Select",
       "category": "Conditional",
       "context": "template",
-      "summary": "The `<xmod:Select>` gives you a lot of flexibility in creating your display template. It's similar in function to Visual Basic's Select/Case statement and Javascript's switch/case statement.",
+      "summary": "The `<xmod:Select>` gives you a lot of flexibility in creating your display template. It's similar in function to Visual Basic's Select/Case statement and Javascript's switch/case statement. For non-programmer's you can think of it as a multiple choice tag. The tag can be used both within a template and outside of a template. In fact, it can be used to hide or show templates as well as other text and HTML.",
       "path": "/template-controls/select",
       "keywords": [
         "select",
@@ -3825,7 +3814,7 @@
       "title": "xmod:Slideshow",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The Slideshow tag, like the Template tag, is a View control that is used for displaying records from your datasource.",
+      "summary": "The Slideshow tag, like the Template tag, is a View control that is used for displaying records from your datasource. Unlike the Template tag, the Slideshow is a view with a single purpose - to display images in an eye-pleasing presentation with very little work on your part. All you have to do is supply it with a list of URL's to your images and set a Width and Height for the viewer. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates. Unlike the Template or DataList tags, the Slideshow doesn't allow any data commands or paging. Additionally, since this is a presentation control, it is assumed that those who can see the module can view the slideshow, so there are no permissions. As a result, the syntax is very simple.",
       "path": "/template-controls/slideshow",
       "keywords": [
         "slideshow",
@@ -3850,7 +3839,7 @@
       "title": "xmod:Template",
       "category": "Display Controls",
       "context": "template",
-      "summary": "The template tag is the primary workhorse of XModPro. It contains the data commands and layout instructions for your display.",
+      "summary": "The template tag is the primary workhorse of XModPro. It contains the data commands and layout instructions for your display. Additionally, it enables you to specify who is allowed to add, edit, and delete records as well as who is allowed to view the details of records. You can use multiple Template tags, enabling you to have side-by-side (or however you want to lay them out using HTML) displays within the same module instance, each being fed by different datasources.",
       "path": "/template-controls/template",
       "keywords": [
         "template"
@@ -3881,7 +3870,7 @@
       "title": "xmod:ToggleButton",
       "category": "Action Links",
       "context": "template",
-      "summary": "The ToggleButton tag renders as a push-button at run-time. It provides you with a simple interface for leveraging jQuery functionality.",
+      "summary": "The ToggleButton tag renders as a push-button at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done - no scripting necessary.",
       "path": "/template-controls/toggle-button",
       "keywords": [
         "toggle",
@@ -3915,7 +3904,7 @@
       "title": "xmod:ToggleImage",
       "category": "Action Links",
       "context": "template",
-      "summary": "The ToggleImage tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality.",
+      "summary": "The ToggleImage tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done- no scripting necessary.",
       "path": "/template-controls/toggle-image",
       "keywords": [
         "toggle",
@@ -3951,7 +3940,7 @@
       "title": "xmod:ToggleLink",
       "category": "Action Links",
       "context": "template",
-      "summary": "The ToggleLink tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality.",
+      "summary": "The ToggleLink tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done- no scripting necessary.",
       "path": "/template-controls/toggle-link",
       "keywords": [
         "toggle",

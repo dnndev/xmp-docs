@@ -6,7 +6,10 @@ context: template
 summary: >-
   The `<xmod:Select>` gives you a lot of flexibility in creating your display
   template. It's similar in function to Visual Basic's Select/Case statement and
-  Javascript's switch/case statement.
+  Javascript's switch/case statement. For non-programmer's you can think of it
+  as a multiple choice tag. The tag can be used both within a template and
+  outside of a template. In fact, it can be used to hide or show templates as
+  well as other text and HTML.
 keywords:
   - select
   - template

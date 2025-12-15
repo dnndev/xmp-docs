@@ -5,7 +5,9 @@ category: Editors
 context: all
 summary: >-
   Beginning in version 1.4, XMod Pro includes a quick and easy way to edit the
-  templates and forms configured for a given module.
+  templates and forms configured for a given module. It is available only to
+  Host or SuperUser accounts and is accessed via the new Host Options Panel that
+  appears to Hosts and SuperUsers when working with XMod Pro modules.
 keywords:
   - inline
   - editor

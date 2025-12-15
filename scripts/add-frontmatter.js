@@ -14,6 +14,9 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const docsDir = path.dirname(__dirname)
 
+// Command line flags
+const forceUpdate = process.argv.includes('--force')
+
 // Files/folders to skip
 const SKIP_FILES = [
   'index.md',
@@ -184,24 +187,32 @@ function extractSummary(content) {
   let text = content.replace(/^---[\s\S]*?---\s*/m, '') // Remove frontmatter
   text = text.replace(/^#[^\n]+\n+/, '') // Remove first heading
 
-  // Get first non-empty paragraph (before next heading or code block)
-  const paragraphMatch = text.match(/^([A-Z][^\n]+(?:\n(?![#`\-*])[^\n]+)*)/m)
+  // Get first non-empty paragraph (before next heading, code block, image, or VitePress block)
+  // Stop at: #, `, -, *, ![, or :::
+  const paragraphMatch = text.match(/^([A-Z][^\n]+(?:\n(?![#`\-*!:])[^\n]+)*)/m)
   if (paragraphMatch) {
     let summary = paragraphMatch[1]
       .replace(/\n/g, ' ')
       .replace(/\s+/g, ' ')
       .trim()
 
-    // Truncate to ~200 chars at sentence boundary
-    if (summary.length > 200) {
-      const truncated = summary.substring(0, 200)
-      const lastPeriod = truncated.lastIndexOf('.')
-      if (lastPeriod > 100) {
-        summary = truncated.substring(0, lastPeriod + 1)
-      } else {
-        summary = truncated.trim() + '...'
-      }
+    // Stop at markdown images if any slipped through
+    const imgIndex = summary.indexOf('![')
+    if (imgIndex > 0) {
+      summary = summary.substring(0, imgIndex).trim()
     }
+
+    // Stop at VitePress blocks if any slipped through
+    const vitepressIndex = summary.indexOf(':::')
+    if (vitepressIndex > 0) {
+      summary = summary.substring(0, vitepressIndex).trim()
+    }
+
+    // Convert markdown links [text](url) to just text
+    summary = summary.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+
+    // Remove any trailing colons or incomplete sentences
+    summary = summary.replace(/:\s*$/, '.')
 
     return summary
   }
@@ -257,9 +268,9 @@ function processFile(filePath, dryRun = false) {
   const content = fs.readFileSync(filePath, 'utf-8')
   const parsed = matter(content)
 
-  // Check if already has our required fields
+  // Check if already has our required fields (unless forcing update)
   const hasFullFrontmatter = parsed.data.id && parsed.data.summary
-  if (hasFullFrontmatter) {
+  if (hasFullFrontmatter && !forceUpdate) {
     return { skipped: true, reason: 'already has frontmatter' }
   }
 
@@ -271,15 +282,15 @@ function processFile(filePath, dryRun = false) {
   const summary = extractSummary(content) || `Documentation for ${title}.`
   const keywords = generateKeywords(title, folder)
 
-  // Build new frontmatter
+  // Build new frontmatter (spread existing first so new values override)
   const newFrontmatter = {
+    ...parsed.data, // Preserve any existing frontmatter
     id,
     title: title.replace(/^<|>$/g, ''),
     category,
     context,
     summary,
-    keywords,
-    ...parsed.data // Preserve any existing frontmatter
+    keywords
   }
 
   // Remove VitePress-specific fields that aren't in our schema
@@ -327,7 +338,7 @@ function findMarkdownFiles(dir) {
 // Main execution
 const dryRun = process.argv.includes('--dry-run')
 
-console.log(`\n${dryRun ? '[DRY RUN] ' : ''}Adding frontmatter to XModPro help docs...\n`)
+console.log(`\n${dryRun ? '[DRY RUN] ' : ''}${forceUpdate ? '[FORCE] ' : ''}Adding frontmatter to XModPro help docs...\n`)
 
 const files = findMarkdownFiles(docsDir)
 const results = { updated: 0, skipped: 0 }

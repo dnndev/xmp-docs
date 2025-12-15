@@ -5,7 +5,12 @@ category: Navigation
 context: template
 summary: >-
   The Pager tag can only be used within a Template or DataList tag. The tag
-  defines how the pagers in the view will look and function.
+  defines how the pagers in the view will look and function. The Pager
+  attributes provide the information necessary to define how the components of
+  the top and bottom pagers will look while the inner content of the Pager
+  allows you to use HTML to determine how the components are arranged. If no
+  inner content is specified, the default layout will be used. If no tag is
+  specified, the pagers will not be shown.
 keywords:
   - pager
   - template

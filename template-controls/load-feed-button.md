@@ -5,7 +5,8 @@ category: Feed Controls
 context: template
 summary: >-
   The LoadFeedButton tag makes it a cinch to dynamically load XMod Pro feeds
-  into your page. This tag requires jQuery be included in the page.
+  into your page. This tag requires jQuery be included in the page. The
+  LoadFeedButton tag will grab the feed data when the user clicks the button.
 keywords:
   - load
   - feed

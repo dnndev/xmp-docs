@@ -4,8 +4,15 @@ title: '6: Modify Form Data'
 category: Tutorials
 context: all
 summary: >-
-  This tutorial assumes you have successfully completed [Tutorial Five
-  "Displaying The Feedback Form Data"](5_displaying-feedback-form-data.md).
+  This tutorial assumes you have successfully completed Tutorial Five
+  "Displaying The Feedback Form Data". In the last tutorial, we created a
+  template to display a list of the feedback we've received from customers and
+  provided a button to add feedback. Now we'll modify that template and the
+  feedback form to enable us to edit and delete feedback. 1. If you haven't done
+  so already open the page in your site that contains the Feedback form and its
+  display template we've been working with. 2. Ensure you're logged-in as Host
+  or SuperUser. 3. We're going to modify our existing template. So, from the
+  Actions menu, select **Manage Templates**.
 keywords:
   - modify
   - form

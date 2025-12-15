@@ -9,9 +9,11 @@
     "docs:preview": "vitepress preview",
     "help:build": "node scripts/build-help-json.js",
     "help:build:min": "node scripts/build-help-json.js --minify",
+    "help:watch": "node scripts/watch-help.js",
     "build:all": "npm run help:build && npm run docs:build"
   },
   "devDependencies": {
+    "chokidar": "^5.0.0",
     "gray-matter": "^4.0.3",
     "vitepress": "^1.0.0",
     "vue": "^3.3.0"

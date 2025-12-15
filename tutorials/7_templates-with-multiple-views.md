@@ -6,6 +6,22 @@ context: all
 summary: >-
   In most cases, all you'll need to do in XMod Pro is setup solutions that add,
   edit, delete, and display data, but XMod Pro is much more powerful than that.
+  In this tutorial, we'll discuss how to create multiple views within the same
+  template. By leveraging this capability, you can create very powerful
+  self-contained solutions. In this tutorial we won't be creating all the
+  components of a sample application. In this example, we want to focus on the
+  mechanisms for creating multi-view templates without bogging down in the
+  details of creating templates and forms as well as adding/editing/deleting the
+  data. Those concepts have been covered elsewhere and we assume you're
+  comfortable with them. Previously, you've created a template using a single
+  `<xmod:template>` tag. This creates a single view that can comprise a list
+  view of your data and a detail view that displays the information contained
+  within a single record. When the detail view is displayed, it replaces the
+  list view. That's all well and good for most situations but what if you want
+  to display a list of news headlines on the left side of your module and, when
+  you click a headline, the full article is displayed on the right side of your
+  module? With most modules, you're out of luck, but not with XMod Pro. All it
+  takes is a second `<xmod:template>` tag and a new button type.
 keywords:
   - multi
   - view

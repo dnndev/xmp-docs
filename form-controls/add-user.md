@@ -6,7 +6,7 @@ context: form
 summary: >-
   You MUST take care to properly validate user input. Additionally you should
   place this tag only on forms that are properly secured so that only users you
-  intend to have access can use the form. :::
+  intend to have access can use the form.
 keywords:
   - add
   - user

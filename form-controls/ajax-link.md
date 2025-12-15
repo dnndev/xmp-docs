@@ -6,7 +6,8 @@ context: form
 summary: >-
   The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will
   dynamically insert HTML returned from a URL into an element on the page -
-  without a postback.
+  without a postback. This is a jQuery based control. It requires jQuery be
+  included in the page and that Javascript be enabled in the end-user's browser.
 keywords:
   - ajax
   - link

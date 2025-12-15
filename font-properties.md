@@ -6,17 +6,20 @@ context: all
 summary: >-
   Most standard controls accept attributes that affect how text is displayed in
   a control. Generally, it's best to set font styling via CSS classes or via the
-  "style" attribute available in most control...
+  "style" attribute available in most controls. However, the font properties
+  provide a direct means of setting specific styles that affect the display of
+  the control's text.
 keywords:
   - font
   - properties
 ---
 # Font Properties
 
-Most standard controls accept attributes that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the "style" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.
+Most standard controls accept attributes
+ that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the "style" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.
 
 ::: warning NOTE
-Not all properties will function in all controls and browsers.
+We **strongly encourage** you to avoid using these font properties. Modern web sites Use CSS classes or, if needed, the `style` property. Note also that not all properties will function in all controls and browsers.
 :::
 
 Font properties must start with `font-` and be followed by the name of the property you want to set. The following properties are available:

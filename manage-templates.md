@@ -6,7 +6,8 @@ context: all
 summary: >-
   Data display templates are created, edited, copied, and deleted within the
   Manage Templates page. The Manage Templates page is only available to Hosts or
-  SuperUser accounts.
+  SuperUser accounts. To get there, select "Control Panel" from the module's
+  Actions/Manage Menu.
 keywords:
   - managing
   - templates

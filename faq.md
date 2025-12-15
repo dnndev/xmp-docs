@@ -16,7 +16,7 @@ keywords: []
 ## Forms
 
 *   **How do I link controls in my form with fields in my data?**  
-    All controls designed to work with XMod Pro supply you with two attributes: DataField and DataType. Put the name of the field you want to link to the control in the DataField attribute. Next, specify what the data type of that field is. If it is text, use "string" at the datatype. If it is true/false, use "boolean", if it is a number, use "int32" or "int64", etc.
+    All controls designed to work with XMod Pro supply you with two attributes: DataField and DataType. Put the name of the field you want to link to the control in the DataField attribute. Next, specify what the data type of that field is. If it is text, use "string" at the datatype. If it is true/false, use "boolean", if it is a number, use "int32" or "int64", etc. [See Data Types](./data-types.md)
 *   **Can I use space and/or punctuation marks when naming my forms?**  
     Only letters, numbers, hyphens (`-`), and underscores (`_`)are allowed. To help distinguish different words in the name, you can separate them with hyphens and/or underscores or you can use "camel case" where you capitalize the first letter in each word.
 

@@ -6,6 +6,10 @@ context: all
 summary: >-
   XMod Pro solutions consist of two fundamental components: forms and templates.
   Forms are used to add and edit data while templates are used to display data.
+  While forms and templates generally work with the same data, there are no
+  rules in XMod Pro that require that be the case. It's possible to use a form
+  and template in the same module instance that operate on distinct data though
+  most of the time they'll usually be linked.
 keywords:
   - getting
   - started

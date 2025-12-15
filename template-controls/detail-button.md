@@ -6,7 +6,8 @@ context: template
 summary: >-
   The DetailButton tag renders as a push-button at run-time. It is used to
   retrieve the `<DetailDataSource>` of its parent `<xmod:Template>` and displays
-  that data in the `<DetailTemplate>` defined in t...
+  that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>`
+  tag.
 keywords:
   - detail
   - button

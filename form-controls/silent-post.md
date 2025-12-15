@@ -6,7 +6,7 @@ context: form
 summary: >-
   New to Version 4.0! The SilentPost action tag will create an HTTP POST request
   and send it to the specified URL (Target) at run-time. This happens behind the
-  scenes (i.e.
+  scenes (i.e. silently) without user interaction.
 keywords:
   - silent
   - post

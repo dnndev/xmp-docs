@@ -6,7 +6,8 @@ context: template
 summary: >-
   The DetailLink tag renders as a clickable image at run-time. It is used to
   execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays
-  that data in the `<DetailTemplate>` defined in...
+  that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>`
+  tag.
 keywords:
   - detail
   - link

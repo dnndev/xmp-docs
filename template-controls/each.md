@@ -5,7 +5,10 @@ category: Display Controls
 context: template
 summary: >-
   The Each tag (new to version 4.6) is used to split a delimited value - such as
-  a comma-separated or pipe-separated value in your database.
+  a comma-separated or pipe-separated value in your database. You can then
+  iterate through each of these values, rendering out HTML. In other words, if
+  you have a list of images stored in an Images column in your table, you can
+  build a bullet list from that.
 keywords:
   - each
   - template

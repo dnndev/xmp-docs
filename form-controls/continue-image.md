@@ -5,7 +5,10 @@ category: Buttons
 context: form
 summary: >-
   The ContinueImage tag renders as a clickable image at run-time. It is only
-  valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag.
+  valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When
+  clicked, the user is returned either to the page that would have been
+  displayed after successfully submitting the form or to the URL specified in
+  the Redirect attribute.
 keywords:
   - continue
   - image

@@ -5,7 +5,10 @@ category: Field Tokens
 context: all
 summary: >-
   Tokens are the mechanism used to display OUTPUT and standard parameter values
-  from your datasource in your templates.
+  from your datasource in your templates. At run-time, XMod Pro will replace
+  that token with the value stored in that parameter. There are some additional
+  usage rules you'll need to adhere to. They are described in the Remarks
+  section.
 keywords:
   - data
   - parameter

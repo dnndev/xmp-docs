@@ -6,7 +6,8 @@ context: all
 summary: >-
   Beginning with version 2, most administrative tasks have been consolidated and
   placed in the Control Panel. It is only available to Host and SuperUser
-  accounts.
+  accounts. You can access the Control Panel by selecting it from the
+  Actions/Manage menu.
 keywords:
   - control
   - panel

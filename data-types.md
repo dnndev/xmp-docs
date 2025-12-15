@@ -6,7 +6,8 @@ context: all
 summary: >-
   XMod Pro data-bound controls enable you to specify the type of data the
   control will accept. Some controls may limit you to a specific type of data
-  (for instance, a checkbox control might only allow b...
+  (for instance, a checkbox control might only allow boolean values). The list
+  of valid data types is below.
 keywords:
   - data
   - types
@@ -41,7 +42,7 @@ To make the process of linking your fields up with XMod Pro, we've created a tab
 | DateTime2 | DateTime (supported as of XMod Pro 3.1) | 
 | DateTimeOffset | Not Supported | 
 | Decimal | Decimal | 
-| Float | Double 
+| Float | Double |
 | Image | Not Supported | 
 | Int | Int32 | 
 | Money | Decimal. Do not include currency symbols (i.e $) in value. | 

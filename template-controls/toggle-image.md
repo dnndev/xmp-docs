@@ -5,7 +5,8 @@ category: Action Links
 context: template
 summary: >-
   The ToggleImage tag renders as a clickable image at run-time. It provides you
-  with a simple interface for leveraging jQuery functionality.
+  with a simple interface for leveraging jQuery functionality. Simply set a few
+  attributes and you're done- no scripting necessary.
 keywords:
   - toggle
   - image

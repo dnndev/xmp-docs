@@ -6,7 +6,10 @@ context: all
 summary: >-
   In order to use XMod Pro on a web site, you must Activate the license. Please
   note that you may use XMod Pro for development purposes only on "localhost"
-  (http://localhost).
+  (http://localhost). For all other uses you must activate the license. This is
+  done through the License and Activation page. This page is only available to
+  Hosts or SuperUser accounts. To get there, select "License and Activation"
+  from the module's Actions/Manage Menu.
 keywords:
   - activating
   - your

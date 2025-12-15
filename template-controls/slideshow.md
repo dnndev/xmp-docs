@@ -5,7 +5,16 @@ category: Display Controls
 context: template
 summary: >-
   The Slideshow tag, like the Template tag, is a View control that is used for
-  displaying records from your datasource.
+  displaying records from your datasource. Unlike the Template tag, the
+  Slideshow is a view with a single purpose - to display images in an
+  eye-pleasing presentation with very little work on your part. All you have to
+  do is supply it with a list of URL's to your images and set a Width and Height
+  for the viewer. It is used in essentially the same manner as the Template tag
+  and can be used together with the Template tag within your templates. Unlike
+  the Template or DataList tags, the Slideshow doesn't allow any data commands
+  or paging. Additionally, since this is a presentation control, it is assumed
+  that those who can see the module can view the slideshow, so there are no
+  permissions. As a result, the syntax is very simple.
 keywords:
   - slideshow
   - template

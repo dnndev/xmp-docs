@@ -5,7 +5,12 @@ category: User Actions
 context: form
 summary: >-
   In the example below, we are removing the currently logged-in user (specified
-  by the `[[User:Id]]` token) from the "Role1" and "Editors" roles.
+  by the `[[User:Id]]` token) from the "Role1" and "Editors" roles. Since we are
+  specifying a comma-delimited set of roles, we specify a `RoleDelimiter` of
+  comma `,` and separate the roles in the `RoleNames` property with commas. If
+  we didn't set the `RoleDelimiter` property, we would, instead, need to
+  separate our role names with the pipe `|` like so:
+  `RoleNames="Role1|Editors"`.
 keywords:
   - remove
   - from

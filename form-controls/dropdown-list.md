@@ -1,12 +1,20 @@
 ---
-id: dropdown-list
+id: form-dropdown-list
 title: DropDownList
 category: List Controls
 context: form
-summary: Drop-down selection list that can be populated with static items or bound to a data source. Supports cascading/dependent lists.
-since: "1.0"
-keywords: [dropdown, select, list, combo, cascading, dependent]
-related: [listbox, checkbox-list, radio-button-list, control-datasource]
+summary: The DropdownList tag renders as a drop-down list control at run-time.
+keywords:
+  - drop
+  - down
+  - list
+  - form
+since: '1.0'
+related:
+  - listbox
+  - checkbox-list
+  - radio-button-list
+  - control-datasource
 ---
 
 # `<DropDownList>`

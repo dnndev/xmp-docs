@@ -5,7 +5,13 @@ category: User Actions
 context: form
 summary: >-
   In the example below, we're using a `<Variable>` tag to retrieve the current
-  user's ID and make it available to the `<AddToRoles>` tag.
+  user's ID and make it available to the `<AddToRoles>` tag. The variable has a
+  name of "uid" and we set the UserId property of the `<AddToRoles>` tag to
+  `[[uid]]`. Since we are specifying a comma-delimited set of roles, we specify
+  a `RoleDelimiter` of comma `,` and separate the roles in the `RoleNames`
+  property with commas. If we didn't set the `RoleDelimiter` property, we would,
+  instead, need to separate our role names with the pipe `|` like so:
+  `RoleNames="Role1|Editors"`.
 keywords:
   - add
   - roles

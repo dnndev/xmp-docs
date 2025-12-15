@@ -6,7 +6,7 @@ context: template
 summary: >-
   The NavigateUrl tag (new to version 4.6) allows you to call the DNN API
   function NavigateUrl(). This allows you to generate URLs that utilize the
-  site's configured URL Provider and makes it easier to...
+  site's configured URL Provider and makes it easier to generate Friendly links.
 keywords:
   - navigate
   - url

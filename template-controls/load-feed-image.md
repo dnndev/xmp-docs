@@ -5,7 +5,8 @@ category: Feed Controls
 context: template
 summary: >-
   The LoadFeedImage tag makes it a cinch to dynamically load XMod Pro feeds into
-  your page. This tag requires jQuery be included in the page.
+  your page. This tag requires jQuery be included in the page. The LoadFeedImage
+  tag will grab the feed data when the user clicks the button.
 keywords:
   - load
   - feed

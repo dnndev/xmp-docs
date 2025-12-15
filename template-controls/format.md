@@ -5,7 +5,10 @@ category: Formatting
 context: template
 summary: >-
   The Format tag allows you to present your data in a more user-friendly format.
-  With it, you can format currency, numbers, dates.
+  With it, you can format currency, numbers, dates. You can perform text
+  substitutions and regular expression substitutions. It also provides you with
+  the ability to cloak text - i.e. obfuscate it so that web 'bots have more
+  difficulty scraping your web pages for data like email addresses.
 keywords:
   - format
   - template

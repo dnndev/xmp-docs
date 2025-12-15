@@ -6,6 +6,10 @@ context: template
 summary: >-
   The SearchSort tag can only be used within a Template tag or DataList tag. The
   tag defines how the search and sort panel in the view will look and function.
+  The SearchSort tag attributes provide the information necessary to define how
+  the components of the search and sort panel will look and function, while the
+  tag's inner content, if specified, allow you to use HTML and SearchSort tokens
+  to determine how the components of the search and sort panel are arranged.
 keywords:
   - search
   - sort

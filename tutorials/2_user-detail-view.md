@@ -4,9 +4,11 @@ title: '2: Create a Detail View'
 category: Tutorials
 context: all
 summary: >-
-  In this tutorial, we're going to enhance the List View created in [Tutorial
-  One](1_listing-users.md) by adding a way to view the details of a user's
-  record.
+  In this tutorial, we're going to enhance the List View created in Tutorial One
+  by adding a way to view the details of a user's record. As with the first
+  tutorial, we'll keep it as simple as possible, so you can see the basic steps
+  involved in the process and then be able to apply those concepts to other
+  tutorials and projects.
 keywords:
   - create
   - detail

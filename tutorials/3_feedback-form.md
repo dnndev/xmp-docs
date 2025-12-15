@@ -5,7 +5,18 @@ category: Tutorials
 context: all
 summary: >-
   In the first two tutorials, you created a list-based view of your data and
-  then added the ability to view the details of each record.
+  then added the ability to view the details of each record. In this tutorial,
+  we're going to switch gears from displaying data, to enabling the input of
+  data via XMod Pro's custom forms. We'll be creating a simple Feedback form
+  that will allow site visitors to enter their Name, Email Address, and
+  Question. The form will then send that information, via email to our site
+  administrator. To keep things simple, no data will be saved to the database.
+  1. If you haven't done so already, install the FormView module that came with
+  XMod Pro. You'll find it in the Installation folder alongside the XMod Pro
+  installation file. 2. Next, open a page in your site and add an XMod Pro
+  FormView instance to the page. 3. Ensure you're logged-in as Host or
+  SuperUser. 4. We're going to create a form. So, from the Actions menu, select
+  **Manage Forms**.
 keywords:
   - create
   - feedback
