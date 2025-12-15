@@ -2,7 +2,7 @@
 
 ## 5.0.0
 
-- Major Release: While we have worked hard to maintain backwards compatibility, this release may contain some breaking changes or some incompatibilities. This release ONLY supports version 10 and later of DNN. Please note that v.4.9.6 will run on DNN 10 as well. 
+- **Major Release**: While we have worked hard to maintain backwards compatibility, this release may contain some breaking changes or some incompatibilities. This release ONLY supports version 10 and later of DNN. Please note that v.4.9.6 will run on DNN 10 as well. 
 - **Completely new administrative interface for XMP**. We have banished jQuery and jQueryUI from this area. We still support your use of it in Forms and Templates, though. 
   - Modern UI designed to give you more power with less work. Every detail has been re-imagined with a better experience in mind. 
   - Keyboard Shortcuts for Power Users. You can drag and drop controls in the Form Builder or simply press `/` to bring up a control picker. You can even navigate that list with your arrow keys and ENTER to add the control to the form.
