@@ -1,3 +1,16 @@
+---
+id: template-markdown
+title: 'xmod:Markdown'
+category: Display Controls
+context: template
+summary: >-
+  The Markdown tag, first introduced in version 4.9, is used to convert
+  markdown-formatted content for display using HTML. The content can be created
+  using the [`<Markdown>`](../form-controls/markdown.
+keywords:
+  - markdown
+  - template
+---
 # `<xmod:Markdown>`
 
 The Markdown tag, first introduced in version 4.9, is used to convert markdown-formatted content for display using HTML. The content can be created using the [`<Markdown>`](../form-controls/markdown.md) form input tag (which provides a markdown editor), though since markdown is plain text, it could come from a `<Textarea>` or any other text editor.

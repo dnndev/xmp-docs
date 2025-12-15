@@ -1,3 +1,14 @@
+---
+id: data-list
+title: DataList
+category: Display Controls
+context: template
+summary: Displays records in a grid layout with configurable columns and direction. Supports paging, sorting, search, and detail views.
+since: "1.0"
+keywords: [datalist, grid, list, records, display, columns, paging]
+related: [template, pager, search-sort]
+---
+
 # `<xmod:DataList>`
 
 The DataList tag, like the Template tag, is a View control that is used for displaying and interacting with records from your datasource. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates. Like the Template tag, it contains the data commands and layout instructions for your display and enables you to specify who is allowed to add, edit, and delete records as well as who is allowed to view the details of records. The primary difference between the DataList and Template is that the DataList allows you to layout your records in a grid pattern.

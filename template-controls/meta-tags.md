@@ -1,3 +1,17 @@
+---
+id: template-meta-tags
+title: 'xmod:MetaTags'
+category: SEO
+context: template
+summary: >-
+  The MetaTags tag is used to alter the host page's Title, Description, and
+  Keywords. This is useful for Search Engine Optimization (SEO) as well as being
+  an aid for your users.
+keywords:
+  - meta
+  - tags
+  - template
+---
 # `<xmod:MetaTags>`
 
 The MetaTags tag is used to alter the host page's Title, Description, and Keywords. This is useful for Search Engine Optimization (SEO) as well as being an aid for your users.

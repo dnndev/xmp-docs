@@ -1,3 +1,17 @@
+---
+id: template-edit-image
+title: 'xmod:EditImage'
+category: Action Links
+context: template
+summary: >-
+  The EditImage tag renders as a clickable image at run-time. It is used to show
+  the form defined by the `<EditForm>` tag in the module instance's selected
+  form.
+keywords:
+  - edit
+  - image
+  - template
+---
 # `<xmod:EditImage>`
 
 The EditImage tag renders as a clickable image at run-time. It is used to show the form defined by the `<EditForm>` tag in the module instance's selected form.

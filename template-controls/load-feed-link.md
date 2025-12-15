@@ -1,3 +1,17 @@
+---
+id: template-load-feed-link
+title: 'xmod:LoadFeedLink'
+category: Feed Controls
+context: template
+summary: >-
+  The LoadFeedLink tag makes it a cinch to dynamically load XMod Pro feeds into
+  your page. This tag requires jQuery be included in the page.
+keywords:
+  - load
+  - feed
+  - link
+  - template
+---
 # `<xmod:LoadFeedLink>`
 
 The LoadFeedLink tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeedLink tag renders as a hyperlink at run-time and will grab the feed data when clicked.

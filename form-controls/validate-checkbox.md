@@ -1,3 +1,17 @@
+---
+id: form-validate-checkbox
+title: Validate type="checkbox"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "checkbox" is referred to as a CheckBox
+  Validator and is used to ensure the user either checks or does not check a
+  checkbox control.
+keywords:
+  - validate
+  - type="checkbox"
+  - form
+---
 # `<Validate type="checkbox">`
 
 The Validate tag whose type is set to "checkbox" is referred to as a CheckBox Validator and is used to ensure the user either checks or does not check a checkbox control.

@@ -1,3 +1,16 @@
+---
+id: form-calendar-link
+title: CalendarLink
+category: Buttons
+context: form
+summary: >-
+  The Calendar tag renders as a push-button at run-time. When clicked, a
+  calendar date-picker pops up to enable the user to select a date.
+keywords:
+  - calendar
+  - link
+  - form
+---
 # `<CalendarLink>`
 
 The Calendar tag renders as a push-button at run-time. When clicked, a calendar date-picker pops up to enable the user to select a date.

@@ -1,3 +1,17 @@
+---
+id: tokens-dateadd
+title: DateAdd Token
+category: Function Tokens
+context: all
+summary: >-
+  The DateAdd token provides you with the ability to generate a date, relative
+  to the current date. This allows you to create a date that is, say, use
+  information about the current module instance at ru...
+keywords:
+  - date
+  - add
+  - token
+---
 # DateAdd Token
 
 The DateAdd token provides you with the ability to generate a date, relative to the current date. This allows you to create a date that is, say, use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.

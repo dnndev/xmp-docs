@@ -1,5 +1,15 @@
 ---
-title: "7: Multi-View Templates"
+id: tutorials-7_templates-with-multiple-views
+title: '7: Multi-View Templates'
+category: Tutorials
+context: all
+summary: >-
+  In most cases, all you'll need to do in XMod Pro is setup solutions that add,
+  edit, delete, and display data, but XMod Pro is much more powerful than that.
+keywords:
+  - multi
+  - view
+  - templates
 ---
 # Tutorial 7: <br>Multi-View Templates
 

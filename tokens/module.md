@@ -1,3 +1,15 @@
+---
+id: tokens-module
+title: Module Tokens
+category: Module Tokens
+context: all
+summary: >-
+  Module Tokens provide you with the ability to use information about the
+  current module instance at run-time such as the module's ID.
+keywords:
+  - module
+  - tokens
+---
 # Module Tokens
 
 Module Tokens provide you with the ability to use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.

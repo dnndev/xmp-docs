@@ -1,3 +1,15 @@
+---
+id: form-register
+title: Register
+category: User Actions
+context: form
+summary: >-
+  The Register tag enables you to use third-party controls in your XMod Pro
+  forms. Note that only controls created specifically for XMod Pro can be used.
+keywords:
+  - register
+  - form
+---
 # `<Register>`
 
 The Register tag enables you to use third-party controls in your XMod Pro forms. Note that only controls created specifically for XMod Pro can be used.

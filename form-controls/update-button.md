@@ -1,3 +1,17 @@
+---
+id: form-update-button
+title: UpdateButton
+category: Buttons
+context: form
+summary: >-
+  The UpdateButton tag renders as a push-button at run-time that, when clicked,
+  initiates the update process, executing the `<SubmitCommand>` of the
+  associated `<EditForm>`.
+keywords:
+  - update
+  - button
+  - form
+---
 # `<UpdateButton>`
 
 The UpdateButton tag renders as a push-button at run-time that, when clicked, initiates the update process, executing the `<SubmitCommand>` of the associated `<EditForm>`.

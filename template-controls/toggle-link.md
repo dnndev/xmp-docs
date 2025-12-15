@@ -1,3 +1,16 @@
+---
+id: template-toggle-link
+title: 'xmod:ToggleLink'
+category: Action Links
+context: template
+summary: >-
+  The ToggleLink tag renders as a clickable image at run-time. It provides you
+  with a simple interface for leveraging jQuery functionality.
+keywords:
+  - toggle
+  - link
+  - template
+---
 # `<xmod:ToggleLink>`
 
 The ToggleLink tag renders as a clickable image at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done- no scripting necessary.

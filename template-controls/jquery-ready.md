@@ -1,3 +1,17 @@
+---
+id: template-jquery-ready
+title: 'xmod:jQueryReady'
+category: Display Controls
+context: template
+summary: >-
+  The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in
+  the page. This tag requires jQuery be included in the page.
+keywords:
+  - xmodj
+  - query
+  - ready
+  - template
+---
 # `<xmod:jQueryReady>`
 
 The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in the page. This tag requires jQuery be included in the page.

@@ -1,3 +1,16 @@
+---
+id: form-calendar-image
+title: CalendarImage
+category: Buttons
+context: form
+summary: >-
+  The CalendarImage tag renders as a push-button at run-time. When clicked, a
+  calendar date-picker pops up to enable the user to select a date.
+keywords:
+  - calendar
+  - image
+  - form
+---
 # `<CalendarImage>`
 
 The CalendarImage tag renders as a push-button at run-time. When clicked, a calendar date-picker pops up to enable the user to select a date.

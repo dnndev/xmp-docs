@@ -1,3 +1,16 @@
+---
+id: template-redirect
+title: 'xmod:Redirect'
+category: Actions
+context: template
+summary: >-
+  The Redirect tag is a great way to extend XMod Pro's ability to interact with
+  other applications and services. Its sole purpose is to send data to other
+  URL's.
+keywords:
+  - redirect
+  - template
+---
 # `<xmod:Redirect>`
 
 The Redirect tag is a great way to extend XMod Pro's ability to interact with other applications and services. Its sole purpose is to send data to other URL's. You tell it which data to send by adding `<Field>` tags. At run-time, it renders as a hyperlink, a push-button, or a clickable image (depending on its settings) and, when clicked will send the information it finds in the `<Field>` tags to URL you specify. Data can be sent via HTTP POST (the same method used when you click the Submit button on a standard web form) or HTTP GET (which passes your data as parameters in the URL).

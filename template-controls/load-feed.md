@@ -1,3 +1,17 @@
+---
+id: template-load-feed
+title: 'xmod:LoadFeed'
+category: Feed Controls
+context: template
+summary: >-
+  The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your
+  page. This tag requires jQuery be included in the page. The LoadFeed tag will
+  grab the feed data when the page is loaded.
+keywords:
+  - load
+  - feed
+  - template
+---
 # `<xmod:LoadFeed>`
 
 The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeed tag will grab the feed data when the page is loaded. Depending on the complexity of your page, it is possible the HTML element which will house the results may not be rendered yet. It is good practice to place the load feed tags after the HTML elements in the page if this is an issue.To allow the user to trigger the loading of a feed see: [`<xmod:LoadFeedButton>`](load-feed-button.md), [`<xmod:LoadFeedImage>`](load-feed-image.md), and [`<xmod:LoadFeedLink>`](load-feed-link.md).

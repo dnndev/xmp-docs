@@ -1,3 +1,13 @@
+---
+id: form-label
+title: Label
+category: Layout
+context: form
+summary: The Label tag renders as a static text at run-time.
+keywords:
+  - label
+  - form
+---
 # `<Label>`
 
 The Label tag renders as a static text at run-time.

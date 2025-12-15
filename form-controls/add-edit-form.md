@@ -1,3 +1,18 @@
+---
+id: form-add-edit-form
+title: '`<AddForm>`, `<EditForm>`'
+category: Structure
+context: form
+summary: >-
+  Forms in XMod Pro are defined using HTML and special XMod Pro tags. XMod Pro
+  provides you with the ability to define separate forms to use for adding a
+  record (using the `<AddForm>` tag) and for editi...
+keywords:
+  - add
+  - 'form,'
+  - edit
+  - form
+---
 # `<AddForm>`, `<EditForm>`
 
 Forms in XMod Pro are defined using HTML and special XMod Pro tags. XMod Pro provides you with the ability to define separate forms to use for adding a record (using the `<AddForm>` tag) and for editing a record (using the `<EditForm>` tag). To use third party libraries containing XMod Pro-compatible controls, you use the `<Register>` tag. This makes the library available to both your Add and Edit Form.

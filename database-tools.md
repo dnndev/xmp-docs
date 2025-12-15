@@ -1,3 +1,15 @@
+---
+id: database-tools
+title: Database Tools
+category: Tools
+context: all
+summary: >-
+  Beginning with version 2, XMod Pro provides you with a Table Designer that
+  allows you to quickly define and create basic tables in your DNN database.
+keywords:
+  - database
+  - tools
+---
 # Database Tools
 
 Beginning with version 2, XMod Pro provides you with a Table Designer that allows you to quickly define and create basic tables in your DNN database. Additionally, you can optionally instruct XMod Pro to auto-generate a form and template for the newly created table - giving you the ability to have a complete base solution up and running with just a few clicks. The Database Tools area is only available to Host and SuperUser accounts. You can access the Database Tools by selecting "Control Panel" from the Actions menu:

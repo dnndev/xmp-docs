@@ -1,3 +1,17 @@
+---
+id: form-radio-button-list
+title: RadioButtonList
+category: List Controls
+context: form
+summary: >-
+  The RadioButtonList tag renders as a series of mutually-exclusive option
+  button at run-time.
+keywords:
+  - radio
+  - button
+  - list
+  - form
+---
 # `<RadioButtonList>`
 
 The RadioButtonList tag renders as a series of mutually-exclusive option button at run-time.

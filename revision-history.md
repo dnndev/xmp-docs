@@ -1,5 +1,24 @@
 # Revision History
 
+## 5.0.0
+
+- Major Release: While we have worked hard to maintain backwards compatibility, this release may contain some breaking changes or some incompatibilities. This release ONLY supports version 10 and later of DNN. Please note that v.4.9.6 will run on DNN 10 as well. 
+- **Completely new administrative interface for XMP**. We have banished jQuery and jQueryUI from this area. We still support your use of it in Forms and Templates, though. 
+  - Modern UI designed to give you more power with less work. Every detail has been re-imagined with a better experience in mind. 
+  - Keyboard Shortcuts for Power Users. You can drag and drop controls in the Form Builder or simply press `/` to bring up a control picker. You can even navigate that list with your arrow keys and ENTER to add the control to the form.
+  - Better Experience for keyboard users. You should be able to tab through the UI in more places.
+  - Search: You used to have to browse through pages of forms or templates to find what you're looking for. Now you can just start typing in the search box to quickly find what you need. 
+  - Faster load times: The control panel has always been pretty speedy loading even hundreds of forms or templates. We've reduced that time by an average of 80%.
+  - NEW! Tabs! For the first time ever you can open multiple files. Every resource (form, template, feed) opens in its own tab. It doesn't matter if it's a form builder, a custom form, a template or a feed, they can all be opened in their own tabs allowing you to quickly switch between them. 
+  - NEW! Projects! Instead of working on individual files, you can now group them into projects for better organization and discoverability. Each project can contain as many forms, templates, and feeds as you want. You can still treat files individually, even if they're in a project so if you follow that workflow, nothing will change. Projects offer a lot of benefits though:
+    - Faster Access: On the new Projects tab, you can quickly navigate to the project you're currently working on and see all the resources right there. Click any of them to open them up for editing. You can even open all of them up with a single click.
+    - Projects are completely optional.
+  - More Powerful and Efficient Code Editing Experience: For power users, we've really given you an upgrade with quality of life improvements like code completion along with keystroke-saving improvements like being able to tab through attribute values from those code completions. 
+
+## 4.9.6
+
+- FIXED: jQuery related error on FormView module in DNN 10.
+
 ## 4.9.5
 
 - FIXED: XMP's Feed will now send the user to the site's custom 404 error page if it has been setup. If the "pid" parameter is not passed (i.e. the PortalID) or it's invalid, a basic 404 response is returned. No text is writted to the response so the browser's generic 404 page is displayed.

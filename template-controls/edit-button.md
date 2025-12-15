@@ -1,3 +1,17 @@
+---
+id: template-edit-button
+title: 'xmod:EditButton'
+category: Action Links
+context: template
+summary: >-
+  The EditButton tag renders as a push-button at run-time. It is used to show
+  the form defined by the `<EditForm>` tag in the module instance's selected
+  form.
+keywords:
+  - edit
+  - button
+  - template
+---
 # `<xmod:EditButton>`
 
 The EditButton tag renders as a push-button at run-time. It is used to show the form defined by the `<EditForm>` tag in the module instance's selected form.

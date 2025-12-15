@@ -1,3 +1,17 @@
+---
+id: form-silent-post
+title: SilentPost
+category: Actions
+context: form
+summary: >-
+  New to Version 4.0! The SilentPost action tag will create an HTTP POST request
+  and send it to the specified URL (Target) at run-time. This happens behind the
+  scenes (i.e.
+keywords:
+  - silent
+  - post
+  - form
+---
 # `<SilentPost>`
 
 New to Version 4.0! The SilentPost action tag will create an HTTP POST request and send it to the specified URL (Target) at run-time. This happens behind the scenes (i.e. silently) without user interaction.

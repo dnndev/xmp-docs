@@ -1,3 +1,16 @@
+---
+id: tokens-data
+title: Data Parameter Tokens
+category: Field Tokens
+context: all
+summary: >-
+  Tokens are the mechanism used to display OUTPUT and standard parameter values
+  from your datasource in your templates.
+keywords:
+  - data
+  - parameter
+  - tokens
+---
 # Data Parameter Tokens
 
 Tokens are the mechanism used to display OUTPUT and standard parameter values from your datasource in your templates. At run-time, XMod Pro will replace that token with the value stored in that parameter.  

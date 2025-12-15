@@ -1,3 +1,16 @@
+---
+id: template-return-link
+title: 'xmod:ReturnLink'
+category: Action Links
+context: template
+summary: >-
+  The ReturnLink tag renders as a clickable image at run-time. It is used to
+  return the user from a detail view to the previously viewed list view. .
+keywords:
+  - return
+  - link
+  - template
+---
 # `<xmod:ReturnLink>`
 
 The ReturnLink tag renders as a clickable image at run-time. It is used to return the user from a detail view to the previously viewed list view. .

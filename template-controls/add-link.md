@@ -1,3 +1,17 @@
+---
+id: template-add-link
+title: 'xmod:AddLink'
+category: Action Links
+context: template
+summary: >-
+  The AddLink tag renders as a clickable image at run-time. It is used to show
+  the form defined by the `<AddForm>` tag in the module instance's selected
+  form.
+keywords:
+  - add
+  - link
+  - template
+---
 # `<xmod:AddLink>`
 
 The AddLink tag renders as a clickable image at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.

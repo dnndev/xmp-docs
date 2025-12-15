@@ -1,3 +1,16 @@
+---
+id: template-delete-link
+title: 'xmod:DeleteLink'
+category: Action Links
+context: template
+summary: >-
+  The DeleteLink tag renders as a clickable image at run-time. It is used to
+  execute the `<DeleteCommand>` of its parent `<xmod:Template>`.
+keywords:
+  - delete
+  - link
+  - template
+---
 # `<xmod:DeleteLink>`
 
 The DeleteLink tag renders as a clickable image at run-time. It is used to execute the `<DeleteCommand>` of its parent `<xmod:Template>`.

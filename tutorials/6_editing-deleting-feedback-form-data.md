@@ -1,5 +1,15 @@
 ---
-title: "6: Modify Form Data"
+id: tutorials-6_editing-deleting-feedback-form-data
+title: '6: Modify Form Data'
+category: Tutorials
+context: all
+summary: >-
+  This tutorial assumes you have successfully completed [Tutorial Five
+  "Displaying The Feedback Form Data"](5_displaying-feedback-form-data.md).
+keywords:
+  - modify
+  - form
+  - data
 ---
 # Tutorial Six: <br>Editing And Deleting the Feedback Form Data
 

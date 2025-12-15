@@ -1,3 +1,16 @@
+---
+id: template-delete-image
+title: 'xmod:DeleteImage'
+category: Action Links
+context: template
+summary: >-
+  The DeleteImage tag renders as a clickable image at run-time. It is used to
+  execute the `<DeleteCommand>` of its parent `<xmod:Template>`.
+keywords:
+  - delete
+  - image
+  - template
+---
 # `<xmod:DeleteImage>`
 
 The DeleteImage tag renders as a clickable image at run-time. It is used to execute the `<DeleteCommand>` of its parent `<xmod:Template>`.

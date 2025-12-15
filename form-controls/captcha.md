@@ -1,3 +1,16 @@
+---
+id: form-captcha
+title: Captcha
+category: Input Controls
+context: form
+summary: >-
+  The Captcha tag renders as a CAPTCHA control at run time. ::: warning NOTE Due
+  to a limitation in the underlying DNN CAPTCHA control, this tag can only be
+  used in the FormView module. :::
+keywords:
+  - captcha
+  - form
+---
 # `<Captcha>`
 
 The Captcha tag renders as a CAPTCHA control at run time.

@@ -1,3 +1,16 @@
+---
+id: form-update-image
+title: UpdateImage
+category: Buttons
+context: form
+summary: >-
+  The UpdateImage tag renders as a clickable image at run-time. When clicked,
+  the form executes the `<SubmitCommand>` associated with the `<EditForm>`.
+keywords:
+  - update
+  - image
+  - form
+---
 # `<UpdateImage>`
 
 The UpdateImage tag renders as a clickable image at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<EditForm>`.

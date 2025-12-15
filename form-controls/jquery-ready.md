@@ -1,3 +1,16 @@
+---
+id: form-jquery-ready
+title: jQueryReady
+category: Scripting
+context: form
+summary: >-
+  The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in
+  the page. This tag requires jQuery be included in the page.
+keywords:
+  - query
+  - ready
+  - form
+---
 # `<jQueryReady>`
 
 The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in the page. This tag requires jQuery be included in the page.

@@ -1,3 +1,17 @@
+---
+id: form-radio-button
+title: RadioButton
+category: Selection Controls
+context: form
+summary: >-
+  The RadioButton tag renders as a radio button and associated label at
+  run-time. Using a series of RadioButton controls, along with the GroupName
+  property, you can create a list of mutually exclusive o...
+keywords:
+  - radio
+  - button
+  - form
+---
 # `<RadioButton>`
 
 The RadioButton tag renders as a radio button and associated label at run-time. Using a series of RadioButton controls, along with the GroupName property, you can create a list of mutually exclusive options. This can be a useful alternative to using a RadioButtonList. With the RadioButtonList, only one value is sent to the datasource. If you use RadioButton controls that are grouped, you get the same mutually-exclusive options, but you also have the ability to store the value of each RadioButton in its own data field.

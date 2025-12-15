@@ -1,3 +1,18 @@
+---
+id: form-validate-action
+title: Validate Type="Action"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "action" is referred to as an Action
+  Validator and is used to display special error messages thrown from the action
+  tags in your form.
+keywords:
+  - validate
+  - type="
+  - action"
+  - form
+---
 # `<Validate Type="Action">`
 
 The Validate tag whose type is set to "action" is referred to as an Action Validator and is used to display special error messages thrown from the action tags in your form.

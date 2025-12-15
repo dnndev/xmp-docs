@@ -1,3 +1,19 @@
+---
+id: form-builder
+title: Creating Forms with the Form Builder
+category: Form Builder
+context: all
+summary: >-
+  The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning
+  with version 3, you'll find the FormBuilder on the ManageForms page. [It is
+  described here](manage-forms.
+keywords:
+  - creating
+  - forms
+  - with
+  - form
+  - builder
+---
 # Creating Forms with the Form Builder
 
 ::: tip NOTE

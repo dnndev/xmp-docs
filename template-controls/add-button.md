@@ -1,3 +1,16 @@
+---
+id: template-add-button
+title: 'xmod:AddButton'
+category: Action Links
+context: template
+summary: >-
+  The AddButton tag renders as a push-button at run-time. It is used to show the
+  form defined by the `<AddForm>` tag in the module instance's selected form.
+keywords:
+  - add
+  - button
+  - template
+---
 # `<xmod:AddButton>`
 
 The AddButton tag renders as a push-button at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.

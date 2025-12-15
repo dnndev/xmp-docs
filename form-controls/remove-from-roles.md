@@ -1,3 +1,17 @@
+---
+id: form-remove-from-roles
+title: RemoveFromRoles
+category: User Actions
+context: form
+summary: >-
+  In the example below, we are removing the currently logged-in user (specified
+  by the `[[User:Id]]` token) from the "Role1" and "Editors" roles.
+keywords:
+  - remove
+  - from
+  - roles
+  - form
+---
 # `<RemoveFromRoles>`
 
 **New to Version 4.0!** The RemoveFromRoles tag will remove a user from one or more DotNetNuke security roles after the form has been successfully submitted.

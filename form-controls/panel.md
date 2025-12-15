@@ -1,3 +1,16 @@
+---
+id: form-panel
+title: Panel
+category: Layout
+context: form
+summary: >-
+  The Panel tag is a container tag that holds other tags and HTML. It can be
+  used just as a container, making it easy to set the container's colors and
+  borders.
+keywords:
+  - panel
+  - form
+---
 # `<Panel>`
 
 The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders. Primarily, though, it is used to show/hide parts of the form based on what role the current user is in. So, for instance, you can include controls that will only be available to administrators or editors or registered users, etc.

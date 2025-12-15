@@ -1,3 +1,14 @@
+---
+id: form-listbox
+title: ListBox
+category: List Controls
+context: form
+summary: The ListBox tag renders as a single or multi-select listbox at run-time.
+keywords:
+  - list
+  - box
+  - form
+---
 # `<ListBox>`
 
 The ListBox tag renders as a single or multi-select listbox at run-time.

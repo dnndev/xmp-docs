@@ -1,3 +1,16 @@
+---
+id: template-delete-button
+title: 'xmod:DeleteButton'
+category: Action Links
+context: template
+summary: >-
+  The DeleteButtontag renders as a push-button at run-time. It is used to
+  execute the `<DeleteCommand>` of its parent `<xmod:template>`.
+keywords:
+  - delete
+  - button
+  - template
+---
 # `<xmod:DeleteButton>`
 
 The DeleteButtontag renders as a push-button at run-time. It is used to execute the `<DeleteCommand>` of its parent `<xmod:template>`.

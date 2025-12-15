@@ -1,3 +1,16 @@
+---
+id: form-email
+title: Email
+category: Actions
+context: form
+summary: >-
+  The Email tag does not render visibly at run-time. It is a behind-the-scenes
+  operator. Upon successful submission of the form, XMod Pro will send an email
+  based on the information provided in this tag...
+keywords:
+  - email
+  - form
+---
 # `<Email>`
 
 The Email tag does not render visibly at run-time. It is a behind-the-scenes operator. Upon successful submission of the form, XMod Pro will send an email based on the information provided in this tag. You may include more than one Email tag in each form. The Email tag can be used to send multiple emails but it is not intended as a bulk email mechanism.

@@ -1,3 +1,16 @@
+---
+id: form-checkbox
+title: CheckBox
+category: Selection Controls
+context: form
+summary: >-
+  The CheckBox tag renders as a checkbox and associated label at run-time. A
+  series of CheckBox controls provides a useful alternative to the CheckBoxList.
+keywords:
+  - check
+  - box
+  - form
+---
 # `<CheckBox>`
 
 The CheckBox tag renders as a checkbox and associated label at run-time. A series of CheckBox controls provides a useful alternative to the CheckBoxList. With the CheckBoxList, all selected values are placed into a single string value that is sent to the data source. However, a series of individual CheckBox controls provides you with the same basic functionality as the CheckBoxList, but you also have the ability to store the value of each CheckBox in its own data field.

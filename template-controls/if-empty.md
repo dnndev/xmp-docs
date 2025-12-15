@@ -1,3 +1,13 @@
+---
+id: template-if-empty
+title: 'xmod:IfEmpty'
+category: Conditional
+context: template
+summary: 'Documentation for xmod:IfEmpty.'
+keywords:
+  - empty
+  - template
+---
 # `<xmod:IfEmpty>`
 
 (New to version 4.2) The IfEmpty tag is a quick way to display content only if there is no value in a column. In other words if the value is an empty string ("") or a Null value, then the content of the IfEmpty tag will be rendered out to the page.

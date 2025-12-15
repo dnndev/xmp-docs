@@ -1,3 +1,16 @@
+---
+id: form-date-input
+title: DateInput
+category: Input Controls
+context: form
+summary: >-
+  The DateInput tag renders as a single-line textbox at run time that accepts
+  dates and, optionally, time. .
+keywords:
+  - date
+  - input
+  - form
+---
 # `<DateInput>`
 
 The DateInput tag renders as a single-line textbox at run time that accepts dates and, optionally, time. .

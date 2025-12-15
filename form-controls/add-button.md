@@ -1,3 +1,16 @@
+---
+id: form-add-button
+title: AddButton
+category: Buttons
+context: form
+summary: >-
+  The AddButton tag renders as a push-button at run-time. When clicked, the form
+  executes the `<SubmitCommand>` associated with the `<AddForm>`.
+keywords:
+  - add
+  - button
+  - form
+---
 # `<AddButton>`
 
 The AddButton tag renders as a push-button at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<AddForm>`.

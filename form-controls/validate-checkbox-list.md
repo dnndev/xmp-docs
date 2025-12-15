@@ -1,3 +1,17 @@
+---
+id: form-validate-checkbox-list
+title: Validate type="checkboxlist"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "checkboxlist" is referred to as a
+  CheckBoxList Validator and is used to ensure the user checks at least one box
+  in the list.
+keywords:
+  - validate
+  - type="checkboxlist"
+  - form
+---
 # `<Validate type="checkboxlist">`
 
 The Validate tag whose type is set to "checkboxlist" is referred to as a CheckBoxList Validator and is used to ensure the user checks at least one box in the list. NOTE: This validator runs on the server only. A form must pass all client-side validation and be submitted to the server before this validation will trigger.

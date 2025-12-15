@@ -1,3 +1,17 @@
+---
+id: form-cancel-link
+title: CancelLink
+category: Buttons
+context: form
+summary: >-
+  The CancelLink tag renders as a hyperlink at run-time. When clicked, the form
+  closes without performing any actions and returns to the previous view if
+  possible.
+keywords:
+  - cancel
+  - link
+  - form
+---
 # `<CancelLink>`
 
 The CancelLink tag renders as a hyperlink at run-time. When clicked, the form closes without performing any actions and returns to the previous view if possible.

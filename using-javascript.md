@@ -1,3 +1,15 @@
+---
+id: using-javascript
+title: Using Javascript
+category: Advanced
+context: all
+summary: >-
+  This topic won't teach you how to use Javascript. Instead, it provides
+  techniques for incorporating your scripts into your XMod Pro solutions.
+keywords:
+  - using
+  - javascript
+---
 # Using Javascript
 
 This topic won't teach you how to use Javascript. Instead, it provides techniques for incorporating your scripts into your XMod Pro solutions.  

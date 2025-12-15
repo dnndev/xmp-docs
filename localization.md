@@ -1,3 +1,14 @@
+---
+id: localization
+title: Localization
+category: Advanced
+context: all
+summary: >-
+  XMod Pro provides a number of unique ways to localize not only the static text
+  in your forms and views, but also your content.
+keywords:
+  - localization
+---
 # Localization
 
 XMod Pro provides a number of unique ways to localize not only the static text in your forms and views, but also your content.

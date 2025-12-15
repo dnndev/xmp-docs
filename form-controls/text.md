@@ -1,3 +1,13 @@
+---
+id: form-text
+title: Text
+category: Input Controls
+context: form
+summary: The Text tag renders as un-decorated text at run-time.
+keywords:
+  - text
+  - form
+---
 # `<Text>`
 
 The Text tag renders as un-decorated text at run-time.

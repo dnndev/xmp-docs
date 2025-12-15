@@ -1,3 +1,15 @@
+---
+id: manage-feeds
+title: Managing Feeds
+category: Managing Content
+context: all
+summary: >-
+  NEW TO VERSION 3.0: Feeds are a new feature as of XMod Pro 3\. They greatly
+  expand what you can do with XMod Pro.
+keywords:
+  - managing
+  - feeds
+---
 # Managing Feeds
 
 NEW TO VERSION 3.0: Feeds are a new feature as of XMod Pro 3\. They greatly expand what you can do with XMod Pro. With them, you can create RSS feeds, export data as CSV files, convert SQL data to XML files, even use them to display printer-friendly HTML files -- all using the same types of techniques you use to create templates.

@@ -1,3 +1,15 @@
+---
+id: form-include
+title: Include
+category: Structure
+context: form
+summary: >-
+  The Include tag injects the raw contents of the specified file into the form
+  at the position of the tag.
+keywords:
+  - include
+  - form
+---
 # `<Include>`
 
 The Include tag injects the raw contents of the specified file into the form at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.

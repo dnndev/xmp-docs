@@ -1,3 +1,17 @@
+---
+id: form-cancel-image
+title: CancelImage
+category: Buttons
+context: form
+summary: >-
+  The CancelImage tag renders as a clickable image at run-time. When clicked,
+  the form closes without performing any actions and returns to the previous
+  view if possible.
+keywords:
+  - cancel
+  - image
+  - form
+---
 # `<CancelImage>`
 
 The CancelImage tag renders as a clickable image at run-time. When clicked, the form closes without performing any actions and returns to the previous view if possible.

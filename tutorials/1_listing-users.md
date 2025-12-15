@@ -1,5 +1,15 @@
 ---
-title: "1: Create a List View"
+id: tutorials-1_listing-users
+title: '1: Create a List View'
+category: Tutorials
+context: all
+summary: >-
+  In this tutorial, we're going to cover the basic mechanics of displaying some
+  data in your database in a list-based view.
+keywords:
+  - create
+  - list
+  - view
 ---
 # Tutorial One: <br> Creating A List View of Your Data
 

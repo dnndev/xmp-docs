@@ -1,3 +1,16 @@
+---
+id: form-tabstrip
+title: Tabstrip
+category: Layout
+context: form
+summary: >-
+  The Tabstrip tag renders as a series of tabs that, when clicked, shows the
+  corresponding content within that tab. This control requires that Javascript
+  be enabled in the browser to function correctly.
+keywords:
+  - tabstrip
+  - form
+---
 # `<Tabstrip>`
 
 The Tabstrip tag renders as a series of tabs that, when clicked, shows the corresponding content within that tab. This control requires that Javascript be enabled in the browser to function correctly.

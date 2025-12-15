@@ -1,3 +1,15 @@
+---
+id: template-register
+title: 'xmod:Register'
+category: Actions
+context: template
+summary: >-
+  The Register tag enables you to use third-party controls in your XMod Pro
+  templates.
+keywords:
+  - register
+  - template
+---
 # `<xmod:Register>`
 
 The Register tag enables you to use third-party controls in your XMod Pro templates.

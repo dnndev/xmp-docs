@@ -1,3 +1,13 @@
+---
+id: form-textarea
+title: Textarea
+category: Input Controls
+context: form
+summary: The Textarea tag renders as a multi-line text input box at run time.
+keywords:
+  - textarea
+  - form
+---
 # `<Textarea>`
 
 The Textarea tag renders as a multi-line text input box at run time.

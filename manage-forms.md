@@ -1,3 +1,13 @@
+---
+id: manage-forms
+title: Managing Forms
+category: Managing Content
+context: all
+summary: 'Don''t Feel Like Reading? **Watch the videos** instead:'
+keywords:
+  - managing
+  - forms
+---
 # Managing Forms
 
 Don't Feel Like Reading? **Watch the videos** instead:

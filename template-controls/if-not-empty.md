@@ -1,3 +1,14 @@
+---
+id: template-if-not-empty
+title: 'xmod:IfNotEmpty'
+category: Conditional
+context: template
+summary: 'Documentation for xmod:IfNotEmpty.'
+keywords:
+  - not
+  - empty
+  - template
+---
 # `<xmod:IfNotEmpty>`
 
 (New to version 4.2) The IfNotEmpty tag is a quick way to display content only if there is a value in a column. In other words if the value is not an empty string ("") or a Null value, then the content of the IfNotEmpty tag will be rendered out to the page.

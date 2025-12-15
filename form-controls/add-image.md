@@ -1,3 +1,16 @@
+---
+id: form-add-image
+title: AddImage
+category: Buttons
+context: form
+summary: >-
+  The AddImage tag renders as a clickable image at run-time. When clicked, the
+  form executes the `<SubmitCommand>` associated with the `<AddForm>`.
+keywords:
+  - add
+  - image
+  - form
+---
 # `<AddImage>`
 
 The AddImage tag renders as a clickable image at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<AddForm>`.

@@ -1,3 +1,17 @@
+---
+id: form-validate-xml
+title: Validate Type="XML"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "xml" is referred to as an XML Validator
+  and is used to ensure the user provides a well-formed XML snippet as input for
+  a given control.
+keywords:
+  - validate
+  - type="
+  - form
+---
 # `<Validate Type="XML">`
 
 The Validate tag whose type is set to "xml" is referred to as an XML Validator and is used to ensure the user provides a well-formed XML snippet as input for a given control. **NOTE:** that this provides very basic verification the XML is well-formed. Deeper checks are not performed.

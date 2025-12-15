@@ -1,3 +1,15 @@
+---
+id: tokens-portal
+title: Portal Tokens
+category: Portal Tokens
+context: all
+summary: >-
+  Portal Tokens provide you with the ability to use information about the
+  current portal at run-time such as the portal's ID, it's name, email, etc.
+keywords:
+  - portal
+  - tokens
+---
 # Portal Tokens
 
 Portal Tokens provide you with the ability to use information about the current portal at run-time such as the portal's ID, it's name, email, etc.

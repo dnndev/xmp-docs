@@ -1,3 +1,16 @@
+---
+id: template-script-block
+title: 'xmod:ScriptBlock'
+category: Display Controls
+context: template
+summary: >-
+  The `<xmod:ScriptBlock>` tag is used to inject HTML `<script>` tags into one
+  of several different locations in the page.
+keywords:
+  - script
+  - block
+  - template
+---
 # `<xmod:ScriptBlock>`
 
 The `<xmod:ScriptBlock>` tag is used to inject HTML `<script>` tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert `<style>` tags into the page using this tag.

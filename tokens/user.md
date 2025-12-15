@@ -1,3 +1,15 @@
+---
+id: tokens-user
+title: User Tokens
+category: User Tokens
+context: all
+summary: >-
+  User Tokens provide you with the ability to use information about the current
+  user at run-time such as the user's ID, name, email, etc.
+keywords:
+  - user
+  - tokens
+---
 # User Tokens
 
 User Tokens provide you with the ability to use information about the current user at run-time such as the user's ID, name, email, etc.

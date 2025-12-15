@@ -1,3 +1,16 @@
+---
+id: data-types
+title: Data Types
+category: Reference
+context: all
+summary: >-
+  XMod Pro data-bound controls enable you to specify the type of data the
+  control will accept. Some controls may limit you to a specific type of data
+  (for instance, a checkbox control might only allow b...
+keywords:
+  - data
+  - types
+---
 # Data Types
 
 XMod Pro data-bound controls enable you to specify the type of data the control will accept. Some controls may limit you to a specific type of data (for instance, a checkbox control might only allow boolean values). The list of valid data types is below:

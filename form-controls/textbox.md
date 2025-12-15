@@ -1,3 +1,14 @@
+---
+id: textbox
+title: Textbox
+category: Input Controls
+context: form
+summary: Single-line text input for entering names, addresses, and other short text values.
+since: "1.0"
+keywords: [text, input, string, field, textfield]
+related: [textarea, password, label]
+---
+
 # `<Textbox>`
 
 The Textbox tag renders as a single-line text input box at run time.

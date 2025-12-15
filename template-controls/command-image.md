@@ -1,3 +1,16 @@
+---
+id: template-command-image
+title: 'xmod:CommandImage'
+category: Action Links
+context: template
+summary: >-
+  The CommandImage tag renders as a clickable image at run-time. It is used to
+  execute data commands in another template within the module instance.
+keywords:
+  - command
+  - image
+  - template
+---
 # `<xmod:CommandImage>`
 
 The CommandImage tag renders as a clickable image at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandImage in template #1 to pass a parameter to the `<ListDataSource>` of template #2, causing that template to re-load with the new result set.

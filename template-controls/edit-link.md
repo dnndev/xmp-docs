@@ -1,3 +1,17 @@
+---
+id: template-edit-link
+title: 'xmod:EditLink'
+category: Action Links
+context: template
+summary: >-
+  The EditLink tag renders as a clickable link at run-time. It is used to show
+  the form defined by the `<EditForm>` tag in the module instance's selected
+  form.
+keywords:
+  - edit
+  - link
+  - template
+---
 # `<xmod:EditLink>`
 
 The EditLink tag renders as a clickable link at run-time. It is used to show the form defined by the `<EditForm>` tag in the module instance's selected form.

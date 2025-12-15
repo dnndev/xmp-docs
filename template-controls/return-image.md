@@ -1,3 +1,16 @@
+---
+id: template-return-image
+title: 'xmod:ReturnImage'
+category: Action Links
+context: template
+summary: >-
+  The ReturnImage tag renders as a clickable image at run-time. It is used to
+  return the user from a detail view to the previously viewed list view.
+keywords:
+  - return
+  - image
+  - template
+---
 # `<xmod:ReturnImage>`
 
 The ReturnImage tag renders as a clickable image at run-time. It is used to return the user from a detail view to the previously viewed list view.

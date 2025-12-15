@@ -1,3 +1,15 @@
+---
+id: template-include
+title: 'xmod:Include'
+category: Display Controls
+context: template
+summary: >-
+  The Include tag injects the raw contents of the specified file into the
+  template at the position of the tag.
+keywords:
+  - include
+  - template
+---
 # `<xmod:Include>`
 
 The Include tag injects the raw contents of the specified file into the template at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.

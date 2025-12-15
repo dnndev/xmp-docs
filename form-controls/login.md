@@ -1,3 +1,15 @@
+---
+id: form-login
+title: Login
+category: User Actions
+context: form
+summary: >-
+  In the example above note how we're using Field Tokens (`[[Uname]]` and
+  `[[Pword]]`) to grab the data from the form controls.
+keywords:
+  - login
+  - form
+---
 # `<Login>`
 
 **New to Version 4.0!** The Login tag will log the specified user into the DNN website.

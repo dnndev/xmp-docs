@@ -1,3 +1,11 @@
+---
+id: faq
+title: FAQ
+category: Reference
+context: all
+summary: Documentation for FAQ.
+keywords: []
+---
 # FAQ
 
 ## General

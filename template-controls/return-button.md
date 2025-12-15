@@ -1,3 +1,16 @@
+---
+id: template-return-button
+title: 'xmod:ReturnButton'
+category: Action Links
+context: template
+summary: >-
+  The ReturnButton tag renders as a push-button at run-time. It is used to
+  return to the list view from a detail view.
+keywords:
+  - return
+  - button
+  - template
+---
 # `<xmod:ReturnButton>`
 
 The ReturnButton tag renders as a push-button at run-time. It is used to return to the list view from a detail view.

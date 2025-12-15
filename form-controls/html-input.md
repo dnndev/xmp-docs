@@ -1,3 +1,16 @@
+---
+id: form-html-input
+title: HtmlInput
+category: Input Controls
+context: form
+summary: >-
+  The HtmlInput tag renders as a rich text editor at run time. It uses the
+  current HTML Editor provider for your DotNetNuke site.
+keywords:
+  - html
+  - input
+  - form
+---
 # `<HtmlInput>`
 
 The HtmlInput tag renders as a rich text editor at run time. It uses the current HTML Editor provider for your DotNetNuke site.

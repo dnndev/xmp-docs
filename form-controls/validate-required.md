@@ -1,3 +1,14 @@
+---
+id: validate-required
+title: Validate Required
+category: Validation
+context: form
+summary: Ensures the user provides input for a control before form submission. Displays error message when validation fails.
+since: "1.0"
+keywords: [validate, required, validation, mandatory, field]
+related: [validate-compare, validate-range, validate-email, validation-summary]
+---
+
 # `<Validate Type="Required">`
 
 The Validate tag whose type is set to "required" is referred to as a Required Field Validator and is used to ensure the user provides some input for a given control.

@@ -1,3 +1,17 @@
+---
+id: form-cancel-button
+title: CancelButton
+category: Buttons
+context: form
+summary: >-
+  The CancelButton tag renders as a button at run-time. When clicked, the form
+  closes without performing any actions and returns to the previous view if
+  possible.
+keywords:
+  - cancel
+  - button
+  - form
+---
 # `<CancelButton>`
 
 The CancelButton tag renders as a button at run-time. When clicked, the form closes without performing any actions and returns to the previous view if possible.

@@ -1,3 +1,15 @@
+---
+id: template-slideshow
+title: 'xmod:Slideshow'
+category: Display Controls
+context: template
+summary: >-
+  The Slideshow tag, like the Template tag, is a View control that is used for
+  displaying records from your datasource.
+keywords:
+  - slideshow
+  - template
+---
 # `<xmod:Slideshow>`
 
 The Slideshow tag, like the Template tag, is a View control that is used for displaying records from your datasource. Unlike the Template tag, the Slideshow is a view with a single purpose - to display images in an eye-pleasing presentation with very little work on your part. All you have to do is supply it with a list of URL's to your images and set a Width and Height for the viewer. It is used in essentially the same manner as the Template tag and can be used together with the Template tag within your templates.

@@ -1,3 +1,16 @@
+---
+id: manage-templates
+title: Managing Templates
+category: Managing Content
+context: all
+summary: >-
+  Data display templates are created, edited, copied, and deleted within the
+  Manage Templates page. The Manage Templates page is only available to Hosts or
+  SuperUser accounts.
+keywords:
+  - managing
+  - templates
+---
 # Managing Templates
 
 Data display templates are created, edited, copied, and deleted within the Manage Templates page. The Manage Templates page is only available to Hosts or SuperUser accounts. To get there, select "Control Panel" from the module's Actions/Manage Menu:

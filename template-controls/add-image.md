@@ -1,3 +1,17 @@
+---
+id: template-add-image
+title: 'xmod:AddImage'
+category: Action Links
+context: template
+summary: >-
+  The AddImage tag renders as a clickable image at run-time. It is used to show
+  the form defined by the `<AddForm>` tag in the module instance's selected
+  form.
+keywords:
+  - add
+  - image
+  - template
+---
 # `<xmod:AddImage>`
 
 The AddImage tag renders as a clickable image at run-time. It is used to show the form defined by the `<AddForm>` tag in the module instance's selected form.

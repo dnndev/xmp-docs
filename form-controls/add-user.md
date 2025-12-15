@@ -1,3 +1,17 @@
+---
+id: form-add-user
+title: AddUser
+category: User Actions
+context: form
+summary: >-
+  You MUST take care to properly validate user input. Additionally you should
+  place this tag only on forms that are properly secured so that only users you
+  intend to have access can use the form. :::
+keywords:
+  - add
+  - user
+  - form
+---
 # `<AddUser>`
 
 **New to Version 4.0!** The `<AddUser>` tag will register a user in the DNN site and optionally add that user to one or more DotNetNuke security roles after the form has been successfully submitted.

@@ -1,3 +1,16 @@
+---
+id: configuring-xmod-pro
+title: Configuring XMod Pro
+category: Configuration
+context: all
+summary: >-
+  The XMod Pro module configuration page allows you to assign forms and
+  templates and set some security options for the module.
+keywords:
+  - configuring
+  - mod
+  - pro
+---
 # Configuring XMod Pro
 
 The XMod Pro module configuration page allows you to assign forms and templates and set some security options for the module. The Configuration page is available to portal administrators as well as Hosts and SuperUsers. You can view the Configuration page by selecting "Configure" from the Actions/Manage Menu for the module, as seen below.

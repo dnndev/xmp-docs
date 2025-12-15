@@ -1,3 +1,17 @@
+---
+id: form-validate-compare
+title: Validate type="compare"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "compare" is referred to as a Comparison
+  Validator and is used to ensure the value of the target control is the same as
+  a hard-coded value or the same as the valu...
+keywords:
+  - validate
+  - type="compare"
+  - form
+---
 # `<Validate type="compare">`
 
 The Validate tag whose type is set to "compare" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the value in a second control. It is useful when prompting the user for an email address or password.

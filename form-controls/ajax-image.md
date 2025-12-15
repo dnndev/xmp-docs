@@ -1,3 +1,17 @@
+---
+id: form-ajax-image
+title: AjaxImage
+category: Buttons
+context: form
+summary: >-
+  The AjaxImage tag renders as a push-button at run-time that, when clicked,
+  will dynamically insert HTML returned from a URL into an element on the page -
+  without a postback.
+keywords:
+  - ajax
+  - image
+  - form
+---
 # `<AjaxImage>`
 
 The AjaxImage tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.

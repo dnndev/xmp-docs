@@ -1,3 +1,16 @@
+---
+id: form-add-link
+title: AddLink
+category: Buttons
+context: form
+summary: >-
+  The AddLink tag renders as a hyperlink at run-time. When clicked, the form
+  executes the `<SubmitCommand>` associated with the `<AddForm>`.
+keywords:
+  - add
+  - link
+  - form
+---
 # `<AddLink>`
 
 The AddLink tag renders as a hyperlink at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<AddForm>`.

@@ -1,3 +1,15 @@
+---
+id: form-checkbox-list
+title: CheckBoxList
+category: List Controls
+context: form
+summary: The CheckboxList tag renders as a series of checkboxes at run-time.
+keywords:
+  - check
+  - box
+  - list
+  - form
+---
 # `<CheckBoxList>`
 
 The CheckboxList tag renders as a series of checkboxes at run-time.

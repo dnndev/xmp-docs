@@ -1,3 +1,17 @@
+---
+id: form-validate-database
+title: Validate Type="Database"
+category: Validation
+context: form
+summary: >-
+  The Validate tag whose type is set to "Database" is referred to as a Database
+  Validator and is used to display error messages thrown from the database.
+keywords:
+  - validate
+  - type="
+  - database"
+  - form
+---
 # `<Validate Type="Database">`
 
 The Validate tag whose type is set to "Database" is referred to as a Database Validator and is used to display error messages thrown from the database.

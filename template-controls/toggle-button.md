@@ -1,3 +1,16 @@
+---
+id: template-toggle-button
+title: 'xmod:ToggleButton'
+category: Action Links
+context: template
+summary: >-
+  The ToggleButton tag renders as a push-button at run-time. It provides you
+  with a simple interface for leveraging jQuery functionality.
+keywords:
+  - toggle
+  - button
+  - template
+---
 # `<xmod:ToggleButton>`
 
 The ToggleButton tag renders as a push-button at run-time. It provides you with a simple interface for leveraging jQuery functionality. Simply set a few attributes and you're done - no scripting necessary.

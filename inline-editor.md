@@ -1,3 +1,15 @@
+---
+id: inline-editor
+title: Inline Editor
+category: Editors
+context: all
+summary: >-
+  Beginning in version 1.4, XMod Pro includes a quick and easy way to edit the
+  templates and forms configured for a given module.
+keywords:
+  - inline
+  - editor
+---
 # Inline Editor 
 
 _Editing Your Forms and Templates with the Inline Editor_

@@ -1,5 +1,15 @@
 ---
-title: "3: Create a Feedback Form"
+id: tutorials-3_feedback-form
+title: '3: Create a Feedback Form'
+category: Tutorials
+context: all
+summary: >-
+  In the first two tutorials, you created a list-based view of your data and
+  then added the ability to view the details of each record.
+keywords:
+  - create
+  - feedback
+  - form
 ---
 # Tutorial Three:  <br>Create a Feedback Form
 

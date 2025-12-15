@@ -1,3 +1,13 @@
+---
+id: form-action
+title: Action
+category: Actions
+context: form
+summary: Documentation for Action.
+keywords:
+  - action
+  - form
+---
 # `<Action>`
 
 **New to Version 4.0!** The Action tag allows you to execute custom server-side functionality after the form has been successfully submitted.

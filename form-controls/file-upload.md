@@ -1,3 +1,16 @@
+---
+id: form-file-upload
+title: FileUpload
+category: Input Controls
+context: form
+summary: >-
+  The FileUpload tag allows your users to upload a file to your web server. If a
+  file has been upoaded, its filename is displayed.
+keywords:
+  - file
+  - upload
+  - form
+---
 # `<FileUpload>`
 
 The FileUpload tag allows your users to upload a file to your web server. If a file has been upoaded, its filename is displayed.

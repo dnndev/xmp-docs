@@ -1,3 +1,17 @@
+---
+id: form-dual-list
+title: DualList
+category: List Controls
+context: form
+summary: >-
+  New to version 1.5. The DualList tag renders as two listboxes at run-time.
+  Each box is separated by a series of buttons that enable moving items from the
+  first listbox to the second listbox and vice v...
+keywords:
+  - dual
+  - list
+  - form
+---
 # `<DualList>`
 
 New to version 1.5. The DualList tag renders as two listboxes at run-time. Each box is separated by a series of buttons that enable moving items from the first listbox to the second listbox and vice versa. NOTE: The DualList requires Javascript to function correctly.

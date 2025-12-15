@@ -1,3 +1,16 @@
+---
+id: tokens-field
+title: Field Tokens
+category: Field Tokens
+context: all
+summary: >-
+  Field Tokens are the mechanism used to display values from your datasource in
+  your templates. If you've used XMod, then you can think of field tokens as the
+  replacement for the old `<xmod:Field>` tag.
+keywords:
+  - field
+  - tokens
+---
 # Field Tokens
 
 **For Templates**

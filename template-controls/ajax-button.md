@@ -1,3 +1,17 @@
+---
+id: template-ajax-button
+title: 'xmod:AjaxButton'
+category: Action Links
+context: template
+summary: >-
+  The AjaxButton tag renders as a push-button at run-time that, when clicked,
+  will dynamically insert HTML returned from a URL into an element on the page -
+  without a postback.
+keywords:
+  - ajax
+  - button
+  - template
+---
 # `<xmod:AjaxButton>`
 
 The AjaxButton tag renders as a push-button at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It required jQuery be included in the page and that Javascript be enabled in the end-user's browser.

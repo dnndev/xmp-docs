@@ -1,3 +1,16 @@
+---
+id: form-add-to-roles
+title: AddToRoles
+category: User Actions
+context: form
+summary: >-
+  In the example below, we're using a `<Variable>` tag to retrieve the current
+  user's ID and make it available to the `<AddToRoles>` tag.
+keywords:
+  - add
+  - roles
+  - form
+---
 # `<AddToRoles>`
 
 **New to Version 4.0** The AddToRoles tag will add a user to one or more DotNetNuke security roles after the form has been successfully submitted.

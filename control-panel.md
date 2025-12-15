@@ -1,3 +1,16 @@
+---
+id: control-panel
+title: Control Panel
+category: Configuration
+context: all
+summary: >-
+  Beginning with version 2, most administrative tasks have been consolidated and
+  placed in the Control Panel. It is only available to Host and SuperUser
+  accounts.
+keywords:
+  - control
+  - panel
+---
 # Control Panel
 
 Beginning with version 2, most administrative tasks have been consolidated and placed in the Control Panel. It is only available to Host and SuperUser accounts. You can access the Control Panel by selecting it from the Actions/Manage menu:

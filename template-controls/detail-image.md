@@ -1,3 +1,17 @@
+---
+id: template-detail-image
+title: 'xmod:DetailImage'
+category: Action Links
+context: template
+summary: >-
+  The DetailImage tag renders as a clickable image at run-time. It is used to
+  execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays
+  that data in the `<DetailTemplate>` defined in...
+keywords:
+  - detail
+  - image
+  - template
+---
 # `<xmod:DetailImage>`
 
 The DetailImage tag renders as a clickable image at run-time. It is used to execute the `<DetailDataSource>` of its parent `<xmod:Template>` and displays that data in the `<DetailTemplate>` defined in the parent `<xmod:Template>` tag.

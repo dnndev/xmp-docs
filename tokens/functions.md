@@ -1,3 +1,16 @@
+---
+id: tokens-functions
+title: Function Tokens
+category: Function Tokens
+context: all
+summary: >-
+  Function Tokens provide you the ability to execute certain XMod Pro-supplied
+  functions. These tokens can be used in templates and forms. Standard token
+  rules apply. See discussion of Field Tokens.
+keywords:
+  - function
+  - tokens
+---
 # Function Tokens
 
 Function Tokens provide you the ability to execute certain XMod Pro-supplied functions. These tokens can be used in templates and forms. Standard token rules apply. See discussion of Field Tokens.

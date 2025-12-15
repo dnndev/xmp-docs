@@ -1,3 +1,15 @@
+---
+id: form-redirect
+title: Redirect
+category: Actions
+context: form
+summary: >-
+  New to Version 4.0! The Redirect action tag will send the user to the
+  specified URL (Target) at run-time.
+keywords:
+  - redirect
+  - form
+---
 # `<Redirect>`
 
 New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.

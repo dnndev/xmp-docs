@@ -1,3 +1,16 @@
+---
+id: form-update-link
+title: UpdateLink
+category: Buttons
+context: form
+summary: >-
+  The UpdateLink tag renders as a hyperlink at run-time. When clicked, the form
+  executes the `<SubmitCommand>` associated with the `<EditForm>`.
+keywords:
+  - update
+  - link
+  - form
+---
 # `<UpdateLink>`
 
 The UpdateLink tag renders as a hyperlink at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<EditForm>`.
