@@ -42,7 +42,8 @@ const CONFIG = {
     'unit-types.md',
     'font-properties.md',
     'localization.md',
-    'faq.md'
+    'faq.md',
+    'reference.md'
   ],
   // Output file
   outputFile: 'help-content.json',

@@ -75,6 +75,7 @@ export default defineConfig({
       {
         text: 'Reference',
         items: [
+          { text: 'Reference Overview', link: '/reference' },
           { text: 'FAQ', link: '/faq' },
           { text: 'Revision History', link: '/revision-history' },
           { text: 'EULA', link: '/eula' },
