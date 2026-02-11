@@ -5,6 +5,13 @@ export default defineConfig({
   title: "XMod Pro Documentation",
   description: "XMod Pro Documentation for DNN",
   base: "/help/xmodpro/",
+
+  vite: {
+    server: {
+      port: 5200,
+      strictPort: true
+    }
+  },
   
   head: [
     // Google Analytics

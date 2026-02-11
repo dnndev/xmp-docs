@@ -4,47 +4,62 @@ title: Activating Your License
 category: Getting Started
 context: all
 summary: >-
-  In order to use XMod Pro on a web site, you must Activate the license. Please
-  note that you may use XMod Pro for development purposes only on "localhost"
-  (http://localhost). For all other uses you must activate the license. This is
-  done through the License and Activation page. This page is only available to
-  Hosts or SuperUser accounts. To get there, select "License and Activation"
-  from the module's Actions/Manage Menu.
+  How to activate your XMod Pro license, request a trial, or manually activate
+  when a direct internet connection isn't available.
 keywords:
-  - activating
-  - your
+  - activation
   - license
+  - trial
 ---
 # Activating Your License
 
-In order to use XMod Pro on a web site, you must Activate the license. Please note that you may use XMod Pro for development purposes only on "localhost" (http://localhost). For all other uses you must activate the license. This is done through the License and Activation page. This page is only available to Hosts or SuperUser accounts. To get there, select "License and Activation" from the module's Actions/Manage Menu:
+To use XMod Pro on a live site, you need to activate your license. You can use XMod Pro without activation only on `localhost` for local development.
 
-![Pop-Up Actions Menu](./img/ActionMenu_LicenseDNN7.png)
+The License and Activation page is available to **Host (SuperUser) accounts only**. To get there, hover over the XMod Pro module and select **License and Activation** from the actions menu:
 
-The License and Activation page allows you to check the status of your license. If you haven't yet activated, this page allows you to request a Trial License (a temporary license that will expire) or activate your license.
+![Actions menu showing the License and Activation option](./img/v5/activating-actions-menu.png)
 
-![License and Activation Page](./img/LicenseActivation_a.png)
+When you open the page for the first time, you'll see two options: start a free trial or activate a paid license.
 
-**Requesting A Trial License**: Tick the "Trial License" check box and click the "Request Activation" or "Manual Activation" button
+![The License and Activation page before activation](./img/v5/activating-not-activated.png)
 
-**Activating Your License**:
+## Requesting a Trial License
 
-*   Make sure the Trial License check box is not ticked.
-*   Account: Enter the email address you used to purchase the license.
-*   Invoice Number: If you purchased from The DNN Store (formerly Snowcovered), enter the Invoice Number found on your receipt. If you purchased from PayPal, use the Transaction ID, which can be found on your receipt.
-*   Ensure you have a connection to the internet.
-*   Click the "Request Activation" button.
-    *   NOTE: If you are behind a Firewall or you're having difficulty activating, click the "Manual Activation" button and follow the instructions below for Manually Activating your License.
-*   Click the "Update" link to save your changes.
+If you'd like to try XMod Pro before purchasing, you can activate a **14-day trial license** with a single click. Click the **Start 14-Day Free Trial** button — no email address or other information is required. The trial gives you full access to all features with no limitations.
 
-**Manually Activating Your License**:
+Once activated, the page shows your trial details including the expiration date, days remaining, and maximum portals.
 
-*   Fill in the Account and Invoice Number text boxes. Ensure this information is correct.
-*   Click the "Manual Activation" button
-*   The following appears:  
-    ![](./img/LicenseActivation_Manual.png)
-*   Press CTRL+A on your keyboard to select ALL the information in the Server ID box and copy that to the clipboard. You will need to paste that information into our manual activation page.
-*   Click the link below the Server ID box to browse to our manual activation page and follow the instructions on that page. Paste the text copied from the Server ID box into the "STEP THREE" text box on the manual activation page.
-*   The manual activation page will generate an Activation Key for you. Copy and paste that text into the "Activation Key" text box on the License and Activation page in XMod Pro.
-*   Click the "Submit Activation Key" button to activate your software
-*   Click the "Update" link to save your changes.
+![Trial license activated with details and upgrade options](./img/v5/activating-trial-activated.png)
+
+When you're ready to upgrade, click **Activate a License** to begin the paid activation process, or click **Purchase a License** if you haven't bought one yet.
+
+## Activating a Paid License
+
+To activate a purchased license:
+
+1. On the License and Activation page, click **Activate Paid License** (or **Activate a License** if you're on a trial).
+2. In the dialog that appears, enter the **email address** you used when purchasing the license.
+3. Enter your **invoice number** from your purchase receipt.
+4. Click **Web Service Activation**.
+
+![The paid activation dialog](./img/v5/activating-paid-modal.png)
+
+Your server needs an internet connection to complete the activation. Once activated, the page displays your license details including the account email, invoice number, license expiration, support and updates period, and portal allowance.
+
+![Paid license activated with license details](./img/v5/activating-paid.png)
+
+## Manual Activation
+
+If your server doesn't have a direct internet connection or you're having trouble with web service activation, you can activate manually:
+
+1. In the activation dialog, enter your **email address** and **invoice number**.
+2. Click the **Manual Activation** button (instead of Web Service Activation).
+3. The dialog walks you through three steps:
+
+![The manual activation dialog](./img/v5/activating-manual-activation.png)
+
+- **Step 1: Copy Your Server ID** — Click **Copy** to copy the Server ID to your clipboard.
+- **Step 2: Visit Activation Portal** — Click the link to open the activation portal at DNNDev.com (or click **Copy Link** to visit from a computer with internet access). On the portal page, select **DNNDev** as the manufacturer and **XModPro** as the product. Paste your Server ID and click **Generate Activation Key**. Copy the resulting key.
+- **Step 3: Enter Activation Key** — Paste the activation key you received from the portal into the text box.
+
+4. Click **Activate License** to complete the activation.
