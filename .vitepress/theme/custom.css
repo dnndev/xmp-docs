@@ -35,6 +35,12 @@
   background-color: transparent;
 }
 
+/* Prevent property name + required asterisk from wrapping */
+.vp-doc table td:first-child {
+  min-width: 120px;
+  white-space: nowrap;
+}
+
 .dark {
   --vp-c-brand-1: #f97316;
   --vp-c-brand-2: #ea580c;

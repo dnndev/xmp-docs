@@ -5,62 +5,16 @@ category: Input Controls
 context: form
 summary: >-
   The FileUpload tag allows your users to upload a file to your web server. If a
-  file has been upoaded, its filename is displayed.
+  file has been uploaded, its filename is displayed.
 keywords:
   - file
   - upload
   - form
+since: '1.0'
 ---
 # `<FileUpload>`
 
-The FileUpload tag allows your users to upload a file to your web server. If a file has been upoaded, its filename is displayed.
-
-## Syntax
-```html
-<FileUpload 
-    ID="string" 
-    DataField="string" 
-    DataType="string"
-    DisplayMode="FilePicker|FilePickerNoUpload|UploadAndSelect" 
-    Extensions="comma-delimited list of extensions" 
-    FileNameLabelCssClass="string|Normal"
-    MessageLabelCssClass="string|Normal"
-    NewFileButtonCssClass="string|CommandButton"
-    NewFileButtonText="string|Upload File"
-    Nullable="True|False"
-    Path="string"
-    UploadButtonCssClass="string|CommandButton"
-    UploadButtonText="string|Upload"
-    UseUniqueFileName="True|False"
-    Visible="True|False" 
-/> 
-```
-
-## Remarks
-
-If your users need to upload files like images or documents to your web server, you can use the `<FileUpload>` tag. If a file has been previously uploaded, the control displays the file's name. The user can click the "New File" button to show the HTML file upload control that allows them to browse to their file on their local machine. Once they've selected the file, they click the "Upload" button to begin the upload process. If the file's extension does not match those that have been specified in the "extensions" attribute or if there is some other error, it is displayed for the user. The `DataType` attribute is always **string**.
-
-**Validating the FileUpload Control**: The nature of the FileUpload control does not allow it to be validated on the client. If you use a validator with this control, set the `EnableClientScript` attribute to `false`.
-
-The FileUpload control has the following attributes:
-
-*   **DisplayMode**: (New to v.2.7) This allows you to determine how the control behaves. You can configure it to be a file picker, where the files in the specified directory are displayed in a drop-down list; a file picker with the ability to upload a new file; or, the default, provide the user with the ability to upload a file and have that file be the "selected" file for the control. The UploadAndSelect method is the same method that earlier versions of this control used.
-*   **Extensions**: A comma-delimited list of file extensions that define the file types that are allowed to be uploaded. File extensions should not include the period. For instance: `gif,jpg,tiff` is a valid value for Extensions. This attribute is required.
-*   **FileNameLabelCssClass**: The Cascading Style Sheets (CSS) class name to associate with the label that displays the selected/uploaded file name. The default value is `Normal`
-*   **MessageLabelCssClass**:The Cascading Style Sheets (CSS) class name to associate with the label that displays any error messages that result from operation of the control. The default value is `Normal`
-*   **NewFileButtonCssClass**: The Cascading Style Sheets (CSS) class name to associate with the link button the user clicks to show the file upload control. The default value is `CommandButton`
-*   **NewFileButtonText**: The text to use for the link button the user clicks to show the file upload control. The default value is "Upload File"
-*   **Nullable**: If True (the default is False), the control will return a DBNull value when no file has been uploaded. If a DBNull value is passed to the control, regardless of the Nullable setting, no value will be set for the uploaded file.
-*   **Path**: The path to the file on the web server where the file should be saved. This path must be accessible to the web application and permissions must be set to allow file operations. The path should be written relative to the web application root and may use the tilde (`~`) character to represent the root. Examples: "/Portals/0/images/" or "~/Portals/0/images/"
-*   **UploadButtonCssClass**: The Cascading Style Sheets (CSS) class name to associate with the link button the user clicks to initiate the file upload process. The default value is `CommandButton`
-*   **UploadButtonText**: The text to use for the link button the user clicks to initiate the file upload process. The default value is "Upload"
-*   **UseUniqueFileName**: False by default, when this attribute is set to True, the control will generate a unique GUID-based name for the uploaded file. If the attribute is False, the original file name will be used.
-
-:::warning NOTE
-Because of Javascript's security mechanisms, the FileUpload control will NOT function if Partial Page Rendering has been enabled for the XMod Pro control. This is true of the ASP.NET FileUpload control and is not specific to XMod Pro's FileUpload control.
-:::
-
-
+The FileUpload tag allows your users to upload a file to your web server. It supports three [display modes](#prop-displaymode): upload a file directly, pick from existing files in a directory, or pick from existing files with the option to upload new ones.
 
 ## Example
 ```html {19-20}
@@ -69,28 +23,80 @@ Because of Javascript's security mechanisms, the FileUpload control will NOT fu
   <table>
     <tr>
       <td>
-        <label for="txtFirstName" text="First Name" /> 
-        <Textbox id="txtFirstName" datafield="FirstName" datatype="string" />
+        <Label For="txtFirstName" Text="First Name" />
+        <Textbox Id="txtFirstName" DataField="FirstName" DataType="String" />
       </td>
     </tr>
     <tr>
       <td>
-        <label for="txtLastName" text="Last Name" /> 
-        <Textbox id="txtLastName" datafield="LastName" datatype="string" />
+        <Label For="txtLastName" Text="Last Name" />
+        <Textbox Id="txtLastName" DataField="LastName" DataType="String" />
        </td>
     </tr>
     <tr>
       <td>
-        <label for="uplMugShot" text="Mug Shot" /> 
-        <FileUpload id="uplMugShot" path="~/images/" extensions="gif,jpg" 
-          datafield="UserImage" datatype="string" />
+        <Label For="uplMugShot" Text="Mug Shot" />
+        <FileUpload Id="uplMugShot" Path="~/images/" Extensions="gif,jpg"
+          DataField="UserImage" DataType="String" />
        </td>
     </tr>
     <tr>
       <td colspan="2">
-        <AddButton text="Add"/>&nbsp;<CancelButton text="Cancel"/>
+        <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
       </td>
     </tr>
   </table>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ID](#prop-id) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Unique identifier for the control within the form |
+| [DataField](#prop-datafield) | string | | Parameter name for data binding to your form's data commands |
+| DataType | `String` | `String` | Database type — always `String` for this control |
+| [DisplayMode](#prop-displaymode) | `UploadAndSelect` `FilePicker` `FilePickerNoUpload` | `UploadAndSelect` | How the control presents file selection to the user |
+| [Extensions](#prop-extensions) | string | | Comma-separated list of allowed file extensions, without the period (e.g. `gif,jpg,png`) |
+| FileNameLabelCssClass | string | `Normal` | CSS class for the uploaded file name label |
+| FilePickerCssClass | string | `NormalTextBox` | CSS class for the file picker dropdown |
+| MessageLabelCssClass | string | `Normal` | CSS class for error/status messages |
+| NewFileButtonCssClass | string | `CommandButton` | CSS class for the "new file" link button |
+| NewFileButtonText | string | `Upload File` | Text for the "new file" link button |
+| [Nullable](#prop-nullable) | `True` `False` | `False` | Returns DBNull when no file has been uploaded |
+| [Path](#prop-path) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Server directory where uploaded files are saved |
+| UploadButtonCssClass | string | `CommandButton` | CSS class for the upload button |
+| UploadButtonText | string | `Upload` | Text for the upload button |
+| [UseUniqueFileName](#prop-useuniquefilename) | `True` `False` | `False` | Generates a unique GUID-based filename for uploads |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+::: warning NOTE
+Because of JavaScript's security mechanisms, the FileUpload control will NOT function if Partial Page Rendering has been enabled for the XMod Pro module. This is true of the ASP.NET FileUpload control and is not specific to XMod Pro's FileUpload control.
+:::
+
+**Validating the FileUpload Control**: The nature of the FileUpload control does not allow it to be validated on the client. If you use a validator with this control, set the `EnableClientScript` attribute to `false`.
+
+## Property Details
+
+*   <span id="prop-id">**ID**</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
+
+*   <span id="prop-datafield">**DataField**</span>: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
+
+*   <span id="prop-displaymode">**DisplayMode**</span>: Determines how the control presents file selection to the user:
+    *   **UploadAndSelect** (default): The user uploads a file and that file becomes the selected value. This is the classic behavior from earlier versions of the control.
+    *   **FilePicker**: Files in the specified directory are displayed in a drop-down list for the user to choose from. No upload capability is provided.
+    *   **FilePickerNoUpload**: Same as FilePicker — files are displayed in a drop-down list — but the user also has the ability to upload a new file.
+
+*   <span id="prop-extensions">**Extensions**</span>: A comma-delimited list of file extensions that define the file types allowed to be uploaded. File extensions should not include the period. For instance: `gif,jpg,tiff` is a valid value.
+
+    ::: warning
+    If Extensions is not set, all file types will be accepted with no restrictions. Always specify allowed extensions to prevent unwanted file uploads.
+    :::
+
+*   <span id="prop-nullable">**Nullable**</span>: If True, the control will return a DBNull value when no file has been uploaded. If a DBNull value is passed to the control, regardless of the Nullable setting, no value will be set for the uploaded file.
+
+*   <span id="prop-path">**Path**</span>: The path on the web server where the file should be saved. This path must be accessible to the web application and permissions must be set to allow file operations. The path should be written relative to the web application root and may use the tilde (`~`) character to represent the root. Examples: `/Portals/0/images/` or `~/Portals/0/images/`
+
+*   <span id="prop-useuniquefilename">**UseUniqueFileName**</span>: When set to True, the control will generate a unique GUID-based name for the uploaded file. If False, the original file name will be used.
