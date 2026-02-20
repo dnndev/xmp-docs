@@ -15,3 +15,8 @@ npm-debug.log*
 
 # OS
 .DS_Store
+
+# Claude Artifacts
+.claude/
+nul
+
