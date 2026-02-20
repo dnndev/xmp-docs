@@ -120,7 +120,7 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**: The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the `ID` of the `<ControlDataSource>` tag in the `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item in the `DataTextField` attribute, and the column in the data source that should supply the hidden value of each list item in the `DataValueField` attribute.</span>
+*   **Usage**: The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the `ID` of the `<ControlDataSource>` tag in the `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item in the `DataTextField` attribute, and the column in the data source that should supply the hidden value of each list item in the `DataValueField` attribute.
 
 
 

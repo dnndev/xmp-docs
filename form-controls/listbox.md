@@ -116,7 +116,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.</span>  
+*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
 
 
 

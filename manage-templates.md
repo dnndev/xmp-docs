@@ -80,7 +80,7 @@ Click the Edit icon ![](./img/edit.gif) on the row of the template you want to e
     *   **Tokens Dropdown**: Allows you to select from and insert an XMod Pro token from a list of available tokens you can insert (such as [[Module:ID]], [[Portal:ID]], [[User:DisplayName]], etc.)
     *   **Snippets Dropdown**: Allows you to select from and insert a snippet from a list of your available code snippets that you have created.   
 
-4.  **Editing Area**: New to version 4, the editor now has colored syntax highlighting, line numbers, auto-complete of XMod Pro tags, search and replace, auto-indent, and block indent/outdent. Note in the image that </HeaderTemplate>, </tbody>, </table>, and </FooterTemplate> are highlighted in red. This indicates invalid HTML syntax. However, since templates dynamically build the HTML at run-time, these error indicators can be ignored.  
+4.  **Editing Area**: New to version 4, the editor now has colored syntax highlighting, line numbers, auto-complete of XMod Pro tags, search and replace, auto-indent, and block indent/outdent. Note in the image that `</HeaderTemplate>`, `</tbody>`, `</table>`, and `</FooterTemplate>` are highlighted in red. This indicates invalid HTML syntax. However, since templates dynamically build the HTML at run-time, these error indicators can be ignored.  
 
 5.  **Update/Cancel Buttons**: Click the Update button to save your changes and return to the main Manage templates screen or click Cancel to abandon your changes and return to the Manage templates screen.
 

@@ -107,5 +107,3 @@ The action validator is a special type of `<Validate>` tag. When the "type" attr
 
 In the example above, we've highlighted the three key components at work here - the AddUser tag, the Validate tag, and the ValidationSummary tag. As you can see, there isn't much you have to do to use the action validator. Just place it on your form and, ideally, also have a ValidationSummary tag on the form for displaying any errors.
 
-</div>
-
