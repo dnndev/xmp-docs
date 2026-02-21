@@ -16,11 +16,11 @@ Controls you use inside forms to collect and manage user input — text fields, 
 
 [Browse Form Controls →](form-controls/textbox.md)
 
-## Template Controls
+## View Controls
 
 Controls you use inside views to display data — lists, pagers, buttons for editing and deleting records, conditional display, and more.
 
-[Browse Template Controls →](template-controls/data-list.md)
+[Browse View Controls →](template-controls/data-list.md)
 
 ## Tokens
 

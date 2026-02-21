@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 196">
+  <defs>
+    <marker id="arrow-out" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f37021"/>
+    </marker>
+    <marker id="arrow-in" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f37021"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1.5; }
+    .label { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #2c3e50; }
+    .sub { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #95a5a6; }
+    .connector { stroke: #f37021; stroke-width: 2; fill: none; }
+    .arrow-label { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #f37021; font-style: italic; }
+  </style>
+
+  <!-- Database (left, tall) -->
+  <rect class="box" x="40" y="48" width="140" height="100" rx="10"/>
+  <text class="label" x="110" y="93" text-anchor="middle">Database</text>
+  <text class="sub" x="110" y="108" text-anchor="middle">Your tables</text>
+
+  <!-- Arrow: Database → View (reads) -->
+  <line class="connector" x1="182" y1="68" x2="308" y2="38" marker-end="url(#arrow-out)"/>
+  <text class="arrow-label" x="238" y="44" text-anchor="middle">reads</text>
+
+  <!-- Arrow: Form → Database (writes) -->
+  <line class="connector" x1="308" y1="98" x2="182" y2="98" marker-end="url(#arrow-in)"/>
+  <text class="arrow-label" x="245" y="92" text-anchor="middle">writes</text>
+
+  <!-- Arrow: Database → Feed (reads) -->
+  <line class="connector" x1="182" y1="128" x2="308" y2="158" marker-end="url(#arrow-out)"/>
+  <text class="arrow-label" x="238" y="152" text-anchor="middle">reads</text>
+
+  <!-- View -->
+  <rect class="box" x="310" y="12" width="160" height="52" rx="10"/>
+  <text class="label" x="390" y="35" text-anchor="middle">View</text>
+  <text class="sub" x="390" y="50" text-anchor="middle">Displays data on the page</text>
+
+  <!-- Form -->
+  <rect class="box" x="310" y="72" width="160" height="52" rx="10"/>
+  <text class="label" x="390" y="95" text-anchor="middle">Form</text>
+  <text class="sub" x="390" y="110" text-anchor="middle">Collects data from visitors</text>
+
+  <!-- Feed -->
+  <rect class="box" x="310" y="132" width="160" height="52" rx="10"/>
+  <text class="label" x="390" y="155" text-anchor="middle">Feed</text>
+  <text class="sub" x="390" y="170" text-anchor="middle">Supplies data as JSON, RSS...</text>
+</svg>

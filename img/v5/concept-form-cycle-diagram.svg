@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 96">
+  <style>
+    .box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1.5; }
+    .box-highlight { fill: #fef3eb; stroke: #f37021; stroke-width: 2; }
+    .label { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #2c3e50; }
+    .label-highlight { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #d4620e; }
+    .sub { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #95a5a6; }
+    .sub-highlight { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #e8833a; }
+    .arrow { fill: #f37021; }
+  </style>
+
+  <!-- Box 1: Your Form (highlighted — the user's part) -->
+  <rect class="box-highlight" x="42" y="18" width="130" height="60" rx="10"/>
+  <text class="label-highlight" x="107" y="44" text-anchor="middle">Your Form</text>
+  <text class="sub-highlight" x="107" y="59" text-anchor="middle">You design this</text>
+
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M174,47 L195,47 L195,42 L202,48 L195,54 L195,49 L174,49 Z"/>
+
+  <!-- Box 2: Validation -->
+  <rect class="box" x="204" y="18" width="130" height="60" rx="10"/>
+  <text class="label" x="269" y="44" text-anchor="middle">Validation</text>
+  <text class="sub" x="269" y="59" text-anchor="middle">Checks input</text>
+
+  <!-- Arrow 2 -->
+  <path class="arrow" d="M336,47 L357,47 L357,42 L364,48 L357,54 L357,49 L336,49 Z"/>
+
+  <!-- Box 3: Data Command -->
+  <rect class="box" x="366" y="18" width="150" height="60" rx="10"/>
+  <text class="label" x="441" y="44" text-anchor="middle">Data Command</text>
+  <text class="sub" x="441" y="59" text-anchor="middle">Saves the data</text>
+
+  <!-- Arrow 3 -->
+  <path class="arrow" d="M518,47 L539,47 L539,42 L546,48 L539,54 L539,49 L518,49 Z"/>
+
+  <!-- Box 4: Database -->
+  <rect class="box" x="548" y="18" width="130" height="60" rx="10"/>
+  <text class="label" x="613" y="44" text-anchor="middle">Database</text>
+  <text class="sub" x="613" y="59" text-anchor="middle">Your tables</text>
+</svg>

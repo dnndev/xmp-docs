@@ -30,7 +30,7 @@ In the first two tutorials, you created a list-based view of your data and then 
 2.  Next, open a page in your site and add an XMod Pro FormView instance to the page.
 3.  Ensure you're logged-in as Host or SuperUser.
 4.  We're going to create a form. So, from the Actions menu, select **Manage Forms**:  
-    ![](ActionMenu_ManageForms.png)
+    ![Manage Forms action menu](../img/ActionMenu_ManageForms.png)
 5.  The **Manage Forms** page is where you add, edit, copy, and delete your data input forms. For the mechanics of how to use the Manage Forms page, refer to [this topic](../manage-forms.md).
 6.  Click the **New Form** button. The new form dialog appears in-line, within the grid.
 7.  In the Form Name field type "FeedbackForm" (without quotes). Form names can consist of only letters, numbers, hyphens (-) and underscores (_).

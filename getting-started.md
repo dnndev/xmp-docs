@@ -74,6 +74,7 @@ XMod Pro gives you direct access to your database. With that power comes respons
 
 Ready to dive in? Here's where to go next:
 
+- **[How XMP Works](how-xmp-works.md)** — Understand how data flows from your database to the page
 - **[Tutorial 1: Listing Users](tutorials/1_listing-users.md)** — Build your first view step by step
 - **[Form Builder](form-builder.md)** — Visually design a form in minutes
 - **[Control Panel](control-panel.md)** — Learn your way around the management interface

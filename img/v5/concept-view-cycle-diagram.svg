@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 96">
+  <style>
+    .box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1.5; }
+    .box-highlight { fill: #fef3eb; stroke: #f37021; stroke-width: 2; }
+    .label { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #2c3e50; }
+    .label-highlight { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #d4620e; }
+    .sub { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #95a5a6; }
+    .sub-highlight { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #e8833a; }
+    .arrow { fill: #f37021; }
+  </style>
+
+  <!-- Box 1: Database -->
+  <rect class="box" x="26" y="18" width="120" height="60" rx="10"/>
+  <text class="label" x="86" y="44" text-anchor="middle">Database</text>
+  <text class="sub" x="86" y="59" text-anchor="middle">Your tables</text>
+
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M148,47 L171,47 L171,42 L180,48 L171,54 L171,49 L148,49 Z"/>
+
+  <!-- Box 2: Data Command -->
+  <rect class="box" x="182" y="18" width="140" height="60" rx="10"/>
+  <text class="label" x="252" y="44" text-anchor="middle">Data Command</text>
+  <text class="sub" x="252" y="59" text-anchor="middle">Fetches your data</text>
+
+  <!-- Arrow 2 -->
+  <path class="arrow" d="M324,47 L347,47 L347,42 L356,48 L347,54 L347,49 L324,49 Z"/>
+
+  <!-- Box 3: HTML + Tokens (highlighted — the user's part) -->
+  <rect class="box-highlight" x="358" y="18" width="160" height="60" rx="10"/>
+  <text class="label-highlight" x="438" y="44" text-anchor="middle">HTML + Tokens</text>
+  <text class="sub-highlight" x="438" y="59" text-anchor="middle">You design this</text>
+
+  <!-- Arrow 3 -->
+  <path class="arrow" d="M520,47 L543,47 L543,42 L552,48 L543,54 L543,49 L520,49 Z"/>
+
+  <!-- Box 4: Rendered Page -->
+  <rect class="box" x="554" y="18" width="140" height="60" rx="10"/>
+  <text class="label" x="624" y="44" text-anchor="middle">Rendered Page</text>
+  <text class="sub" x="624" y="59" text-anchor="middle">What visitors see</text>
+</svg>

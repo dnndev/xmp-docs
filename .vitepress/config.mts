@@ -56,38 +56,35 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Introduction',
+        text: 'Getting Started',
         items: [
           { text: 'Overview', link: '/' },
-          { text: 'Activating', link: '/activating' },
           { text: 'Getting Started', link: '/getting-started' },
-        ]
-      },
-      {
-        text: 'Core Features',
-        items: [
-          { text: 'Control Panel', link: '/control-panel' },
-          { text: 'Manage Forms', link: '/manage-forms' },
-          { text: 'Form Builder', link: '/form-builder' },
-          { text: 'Manage Templates', link: '/manage-templates' },
-          { text: 'Manage Feeds', link: '/manage-feeds' },
-          { text: 'Database Tools', link: '/database-tools' },
-          { text: 'Inline Editor', link: '/inline-editor' },
-          { text: 'Snippets', link: '/snippets' },
-          { text: 'Using JavaScript', link: '/using-javascript' },
+          { text: 'Activating Your License', link: '/activating' },
           { text: 'Configuring XMod Pro', link: '/configuring-xmod-pro' },
-          { text: 'Localization', link: '/localization' },
         ]
       },
       {
-        text: 'Reference',
+        text: 'Core Concepts',
         items: [
-          { text: 'Reference Overview', link: '/reference' },
-          { text: 'FAQ', link: '/faq' },
-          { text: 'Revision History', link: '/revision-history' },
-          { text: 'EULA', link: '/eula' },
-          { text: 'Data Types', link: '/data-types' },
-          { text: 'Unit Types', link: '/unit-types' },
+          { text: 'How XMP Works', link: '/how-xmp-works' },
+          { text: 'Views', link: '/views' },
+          { text: 'Forms', link: '/forms' },
+          { text: 'Form Builder', link: '/form-builder' },
+          { text: 'Feeds', link: '/feeds' },
+          { text: 'Projects', link: '/projects' },
+          { text: 'Security', link: '/security' },
+        ]
+      },
+      {
+        text: 'The Control Panel',
+        items: [
+          { text: 'Control Panel Overview', link: '/control-panel' },
+          { text: 'The Explorer', link: '/explorer' },
+          { text: 'Code Editor', link: '/code-editor' },
+          { text: 'Database Tools', link: '/database-tools' },
+          { text: 'Snippets', link: '/snippets' },
+          { text: 'Version History', link: '/version-history' },
         ]
       },
       {
@@ -100,7 +97,21 @@ export default defineConfig({
           { text: '4. Saving Feedback Form Data', link: '/tutorials/4_saving-feedback-form-data' },
           { text: '5. Displaying Feedback Form Data', link: '/tutorials/5_displaying-feedback-form-data' },
           { text: '6. Editing/Deleting Feedback Form Data', link: '/tutorials/6_editing-deleting-feedback-form-data' },
-          { text: '7. Templates with Multiple Views', link: '/tutorials/7_templates-with-multiple-views' },
+          { text: '7. Multiple View Areas', link: '/tutorials/7_templates-with-multiple-views' },
+        ]
+      },
+      {
+        text: 'Reference',
+        items: [
+          { text: 'Reference Overview', link: '/reference' },
+          { text: 'Data Types', link: '/data-types' },
+          { text: 'Unit Types', link: '/unit-types' },
+          { text: 'Font Properties', link: '/font-properties' },
+          { text: 'Using JavaScript', link: '/using-javascript' },
+          { text: 'Localization', link: '/localization' },
+          { text: 'FAQ', link: '/faq' },
+          { text: 'Revision History', link: '/revision-history' },
+          { text: 'EULA', link: '/eula' },
         ]
       },
       {
@@ -173,7 +184,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Template Controls',
+        text: 'View Controls',
         collapsed: true,
         items: [
           { text: 'Add Button', link: '/template-controls/add-button' },
