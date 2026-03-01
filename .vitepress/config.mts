@@ -81,6 +81,10 @@ export default defineConfig({
         items: [
           { text: 'Control Panel Overview', link: '/control-panel' },
           { text: 'The Explorer', link: '/explorer' },
+          { text: 'Explorer: Forms', link: '/explorer-forms' },
+          { text: 'Explorer: Views', link: '/explorer-views' },
+          { text: 'Explorer: Feeds', link: '/explorer-feeds' },
+          { text: 'Explorer: Projects', link: '/explorer-projects' },
           { text: 'Code Editor', link: '/code-editor' },
           { text: 'Database Tools', link: '/database-tools' },
           { text: 'Snippets', link: '/snippets' },
@@ -250,6 +254,7 @@ export default defineConfig({
           { text: 'Portal', link: '/tokens/portal' },
           { text: 'Request', link: '/tokens/request' },
           { text: 'User', link: '/tokens/user' },
+          { text: 'Expressions', link: '/tokens/expressions' },
         ]
       },
     ]
