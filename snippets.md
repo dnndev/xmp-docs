@@ -1,135 +1,154 @@
 ---
 id: snippets
 title: Snippets
-category: Editors
+category: The Control Panel
 context: all
 summary: >-
-  Beginning with version 4.3, XMod Pro introduced "snippets" to its text-based
-  editors. If you're a programmer or web developer, you've probably run into
-  snippets in various development environments and editors. Snippets are a quick
-  and convenient way to store and leverage often used code or text. Snippets are
-  available in the toolbar of the form, template, and feed text editors.
+  Snippets are reusable code templates you can insert into the Code Editor with
+  a single click. XMod Pro v5 ships with built-in snippets and lets you create
+  your own through a visual Snippet Manager.
+since: '4.3'
 keywords:
   - snippets
+  - code templates
+  - reusable
+  - tabstop
+  - placeholder
+  - snippet manager
 ---
 # Snippets
 
-Beginning with version 4.3, XMod Pro introduced "snippets" to its text-based editors. If you're a programmer or web developer, you've probably run into snippets in various development environments and editors. Snippets are a quick and convenient way to store and leverage often used code or text. Snippets are available in the toolbar of the form, template, and feed text editors.
+Snippets are reusable code templates that save you from retyping the same patterns over and over. Need a DataList with an ItemTemplate? A dropdown populated from a database? An email notification on form submission? There's a snippet for that — and if there isn't, you can create your own in seconds.
 
-![](./img/SnippetToolbar2.png)
+XMod Pro v5 ships with a library of **built-in snippets** covering the most common patterns for forms, views, and feeds. You can also create your own snippets through the Snippet Manager — no file editing required.
 
-When you first install XMod Pro or after you upgrade from a version earlier than 4.3, the Snippets box will be empty. Snippets are a very personal thing for most developers. They're collections of often used code bits, script, styling, and more. Because of that we couldn't simply give you a list of snippets and expect you to be happy :) Rather, we've made it possible for you to easily create your own snippets.
+## Using Snippets
 
-Snippets are stored in a Javascript file in your website. However, you don't need to be a Javascript expert to create them. You can use the format we layout here and just customize it with your own text.
+Snippets are available in two places within the [Code Editor](code-editor.md):
 
-The file is called `snippets.config` and it's stored in `/Portals/_default/XModPro/`. So the first thing to do is fire up your favorite Javascript editor (or notepad if you're old-school).
+### From the Reference Panel
 
-Here's what a typical snippets file might look like:
+Open the **Reference Panel** (click the book icon in the toolbar or press **Ctrl+Alt+R** / **Cmd+Alt+R**). Your snippets appear in two sections:
 
-```javascript
-var xmp = {};
-xmp.snippets = [
-	{
-		name: "Copyright",
-		context: "all",
-		desc: "This inserts the copyright symbol and company name",
-		author: "Kelly Ford", 
-		email: "support@dnndev.com", 
-		website: "http://dnndev.com",
-		snippet: '&copy; ' + new Date().getFullYear() + ' DNNDev.com'
-	}, 
-	{
-		name: "Company Style",
-		context: "template",
-		desc: "An example of inserting a style block into the head of the page.", 
-		author: "Kelly Ford", 
-		email: "support@dnndev.com",
-		website: "http://dnndev.com",
-		snippet: '<xmod:ScriptBlock ScriptId="dnndev_style" BlockType="HeadScript" RegisterOnce="True">\n' +
-			 '  <style type="text/css">\n' + 
-			 '    h1 { background-color: orange; color: white; }' + 
-			 '  </style>' + 
-			 '</xmod:ScriptBlock>' 
-	}, 
-	{
-		name: "Company Style",
-		context: "form",
-		desc: "An example of inserting a style block into the head of the page.", 
-		author: "Kelly Ford", 
-		email: "support@dnndev.com",
-		website: "http://dnndev.com",
-		snippet: '<ScriptBlock ScriptId="dnndev_style" BlockType="HeadScript" RegisterOnce="True">\n' +
-			 '  <style type="text/css">\n' + 
-			 '    h1 { background-color: orange; color: white; }' + 
-			 '  </style>' + 
-			 '</ScriptBlock>' 
-	}, 
-	{
-		name: "Meta Redirect",
-		context: "template",
-		desc: "Inserts a Redirect <xmod:MetaTag>",
-		author: "Kelly Ford",
-		email: "support@dnndev.com",
-		website: "http://dnndev.com",
-		snippet: '<xmod:MetaTags>\n' +
-			 '  <Redirect Delay="0" Url="http://dnndev.com" />' + 
-			 '</xmod:MetaTags>' 
-	}, 
-	{
-		name: "jQuery UI Calendar",
-		context: "form",
-		desc: "An example of enabling a pop-up calendar from jQuery UI for form controls. This " + 
-			  "requires that jQuery UI be included in the page.", 
-		author: "Kelly Ford", 
-		email: "support@dnndev.com",
-		website: "http://dnndev.com",
-		snippet: '<jQueryReady>\n' +
-			 '  $(".calendar-popup").datepicker();\n' + 
-			 '</jQueryReady>' 		
-	}
-];
+- **My Snippets** — Snippets you've created
+- **Built-in Snippets** — Snippets that ship with XMod Pro
+
+<!-- SCREENSHOT: snippets-reference-panel — Reference Panel showing My Snippets and Built-in Snippets sections -->
+
+Click any snippet name to insert it at the cursor position in the editor. The Reference Panel filters snippets to show only those relevant to what you're editing — form snippets when editing a form, view snippets when editing a view, and so on.
+
+### From Autocomplete
+
+Snippets also appear in the editor's autocomplete suggestions as you type.
+
+## Tabstop Placeholders
+
+Many snippets include **tabstop placeholders** — highlighted fields you can tab through to quickly customize the inserted code. For example, when you insert a TextBox snippet, the cursor lands on the first placeholder (the ID), and pressing **Tab** moves to the next one (the DataField):
+
+```xml
+<TextBox Id="${1:txtField}" DataField="${2:Field}" DataType="string" />
 ```
 
-This file contains 5 snippets. It begins by defining the "xmp" namespace ( `var xmp = {};` ). The snippets array is added to that namespace. The array contains five snippets ( each one defined between the `{` and `}` braces.
+After insertion, `txtField` is selected and ready to edit. Press **Tab** to jump to `Field`, and so on. This lets you fill in the details without manually positioning your cursor.
 
-Some of the items you see above are required. Others are optional. Here's the absolute minimum you need for your snippets file:
+## Managing Snippets
 
-```javascript
-var xmp = {};
-xmp.snippets = [];
+Click the **gear icon** next to "My Snippets" in the Reference Panel to open the **Snippet Manager**.
+
+<!-- SCREENSHOT: snippets-manager — Snippet Manager dialog showing the list of snippets with context badges -->
+
+The Snippet Manager lets you:
+
+- **Create** new snippets
+- **Edit** your existing snippets
+- **Delete** snippets you no longer need
+- **Duplicate** any snippet (including built-in ones) as a starting point for your own
+- **Preview** a snippet's code without inserting it
+- **Filter** by context (Form, View, Feed, or All)
+
+### Creating a Snippet
+
+Click **New Snippet** in the Snippet Manager and fill in:
+
+- **Name** — A descriptive name (must be unique)
+- **Context** — Where this snippet should appear:
+  - **Form** — Only in the form editor
+  - **Template** — Only in the view editor
+  - **Feed** — Only in the feed editor
+  - **All** — In all editors
+- **Description** — A brief note about what the snippet does (optional but recommended)
+- **Code** — The snippet content, optionally including tabstop placeholders
+
+<!-- SCREENSHOT: snippets-edit — Snippet edit form showing name, context, description, and code fields -->
+
+::: tip Tabstop Syntax
+Use `${1:placeholder}` for the first tabstop, `${2:placeholder}` for the second, and so on. When the snippet is inserted, the user can press **Tab** to jump between placeholders. For example:
+
+```xml
+<DropDownList Id="${1:ddlField}" DataField="${2:Field}" DataType="string">
+  <ListItem Value="${3:value}">${4:Display Text}</ListItem>
+</DropDownList>
 ```
-
-While this is a valid snippets file, it's not going to do much because there aren't any snippets defined. Let's do that now.
-
-```javascript
-	{
-		name: "Copyright",
-		context: "all",
-		desc: "This inserts the copyright symbol and company name",
-		author: "Kelly Ford", 
-		email: "support@dnndev.com", 
-		website: "http://dnndev.com",
-		snippet: '&copy; ' + new Date().getFullYear() + ' DNNDev.com'
-	}
-```
-This snippet has a name, context, desc, author, email, website, and snippet properties. Let's go through them one by one:
-
-*   **name**: (Required) This is the name of the Snippet. It will appear in the Snippets drop-down list in the editor.
-*   **context**: (Required) This allows you to specify which editor the snippet will appear in. Valid values are: form, template, feed, and all. If the value is all, the snippet will appear in all editors.
-*   **desc**: (Optional) A description of your snippet. This is not used yet but we encourage you to use this as it helps document your snippets and may be part of future user interfaces.
-*   **author**: (Optional) The person/organization that created this snippet. Again, this is not used in this early implementation but may be used later on.
-*   **email**: (Optional) Provide an email address where users of the snippet can reach you.
-*   **website**: (Optional) Provide the URL to a website where users of the snippet can reach you.
-*   **snippet**: (Required) Of course, it doesn't make sense to have a snippet without an actual snippet. Notice that because we're working with Javascript, you should escape any characters like quotes and line breaks. The snippet can contain virtually any text - plain text, HTML, XMod Pro tags, and even Javascript (as in the example above).
-
-Once you've finished your snippets, save it with the name `snippets.config` and upload it to the `/Portals/_default/XModPro` directory and you're ready to go - but read the notes below...
+:::
 
 ::: warning
-**IMPORTANT SECURITY NOTE**: Please remember that the snippets file is a simple Javascript file which can usually be accessed directly via URL. This means you SHOULD NOT PUT SENSITIVE DATA IN THE FILE as it could be read by an outside party.
+Do not store sensitive data like passwords, API keys, or connection strings in snippets. Snippet content is stored in a configuration file on the server.
 :::
 
-::: tip
-Because snippets are stored in a Javascript file, your browser may cache it. So, if you're actively working on your snippets file and your changes aren't reflected, you should clear your browser cache or reload the frame in which the editor lives. This is usually done by right-clicking just above the editor's toolbar and choosing the Reload Frame option. Below is an example in Firefox:
-:::
+### Built-in Snippets
 
-![](./img/ReloadFrame.png)
+Built-in snippets cannot be edited or deleted, but you can **duplicate** any built-in snippet to create your own editable copy. This is a great way to start with a known pattern and customize it for your needs.
+
+## Built-in Snippet Library
+
+XMod Pro v5 includes snippets for the most common tasks:
+
+### Form Snippets
+
+| Snippet | Description |
+|---------|-------------|
+| Text Field with Label | A TextBox with a label and required validation |
+| Dropdown from Database | A DropDownList populated from a database table |
+| Email Notification | Send an email when the form is submitted |
+| Validation Summary | Error display area for form validation messages |
+| Submit & Cancel Buttons | Standard Add/Cancel button pair |
+| Cascading Dropdowns | Two linked dropdowns where the second filters based on the first |
+| Conditional Panel | A panel that shows or hides based on a condition |
+| File Upload | A file upload control with validation |
+
+### View Snippets
+
+| Snippet | Description |
+|---------|-------------|
+| DataList with ItemTemplate | A basic list view structure with data source |
+| Detail View | A detail template with its own data source |
+| ScriptBlock (JavaScript) | Inject client-side JavaScript into the page |
+| ScriptBlock (CSS) | Inject CSS styles into the page |
+| Edit/Delete Links | Standard edit and delete action links |
+| Pager | Pagination control for list views |
+| Search and Sort | A search and sort control with field configuration |
+
+### Feed Snippets
+
+| Snippet | Description |
+|---------|-------------|
+| Basic JSON Feed | A JSON feed with data source and output configuration |
+
+### Universal Snippets (All Contexts)
+
+| Snippet | Description |
+|---------|-------------|
+| jQuery Ajax Call | An AJAX call to an XModPro feed |
+| Redirect Tag | Redirect the user to another URL |
+| Comment Out Code | Wrap code in XMP comment syntax `[-- --]` |
+| Region | Wrap code in a collapsible `#region` block |
+| Several "Wrap" snippets | Quick wrappers for IfNotEmpty, IfEmpty, ItemTemplate, Div, and more |
+
+## Migrating from v4.x
+
+If you're upgrading from v4.x, your existing `snippets.js` file will be automatically migrated to the new `snippets.config` format the first time XMod Pro loads it. A backup of your original file is saved as `snippets.js.migrated`. No action is required on your part.
+
+## Next Steps
+
+- **[Code Editor](code-editor.md)** — The editor where snippets are used
+- **[Control Panel](control-panel.md)** — Overview of the XMod Pro Control Panel

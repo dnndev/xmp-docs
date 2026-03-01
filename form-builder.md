@@ -1,129 +1,181 @@
 ---
 id: form-builder
-title: Creating Forms with the Form Builder
-category: Form Builder
+title: Form Builder
+category: Core Concepts
 context: all
 summary: >-
-  The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning
-  with version 3, you'll find the FormBuilder on the ManageForms page. It is
-  described here
+  The Form Builder is a visual editor for creating data entry forms without
+  writing code. Add controls, connect to a database, configure validation, and
+  apply themes — all with a modern, keyboard-friendly interface.
+since: '2.0'
 keywords:
-  - creating
-  - forms
-  - with
-  - form
-  - builder
+  - form builder
+  - visual editor
+  - controls
+  - data source
+  - auto-generate
+  - theme
+  - validation
+  - slash command
 ---
-# Creating Forms with the Form Builder
+# Form Builder
 
-::: tip NOTE
-The FormBuilder was first introduced in version 2.x of XMod Pro.... Beginning with version 3, you'll find the FormBuilder on the ManageForms page. [It is described here](manage-forms.md)
+The Form Builder lets you create data entry forms visually — without writing any code. You add controls by name, configure their properties in a sidebar panel, connect the form to a database table, and apply a theme. XMod Pro handles the rest.
+
+<!-- SCREENSHOT: form-builder-overview — Form Builder with several controls on the canvas, property panel open on the right -->
+
+In v5, the Form Builder has been completely redesigned. It's faster, more capable, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Code Editor](code-editor.md) at any time.
+
+::: info Host Access Only
+The Form Builder is only available to Host (SuperUser) accounts, accessed through the [Control Panel](control-panel.md).
 :::
 
-The Form Builder, introduced in version 2, provides you with a simple point, click, and drag interface that makes it easy to create attractive, styled data entry forms from the tables in your DNN database. .....You can also create basic forms on the Manage Forms page using the Quick Form Creator....... That option provides fewer options than the Form Builder. The Form Builder is available on the Control Panel and is only available to Host or SuperUser accounts. To get there, select "Control Panel" from the module's Actions Menu:
+## Creating a New Form
 
-![](./img/XMP44_ControlPanelMenu.jpg)
+To create a new form, click the **+** button in the [Control Panel](control-panel.md) toolbar and choose **Form**. You'll be asked for a name and whether to start with the Form Builder or a custom (code) form.
 
-On the Control Panel Page, select "Manage Forms":
+If you'd like a head start, you can **auto-generate a form from a database table** — select a table, pick the columns you want, and the Form Builder creates the controls, data commands, and layout for you. From there, you can customize everything.
 
-![](./img/XMP4_ControlPanel_Toolbar_ManageForms.png)
+## Adding Controls
 
-Then, ensure the "Use Form Builder" checkbox is ticked, and then click the New Form button:
+There are two ways to add a control:
 
-![](./img/XMP44_FormBuilder.png)
+- **Press `/`** (the slash key) anywhere in the Form Builder to open the Control Palette
+- **Click the `+` button** in the toolbar
 
-Creating and editing attractive data-bound forms is a simple point-and-click affair. Some of the highlights are:
+<!-- SCREENSHOT: form-builder-control-palette — The Control Palette showing categories and search results -->
 
-**Select DNN or External SQL Server as Your Data Source**: Form Builder allows you to work with tables in your DotNetNuke (DNN) database. as well as external SQL Server databases. All you need is the connection string.
+The Control Palette is a searchable menu of all available controls. Start typing to filter by name — it uses fuzzy matching, so you don't need to spell the exact control name. Controls are organized into categories like Input, Selection, Layout, Buttons, Validation, and more.
 
-**Auto Form Creation**: Quite possibly the most time-saving button on the planet. Once you’ve selected the table you want to work with, just click a button and the Form Builder will create your form. From there you can add, remove, and edit controls as you see fit.
+Select a control and it's added to your form immediately. The control's label becomes editable right away, so you can name it without an extra click.
 
-**Populate List Controls With Data**: From within the Form Builder, you can load list controls with data in your databases. This enables you to create “picker” lists so your users can select from a pre-defined list of items – like a list of states or countries.
+::: tip
+The `/` shortcut works like the slash commands in tools like Notion or Slack. It's the fastest way to build a form — just type `/text` for a TextBox, `/drop` for a DropDownList, and so on.
+:::
 
-**Control Previews**: When you add a control to the form, you see an approximation of how it will look – including control type and dimensions.
+## The Canvas
 
-**Drag and Drop Re-Ordering**: Just click and drag to change the position of a control within the form.
+The canvas is the main area where your form takes shape. Each control appears as a row showing its label, an approximation of the control's appearance, and a drag handle.
 
-**Email Notification**: Need to send an email when the form is submitted? Just add an Email control to the form.
+<!-- SCREENSHOT: form-builder-canvas — Canvas showing several controls with labels, types, and drag handles -->
 
-**Theme-able Forms**:You can use basic built-in DNN styles or easily add professional styling to your forms, simply by selecting a pre-defined theme from the built-in list of themes. Or, roll-your-own theme (also a point-and-click affair) and upload it to your site. It will show up in the list of themes as well, ready to be selected. This allows you to get exactly the look and feel you need to match your forms with the rest of your site.
+You can:
 
-**Easily Convert Your Forms**: Forms which are editable in the Form Builder are called Auto-Layout forms. However, with a single click, you can convert them to Custom HTML Layout forms which give you complete control over the HTML, CSS, and Javascript in your form.
+- **Select a control** by clicking it — this opens its properties in the sidebar
+- **Edit a label** by clicking the label text directly on the canvas
+- **Reorder controls** by dragging the handle on the left side
+- **Nest controls** by dragging them into container controls like Rows, Panels, or TabStrips
+- **Navigate with the keyboard** — use the up/down arrow keys to move between controls
 
-To see the Form Builder in Action, here are some videos:
+Right-click a control (or use its toolbar) to access additional options: **Edit**, **Duplicate**, **Move Up/Down**, and **Delete**.
 
-[XMod Pro Form Builder Demo (video)](http://dnndev.com/Learn/Videos/vid/9/video/XMod-Pro-Form-Builder-Demo)
+## The Property Panel
 
-[XMod Pro 3 Form Builder Tour - Contact Us Form (video)](http://dnndev.com/Learn/Videos/vid/5/video/XMod-Pro-Form-Builder-Tour-Contact-Us-Form)
+When you select a control on the canvas, its properties appear in a collapsible sidebar on the right. This is where you configure everything about the control.
 
-[XMod Pro 3 - Creating Picker Lists in Your Forms (video)](http://dnndev.com/Learn/Videos/vid/4/video/Creating-Picker-Lists-in-Your-Forms)
+<!-- SCREENSHOT: form-builder-property-panel — Property panel showing attributes for a TextBox control -->
 
-**INTRODUCTION TO FORM BUILDER**:
+Common properties include:
 
-Initially, you are presented with the following interface screen:
+- **Label** — The text displayed next to the control
+- **Data Field** — The database column this control reads from and writes to
+- **Data Type** — The type of data (string, integer, date, etc.)
+- **Max Length** — For text controls, the character limit
+- **CSS Class** — Apply a CSS class for custom styling
+- **Style** — Inline CSS styles
 
-![](./img/XMP44_FormBuilder_Interface.png)
+The available properties vary by control type. A DropDownList, for example, will have properties for configuring its list items and data source, while a TextBox will have properties for placeholder text and input masks.
 
-**Tabs**: At the top of the form, there are three tabs. In general, changes you make in these tabs apply to the form as a whole. The first tab "Settings" is where you set the forms name and choose its Data Source. The second tab "Buttons" enables you to modify the forms Submit and Cancel buttons. The third tab "Styling" allows you to apply some overall styling to your forms including themes, label placement, and rounded corners.
+The panel is resizable — drag its left edge to make it wider or narrower, or collapse it entirely to maximize your canvas space.
 
-Below the tabs is the main work area of the Form Builder. In the left column is the Control picker. All of the form controls are categorized and grouped here. To see the controls in a particular category, simply click that category to expand it. To add a control to the form, click its button in the picker. Doing so will pop up that controls designer which allows you to set its most commonly used properties.
+## Connecting to a Database
 
-Example: TextBox Control Designer
+Most forms need to read from and write to a database. The Form Builder handles this through the **Data Source** configuration.
 
-![](./img/XMP44_FormBuilder_TextBox_Controls.png)
+Click the **Data Source** button to open the dialog where you can:
 
-**Controls and Form canvas**:
+1. **Choose a database** — Your DNN database or an external SQL Server database (just supply the connection string)
+2. **Select a table** — Pick from a list of available tables
+3. **Choose columns** — Select which columns to include
+4. **Set the key field** — Identify the column that uniquely identifies each record (needed for editing)
 
-Once you've created your Controls, they'll be added to the Form canvas, shown in the right column. This is where you'll see and interact with controls you've already defined for your form. For each control, you'll get a basic approximation of how that control will look including its height and width. Not all controls are displayed in this manner. There are some complex controls like the HTML Input that cannot be rendered properly on the canvas and there are other controls that are not visible to the user at all and simply provide some functionality such as sending an email notification or supplying data to a List Control. These controls will still be represented on the canvas but don't reflect how or even if a control will be visible at run-time.
+Once configured, the Form Builder auto-generates the SQL commands to insert, update, and retrieve records. It also maps your database columns to form controls — setting the `DataField`, `DataType`, and `MaxLength` properties automatically.
 
-Once a control is on the form, hovering over it will display a toolbar. Using the toolbar, you can Edit the controls properties, Delete the control, and Move the control simply by clicking and dragging.
+### Auto-Generating a Form
 
-If you'd like to change the order that your controls appear in the form, you can simply click and drag the row to its new location.
+The fastest way to build a data-bound form is to let the Form Builder create it for you:
 
-![](./img/XMP44_FormBuilder_FormControls.png)
+1. Open the Data Source dialog
+2. Select your table and columns
+3. Click **Generate Form**
 
-**BUILD A FORM**:
+The Form Builder analyzes your table's schema and creates the appropriate controls — TextBoxes for text columns, DateInputs for date columns, CheckBoxes for boolean columns, and so on. It's a great starting point that you can then customize.
 
-To start, give your form a Name in the Form Name textbox.
+## Validation
 
-Next, select DNN or External SQL Server as your Data Source (or None), from the drop-down list. The version 2 Form Builder allowed you to only work with tables in your DotNetNuke database. Version 3, and later enables you to select tables in external SQL Server databases. All you need is the connection string. If you select a Data Source, the Unique ID field list control will be populated with columns from the table. Select the column that uniquely identifies each record. This is needed by XMod Pro to generate commands and controls for editing records.The next step is to choose the column fields we want to include in the form. From the "Choose Fields" list box, select each column you want to include. Use CTRL-Click (CMD + Click on the Mac) to select multiple fields at once. Your screen should now look similar to this:
+To add validation to a control, select it and look for the **Validation** section in the property panel. You can add rules like:
 
-![](./img/XMP44_FormBuilder_TableSelected.png)
+- **Required** — The field must have a value
+- **Email** — The value must be a valid email address
+- **Pattern** — The value must match a regular expression
+- **Range** — The value must fall within a min/max range
+- **Compare** — The value must match another field
 
-(**Note:** **Auto Form Creation**: Quite possibly the most time-saving button on the planet. Once you’ve selected the table you want to work with, just click a button and the Form Builder will create your form. From there you can add, remove, and edit controls as you see fit. )
+Each rule can have a custom error message. Validation errors are displayed to the user when they submit the form.
 
-Next, Select individual Controls. There are multiple controls which can be added. These include Actions, Display, Input, Lists, Option Choosers, and Others. For example, you can select a TextBox Control and edit the control properties:
+The toolbar shows a real-time **validation indicator** — a badge showing how many errors or warnings exist in your form definition. Click it to see the details and navigate to the issue.
 
-![](./img/XMP44_FormBuilder_TextBox_ControlProps.png)
+## Layout and Containers
 
-**Add Validation**: To add validation to a control, click the plus sign, add the Required Field Validator as Validation Type, add Text which appears next to the control if the control fails, and a Message which will appear in the bottom of the form in the Validation Summary. Then, select Save, then Apply.
+For more complex form layouts, you can use container controls to organize your form into sections:
 
-![](./img/XMP44_FormBuilder_TextBox_Validation.png)
+- **Row** — Arrange controls in a multi-column grid layout (based on a 12-column grid)
+- **Panel** — Group controls inside a bordered container
+- **TabStrip** — Organize controls into tabbed sections
+- **FieldGroup** — Group related fields with a legend/heading
+- **Section** — A collapsible section
 
-Email Notification Example: Need to send an email when the form is submitted? Just add an Email control to the form. When you assigned a Data Field to each control, this is where they are being used. You can see a Field Token for each control. They are surrounded by double brackets. In this way, it is easy to include data in your form into your emails.
+Drag controls into a container to nest them, or drag them out to move them back to the root level.
 
-![](./img/XMP44_FormBuilder_EmailControl.png)
+## Themes and Styling
 
-**Buttons**: There are three button options on the form. The Add and Update Buttons can be renamed while the Cancel button can be included or removed from the form.
+The Form Builder includes a theming system that lets you style your forms without writing CSS.
 
-![](./img/XMP44_FormBuilder_Buttons.png)
+<!-- SCREENSHOT: form-builder-themes — Form settings dialog showing theme selection and CSS variable customization -->
 
-**Styling**: Next, you can choose some styling for your form. You have the option of basic DNN styling (the default), no styling, or one of many themes. A wide variety of themes are installed with XMod Pro. These themes are based on free, open-source jQuery UI theme framework available at [http://ui.jquery.com](http://ui.jquery.com/). Not only do these themes provide you with immediate, professional-looking styling, you can create from your own themes using the [jQuery UI Theme Roller](http://jqueryui.com/themeroller/) page.
+Open the **Form Settings** dialog to configure:
 
-To use a theme, simply select it from the drop-down list and see the effects in the Preview window. Note, it may take a couple of seconds for the theme to change initially while the new theme is downloaded to your computer. Subsequent previews with that theme will be faster. You can also select Label Alignment, Label Width, and whether to use rounded corners or not.
+- **Theme** — Choose from a library of built-in themes, or create your own
+- **Label Position** — Top (above the control), Left (beside it), Inside (floating placeholder), or None
+- **CSS Variable Customization** — Fine-tune the theme by adjusting variables for spacing, typography, borders, button colors, and more
+- **Live Preview** — See your changes in real time as you adjust settings
 
-If you choose a theme, you can also choose to give your form rounded corners on modern browsers. In un-supported browsers, the corners will remain square. To round your corners, tick the "Use Rounded Corners..." check box next to the theme list. The Preview window will automatically reflect your changes. Not all themes have rounded corners and degree of "roundedness" varies on those that do. Also, if you're previewing in Internet Explorer, you may still see square corners.
+You can save custom themes for reuse across your forms.
 
-![](./img/XMP44_FormBuilder_Styling.png)
+## Previewing Your Form
 
-When you are done, click the Create Form button. At that point, you can navigate to the Manage Forms screen to further edit your form (note, you may need to click the Reload button on the Manage Forms grid to see your new form).
+To see how your form will look and behave at runtime, use the **Preview** button. This opens a live preview that renders the form exactly as it would appear on your DNN page — including validation, styling, and data source connections.
 
-Finally, if you've specified that certain fields are required, you can click the Add Button / Submit Question button to show how the validation will look:
+## Converting to a Custom Form
 
-![](./img/XMP44_FormBuilder_LayoutStyling.png)
+The Form Builder is designed for the most common form-building scenarios. When you need more control — custom HTML layout, JavaScript interactivity, or advanced tag configurations — you can convert your form to a **custom form** and continue working in the [Code Editor](code-editor.md).
 
-**Easily Convert Your Forms**: Forms which are editable in the Form Builder are called Auto-Layout forms. However, with a single click, you can convert them to Custom HTML Layout forms which give you complete control over the HTML, CSS, and Javascript in your form.
+This is a one-way conversion that gives you full control over the form's HTML, CSS, and XMP tags. The Form Builder generates clean, well-structured code as a starting point.
 
-If at any point, you need more features than the Form Builder provides, you can convert your form to a Custom html layout form and tweak the code to get just the look or functionality you require.
+## Keyboard Shortcuts
 
-![](./img/XMP44_FormBuilder_CustomLayout.png)
+| Shortcut | Action |
+|----------|--------|
+| **/** | Open the Control Palette |
+| **Arrow Up / Down** | Navigate between controls |
+| **Enter** | Edit the selected control's label |
+| **Alt+Enter** | Toggle focus between canvas and property panel |
+| **Ctrl+S** / **Cmd+S** | Save the form |
+| **Escape** | Close dialogs and menus |
+
+## Next Steps
+
+- **[Forms](forms.md)** — Learn about XMod Pro forms as a concept
+- **[Code Editor](code-editor.md)** — Edit forms as code for maximum flexibility
+- **[The Explorer](explorer.md)** — Browse and manage all your resources
+- **[Control Panel](control-panel.md)** — Overview of the XMod Pro Control Panel
