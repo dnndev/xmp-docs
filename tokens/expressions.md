@@ -45,6 +45,7 @@ Previously, this kind of formatting and logic required changes to your SQL queri
 - **Make decisions** — show different text or CSS classes based on your data
 - **Combine fields** — merge multiple fields into a single output
 - **Handle missing data** — provide fallback values when fields are empty or null
+- **Use system tokens** — reference the current user, portal, page, and module in your expressions
 
 ### When to Use Expression Tokens vs. xmod:Format
 
@@ -89,6 +90,9 @@ The expression inside can contain field names, literals, operators, and function
 
 <!-- Fallback chain for display name -->
 <span>[[=Coalesce(Nickname, FirstName, Email)]]</span>
+
+<!-- Personalized greeting using system token -->
+<p>[[=Concat('Welcome, ', ${User:DisplayName}, '!')]]</p>
 ```
 
 ## Field References
@@ -124,6 +128,49 @@ Wrap field names that contain spaces in `${...}`:
 ### Missing Fields
 
 If a field doesn't exist in the current data row, it returns an empty string — the same behavior as standard `[[NonExistentField]]` tokens.
+
+## System Tokens in Expressions
+
+You can use DNN system tokens inside expressions using the `${Type:Key}` syntax:
+
+```
+[[=${User:DisplayName}]]
+[[=${Portal:Name}]]
+[[=${Page:Title}]]
+```
+
+These tokens pull values from the DNN context — the logged-in user, the current portal, the page, etc. They work anywhere inside an expression, including as function arguments and in conditionals:
+
+```html
+<!-- Personalized greeting -->
+<p>[[=If(${User:DisplayName} = '', 'Welcome, Guest!', Concat('Hello, ', ${User:DisplayName}, '!'))]]</p>
+
+<!-- Conditional content for logged-in users -->
+<span>[[=If(${User:ID} > 0, 'Member', 'Visitor')]]</span>
+```
+
+### Available System Tokens
+
+| Token | Description | Example |
+|-------|-------------|---------|
+| `${User:ID}` | User ID (0 for anonymous) | `1` |
+| `${User:DisplayName}` | Display name | `Kelly Ford` |
+| `${User:Email}` | Email address | `kelly@example.com` |
+| `${User:Username}` | Login username | `host` |
+| `${User:FirstName}` | First name | `Kelly` |
+| `${User:LastName}` | Last name | `Ford` |
+| `${Portal:ID}` | Portal ID | `0` |
+| `${Portal:Name}` | Portal name | `My Website` |
+| `${Portal:HomeDirectory}` | Portal home directory path | `Portals/0/` |
+| `${Module:ModuleID}` | Current module ID | `386` |
+| `${Module:TabID}` | Current page/tab ID | `42` |
+| `${Module:PortalID}` | Module's portal ID | `0` |
+| `${Page:ID}` | Current page ID | `42` |
+| `${Page:Name}` | Page name | `Products` |
+| `${Page:Title}` | Page title | `Our Products` |
+| `${Page:FullUrl}` | Full page URL | `https://example.com/products` |
+
+> **Note:** The `${...}` syntax is used for system tokens and for field names with spaces. XMod Pro tells them apart by the colon — `${User:DisplayName}` is a system token, while `${First Name}` is a field reference.
 
 ## Operators
 
@@ -225,7 +272,7 @@ From highest (evaluated first) to lowest (evaluated last):
 
 `Format` has two modes:
 
-**Value formatting** (2 arguments):
+**Value formatting** — format a single value with a .NET format specifier:
 
 ```
 [[=Format(Price, 'C2')]]       → $19.99
@@ -240,13 +287,17 @@ Uses .NET format strings. Common format specifiers:
 - `d` — Short date
 - `MMM d, yyyy` — Custom date format
 
-**Positional placeholders** (3+ arguments):
+**Positional placeholders** — build a string with `{0}`, `{1}`, etc.:
 
 ```
-[[=Format('{0} of {1}', City, State)]]  → Portland of Oregon
+[[=Format('Hello {0}!', Name)]]           → Hello Kelly!
+[[=Format('{0} of {1}', City, State)]]    → Portland of Oregon
+[[=Format('{0}: {1} units', Product, Qty)]]  → Widget: 42 units
 ```
 
-Uses `{0}`, `{1}`, etc. as placeholders. This is useful when you need to combine fields with specific formatting in a single token.
+Uses `{0}`, `{1}`, etc. as placeholders for the remaining arguments. This is useful when you need to combine fields with specific formatting in a single token.
+
+> **How does XMod Pro choose?** If the first argument contains `{0}`, it uses positional placeholders. Otherwise, it uses value formatting. This means `Format(Price, 'C2')` works as expected (the format specifier `C2` doesn't contain `{0}`), and `Format('Total: {0}', Price)` also works as expected.
 
 ### Math Functions
 
@@ -426,4 +477,4 @@ Use `If` to check before using a value:
 
 ## Expression Tokens vs. Function Tokens
 
-XMod Pro also has [Function Tokens](functions.md) (like `[[Join(...)]]`) which have been available since earlier versions. Expression tokens are more powerful and flexible — they support math, conditionals, and a much larger set of functions. However, function tokens like `[[Join(...)]]` and `[[Localize:keyName]]` still work and are not deprecated. Use whichever is more convenient for the task at hand.
+XMod Pro also has [Function Tokens](functions.md) (like `[[Join(...)]]`) which have been available since earlier versions. Expression tokens are more powerful and flexible — they support math, conditionals, and a much larger set of functions. However, function tokens like `[[Join(...)]]` and `[[Localize:keyName]]` still work. `[[Join()]]` may be deprecated in the future as we think `[[=Format()]]`, `[[=Concat()]]` and `[[=Coalesce()]]` provide much more flexibility and readability. We encourage you to try them instead of Join. `[[Localize]]` is not deprecated.
