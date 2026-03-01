@@ -15,12 +15,20 @@ keywords:
 ---
 # Font Properties
 
-Most standard controls accept attributes
- that affect how text is displayed in a control. Generally, it's best to set font styling via CSS classes or via the "style" attribute available in most controls. However, the font properties provide a direct means of setting specific styles that affect the display of the control's text.
+::: warning Deprecated in v5.0
+These font properties still work, but they are a legacy of ASP.NET Web Forms and are **not recommended** for new development. Use the `CssClass` property to apply a CSS class, or the `Style` property for inline styles. Both provide better control and are consistent with modern web practices.
 
-::: warning NOTE
-We **strongly encourage** you to avoid using these font properties. Modern web sites Use CSS classes or, if needed, the `style` property. Note also that not all properties will function in all controls and browsers.
+```html
+<!-- Recommended: use CssClass or Style -->
+<TextBox Id="txtName" CssClass="my-input" />
+<TextBox Id="txtName" Style="font-weight: bold; font-size: 14px;" />
+
+<!-- Deprecated: font properties -->
+<TextBox Id="txtName" Font-Bold="true" Font-Size="14px" />
+```
 :::
+
+Most standard controls accept attributes that affect how text is displayed. The font properties below provide a direct means of setting specific styles, but `CssClass` and `Style` are the preferred approach.
 
 Font properties must start with `font-` and be followed by the name of the property you want to set. The following properties are available:
 

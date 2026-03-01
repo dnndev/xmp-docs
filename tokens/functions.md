@@ -84,7 +84,7 @@ For more information, refer to the [Localizing Text and Content](../localization
     <xmod:DeleteButton Text='[[Join("Delete {0}", [[CompanyName]])]]'  
       OnClientClick='[[Join("return confirm(""Really Delete {0}?"")", [[CompanyName]])]]'>  
       ...  
-    </xmod:DeeleteButton>  
+    </xmod:DeleteButton>  
   </ItemTemplate>  
   ...  
 </xmod:Template>
