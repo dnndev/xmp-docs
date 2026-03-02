@@ -20,11 +20,11 @@ keywords:
 ---
 # Form Builder
 
-The Form Builder lets you create data entry forms visually — without writing any code. You add controls by name, configure their properties in a sidebar panel, connect the form to a database table, and apply a theme. XMod Pro handles the rest.
+The Form Builder lets you create data entry forms visually — without writing any code. You add controls by name, configure their properties in a sidebar panel or directly inline, connect the form to a database table, and apply a theme. XMod Pro handles the rest.
 
 <img src="./img/v5/form-builder-overview.png" alt="Form Builder showing the canvas with several controls and the Property Panel on the right" width="700" />
 
-In v5, the Form Builder has been completely redesigned. It's faster, more capable, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Code Editor](code-editor.md) at any time.
+In v5, the Form Builder has been completely redesigned. It's more capable, more efficient, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Code Editor](code-editor.md) at any time.
 
 ::: info Host Access Only
 The Form Builder is only available to Host (SuperUser) accounts, accessed through the [Control Panel](control-panel.md).
@@ -32,9 +32,36 @@ The Form Builder is only available to Host (SuperUser) accounts, accessed throug
 
 ## Creating a New Form
 
-To create a new form, click the **+** button in the [Control Panel](control-panel.md) toolbar and choose **Form**. You'll be asked for a name and whether to start with the Form Builder or a custom (code) form.
+To create a new form, click the **+** button in the [Control Panel](control-panel.md) toolbar and choose **Form**.
 
-If you'd like a head start, you can **auto-generate a form from a database table** — select a table, pick the columns you want, and the Form Builder creates the controls, data commands, and layout for you. From there, you can customize everything.
+<img src="./img/v5/form-builder-new-menu.png" alt="The + menu in the Control Panel toolbar showing Form, View, View (Quick Start), Feed, and Project options" width="300" />
+
+This opens the **Create New Form** dialog:
+
+<img src="./img/v5/form-builder-new-form-dialog.png" alt="Create New Form dialog showing form name, project selection, and form type choices" width="500" />
+
+In the first step, you'll:
+
+- **Name your form** — give it a descriptive name. Since this also serves as the file's name, it can only contain letters (uppercase and lowercase), numbers, underscores and dashes.
+- **Assign it to a project** (optional) — keep related forms, views, and feeds organized together
+- **Choose a form type** — **Auto-Layout** opens the Form Builder; **Custom** opens the [Code Editor](code-editor.md) for hand-coded forms
+- **Start with a blank form** — check this to skip the data configuration step and start with an empty canvas
+
+If you leave "Start with a blank form" unchecked, the next step lets you configure a data source:
+
+<img src="./img/v5/form-builder-new-form-datasource.png" alt="Step 2 of the Create New Form dialog showing table selection, column list with data types, and auto-generate options" width="500" />
+
+Here you can:
+
+- **Choose your database** — toggle between your **DNN** database and an **External DB**. For external databases, enter a SQL Server connection string (or use a `[[ConnectionString:Name]]` [token](tokens/connectionstring.md) to reference one from your `web.config`) and click **Load Tables**.
+
+  <img src="./img/v5/form-builder-new-form-external-db.png" alt="External DB option showing the connection string field and Load Tables button" width="500" />
+- **Select a table** — pick from a list of available tables
+- **Choose columns** — each column shows its data type, nullability, and whether it's a primary key or auto-increment field. Use **Select All** / **Deselect All** to work quickly.
+- **Auto-generate form controls** — when checked, the Form Builder creates the appropriate controls for each selected column (TextBox for text, DateInput for dates, CheckBox for booleans, etc.)
+- **Add validation controls** — when checked, adds Required and DataType validators based on column constraints
+
+Click **Create Form** and the Form Builder generates everything — controls, data commands, and layout — ready for you to customize.
 
 ## Adding Controls
 
@@ -43,14 +70,20 @@ There are two ways to add a control:
 - **Press `/`** (the slash key) anywhere in the Form Builder to open the Control Palette
 - **Click the `+` button** in the toolbar
 
-<!-- SCREENSHOT: form-builder-control-palette — The Control Palette showing categories and search results -->
+<img src="./img/v5/form-builder-control-palette.png" alt="Control Palette showing category pills (Input, Display, Code, etc.) and a scrollable list of controls with shortcode badges" width="500" />
 
-The Control Palette is a searchable menu of all available controls. Start typing to filter by name — it uses fuzzy matching, so you don't need to spell the exact control name. Controls are organized into categories like Input, Selection, Layout, Buttons, Validation, and more.
+The Control Palette is a searchable menu of all available controls, organized into categories like Input, Selection, Layout, Buttons, Validation, and more. Use the category pills at the top to quickly scroll to that group, or start typing to search.
+
+Each control in the list shows a **shortcode badge** — a quick alias you can type to jump straight to that control. For example, `txt` for TextBox, `cb` for CheckBox, `date` for DateInput. When your search text matches a shortcode, it highlights to confirm the match:
+
+<img src="./img/v5/form-builder-control-palette-search.png" alt="Control Palette after typing 'ddl', showing Drop Down List at the top with the 'ddl' badge highlighted" width="500" />
+
+You don't have to type a shortcode. Often the fuzzy matching will find what you need after one or two keystrokes. `ta` will get you to TextArea, `c` will get you to CheckBox. In fact, the most frequently used control, the TextBox, doesn't even need any typing — it's pre-selected when you open the palette, so you can just hit Enter to insert it into your form.
 
 Select a control and it's added to your form immediately. The control's label becomes editable right away, so you can name it without an extra click.
 
 ::: tip
-The `/` shortcut works like the slash commands in tools like Notion or Slack. It's the fastest way to build a form — just type `/text` for a TextBox, `/drop` for a DropDownList, and so on.
+The `/` shortcut works like the slash commands in tools like Notion or Slack. It's the fastest way to build a form — just type `/ddl` for a DropDownList, `/txt` for a TextBox, and so on.
 :::
 
 ## The Canvas
@@ -59,67 +92,102 @@ The canvas is the main area where your form takes shape. Each control appears as
 
 You can:
 
-- **Select a control** by clicking it — this opens its properties in the sidebar
-- **Edit a label** by clicking the label text directly on the canvas
+- **Select a control** by clicking it — this opens its properties in the Property Panel
+- **Edit inline** by clicking into the control block itself. Properties like control ID, Label, placeholder text (for text controls) are editable. Plus, key attributes are displayed below the control and can be edited directly on the canvas — control ID, label, placeholder text, data field, data type (read-only — set automatically based on the column's data type), and max length. The attributes shown vary by control type.
 - **Reorder controls** by dragging the handle on the left side
 - **Nest controls** by dragging them into container controls like Rows, Panels, or TabStrips
-- **Navigate with the keyboard** — use the up/down arrow keys to move between controls
+- **Navigate with the keyboard** — use the up/down arrow keys to move between controls and `Tab` to navigate within a control block.
 
-Right-click a control (or use its toolbar) to access additional options: **Edit**, **Duplicate**, **Move Up/Down**, and **Delete**.
+Click a control's **More Options** button to access additional functionality:
+
+<img src="./img/v5/form-builder-more-options.png" alt="More Options menu showing Edit Source, Duplicate, Move Up/Down/Top/Bottom, and Delete" width="200" />
+
+- **Edit Source** — opens an inline code editor where you can directly edit the control's XMP markup, including its label and validation tags
+  <img src="./img/v5/form-builder-edit-source.png" alt="Edit Source editor showing a TextBox control's markup with attributes and child tags" width="600" />
+- **Duplicate** — create a copy of the control
+- **Move Up / Down / Top / Bottom** — reposition the control
+- **Delete** — remove the control from the form
+
+
+The Edit Source editor gives you full access to the control's tag and any child tags (like `<Label>` and `<Validate>`). Press **Ctrl+Enter** to save or **Esc** to cancel.
 
 ## The Property Panel
 
 When you select a control on the canvas, its properties appear in a collapsible sidebar on the right. This is where you configure everything about the control.
 
-As shown in the overview screenshot, properties are organized into collapsible sections — **Label**, **Data**, **Other**, **Legacy Properties**, and **Custom Properties**. Common properties include:
+<img src="./img/v5/form-builder-properties-panel.png" alt="Property Panel for a TextBox showing Label, Data, Other, Legacy Properties, and Custom Properties sections" width="350" />
 
-- **Label** — The text displayed next to the control
-- **Data Field** — The database column this control reads from and writes to
-- **Data Type** — The type of data (string, integer, date, etc.)
-- **Max Length** — For text controls, the character limit
-- **CSS Class** — Apply a CSS class for custom styling
-- **Style** — Inline CSS styles
+Properties are organized into collapsible sections:
 
-The available properties vary by control type. A DropDownList, for example, will have properties for configuring its list items and data source, while a TextBox will have properties for placeholder text and input masks.
+- **Label** — The label text and its CSS class. You can remove the label by clicking the "X" button in its header.
+- **Data** — Data Field, Data Type, and Nullable. Change the DataField by clicking the circle with 3 dots in it. The Data Type will automatically change based on the column type, though you can override the data type by selecting one from the dropdown. Nullable determines whether empty values in the control are sent to the database as the special NULL value, representing nothing/not set typically.
+- **Other** — Properties that vary by control type. For a TextBox: Placeholder, Max Length, CSS Class, Read Only, HTML Encode, and Validation. A DropDownList would show properties for configuring its list items and data source instead.
+- **Legacy Properties** — Older ASP.NET style properties (like Width, shown above) that still work but are better handled with CSS. A badge shows how many are set and you can add more by clicking the "+" button in its header.
+- **Custom Properties** — Add arbitrary attributes to the control's tag for advanced scenarios.
 
-The panel is resizable — drag its left edge to make it wider or narrower, or collapse it entirely to maximize your canvas space.
+The panel is resizable — drag its left edge to make it wider or narrower:
+
+<img src="./img/v5/form-builder-properties-resize.png" alt="Property Panel showing the resize cursor on the left edge, with Label and Data sections visible" width="350" />
+
+You can also collapse the panel entirely to maximize your canvas space:
+
+<img src="./img/v5/form-builder-properties-expanded.png" alt="Expanded Property Panel header showing the Hide Properties Panel button" width="400" />
+
+and reopen it when needed:
+
+<img src="./img/v5/form-builder-properties-collapsed.png" alt="Collapsed Property Panel showing the Show Properties Panel button" width="300" />
 
 ## Connecting to a Database
 
-Most forms need to read from and write to a database. The Form Builder handles this through the **Data Source** configuration.
+If you configured a data source when [creating the form](#creating-a-new-form), your form is already connected. You can change the data source at any time by clicking the **Data Sources** button in the toolbar:
 
-Click the **Data Source** button to open the dialog where you can:
+<img src="./img/v5/form-builder-toolbar-datasources.png" alt="Form Builder toolbar with the Data Sources button highlighted" width="300" />
 
-1. **Choose a database** — Your DNN database or an external SQL Server database (just supply the connection string)
-2. **Select a table** — Pick from a list of available tables
-3. **Choose columns** — Select which columns to include
-4. **Set the key field** — Identify the column that uniquely identifies each record (needed for editing)
+This opens the **Form Data** dialog, which has two sections:
 
-Once configured, the Form Builder auto-generates the SQL commands to insert, update, and retrieve records. It also maps your database columns to form controls — setting the `DataField`, `DataType`, and `MaxLength` properties automatically.
+<img src="./img/v5/form-builder-datasources-dialog.png" alt="Form Data dialog showing Primary Data Source (configured) and Control Data Sources cards" width="600" />
 
-### Auto-Generating a Form
+- **Primary Data Source** — the main table your form reads from and writes to. This is the same table and column picker shown in the creation dialog. Once configured, the Form Builder auto-generates the SQL commands to insert, update, and retrieve records, and maps columns to form controls — setting `DataField`, `DataType`, and `MaxLength` automatically.
 
-The fastest way to build a data-bound form is to let the Form Builder create it for you:
+- **Control Data Sources** — reusable data sources that feed list controls like DropDownList, CheckBoxList, and RadioButtonList. Each control data source has an ID you can reference from multiple controls.
 
-1. Open the Data Source dialog
-2. Select your table and columns
-3. Click **Generate Form**
+### Control Data Sources
 
-The Form Builder analyzes your table's schema and creates the appropriate controls — TextBoxes for text columns, DateInputs for date columns, CheckBoxes for boolean columns, and so on. It's a great starting point that you can then customize.
+When you create a control data source, you choose between two source types:
+
+- **Database Table** — select a table and columns, just like the primary data source. You can also configure optional sorting.
+
+  <img src="./img/v5/form-builder-control-datasource.png" alt="New Data Source dialog with Database Table selected, showing table picker, column selector, and sorting options" width="500" />
+
+- **DNN Built-in** — pre-configured sources for common DNN data: Portal Users, Security Roles, Portal Pages, and Countries.
+
+  <img src="./img/v5/form-builder-control-datasource-dnn.png" alt="DNN Built-in source type showing Portal Users, Security Roles, Portal Pages, and Countries options" width="600" />
 
 ## Validation
 
-To add validation to a control, select it and look for the **Validation** section in the property panel. You can add rules like:
+There are two ways to add validation to a control. On the canvas, each control shows an **Add validation** link in its attribute bar:
 
-- **Required** — The field must have a value
+<img src="./img/v5/form-builder-validation-add.png" alt="A DropDownList control on the canvas showing the 'Add validation' link" width="600" />
+
+You can also click the **Validation** link in the Property Panel's Other section:
+
+<img src="./img/v5/form-builder-validation-property.png" alt="Property Panel Other section showing the 'Click to add validators' link" width="350" />
+
+Either way opens the **Validation Rules** dialog, where you can add one or more rules:
+
+<img src="./img/v5/form-builder-validation-rules.png" alt="Validation Rules dialog showing the five rule types and a configured Required Field rule with error message and indicator" width="600" />
+
+- **Required Field** — The field must have a value
 - **Email** — The value must be a valid email address
-- **Pattern** — The value must match a regular expression
+- **Regular Expression** — The value must match a pattern
 - **Range** — The value must fall within a min/max range
 - **Compare** — The value must match another field
 
-Each rule can have a custom error message. Validation errors are displayed to the user when they submit the form.
+Each rule has a custom **Error Message** and an optional **Indicator** (text displayed inline next to the control when validation fails, like `**`). The configuration fields vary by rule type — for example, the Range validator asks for minimum/maximum values and data type, while Compare asks for the control to compare against. Once a control has validation rules, the canvas shows a count badge:
 
-The toolbar shows a real-time **validation indicator** — a badge showing how many errors or warnings exist in your form definition. Click it to see the details and navigate to the issue.
+<img src="./img/v5/form-builder-validation-indicator.png" alt="A TextBox control showing '1 rule' with a tooltip reading 'Validation: Required'" width="600" />
+
+Hover over the badge to see which rules are applied.
 
 ## Layout and Containers
 
@@ -156,7 +224,7 @@ To see how your form will look and behave at runtime, use the **Preview** button
 
 The Form Builder is designed for the most common form-building scenarios. When you need more control — custom HTML layout, JavaScript interactivity, or advanced tag configurations — you can convert your form to a **custom form** and continue working in the [Code Editor](code-editor.md).
 
-This is a one-way conversion that gives you full control over the form's HTML, CSS, and XMP tags. The Form Builder generates clean, well-structured code as a starting point.
+This is a one-way conversion that gives you full control over the form's markup and styling. The Form Builder generates clean, well-structured code as a starting point.
 
 ## Keyboard Shortcuts
 
