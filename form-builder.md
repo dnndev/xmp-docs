@@ -22,7 +22,7 @@ keywords:
 
 The Form Builder lets you create data entry forms visually — without writing any code. You add controls by name, configure their properties in a sidebar panel, connect the form to a database table, and apply a theme. XMod Pro handles the rest.
 
-<!-- SCREENSHOT: form-builder-overview — Form Builder with several controls on the canvas, property panel open on the right -->
+<img src="./img/v5/form-builder-overview.png" alt="Form Builder showing the canvas with several controls and the Property Panel on the right" width="700" />
 
 In v5, the Form Builder has been completely redesigned. It's faster, more capable, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Code Editor](code-editor.md) at any time.
 
@@ -57,8 +57,6 @@ The `/` shortcut works like the slash commands in tools like Notion or Slack. It
 
 The canvas is the main area where your form takes shape. Each control appears as a row showing its label, an approximation of the control's appearance, and a drag handle.
 
-<!-- SCREENSHOT: form-builder-canvas — Canvas showing several controls with labels, types, and drag handles -->
-
 You can:
 
 - **Select a control** by clicking it — this opens its properties in the sidebar
@@ -73,9 +71,7 @@ Right-click a control (or use its toolbar) to access additional options: **Edit*
 
 When you select a control on the canvas, its properties appear in a collapsible sidebar on the right. This is where you configure everything about the control.
 
-<!-- SCREENSHOT: form-builder-property-panel — Property panel showing attributes for a TextBox control -->
-
-Common properties include:
+As shown in the overview screenshot, properties are organized into collapsible sections — **Label**, **Data**, **Other**, **Legacy Properties**, and **Custom Properties**. Common properties include:
 
 - **Label** — The text displayed next to the control
 - **Data Field** — The database column this control reads from and writes to

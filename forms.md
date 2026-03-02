@@ -30,7 +30,7 @@ A form file can contain an `<AddForm>`, an `<EditForm>`, or both — depending o
 
 ## Form Controls
 
-Form controls are the building blocks of your forms — the text boxes, dropdowns, checkboxes, and other input elements your visitors interact with. Each control binds to a database field using the `DataField` attribute, so XMod Pro knows where to save the value.
+Form controls are the building blocks of your forms — the text boxes, dropdowns, checkboxes, and other input elements your visitors interact with. Each control is linked (or "bound") to a database field using the `DataField` attribute, so XMod Pro knows where to save the value.
 
 Some commonly used controls:
 
@@ -45,7 +45,7 @@ Some commonly used controls:
 | `<DateInput>` | Date picker |
 | `<FileUpload>` | File upload |
 
-See the [Form Controls Reference](reference.md) for the full list of 60+ controls.
+See the [Form Controls Reference](reference.md) for the full list of controls.
 
 ## Validation
 
@@ -54,7 +54,7 @@ XMod Pro includes built-in validation controls that check visitor input before s
 Available validators include:
 
 - **Required** — field must have a value
-- **Email** — must be a valid email address
+- **Email** — must be a valid email address. Note this does not verify if an email address actually exists—just that input has the form of an email address.
 - **Compare** — two fields must match (e.g., password confirmation)
 - **Range** — value must fall within a range
 - **Regular Expression** — value must match a pattern
@@ -71,7 +71,7 @@ You don't have to write forms by hand. The **Form Builder** is a visual tool in 
 - **Start from scratch** — pick controls one by one using the `/` menu or the add button
 - **Generate from a table** — select a database table and XMod Pro creates a form with fields for each column, complete with data commands
 
-The Form Builder generates the same XML code you'd write manually, so you can always switch to the Code Editor to fine-tune the result. It's a great way to get started quickly and learn the syntax as you go.
+The Form Builder generates the same code you'd write manually, so you can always switch to the Code Editor to fine-tune the result. It's a great way to get started quickly and learn the syntax as you go.
 
 ## Basic Syntax
 
@@ -85,13 +85,13 @@ Here's a minimal add form that collects a staff member's name and email:
   <div class="form-group">
     <Label For="txtFirst" Text="First Name" />
     <TextBox ID="txtFirst" DataField="FirstName" DataType="String" />
-    <Validate Type="Required" Target="txtFirst" Text="Required" />
+    <Validate Type="Required" Target="txtFirst" Text="First Name is Required" />
   </div>
 
   <div class="form-group">
     <Label For="txtLast" Text="Last Name" />
     <TextBox ID="txtLast" DataField="LastName" DataType="String" />
-    <Validate Type="Required" Target="txtLast" Text="Required" />
+    <Validate Type="Required" Target="txtLast" Text="Last Name is Required" />
   </div>
 
   <div class="form-group">

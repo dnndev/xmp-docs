@@ -40,7 +40,7 @@ Forms support validation (required fields, email format, value ranges, etc.) so 
 
 **Feeds** return data as JSON, RSS, CSV, HTML, or other formats. They're commonly used to supply dynamic data to views and forms via AJAX, and can also expose data to external applications and services or create downloadable files.
 
-### Projects: Organize Your Work
+### Projects: Organize Your Work <Badge type="info">New to v.5.0</Badge>
 
 A **project** groups related views, forms, and feeds together. If you're building a blog, for example, you can create a "Blog" project that contains all the pieces of that solution in one place. Projects are searchable by name and description, making it easy to find what you need — even across dozens of solutions.
 
@@ -58,7 +58,7 @@ Or consider a customer invoice. One area shows the customer's name and address (
 
 ## The Control Panel
 
-You manage everything in XMod Pro through the **Control Panel** — a modern interface where you create and edit views, forms, and feeds, manage your database tables, and configure module settings.
+You manage everything in XMod Pro through the **Control Panel** — a modern interface where you create and edit views, forms, and feeds as well as manage your database tables and projects. You can even see, compare and recover different versions of your resources.
 
 To open the Control Panel, navigate to any page with an XMod Pro module and enter **Edit Mode** using the DNN Persona Bar. From there, you can either select **Control Panel** from the module's actions menu, or click the **Control Panel** icon in the quick-edit bar that appears at the top of the module.
 

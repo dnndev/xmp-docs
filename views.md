@@ -25,7 +25,7 @@ If you haven't read [How XMP Works](how-xmp-works.md), start there — it explai
 Most views have two **display modes** that work together:
 
 - **List mode** displays multiple records at once — a product catalog, a staff directory, a list of events. Each record is rendered using your `<ItemTemplate>`. You can optionally add an `<AlternatingItemTemplate>` to change the look or layout of every other record.
-- **Detail mode** displays a single record in full — the complete product page, the staff member's profile. This uses your `<DetailTemplate>`.
+- **Detail mode** displays a single record, usually with more data than what appears in the list mode — the complete product page, the staff member's profile. This uses your `<DetailTemplate>`.
 
 When a visitor clicks a detail link in the list, XMod Pro swaps to detail mode for that record. A "Back" link returns them to the list. You control the HTML for both modes independently.
 
@@ -41,7 +41,7 @@ Views are just HTML with field tokens. You have full control over the structure,
 
 - **HeaderTemplate** — HTML rendered once at the top of the list (table headers, section titles)
 - **ItemTemplate** — HTML rendered for each record (this is the main one)
-- **AlternatingItemTemplate** — Optional alternate layout for even-numbered records (useful for striped rows)
+- **AlternatingItemTemplate** — Optional alternate layout for even-numbered records (useful for striped rows - though CSS is often a better choice for purely appearance differences)
 - **FooterTemplate** — HTML rendered once at the bottom of the list
 - **NoItemsTemplate** — HTML displayed when the data command returns no records (an "empty state" message)
 
@@ -49,8 +49,12 @@ Since the `<ItemTemplate>` repeats for every record, you only put the *repeating
 
 ```html
 <HeaderTemplate>
+  <h3>Staff List</h3>
   <table>
-    <tr><th>Name</th><th>Department</th></tr>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+    </tr>
 </HeaderTemplate>
 
 <ItemTemplate>
@@ -62,6 +66,7 @@ Since the `<ItemTemplate>` repeats for every record, you only put the *repeating
 
 <FooterTemplate>
   </table>
+  <a href="/product-catalog">View Our Product Catalog</a>
 </FooterTemplate>
 ```
 
@@ -71,8 +76,8 @@ The `<HeaderTemplate>` opens the `<table>` and adds the header row, each `<ItemT
 
 XMod Pro has built-in support for search, sorting, and paging — you don't need to write any JavaScript or server-side code.
 
-- **Paging** splits long lists into pages. Set `UsePaging="True"` on the `<xmod:Template>` tag and add a `<xmod:Pager>` control to your template.
-- **Search and Sort** lets visitors filter and reorder the list. Use the `<xmod:SearchSort>` control to add a search box and sort dropdowns to your template.
+- **Paging** splits long lists into pages. Set `UsePaging="True"` on the `<xmod:Template>` tag and add a [`<Pager>`](/template-controls/pager.md) control to your template.
+- **Search and Sort** lets visitors filter and reorder the list. Use the [`<SearchSort>`](/template-controls/search-sort.md) control to add a search box and sort dropdowns to your template.
 
 ## Security
 
@@ -99,7 +104,7 @@ Here's a minimal view showing a list of staff members with a detail view:
   <ItemTemplate>
     <div class="staff-card">
       <h3>
-        <xmod:DetailLink Text='[[FirstName]] [[LastName]]'>
+        <xmod:DetailLink Text="[[=FirstName & ' ' & LastName]]">
           <Parameter Name="sid" Value='[[StaffID]]' />
         </xmod:DetailLink>
       </h3>
@@ -118,8 +123,12 @@ Here's a minimal view showing a list of staff members with a detail view:
 
 The `<ListDataSource>` tells XMod Pro which records to retrieve for the list. The `<DetailDataSource>` retrieves a single record when a visitor clicks through. The `<ItemTemplate>` and `<DetailTemplate>` define the HTML for each area.
 
-::: info Tag Name vs. Concept
-The XML tag is called `<xmod:Template>`, but in the XMod Pro UI you'll see these referred to as **views**. Same thing, different names — "view" describes what it does, "template" is the tag name in the code.
+Scattered throughout you'll see field tokens (`[[Department]]`, `[[Phone]]`, etc.) These are replaced at run-time with values from the records returned by ListDataSource and DetailDataSource.
+
+You might also notice a weird looking token: `[[=FirstName & ' ' & LastName]]`. This is an "Expression" token - a multifunctional token that can do math, date formatting, text manipulation and more. In this case it's simply rendering the first and last names of the staff member with a space in between: "John Smith" for example.
+
+::: info Views vs Templates
+The primary tag used for displaying data is called `<xmod:Template>`, but in the XMod Pro UI you'll work with **Views**. A View refers to the file that can contain one or more `<xmod:Template>` tags. Historically we referred to the file as a Template too and it wasn't always clear what we were talking about. By using **View**, we hope to avoid this confusion.
 :::
 
 ## Next Steps
