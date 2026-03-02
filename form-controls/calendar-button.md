@@ -48,17 +48,7 @@ The CalendarButton tag renders as a push-button at run-time. When clicked, a cal
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Format**: If specified, this overrides the default date format used by the pop-up calendar. If left blank, the web server's default short date format will be used. An example format would be: `format="yyyy-MM-dd"` where _yyyy_ returns the four digit year, _MM_ returns a two-digit month, and _dd_ returns a two-digit day. If you need the value to stay in that format, consider also using the `<validate type="regex">` tag to validate the target control.  
 
@@ -101,3 +91,25 @@ The CalendarButton tag renders as a push-button at run-time. When clicked, a cal
   </table>  
 </AddForm>
 ```
+
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

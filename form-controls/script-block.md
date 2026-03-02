@@ -35,7 +35,7 @@ The ScriptBlock tag is used to inject HTML `<script>` tags into one of several d
 
 ## Remarks
 
-*   **ScriptId**: This is an identifier for your block that uniquely identifies it within the hosting page - across modules. It is used when registering your script block and is required in order to prevent the block from being inserted more than once in the page.  
+*   **ScriptId** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: This is an identifier for your block that uniquely identifies it within the hosting page - across modules. It is used when registering your script block and is required in order to prevent the block from being inserted more than once in the page.  
 
 *   **BlockType**: This attribute allows you to specify which where in the page the scrip should be rendered. The default value is ClientScript
     *   `HeadScript`: The script block will be inserted between the `<head>` and `</head>` section of the page.
@@ -47,8 +47,7 @@ The ScriptBlock tag is used to inject HTML `<script>` tags into one of several d
 
 *   **Url**: If the BlockType is set to ClientScriptInclude, this is the path to the Javascript file you wish to include. It is ignored if BlockType is set to a different value. You may optionally use the tilde (`~`) character in the URL to represent the path to the root of the web application.
 
-  
-
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {2-14}

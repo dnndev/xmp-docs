@@ -72,7 +72,7 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
 
 *   **Format**: `Text` to send a plain text email or `HTML` to send an HTML-based email.  
 
-*   **From**: The email address that should be displayed in the **From** field of the email.  
+*   **From** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The email address that should be displayed in the **From** field of the email.  
 
 *   **ReplyTo**: (New to version 4.0) The email address that will be listed as the **Reply-To** address when the email recipient clicks "Reply" in their email client. Use this if you want replies sent to an email address that is different than the From email address.  
 
@@ -100,12 +100,13 @@ The Email tag does not render visibly at run-time. It is a behind-the-scenes ope
 
 *   **SmtpUsername**: Username for the SMTP Account  
 
-*   **To**: A single email address or comma-delimited list of email addresses that should receive the email. 
+*   **To** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: A single email address or comma-delimited list of email addresses that should receive the email. 
 
     :::tip NOTE
     You may use email addresses derived from list controls as well. The list control must use the pipe (`|`) separator to separate its values for this to work correctly.
     :::
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {22-27}

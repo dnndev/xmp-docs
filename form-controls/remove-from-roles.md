@@ -42,11 +42,11 @@ keywords:
 
 *   **RoleDelimiter**: optional. When listing more than one Role Name in the `RoleNames` property, this value determines what character is used to separate them. By default, the values is the pipe `|` character. Often users will set the RoleDelimiter to the comma `,` character.
 
-*   **RoleNames**: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with the pipe `|` character (by default) or the character specified in the `RoleDelimiter` property. Field tokens may be used to populate this property.  
+*   **RoleNames** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with the pipe `|` character (by default) or the character specified in the `RoleDelimiter` property. Field tokens may be used to populate this property.  
 
-*   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to remove from a role. You can use the `[[User:Id]]` token to get the current user's ID or you can use a field token that might store a user id like: `[[User]]` to retrieve a valid user ID from a form control whose DataField is set to User.  
+*   **UserId** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to remove from a role. You can use the `[[User:Id]]` token to get the current user's ID or you can use a field token that might store a user id like: `[[User]]` to retrieve a valid user ID from a form control whose DataField is set to User.
 
-
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 

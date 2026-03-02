@@ -59,29 +59,17 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 *   **AccessKey**: Gets or sets the access key that allows you to quickly navigate to the control.  
 
-*   **BackColor**: Color of the background of the control.  
-
 *   **BackImageUrl**: Sets the URL of the background image for the panel control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control.  
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
-*   **DefaultButton**: Set this to the ID of a push-button `<AddButton>`, `<UpdateButton>` or `<CancelButton>` on your form and it will be "clicked" when the user presses the ENTER key.Link and Image buttons may work for this as well, but are not supported. Link buttons, for instance, work on IE but not in Firefox.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More ](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
+*   **DefaultButton**: Set this to the ID of a push-button `<AddButton>`, `<UpdateButton>` or `<CancelButton>` on your form and it will be "clicked" when the user presses the ENTER key.Link and Image buttons may work for this as well, but are not supported. Link buttons, for instance, work on IE but not in Firefox.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
 *   **HorizontalAlign**: Sets the horizontal alignment of controls within the panel.  
 
-*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
+*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **ScrollBars**: Sets the visibility and position of scroll bars for the control:
     *   `None`: No scroll bars are shown (default)
@@ -94,9 +82,9 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
     This property works in conjunction with the _ShowRoles_ property. If ShowRoles is not specified, then _ShowIf_ will determine if the content is shown. If ShowRoles is specified, then it must evaluate to True and _ShowIf_ must be True for the content to be shown. If _ShowRoles_ evaluates to False, then _EvaluateIf_ is ignored. The content will not be shown.
     *   Example 1: `ShowIf="1=1"`. In this example we are taking the value of the number "1" and comparing it to "1". If they are equal, this evaluates to TRUE and the contents of panel tag are shown.
 
-        Example 2: `ShowIf="1=5"`. In this example we are taking the value of the number "1" and comparing it to "5". Since they are not equal, it evaluates to FALSE and no contents are shown.
+        Example 2: `ShowIf="1=5"`. In this example we are taking the value of the number "1" and comparing it to "5". Since they are not equal, it evaluates to FALSE and no contents are shown.
 
-    *   Example 3: `ShowIf='[[Join("{0}=Kelly",[[Url:name]])]]'`. In this example, the passed-in name parameter is 'Kelly'.  
+    *   Example 3: `ShowIf='[[Join("{0}=Kelly",[[Url:name]])]]'`. In this example, the passed-in name parameter is 'Kelly'.  
 
 *   **ShowRoles**: A comma-delimited list of security role names. When specified, only members of the security roles will be shown the content of the panel. Note that if you are logged-in as host, you will see the panel contents even though the account may not be a member of one of the specified roles. To accurately test the functionality, you should login as a Non-host/superuser account.  
 
@@ -109,6 +97,7 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 *   **Wrap**: If true (default), content within the panel wraps. If false, content does not wrap.  
 
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Examples
 ### Show Panel Based on User Security Role
@@ -152,3 +141,25 @@ This tag can be used solely as a container (much like the DIV tag in HTML). More
 
 </AddForm>
 ```
+
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

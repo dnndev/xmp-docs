@@ -57,18 +57,9 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 ## Remarks
 
 
-
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
 
 *   **AppendDataBoundItems**: If True, items retrieved from a `<ControlDataSource>` tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.  
-
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
@@ -76,7 +67,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `ControlDataSource>` tag.  
+*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `ControlDataSource>` tag.  
 
 *   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
 
@@ -84,13 +75,9 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
-*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
+*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **Nullable**: If Nullable is set to True (the default value is False), the control will return a DBNull value if no item has been selected. If a DBNull value is passed to this control, regardless of the Nullable setting, the control will de-select all items in the control.  
 
@@ -100,7 +87,7 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **SelectedItemsSeparator**: If the control enables the selection of multiple items, the control will merge the selected values together using a pipe (`|`) as a separator. You can change the character used to separate the selected values using this property. If, for instance, you wanted to separate them with a comma, you would set `SelectedItemsSeparator=","` The separator is only used on controls capable of multiple selection and ONLY when more than one item has been selected.  
 
-    So, for example, if your control had the following values selected: 32, 578, and 38, then the value returned to the database would be: 32|578|38\. If only the number 32 was selected, the value would be: 32\. When dealing with multiple selections, remember to set the DataType to "string" because while "32|578|38" is a series of numbers, for the database, it is first and foremost a string containing a numeric text and the pipe character.  
+    So, for example, if your control had the following values selected: 32, 578, and 38, then the value returned to the database would be: 32|578|38\. If only the number 32 was selected, the value would be: 32\. When dealing with multiple selections, remember to set the DataType to "string" because while "32|578|38" is a series of numbers, for the database, it is first and foremost a string containing a numeric text and the pipe character.  
 
     ::: tip 
     If you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
@@ -116,9 +103,10 @@ The ListBox tag renders as a single or multi-select listbox at run-time.
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
+*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
 
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example 1 - Basic Usage
 ```html {13-17}
@@ -175,3 +163,25 @@ This example shows how to use the AppendDataBoundItems property to add a "None S
   </ListBox>
 </AddForm>
 ```
+
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

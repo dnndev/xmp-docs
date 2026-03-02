@@ -69,21 +69,13 @@ The DropdownList tag renders as a drop-down list control at run-time.
 
 *   **AppendDataBoundItems**: If True, items retrieved from a `<ControlDataSource>` tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.  
 
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
 
 *   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDataSource>` tag.  
+*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDataSource>` tag.  
 
 *   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
 
@@ -91,13 +83,9 @@ The DropdownList tag renders as a drop-down list control at run-time.
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More  
-     ](../font-properties.md)
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
-*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
+*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **Nullable**: Since an item is always selected in a drop-down list, if Nullable is set to True (the default value is False), the control will return a `DBNull` value if the selected item has a hidden value of an empty string. If a `DBNull` value is passed to this control, regardless of the Nullable setting, XMod Pro will attempt to select the first item that has an empty string as its hidden value. If no item is found, it will attempt to select the first item in the list.  
 
@@ -107,9 +95,9 @@ The DropdownList tag renders as a drop-down list control at run-time.
 
 *   **TabIndex**: Sets the tab index for the control.  
 
-*   **TargetControlId**: One or more control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the control(s) which should be updated when this control's value has changed.  
+*   **TargetControlId**: One or more control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the control(s) which should be updated when this control's value has changed.  
 
-*   **TargetDataSourceId**: One or more ControlDataSource control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the data sources that should be updated with this control's newly selected value.  
+*   **TargetDataSourceId**: One or more ControlDataSource control ID's (separated by commas - new to v.4.0). This property is used when creating dependent list controls and reflects the data sources that should be updated with this control's newly selected value.  
 
 *   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
 
@@ -117,7 +105,9 @@ The DropdownList tag renders as a drop-down list control at run-time.
 
 *   **Width**: Width of the control in [units](../unit-types.md).  
 
-*   **Usage**  The drop-down list allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the control's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
+*   **Usage**  The drop-down list allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the control's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Creating Dependent Lists/Cascading Lists
 
@@ -153,7 +143,7 @@ For this example, we'll be using the DNN Lists table. This table contains numero
 
 In the example above, there are two `<ControlDataSource>` tags. The first loads the list of Countries from the DNN Lists table and is linked to the `ddlCountries` drop-down list. The second one will be used to lookup the list of Regions in the selected country.
 
-The DNN Lists table is setup so that each record can be the "parent" of one or more other records. If a record has a parent, its "ParentID" column will contain the EntryID of its parent. So, for our example, to get a list of regions in a given country, we look for all records that have a ParentID that matches the EntryID of our country. So, we've setup the ControlDataSource to accept a "ParentID" parameter.
+The DNN Lists table is setup so that each record can be the "parent" of one or more other records. If a record has a parent, its "ParentID" column will contain the EntryID of its parent. So, for our example, to get a list of regions in a given country, we look for all records that have a ParentID that matches the EntryID of our country. So, we've setup the ControlDataSource to accept a "ParentID" parameter.
 
 Next, we need to setup the Country drop-down list to send its value to the Regions ControlDataSource. It is set to load its data from the `dsCountries` ControlDataSource using the `DataSourceId`, `DataTextField`, and `DataValueField` attributes. To enable the control to cause the Regions drop-down list to reload its data, we:
 
@@ -162,7 +152,6 @@ Next, we need to setup the Country drop-down list to send its value to the Regio
 3.  Specify the `ParameterName`. This is the name of the parameter the target ControlDataSource is expecting in order to retrieve its data. In the example, this is "ParentID".
 
 So, when a country is selected, a parameter will be created with the name "ParentID". It's value will be set to the **value** (not the display text) of the currently selected country. That parameter will then be passed to the target ControlDataSource (dsRegions) and the target control (ddlRegions) will be re-bound to the data.
-
 
 
 ## Example 1 - General Usage
@@ -240,3 +229,25 @@ This example shows how you can require that the user choose an item from your da
   ...
 </AddForm>
 ```
+
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

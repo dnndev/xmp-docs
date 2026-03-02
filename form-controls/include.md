@@ -32,9 +32,9 @@ Please note that every time XMP renders an Include tag, it attempts to read the
 
 ## Attributes  
 
-*   **FileName**: The full path and filename of the file to include. You may use the tilde (`~`) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
+*   **FileName** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The full path and filename of the file to include. You may use the tilde (`~`) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
 
-
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 

@@ -40,9 +40,9 @@ Use this optional tag if you want to bind a list-based control to a set of data.
 
 ## Remarks  
 
-*   **Id**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form. This attribute is required as it provides the link between the data source and the controls to which it is bound.  
+*   **Id** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form. This attribute is required as it provides the link between the data source and the controls to which it is bound.
 
-*   **CommandText**: The SQL command to execute to return the data. This attribute is required. Optionally, when **Source** has been set to _dnn_, you can specify special values for CommandText to enable retrieval of data from the DotNetNuke database via its API rather than direct database queries (see the Source property description for more details).  
+*   **CommandText** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The SQL command to execute to return the data. This attribute is required. Optionally, when **Source** has been set to _dnn_, you can specify special values for CommandText to enable retrieval of data from the DotNetNuke database via its API rather than direct database queries (see the Source property description for more details).  
 
 *   **CommandType**: New to version 4.7. The ControlDataSource tag can now specify to use stored procedures. Specify `CommandType="StoredProcedure"`.  
 
@@ -66,7 +66,7 @@ For each control that will use the data, you need to specify:
 *   **DataTextField**: This is the name of the field in the data source that contains the value to use for the control's display text.
 *   **DataValueField**: This is the name of the field in the data source that contains the value to use for the control's hidden text.
 
-
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {9-10,27-28}

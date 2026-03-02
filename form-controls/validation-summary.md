@@ -43,21 +43,11 @@ The `<ValidationSummary>` tag is used to group the display of all validation mes
 
 ## Remarks
 
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control. Defaults to NotSet.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
 
 *   **DisplayMode**: This attribute determines the layout of the message when validation fails. Defaults to **BulletList** display.  
 
 *   **EnableClientScript**: Use this property to specify whether the control updates itself using client-side script. When this property is set to true, client-side script is rendered on the client to update the `<ValidationSummary>` control, if the browser supports that feature.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
 
 *   **HeaderText**: This will be displayed above your `<ValidationSummary>` tag when validation fails.  
 
@@ -91,3 +81,24 @@ In the example below, a Range Validator has been placed on the form in addition 
 </AddForm>
 ```
 
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

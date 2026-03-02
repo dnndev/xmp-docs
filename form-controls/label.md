@@ -22,13 +22,13 @@ The Label tag renders as a static text at run-time.
     Visible="True|False" 
 /> 
 ```
- 
+ 
 
 ## Remarks
 
 The Label tag provides the ability to offer better accessibility to your users by using the "For" attribute to identify a form control for which the label provides the caption. This makes it much easier for screen reader applications to understand your form. When supplying text for the Label, you can either place it in the _Text_ attribute or you can place it between the opening `<Label>` and closing `</Label>` tags.
 
-*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
+*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **For**: The attribute linking the label to a form control for which the label provides the caption.  
 
@@ -39,6 +39,7 @@ The Label tag provides the ability to offer better accessibility to your users b
 *   **Visible**: Determines if the control is visible (true) or hidden (false). Default set to "True".
 
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {6,12}

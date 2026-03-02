@@ -56,12 +56,13 @@ keywords:
 
 *   **RoleDelimiter**: optional. When listing more than one Role Name in the `RoleNames` property, this value determines what character is used to separate them. By default, the values is the pipe `|` character. Often users will set the RoleDelimiter to the comma `,` character.
 
-*   **RoleNames**: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with the pipe `|` character (by default) or the character specified in the `RoleDelimiter` property. Field tokens may be used to populate this property.  
+*   **RoleNames** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. One or more DotNetNuke security role names you want to add the user to. If more than one role is specified, separate them with the pipe `|` character (by default) or the character specified in the `RoleDelimiter` property. Field tokens may be used to populate this property.  
 
 *   **StartDate**: optional. When specified, this is the date on which the user will be placed in the role - i.e. the Effective Date. Field tokens may be used to populate this property. New to version 4.1  
 
-*   **UserId**: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to add to a role. Field tokens may be used to populate this property.  
+*   **UserId** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. The unique numeric user identifier assigned by DotNetNuke to the user you want to add to a role. Field tokens may be used to populate this property.
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 

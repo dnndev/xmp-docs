@@ -28,13 +28,13 @@ The Register tag enables you to use third-party controls in your XMod Pro forms.
 
 *   Should you choose to use third-party controls, you'll need to add a Register tag to your form definition for each collection. Register tags tell XMod Pro where to find the controls you use. You only use the tag once per library. The register tag is declared outside the `<AddForm>` and `<EditForm>` tags. This allows you to use the library in both forms without having to duplicate the register tag.  
 
-*   **TagPrefix**: A short series of letter and numbers that you use as part of the control's tag. It helps XMod Pro determine what library the control belongs to.  
+*   **TagPrefix** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: A short series of letter and numbers that you use as part of the control's tag. It helps XMod Pro determine what library the control belongs to.  
 
-*   **Namespace**: The namespace in which custom control resides. This information should be supplied by the control developer.  
+*   **Namespace** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The namespace in which custom control resides. This information should be supplied by the control developer.  
 
-*   **Assembly**: This is the name of the assembly (DLL) in which the controls reside. Note, you do not specify the path to the DLL or the ".dll" extension. This information should be supplied by the control developer.
+*   **Assembly** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: This is the name of the assembly (DLL) in which the controls reside. Note, you do not specify the path to the DLL or the ".dll" extension. This information should be supplied by the control developer.
 
-
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {1-3,11-12}

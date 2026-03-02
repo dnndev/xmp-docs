@@ -32,9 +32,9 @@ keywords:
 
 - **Using Tokens**: Unlike most form tags, which evaluate their tokens when the form is loaded, Action tags evaluate their tokens when they're executed (after successful form submission). This means that values passed into the form such as URL parameters will need to be stored in a hidden form control (typically a TextBox with its Visibility property set to False). On the other hand, this enables Action tags to use Field tokens as their property values so these tags can use values input by the user in the form.
 
-- **Assembly**: Required. The file name of the DLL in your /bin directory that contains the action class.
+- **Assembly** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. The file name of the DLL in your /bin directory that contains the action class.
 
-- **Namespace**: Required. The full namespace that points to the action class in your DLL. Because Namespaces are handled differently in Visual Studio between VB.NET and C#, please read the NOTE below for your chosen language.
+- **Namespace** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Required. The full namespace that points to the action class in your DLL. Because Namespaces are handled differently in Visual Studio between VB.NET and C#, please read the NOTE below for your chosen language.
 
   #### NOTE for VB.NET Projects
 
@@ -187,6 +187,8 @@ keywords:
   7.  Remember to
 
 - **Property Tags**: These are optional child tags that allow you to specify one or more attributes that will be set when the action is executed.
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 

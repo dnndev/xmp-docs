@@ -45,7 +45,7 @@ The CancelButton tag renders as a button at run-time. When clicked, the form clo
     Width="size"
 /> 
 ```
- 
+ 
 
 ## Remarks
 
@@ -53,17 +53,7 @@ The CancelButton tag renders as a button at run-time. When clicked, the form clo
 
 *   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines)  
 
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
 *   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
 
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
@@ -73,7 +63,7 @@ The CancelButton tag renders as a button at run-time. When clicked, the form clo
 
 *   **RedirectMethod**: Determines the HTTP method by which the user is redirected: `Get` or `Post`  
     ::: tip IMPORTANT
-    When using `Post`, the ID that you supply for your form controls determine the name of the field that is posted to the target URL, not the DataField. New to version 4.0: You can use a period (`.`) for the Redirect property's value. The period acts as shortcut to redirect to the current page.  
+    When using `Post`, the ID that you supply for your form controls determine the name of the field that is posted to the target URL, not the DataField. New to version 4.0: You can use a period (`.`) for the Redirect property's value. The period acts as shortcut to redirect to the current page.  
     :::
 
 *   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
@@ -93,26 +83,47 @@ The CancelButton tag renders as a button at run-time. When clicked, the form clo
 ## Example
 ```html {18}
 <AddForm>  
-  ...  
-  <table>  
-    <tr>  
-      <td>  
-        <Label Target="txtFirstName" Text="First Name" />  
-        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />  
-      </td>  
-    </tr>  
-    <tr>  
-       <td>  
-        <Label Target="txtLastName" Text="Last Name" />  
+  ...  
+  <table>  
+    <tr>  
+      <td>  
+        <Label Target="txtFirstName" Text="First Name" />  
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />  
+      </td>  
+    </tr>  
+    <tr>  
+       <td>  
+        <Label Target="txtLastName" Text="Last Name" />  
         <TextBox Id="txtLastName" DataField="LastName" DataType="string" />  
-       </td>  
-     </tr>  
-     <tr>  
-       <td colspan="2">  
-         <AddButton Text="Add"/> <CancelButton Text="Cancel"/>
-       </td>  
-     </tr>  
-   </table>  
+       </td>  
+     </tr>  
+     <tr>  
+       <td colspan="2">  
+         <AddButton Text="Add"/> <CancelButton Text="Cancel"/>
+       </td>  
+     </tr>  
+   </table>  
 </AddForm>
 ```
 
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>

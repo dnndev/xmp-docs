@@ -66,14 +66,6 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **AppendDataBoundItems**: If True, items retrieved from a `<ControlDataSource>` tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.  
 
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
 *   **CellPadding**: For table layouts, sets the distance (in pixels) between the border and the content of the cells.  
 
 *   **CellSpacing**: For table layouts, sets the distance (in pixels) between cells.  
@@ -84,7 +76,7 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDataSource>` tag.  
+*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDataSource>` tag.  
 
 *   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
 
@@ -92,13 +84,9 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
 
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
 *   **Height**: Height of the control, specified in [units](../unit-types.md).  
 
-*   **ID**: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
+*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
 
 *   **Nullable**: If True (the default is False), this control returns a DBNull value if no item has been selected. If a DBNull value is passed to the control, regardless of the Nullable setting, all items will be de-selected.  
 
@@ -106,7 +94,7 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 
 *   **RepeatDirection**: Determines if the control displays vertically or horizontally.  
 
-*   **RepeatLayout**: Use this attribute to specify whether the items in the control are displayed in a table. If this attribute is set to Table the items in the list are displayed in a table. If this attribute is set to Flow, the items in the list are displayed without a table structure.  
+*   **RepeatLayout**: Use this attribute to specify whether the items in the control are displayed in a table. If this attribute is set to Table the items in the list are displayed in a table. If this attribute is set to Flow, the items in the list are displayed without a table structure.  
 
 *   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
 
@@ -123,6 +111,7 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
 *   **Usage**: The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the `ID` of the `<ControlDataSource>` tag in the `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item in the `DataTextField` attribute, and the column in the data source that should supply the hidden value of each list item in the `DataValueField` attribute.
 
 
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {13-17}
@@ -153,3 +142,25 @@ The RadioButtonList tag renders as a series of mutually-exclusive option button 
   </table> 
 </AddForm>
 ```
+
+<details>
+<summary>Deprecated Properties</summary>
+
+These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+
+| Property | Values | Description |
+|----------|--------|-------------|
+| BackColor | color name \| #dddddd | Background color of the control |
+| BorderColor | color name \| #dddddd | Border color of the control |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
+| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| Font-Bold | `True` `False` | Bold text |
+| Font-Italic | `True` `False` | Italic text |
+| Font-Names | string | Font family name |
+| Font-Overline | `True` `False` | Overline text decoration |
+| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
+| Font-Strikeout | `True` `False` | Strikethrough text decoration |
+| Font-Underline | `True` `False` | Underline text decoration |
+| ForeColor | color name \| #dddddd | Text color of the control |
+
+</details>
