@@ -17,7 +17,7 @@ keywords:
   - filter
   - pin
 ---
-# The Explorer
+# The Explorer <Badge type="info" text="v5.0" />
 
 The Explorer is a slide-out panel in the [Control Panel](control-panel.md) where you browse, manage, and organize your views, forms, feeds, and projects. It's organized into four tabs — one for each resource type.
 

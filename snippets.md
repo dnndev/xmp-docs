@@ -16,7 +16,7 @@ keywords:
   - placeholder
   - snippet manager
 ---
-# Snippets
+# Snippets <Badge type="info" text="v4.3" />
 
 Snippets are reusable code templates that save you from retyping the same patterns over and over. Need a DataList with an ItemTemplate? A dropdown populated from a database? An email notification on form submission? There's a snippet for that — and if there isn't, you can create your own in seconds.
 

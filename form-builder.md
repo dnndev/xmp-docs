@@ -53,7 +53,7 @@ If you leave "Start with a blank form" unchecked, the next step lets you configu
 
 Here you can:
 
-- **Choose your database** — toggle between your **DNN** database and an **External DB**. For external databases, enter a SQL Server connection string (or use a `[[ConnectionString:Name]]` [token](tokens/connectionstring.md) to reference one from your `web.config`) and click **Load Tables**.
+- **Choose your database** — toggle between your **DNN** database and an **External DB**. For external databases, enter a SQL Server connection string (or use a `[[ConnectionString:Name]]` token to reference one from your `web.config`) and click **Load Tables**.
 
   <img src="./img/v5/form-builder-new-form-external-db.png" alt="External DB option showing the connection string field and Load Tables button" width="500" />
 - **Select a table** — pick from a list of available tables

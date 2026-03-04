@@ -19,7 +19,7 @@ keywords:
   - if
   - coalesce
 ---
-# Expression Tokens
+# Expression Tokens <Badge type="info" text="v5.0" />
 
 Expression tokens let you format, calculate, and conditionally display data right inside your views, forms, and feeds — no SQL changes or JavaScript needed.
 

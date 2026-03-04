@@ -13,7 +13,7 @@ keywords:
   - manage views
   - templates
 ---
-# Explorer: Views Tab
+# Explorer: Views Tab <Badge type="info" text="v5.0" />
 
 The Views tab in the [Explorer](explorer.md) lists all your view definitions. Click any view's name to open it in the [Code Editor](code-editor.md).
 

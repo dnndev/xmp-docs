@@ -12,7 +12,7 @@ keywords:
   - feeds
   - manage feeds
 ---
-# Explorer: Feeds Tab
+# Explorer: Feeds Tab <Badge type="info" text="v5.0" />
 
 The Feeds tab in the [Explorer](explorer.md) lists all your feed definitions. Click any feed's name to open it in the [Code Editor](code-editor.md).
 

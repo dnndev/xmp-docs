@@ -17,7 +17,7 @@ keywords:
   - folding
   - regions
 ---
-# Code Editor
+# Code Editor <Badge type="info" text="v5.0" />
 
 XMod Pro v5 includes a professional-grade code editor built right into the Control Panel. There's no need to switch to an external text editor or copy-paste code — you can write and refine your views, feeds, and custom forms in the same place you manage everything else.
 

@@ -12,7 +12,7 @@ keywords:
   - organization
   - grouping
 ---
-# Projects
+# Projects <Badge type="info" text="v5.0" />
 
 A **project** groups related views, forms, and feeds together so you can manage them as a unit. Think of it like a folder — if you're building a staff directory, you might create a "Staff Directory" project and add the staff list view, the staff edit form, and the department data feed to it.
 

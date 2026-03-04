@@ -11,7 +11,7 @@ keywords:
   - projects
   - manage projects
 ---
-# Explorer: Projects Tab
+# Explorer: Projects Tab <Badge type="info" text="v5.0" />
 
 The Projects tab in the [Explorer](explorer.md) lists your [projects](projects.md) — organizational containers that group related views, forms, and feeds together.
 

@@ -17,7 +17,7 @@ keywords:
   - rollback
   - backup
 ---
-# Version History
+# Version History <Badge type="info" text="v5.0" />
 
 XMod Pro v5 automatically tracks every version of your forms, views, and feeds. Every time you save, a snapshot is captured — so you can always look back at what changed, compare two versions side by side, or restore a previous version if something goes wrong.
 

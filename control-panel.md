@@ -17,7 +17,7 @@ keywords:
   - command palette
   - settings
 ---
-# Control Panel
+# Control Panel <Badge type="info" text="v5.0" />
 
 The Control Panel is the central workspace for everything you build with XMod Pro. From here you can create and edit forms, views, and feeds, manage database tables, organize resources into projects, and access every tool XMod Pro offers — all in a single, modern interface.
 

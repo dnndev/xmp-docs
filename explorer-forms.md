@@ -14,7 +14,7 @@ keywords:
   - builder
   - custom
 ---
-# Explorer: Forms Tab
+# Explorer: Forms Tab <Badge type="info" text="v5.0" />
 
 The Forms tab in the [Explorer](explorer.md) lists all your form definitions. Click any form's name to open it in its editor — the visual [Form Builder](form-builder.md) or the [Form Code Editor](code-editor.md) for custom forms.
 

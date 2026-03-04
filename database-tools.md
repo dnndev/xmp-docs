@@ -18,7 +18,7 @@ keywords:
   - data viewer
   - sql preview
 ---
-# Database Tools
+# Database Tools <Badge type="info" text="v5.0" />
 
 Database Tools lets you create and manage database tables without leaving the XMod Pro [Control Panel](control-panel.md). You can define columns, set up relationships between tables, browse your data, and preview the exact SQL that will run before saving any changes.
 
