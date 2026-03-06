@@ -189,15 +189,18 @@ Each rule has a custom **Error Message** and an optional **Indicator** (text dis
 
 Hover over the badge to see which rules are applied.
 
-## Layout and Containers
+## Layout and Containers <Badge type="info" text="v5.0" />
 
-For more complex form layouts, you can use container controls to organize your form into sections:
+New to version 5, the Form Builder lets you use container controls for more complex layouts. Three new container types — Row, FieldGroup, and Section — join the existing Panel and TabStrip:
 
-- **Row** — Arrange controls in a multi-column grid layout (based on a 12-column grid)
+- **Row** — Arrange controls in a multi-column grid layout (based on a 12-column grid). Drag the divider between columns to resize them:
+
+  <img src="./img/v5/form-builder-row-resize.png" alt="A Row container with two TextBox controls side by side, showing the drag handle to resize columns" width="700" />
+
 - **Panel** — Group controls inside a bordered container
 - **TabStrip** — Organize controls into tabbed sections
-- **FieldGroup** — Group related fields with a legend/heading
-- **Section** — A collapsible section
+- **FieldGroup** — Group related fields inside an HTML `<fieldset>` with a `<legend>`
+- **Section** — An HTML `<section>` element with an optional heading
 
 Drag controls into a container to nest them, or drag them out to move them back to the root level.
 
