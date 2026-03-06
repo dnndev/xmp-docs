@@ -21,9 +21,22 @@ Content may still contain v4.x terminology or references that need updating for 
 
 ## Media Assets
 
-Documentation will need screenshots and potentially videos or animations to support the content. Images are stored in the `img/` directory. When writing or updating docs, identify where visual aids would help and flag them for the user to capture.
+Documentation will need screenshots and potentially videos or animations to support the content. Images are stored in the `img/` directory (v5 screenshots in `img/v5/`). When writing or updating docs, identify where visual aids would help and flag them for the user to capture.
 
-**Naming convention:** `{context}-{topic}-{description}.{ext}`
+### Screenshot Drop Folder
+
+The user saves screenshots to `C:\Users\kford\Documents`. Files are typically PNGs with date/time-based filenames from the capture tool. When the user says a new screenshot is available:
+
+1. **Look in the drop folder** for recent PNG files (sort by date — newest files are the ones to process)
+2. **Open the file** to understand what it shows
+3. **Copy it** to `img/v5/` with a name following the naming convention below
+4. **Add it** to the relevant documentation page (usually the topic currently being worked on)
+
+The user generally does not delete processed files, so older files in the folder may already be in use. Focus on the most recent additions.
+
+### Naming Convention
+
+`{context}-{topic}-{description}.{ext}`
 
 Examples:
 - `form-textbox-basic-usage.png`

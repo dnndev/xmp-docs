@@ -198,7 +198,9 @@ New to version 5, the Form Builder lets you use container controls for more comp
   <img src="./img/v5/form-builder-row-resize.png" alt="A Row container with two TextBox controls side by side, showing the drag handle to resize columns" width="700" />
 
 - **Panel** — Group controls inside a bordered container
-- **TabStrip** — Organize controls into tabbed sections
+- **TabStrip** — Organize controls into tabbed sections. Each tab can hold its own set of controls, and you can add or remove tabs as needed:
+
+  <img src="./img/v5/form-builder-tabstrip.png" alt="A TabStrip container with Contact and Address tabs, showing two TextBox controls nested inside the active tab" width="700" />
 - **FieldGroup** — Group related fields inside an HTML `<fieldset>` with a `<legend>`
 - **Section** — An HTML `<section>` element with an optional heading
 
