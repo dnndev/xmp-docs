@@ -3,150 +3,88 @@ id: form-radio-button-list
 title: RadioButtonList
 category: List Controls
 context: form
-summary: >-
-  The RadioButtonList tag renders as a series of mutually-exclusive option
-  button at run-time.
+summary: The RadioButtonList tag renders as a series of mutually-exclusive radio buttons at run-time.
 keywords:
   - radio
   - button
   - list
   - form
+since: '1.0'
+related:
+  - dropdown-list
+  - checkbox-list
+  - listbox
+  - control-datasource
 ---
 # `<RadioButtonList>`
 
-The RadioButtonList tag renders as a series of mutually-exclusive option button at run-time.
-
-## Syntax
-```html
-<RadioButtonList 
-    AccessKey="string" 
-    AppendDataBoundItems="True|False" 
-    BackColor="color name|#dddddd" 
-    BorderColor="color name|#dddddd" 
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
-    BorderWidth="size" 
-    CellPadding="integer" 
-    CellSpacing="integer" 
-    CssClass="string" 
-    DataSourceID="string" 
-    DataTextField="string" 
-    DataTextFormatString="string" 
-    DataValueField="string" 
-    Enabled="True|False" 
-    Font-Bold="True|False" 
-    Font-Italic="True|False" 
-    Font-Names="string" 
-    Font-Overline="True|False" 
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
-    Font-Strikeout="True|False" 
-    Font-Underline="True|False" 
-    ForeColor="color name|#dddddd" 
-    Height="size" 
-    ID="string" 
-    Nullable="True|False"
-    RepeatColumns="integer" 
-    RepeatDirection="Horizontal|Vertical" 
-    RepeatLayout="Table|Flow" 
-    Style="string" 
-    TabIndex="integer" 
-    TextAlign="Left|Right" 
-    ToolTip="string" 
-    Visible="True|False" 
-    Width="size"> 
-
-    <ListItem value="string" selected="True|False">Item1</ListItem > 
-    <ListItem value="string">Item2</ListItem > 
-    ... 
-</RadioButtonList>
-```
-
-## Remarks
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **AppendDataBoundItems**: If True, items retrieved from a `<ControlDataSource>` tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.  
-
-*   **CellPadding**: For table layouts, sets the distance (in pixels) between the border and the content of the cells.  
-
-*   **CellSpacing**: For table layouts, sets the distance (in pixels) between cells.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
-
-*   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
-
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `<ControlDataSource>` tag.  
-
-*   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
-
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands.  
-
-*   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
-
-*   **Nullable**: If True (the default is False), this control returns a DBNull value if no item has been selected. If a DBNull value is passed to the control, regardless of the Nullable setting, all items will be de-selected.  
-
-*   **RepeatColumns**: Defines the number of columns to use when laying out the checkboxes.  
-
-*   **RepeatDirection**: Determines if the control displays vertically or horizontally.  
-
-*   **RepeatLayout**: Use this attribute to specify whether the items in the control are displayed in a table. If this attribute is set to Table the items in the list are displayed in a table. If this attribute is set to Flow, the items in the list are displayed without a table structure.  
-
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **TextAlign**: The alignment of the text label with respect to its associated radio button. Valid values are Left and Right. Default value is Right.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-*   **Usage**: The control allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the `ID` of the `<ControlDataSource>` tag in the `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item in the `DataTextField` attribute, and the column in the data source that should supply the hidden value of each list item in the `DataValueField` attribute.
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+The RadioButtonList tag renders a group of mutually-exclusive radio buttons — only one can be selected at a time. Items can be defined inline as `<ListItem>` children, bound to a [`<ControlDataSource>`](control-datasource.md), or both.
 
 ## Example
 ```html {13-17}
-<AddForm> 
-  ... 
-  <table> 
-    <tr> 
-      <td> 
-        <Label For="txtFirstName" Text="First Name" /> 
-        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
-      </td> 
-    </tr> 
-    <tr> 
+<AddForm>
+  ...
+  <table>
+    <tr>
+      <td>
+        <Label For="txtFirstName" Text="First Name" />
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+      </td>
+    </tr>
+    <tr>
       <td>
         <Label For="rblColors" Text="Favorite Color" />
-        <RadioButtonList Id="rblColors" DataField="FavoriteColors" DataType="string">
-          <ListItem Value="#00FF00">Green</ListItem >
-          <ListItem Value="#FF0000" selected="true">Red</ListItem >
-          <ListItem Value="#0000FF">Blue</ListItem >
-        </RadioButtonList> 
-      </td> 
-    </tr> 
-    <tr> 
-      <td colspan="2"> 
-        <AddButton Text="Add"/> <CancelButton Text="Cancel"/> 
-      </td> 
-    </tr> 
-  </table> 
+        <RadioButtonList Id="rblColors" DataField="FavoriteColor" DataType="string">
+          <ListItem Value="#00FF00">Green</ListItem>
+          <ListItem Value="#FF0000" Selected="true">Red</ListItem>
+          <ListItem Value="#0000FF">Blue</ListItem>
+        </RadioButtonList>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>
+      </td>
+    </tr>
+  </table>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ID](#prop-id) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Unique identifier for the control within the form |
+| [DataField](#prop-datafield) | string | | Parameter name for data binding to your form's data commands |
+| [DataType](#prop-datatype) | `String` `Int32` `Int64` `Boolean` [more...](../data-types.md) | `String` | Database type for data commands |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| [AppendDataBoundItems](#prop-appenddataboundeditems) | `True` `False` | `False` | When `True`, items retrieved from a `<ControlDataSource>` are appended to inline `<ListItem>` children rather than replacing them |
+| CellPadding | integer | `-1` | When `RepeatLayout="Table"`, distance in pixels between the cell border and its content. `-1` uses the browser default |
+| CellSpacing | integer | `0` | When `RepeatLayout="Table"`, distance in pixels between adjacent cells |
+| CssClass | string | | CSS class name(s) for styling the control |
+| [DataSourceID](#prop-datasourceid) | string | | ID of a `<ControlDataSource>` tag whose data fills this control |
+| [DataTextField](#prop-datatextfield) | string | | When data-bound, the source column whose value is shown as each item's display text |
+| DataTextFormatString | format string | | A .NET format string applied to each item's display text |
+| [DataValueField](#prop-datavaluefield) | string | | When data-bound, the source column whose value becomes each item's hidden value |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| Height | [size](../unit-types.md) | | Height of the control |
+| [Nullable](#prop-nullable) | `True` `False` | `False` | Returns DBNull when no item is selected |
+| [RepeatColumns](#prop-repeatcolumns) | integer | `0` | Number of columns to lay out the radio buttons in. `0` means a single column |
+| [RepeatDirection](#prop-repeatdirection) | `Horizontal` `Vertical` | `Vertical` | Whether items flow across rows (Horizontal) or down columns (Vertical) |
+| [RepeatLayout](#prop-repeatlayout) | `Table` `Flow` | `Table` | Whether items are wrapped in an HTML table (Table) or rendered inline (Flow) |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| [TextAlign](#prop-textalign) | `Left` `Right` | `Right` | Whether each item's label appears to the left or right of its radio button |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -164,3 +102,29 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-id">**ID**</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
+
+*   <span id="prop-datafield">**DataField**</span>: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's selected value when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
+
+*   <span id="prop-datatype">**DataType**</span>: The type of data this control supplies to the data commands. This is a [Database type](../data-types.md). This attribute is required if the control will participate in operations with your form's data commands.
+
+*   <span id="prop-appenddataboundeditems">**AppendDataBoundItems**</span>: When `True` and the control is bound to a `<ControlDataSource>`, the items returned by the data source are appended to any inline `<ListItem>` children. When `False` (the default), the bound data replaces inline items.
+
+*   <span id="prop-datasourceid">**DataSourceID**</span>: ID of a `<ControlDataSource>` tag whose data fills this control's items. Required only if the control's items come from a data source. (The casing — capital `ID` — comes from the underlying ASP.NET ListControl; XMP markup is case-insensitive.)
+
+*   <span id="prop-datatextfield">**DataTextField**</span>: When using a `<ControlDataSource>`, the column name whose value supplies each list item's display text. Required when `DataSourceID` is set.
+
+*   <span id="prop-datavaluefield">**DataValueField**</span>: When using a `<ControlDataSource>`, the column name whose value supplies each list item's hidden value. Required when `DataSourceID` is set.
+
+*   <span id="prop-nullable">**Nullable**</span>: When `True` and no radio button is selected, the control returns `DBNull` to the data commands. If a `DBNull` value is passed back to the control (e.g. when loading a record for editing), all items are deselected regardless of the `Nullable` setting.
+
+*   <span id="prop-repeatcolumns">**RepeatColumns**</span>: How many columns the radio buttons are laid out in. The default of `0` produces a single column. Combined with `RepeatDirection`, this controls how items flow across the layout.
+
+*   <span id="prop-repeatdirection">**RepeatDirection**</span>: When laid out in multiple columns, whether items fill across rows first (`Horizontal`) or down columns first (`Vertical`). Has no visible effect when `RepeatColumns="0"`.
+
+*   <span id="prop-repeatlayout">**RepeatLayout**</span>: Controls the underlying HTML structure. `Table` (the default) wraps items in an HTML table — predictable spacing, but extra markup. `Flow` renders items as inline elements separated by `<br>` tags — lighter markup, easier to style with CSS.
+
+*   <span id="prop-textalign">**TextAlign**</span>: Whether the label text appears to the left or to the right of each radio button. The default `Right` is conventional for English-reading layouts.
