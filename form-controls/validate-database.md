@@ -3,98 +3,109 @@ id: form-validate-database
 title: Validate Type="Database"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "Database" is referred to as a Database
-  Validator and is used to display error messages thrown from the database.
+summary: The Validate tag with Type="Database" displays errors thrown by the database (or returned via a special ERROR output parameter) when the form's SubmitCommand runs.
 keywords:
   - validate
-  - type="
-  - database"
+  - database
   - form
+since: '4.0'
+related:
+  - validate-action
+  - validation-summary
+  - submit-command
 ---
 # `<Validate Type="Database">`
 
-The Validate tag whose type is set to "Database" is referred to as a Database Validator and is used to display error messages thrown from the database.
+The Database validator surfaces errors thrown by the database when the form's `<SubmitCommand>` runs — either actual SQL errors or friendly error messages your stored procedure returns through a specially-named `ERROR` output parameter. Unlike other validators, it isn't tied to a specific control, and you only need one per form.
 
-## Syntax
-```html
-<Validate 
-    CssClass="string"
-    Text="string"
-    Type="Database" 
-/> 
-```
- 
+If the form has a `<ValidationSummary>`, the database error appears there. If you don't include this validator, the error still surfaces — through XMod Pro's default error display.
 
-## Remarks
+## Properties
 
-The database validator is a special type of `<Validate>` tag. When the "type" attribute is set to **Database**, the control prevents the form from being submitted if the database throws an error or a value is returned via a specially-named output parameter. Unlike other `<Validate>` tags, the database validator is not associated with a specific form control and only one is allowed per form. The database validator is used to display error messages returned from the database. These can be actual errors thrown by the database or a friendly error message returned using the specially named ERROR output parameter.
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Database` | | Identifies this as a Database validator |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when an error occurs |
 
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
-*   **Text**: This text that will be displayed where your validation fails. If you have a `<ValidationSummary>` tag on your form then the error message will be displayed there. If this validator has not been placed in your form, the message will still be displayed using the default error reporting mechanism.  
+::: info Differs from other validators
+Database doesn't take a `Target`, `Message`, `Display`, or `EnableClientScript` — it isn't tied to a specific control and never runs client-side. Only one Database validator per form.
+:::
 
-*   **Type**: When the "type" attribute is set to **Database**, the control prevents the form from being submitted if the database throws an error or a value is returned via a specially-named output parameter. Unlike other `<Validate>` tags, the database validator is not associated with a specific form control and only one is allowed per form.
+## Returning a Friendly Error from a Stored Procedure
 
-**Passing a friendly error message back to the form**: In some cases your stored procedure may want to inform the user that the data they submitted is invalid in some way. A good example is if a user is choosing a Team Name for a sports league and you want to ensure that no two Team Names are the same. If the user submits a name that already exists, you'd want to inform them of that, allowing them to choose a different name. Here's how you'd do that:
+Sometimes your stored procedure needs to tell the user "that team name is already taken" or "that date is in the past." You can do this without raising a SQL error:
 
-1.  Set the `<SubmitCommand>` tag's `CommandType` property to: `StoredProcedure`  
+1. Set the `<SubmitCommand>` tag's `CommandType` property to `StoredProcedure`.
+2. Add an output parameter to the `<SubmitCommand>` named exactly **`ERROR`**, with `Direction="Output"`:
 
-2.  Add an OUTPUT parameter to the `<SubmitCommand>`. It **_must_ be named ERROR** and **its direction must be set to Output** like so:  
-    
-    ```html
-    <Parameter Name="ERROR" DataType="String" Size="250" Direction="Output" />
-    ```
+   ```html
+   <Parameter Name="ERROR" DataType="String" Size="250" Direction="Output" />
+   ```
 
-3.  Optionally (though you will usually do this), add a `<Validate Type="Database" />` tag to your form.  
+3. Add `<Validate Type="Database" />` to your form (and ideally a `<ValidationSummary>`).
+4. In your stored procedure, set the `@ERROR` parameter to whatever message you want to surface.
 
-4.  Optionally add a `<ValidationSummary>` tag to your form if you don't already have one.  
-
-5.  If you don't use the Validate/ValidationSummary combination of tags, the error will be reported to the end user using the standard XMod Pro reporting mechanisms.  
-
-6.  In your stored procedure, set the @ERROR parameter to be an OUTPUT parameter and set its value to whatever message you want to return.  
-
+XMod Pro reads that output parameter after the procedure runs. If it's not empty, the form treats the submit as a validation failure and surfaces the message — even though no exception was raised.
 
 ## Example
-```html {22-23}
+```html {16,17}
 <AddForm>
-  <SubmitCommand CommandText="XMP_ReturnValueTester" CommandType="StoredProcedure">
-    <Parameter Name="FirstName" DataType="String" Size="25" />
-    <Parameter Name="LastName" DataType="String" Size="25" />
+  <SubmitCommand CommandText="XMP_RegisterTeam" CommandType="StoredProcedure">
+    <Parameter Name="TeamName" DataType="String" Size="50" />
+    <Parameter Name="ERROR" DataType="String" Size="250" Direction="Output" />
   </SubmitCommand>
- 
-  <div class="xmp-Authors xmp-form">
+
+  <div class="xmp-form">
     <div class="xmp-form-row">
-      <Label For="FirstName" Text="First Name" CssClass="NormalBold xmp-form-label" />
-      <TextBox id="FirstName" DataField="FirstName" DataType="string" MaxLength="25" Width="165" />
+      <Label For="txtTeamName" Text="Team Name" />
+      <TextBox Id="txtTeamName" DataField="TeamName" DataType="string" MaxLength="50" />
+      <Validate Type="Required" Target="txtTeamName" Message="Team name is required" />
     </div>
     <div class="xmp-form-row">
-      <Label For="LastName" Text="Last Name" CssClass="NormalBold xmp-form-label" />
-      <TextBox Id="LastName" DataField="LastName" DataType="Decimal" MaxLength="25" Width="165" />
-    </div>
-    <div class="kbxmFormRow">
-      <span class="xmp-form-label">&nbsp;</span>
-      <AddButton Text="Add" CssClass="CommandButton xmp-button"  /> 
-      <CancelButton Text="Cancel" CssClass="CommandButton xmp-button" />
-      <br />
+      <AddButton Text="Register" /> <CancelButton Text="Cancel" />
     </div>
     <Validate Type="Database" />
-    <ValidationSummary DisplayMode="BulletList"  CssClass="NormalRed xmp-validation-summary" />
+    <ValidationSummary DisplayMode="BulletList" CssClass="NormalRed xmp-validation-summary" />
   </div>
 </AddForm>
 ```
 
-Here's a sample stored procedure that is guaranteed to throw an error:
+A stored procedure that uses the `@ERROR` pattern:
+
 ```sql
-CREATE PROCEDURE [dbo].[XMP_DBThrownError_Tester]
-  @FirstName nvarchar(255),
-  @LastName nvarchar(255)
+CREATE PROCEDURE [dbo].[XMP_RegisterTeam]
+  @TeamName nvarchar(50),
+  @ERROR    nvarchar(250) OUTPUT
 AS
 BEGIN
-  RAISERROR('Example Error Thrown',18,1)
+  SET @ERROR = ''
+  IF EXISTS(SELECT 1 FROM Teams WHERE TeamName = @TeamName)
+  BEGIN
+    SET @ERROR = 'A team with that name already exists. Please choose another.'
+    RETURN
+  END
+
+  INSERT INTO Teams (TeamName) VALUES (@TeamName)
 END
 ```
 
-Here's what the example form looks like after the user has submitted the form and the stored procedure has thrown the error:
+A stored procedure that just throws an error (also surfaced by the validator):
 
-![](../img/Validate_Database_InAction.png)
+```sql
+CREATE PROCEDURE [dbo].[XMP_DBThrownError_Tester]
+  @FirstName nvarchar(255),
+  @LastName  nvarchar(255)
+AS
+BEGIN
+  RAISERROR('Example Error Thrown', 18, 1)
+END
+```
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `Database` to identify this as a Database validator.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when a database error occurs. The full error message goes into the `<ValidationSummary>` (if present); `Text` is for an inline marker. If you omit `Text`, nothing renders inline — handy when you only want the summary.

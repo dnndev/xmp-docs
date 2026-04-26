@@ -3,69 +3,63 @@ id: form-validate-action
 title: Validate Type="Action"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "action" is referred to as an Action
-  Validator and is used to display special error messages thrown from the action
-  tags in your form.
+summary: The Validate tag with Type="Action" displays errors thrown by action tags (AddUser, Login, etc.) when the form is submitted.
 keywords:
   - validate
-  - type="
-  - action"
+  - action
   - form
+since: '4.0'
+related:
+  - validate-database
+  - validation-summary
+  - add-user
+  - login
 ---
 # `<Validate Type="Action">`
 
-The Validate tag whose type is set to "action" is referred to as an Action Validator and is used to display special error messages thrown from the action tags in your form.
+The Action validator surfaces errors thrown by action tags — `<AddUser>`, `<Login>`, `<UpdateUser>`, `<AddToRoles>`, and similar — when the form is submitted. The classic case is `<AddUser>` complaining "that username already exists"; this validator catches that error and shows it as a normal form-validation message.
 
-## Syntax
-```html
-<Validate 
-    CssClass="string"
-    Text="string"
-    Type="Action" 
-/> 
-```
- 
+Unlike most validators, it isn't tied to a specific control. Place one anywhere in the form (typically alongside the buttons).
 
-## Remarks
+If you have a `<ValidationSummary>` on the form, the action error appears there. If you don't include this validator at all, the error still surfaces — through XMod Pro's default error display.
 
-The action validator is a special type of `<Validate>` tag. When the "type" attribute is set to **Action**, the control will display the error message thrown by an action tag such as `<AddUser>`. An example would be if the user attempts to register with a username that already exists in the site. A duplicate username error will be thrown and an appropriate message will be displayed by this validator. If you have a `<ValidationSummary>` tag on your form then the error message will be displayed there. If this validator has not been placed in your form, the message will still be displayed using the default error reporting mechanism.
+## Properties
 
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Action` | | Identifies this as an Action validator |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when an action error occurs |
 
-*   **Text**: This text that will be displayed where your validation fails. If you have a `<ValidationSummary>` tag on your form then the error message will be displayed there. If this validator has not been placed in your form, the message will still be displayed using the default error reporting mechanism.  
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
-*   **Type**: When the `Type` attribute is set to **Action**, the control will display the error message thrown by an action tag such as `<AddUser>`.
-
-
+::: info Differs from other validators
+Action doesn't take a `Target`, `Message`, `Display`, or `EnableClientScript` — it isn't tied to a specific control and only runs server-side after the action tag fails.
+:::
 
 ## Example
-```html {53,58}
+
+A registration form using `<AddUser>`. The Action validator catches duplicate-username and other AddUser errors and surfaces them in the validation summary:
+
+```html {3-5,33,36}
 <AddForm>
   <AddUser RoleNames="Role1,Editors" Email='[[Email]]'
-      FirstName='[[FName]]' LastName='[[LName]]' 
-      Username='[[Username]]' Password='[[Password]]' />
+           FirstName='[[FName]]' LastName='[[LName]]'
+           Username='[[Username]]' Password='[[Password]]' />
   <table>
     <tr>
       <td>
-        <Label For="txtFirstName" Text="First Name" /> 
+        <Label For="txtFirstName" Text="First Name" />
         <TextBox Id="txtFirstName" DataField="FName" DataType="string" />
         <Validate Type="Required" Target="txtFirstName" Text="**" Message="First Name is required." />
-       </td>
-    </tr>
-    <tr>
-      <td>
-        <Label For="txtLastName" Text="Last Name" />
-        <TextBox Id="txtLastName" DataField="LName" DataType="string" />
-        <Validate Type="Required" Target="txtLastName" Text="**" Message="Last Name is required." />
       </td>
     </tr>
     <tr>
       <td>
         <Label For="txtEmail" Text="Email" />
         <TextBox Id="txtEmail" DataField="Email" DataType="string" />
-        <Validate Type="Required" Target="txtEmail" Text="**" Message="An email address is required." />
-        <Validate Type="Email" Target="txtEmail" Text="**" Message="Please enter a valid email address." />
+        <Validate Type="Required" Target="txtEmail" Text="**" Message="Email is required." />
+        <Validate Type="Email"    Target="txtEmail" Text="**" Message="Please enter a valid email." />
       </td>
     </tr>
     <tr>
@@ -83,14 +77,6 @@ The action validator is a special type of `<Validate>` tag. When the "type" attr
       </td>
     </tr>
     <tr>
-      <td>
-        <Label For="txtReEnterPassword" Text="Password" />
-        <Password Id="txtReEnterPassword" DataField="pw2" DataType="string" />
-        <Validate Type="Required" Target="txtReEnterPassword" Text="**" Message="Please re-enter your password." />
-        <Validate Type="Compare" Target="txtPassword" CompareTarget="txtReEnterPassword" Text="**" Message="Your passwords don't match" />
-      </td>
-    </tr>
-    <tr>
       <td colspan="2">
         <AddButton Text="Add" /> <CancelButton Text="Cancel" />
         <Validate Type="Action" />
@@ -105,5 +91,10 @@ The action validator is a special type of `<Validate>` tag. When the "type" attr
 </AddForm>
 ```
 
-In the example above, we've highlighted the three key components at work here - the AddUser tag, the Validate tag, and the ValidationSummary tag. As you can see, there isn't much you have to do to use the action validator. Just place it on your form and, ideally, also have a ValidationSummary tag on the form for displaying any errors.
+The `<Validate Type="Action" />` placed alongside the buttons catches any error from the `<AddUser>` action and routes it into the `<ValidationSummary>` for display.
 
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `Action` to identify this as an Action validator.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when an action error occurs. The full error message goes into the `<ValidationSummary>` (if present); `Text` is for an inline marker. If you omit `Text`, nothing renders inline.
