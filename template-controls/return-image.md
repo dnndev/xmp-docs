@@ -3,123 +3,61 @@ id: template-return-image
 title: 'xmod:ReturnImage'
 category: Action Links
 context: template
-summary: >-
-  The ReturnImage tag renders as a clickable image at run-time. It is used to
-  return the user from a detail view to the previously viewed list view.
+summary: A clickable image placed inside `<DetailTemplate>` that returns the user to the previous list view. Image variant of [`<xmod:ReturnButton>`](return-button.md).
 keywords:
   - return
   - image
   - template
+since: '1.0'
+related:
+  - return-button
+  - return-link
 ---
+
 # `<xmod:ReturnImage>`
 
-The ReturnImage tag renders as a clickable image at run-time. It is used to return the user from a detail view to the previously viewed list view.
+`<xmod:ReturnImage>` renders a clickable image that returns the user to the previous list view — same behavior as [`<xmod:ReturnButton>`](return-button.md), just rendered as an image rather than a push-button.
 
-## Syntax
-```html
-<xmod:ReturnImage
-    AlternateText="string"
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"
-    ImageUrl="url"
-    OnClientClick="javascript"
-    Style="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size" 
-/> 
-```
-
-## Remarks
-
-*   **Usage**: The XMod Pro Return controls are used in detail templates. There, they serve to return the user to the list view he/she was previously viewing.  
-
-*   **AlternateText**: Use this attribute's value will be used as the image's "alt" text. The "alt" text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.  
-
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
-
-*   **ImageUrl**: Specify a URL to the image. You may use the tilde (`~`) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`)
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
+::: info Sibling variants
+- [`<xmod:ReturnButton>`](return-button.md) — push-button
+- [`<xmod:ReturnLink>`](return-link.md) — hyperlink
+:::
 
 ## Example
-```html {34}
-<div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
 
-        <!-- EMPLOYEES TEMPLATE -->
-
-        <xmod:Template Id="Employees">
-          <ListDataSource CommandText="SELECT EmployeeId, FirstName, LastName FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
-           <Parameter Name="DepartmentId" Alias="DepartmentId"/>
-          </ListDataSource>
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
-            <Parameter Name="EmployeeId" Alias="EmpID" />
-          </DetailDataSource>
-          
-          <HeaderTemplate>
-            <p>Employees</p>
-          </HeaderTemplate>
-          
-          <ItemTemplate>
-            <div style="text-align: middle;">
-              <strong>[[FirstName]] [[LastName]]</strong>
-              <xmod:DetailButton Text="View Profile">
-                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' />
-              </xmod:DetailButton>
-            </div>
-          </ItemTemplate>
-          
-          <DetailTemplate>
-            <h1>Employee Profile</h1>
-            <h3>[[FirstName]] [[LastName]]</h3>
-            <h4>Biography:</h4>
-            <div>[[Bio]]</div>
-            <xmod:ReturnImage Text="Go Back" ImageUrl="~/images/leftarrow.gif" AlternateText="Return"/>
-          </DetailTemplate>
-        
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>
+```html {6}
+<xmod:Template Id="Employees">
+  ...
+  <DetailTemplate>
+    <h1>[[FirstName]] [[LastName]]</h1>
+    <div>[[Bio]]</div>
+    <xmod:ReturnImage AlternateText="Go Back" ImageUrl="~/images/back.gif" />
+  </DetailTemplate>
+</xmod:Template>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ID | string | | Unique identifier for the image button |
+| ImageUrl | URL | | Path to the image file. Tilde (`~`) supported |
+| AlternateText | string | | Alt text for screen readers and search engines |
+| ImageAlign | `NotSet` `Left` `Right` `Baseline` `Top` `Middle` `Bottom` `AbsBottom` `AbsMiddle` `TextTop` | `NotSet` | Image alignment relative to surrounding content |
+| CssClass | string | | CSS class name(s) |
+| Style | string | | Inline CSS |
+| Width | [size](../unit-types.md) | | Width of the image |
+| Height | [size](../unit-types.md) | | Height of the image |
+| ToolTip | string | | Hover tooltip |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| OnClientClick | JavaScript | | Client-side script to run on click. Returning `false` cancels the action |
+| AccessKey | string | | Keyboard shortcut character |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled |
+| TabIndex | integer | | Tab order for keyboard navigation |
+
+<details>
+<summary>Deprecated Properties (styling)</summary>
+
+`BackColor`, `BorderColor`, `BorderStyle`, `BorderWidth`, `Font-*`, `ForeColor` — use `CssClass` or `Style` instead.
+
+</details>
