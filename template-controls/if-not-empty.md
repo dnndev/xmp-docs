@@ -3,63 +3,51 @@ id: template-if-not-empty
 title: 'xmod:IfNotEmpty'
 category: Conditional
 context: template
-summary: 'Documentation for xmod:IfNotEmpty.'
+summary: Renders its inner content only when `Value` is not empty (not an empty string or `null`). Pair with `<xmod:IfEmpty>` for if/else logic.
 keywords:
+  - if
   - not
   - empty
+  - conditional
   - template
+since: '4.2'
+related:
+  - if-empty
+  - select
 ---
+
 # `<xmod:IfNotEmpty>`
 
-(New to version 4.2) The IfNotEmpty tag is a quick way to display content only if there is a value in a column. In other words if the value is not an empty string ("") or a Null value, then the content of the IfNotEmpty tag will be rendered out to the page.
+`<xmod:IfNotEmpty>` renders the content between its opening and closing tags only when `Value` is **not** empty — i.e. has at least one character that isn't part of an empty string `""` or `null`. Use it to show data only when it's available.
 
-## Syntax
-```html
-<xmod:IfNotEmpty 
-    Value="string">
-
-...Content Goes Here...
-</xmod:IfNotEmpty>
-```
-
-## Remarks
-
-*   **Value**: This can be a hard-coded string value theoretically, however, the main purpose is to accept a Field Token. NOTE, when using a Field Token, you must use single quotes rather than double quotes to delimit it:  
-    `<xmod:IfNotEmpty Value='[[MyField]]'>...</xmod:IfNotEmpty>`
+For if/else patterns, place an `<xmod:IfEmpty>` and an `<xmod:IfNotEmpty>` back to back with the same `Value`.
 
 ## Example
-```html {19-21}
-<div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
 
-        <!-- EMPLOYEES TEMPLATE -->
+Render an `<img>` only when `imageUrl` has a value:
 
-        <xmod:Template Id="Employees">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
-            <Parameter Name="EmployeeId" Alias="EmpID" />
-          </DetailDataSource>
-
-          <DetailTemplate>
-            <h1>Employee Profile</h1>
-            <h3>[[FirstName]] [[LastName]]</h3>
-            <xmod:IfEmpty Value='[[imageUrl]]'>
-              <img src="/images/NoImage.png" />
-            </xmod:IfEmpty>
-            <xmod:IfNotEmpty Value='[[imageUrl]]'>
-              <img src="[[imageUrl]]" />
-            </xmod:IfNotEmpty>
-            <h4>Biography:</h4>
-            <div>[[Bio]]</div>
-            <xmod:MetaTags>
-              <Title>Employee Profile for [[FirstName]] [[LastName]]</Title>
-              <Keywords append="true">[[FirstName]],[[LastName]]</Keywords>
-            </xmod:MetaTags>
-          </DetailTemplate>
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>
+```html {3-5}
+<xmod:Template Id="Employees">
+  <DetailTemplate>
+    <h3>[[FirstName]] [[LastName]]</h3>
+    <xmod:IfNotEmpty Value="[[imageUrl]]">
+      <img src="[[imageUrl]]" alt="[[FirstName]] [[LastName]]" />
+    </xmod:IfNotEmpty>
+    <xmod:IfEmpty Value="[[imageUrl]]">
+      <img src="/images/NoImage.png" alt="No photo on file" />
+    </xmod:IfEmpty>
+  </DetailTemplate>
+</xmod:Template>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Value](#prop-value) | string \| token | | The value tested for non-emptiness |
+
+## Property Details
+
+*   <span id="prop-value">**Value**</span>: The value to test. Most commonly a `[[FieldName]]` token bound to a database column. The content renders only when the resolved value is **not** an empty string and **not** `null`. Whitespace-only values (e.g. `"  "`) count as non-empty.
+
+    When the attribute uses a field token, single-quote the value: `Value='[[FieldName]]'` — `[[FieldName]]` contains brackets that conflict with double quotes inside the XML attribute parser.

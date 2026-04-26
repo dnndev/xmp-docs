@@ -3,120 +3,103 @@ id: template-load-feed
 title: 'xmod:LoadFeed'
 category: Feed Controls
 context: template
-summary: >-
-  The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your
-  page. This tag requires jQuery be included in the page. The LoadFeed tag will
-  grab the feed data when the page is loaded. Depending on the complexity of
-  your page, it is possible the HTML element which will house the results may
-  not be rendered yet. It is good practice to place the load feed tags after the
-  HTML elements in the page if this is an issue.To allow the user to trigger the
-  loading of a feed see: `<xmod:LoadFeedButton>`, `<xmod:LoadFeedImage>`, and
-  `<xmod:LoadFeedLink>`.
+summary: Loads an XMP feed asynchronously when the page loads, replacing or appending to a target HTML element. Useful for AJAX-style content loading and infinite-scroll lists.
 keywords:
   - load
   - feed
+  - ajax
   - template
+since: '1.0'
+related:
+  - load-feed-button
+  - load-feed-image
+  - load-feed-link
+  - feed
+  - json-feed
 ---
+
 # `<xmod:LoadFeed>`
 
-The LoadFeed tag makes it a cinch to dynamically load XMod Pro feeds into your page. This tag requires jQuery be included in the page. The LoadFeed tag will grab the feed data when the page is loaded. Depending on the complexity of your page, it is possible the HTML element which will house the results may not be rendered yet. It is good practice to place the load feed tags after the HTML elements in the page if this is an issue.To allow the user to trigger the loading of a feed see: [`<xmod:LoadFeedButton>`](load-feed-button.md), [`<xmod:LoadFeedImage>`](load-feed-image.md), and [`<xmod:LoadFeedLink>`](load-feed-link.md).
+`<xmod:LoadFeed>` fires an AJAX request when the page loads, fetching an XMP feed and dropping the rendered content into a target HTML element. Use it to populate parts of a page after the rest has rendered (so the user sees the page faster), or to lazy-load expensive content.
 
-## Syntax
-```html
-<xmod:LoadFeed
-  FeedName="string"
-  LoadingCssClass="CSS Class Name(s)"
-  LoadingImageUrl="url"
-  Target="jQuery element selector">
-  
-  [one or more optional Field tags can be used to pass data to the feed] 
-  <Field Name="string" Value="string" />
+For user-triggered loading (a "Load More" button or link), see [`<xmod:LoadFeedButton>`](load-feed-button.md), [`<xmod:LoadFeedImage>`](load-feed-image.md), and [`<xmod:LoadFeedLink>`](load-feed-link.md).
 
-</xmod:LoadFeed>
-```
+::: warning Requires jQuery
+The hosting page must include jQuery. Default DNN skins do; verify a custom skin does too.
+:::
 
-## Remarks
-
-*   **FeedName**: The name you have given your feed on the Manage Feeds page. Note that you should set the feed's ContentType to "text/html" (see examples below).  
-
-*   **LoadingCssClass**: One or more CSS class names (separated by a space) that will be applied to the HTML image tag used to display a "loading" status to the user. This property is ignored if no LoadingImageUrl has been specified.  
-
-*   **LoadingImageUrl**: The path to the image you'd like to display as a "loading" status indicator to your users. Typically this will be an animated GIF or similar file. You may use the tilde (`~`) character as a short-hand for the site's root directory.  
-
-*   **Target**: A jQuery selector identifying the element whose content will be replaced by the results of the feed.  
-
-*   **Field Tags**: If you need to pass additional information to your feed, use the child Field tags. The Field's Name property should be the name of the parameter your feed is looking for and the Value of that Field will be the value you pass in for the parameter.  
+::: tip Place after the target
+The tag fires its AJAX call as soon as it renders. If the target HTML element appears later in the page than the `<xmod:LoadFeed>` tag, the script may run before the target exists. Place the `<xmod:LoadFeed>` after the target element to be safe.
+:::
 
 ## Example
 
-This example shows that you don't even need `<xmod:Template>` tags in your template. The LoadFeed tags will load their date when the page is loaded. It creates to LoadFeed tags at the top of the template and points them to two DIV tags where the results of the feeds will be placed. The two feeds are shown after the template example.
+```html {7-10}
+<!-- Top Authors goes here -->
+<div id="TopAuthors"></div>
 
-```html {8,9-11} 
-<!-- TOP AUTHORS -->  
-<div id="TopAuthors"></div>  
+<!-- Top Crime Books goes here -->
+<div id="TopCrime"></div>
 
-<!-- TOP CRIME BOOKS" -->  
-<div id="TopCrime"></div>`  
-
-<!-- LOAD FEED TAGS -->  
-<xmod:LoadFeed FeedName="Top20Authors" Target="#TopAuthors" LoadingImageUrl="~/images/loading.gif" />  
-<xmod:LoadFeed FeedName="Top20CrimeBooks" Target="#TopCrime">  
-  <Field Name="GenreId" Value="20" />  
-</xmod:LoadFeed>  
+<!-- Trigger the loads -->
+<xmod:LoadFeed FeedName="Top20Authors" Target="#TopAuthors" LoadingImageUrl="~/images/loading.gif" />
+<xmod:LoadFeed FeedName="Top20CrimeBooks" Target="#TopCrime">
+  <Field Name="GenreId" Value="20" />
+</xmod:LoadFeed>
 ```
 
-### Example Feeds -- Top20Authors
+The targeted feeds (defined separately on the Manage Feeds page) need `ContentType="text/html"` so the result is HTML the page can drop in directly:
+
 ```html
 <xmod:Feed ContentType="text/html">
-  <ListDataSource CommandText="SELECT FirstName, LastName, AuthorId, SalesRank FROM Authors WHERE SalesRank <= 20" />
-  <HeaderTemplate>
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Author</th>
-        </tr>
-      </thead>
-      <tbody>
-  </HeaderTemplate>
-  <ItemTemplate>
-        <tr>
-          <td>[[SalesRank]]</td>
-          <td>[[FirstName]] [[LastName]]</td>
-        </tr>
-  </ItemTemplate>
-  <FooterTemplate>
-      </tbody>
-    </table>
-  </FooterTemplate>
+  <ListDataSource CommandText="SELECT FirstName, LastName FROM Authors WHERE SalesRank <= 20" />
+  <HeaderTemplate><table><thead><tr><th>Author</th></tr></thead><tbody></HeaderTemplate>
+  <ItemTemplate><tr><td>[[FirstName]] [[LastName]]</td></tr></ItemTemplate>
+  <FooterTemplate></tbody></table></FooterTemplate>
 </xmod:Feed>
 ```
 
-### Example Feeds -- Top20CrimeBooks
-```html
-<xmod:Feed ContentType="text/html">
-  <ListDataSource CommandText="SELECT Title, SalesRank FROM Books WHERE GenereId = @GenreId">
-    <Parameter Name="GenreId" Value='[[Url:GenreId]]' />
-  </ListDataSource>
-  <HeaderTemplate>
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Title</th>
-        </tr>
-      </thead>
-      <tbody>
-  </HeaderTemplate>
-  <ItemTemplate>
-        <tr>
-          <td>[[SalesRank]]</td>
-          <td>[[Title]]</td>
-        </tr>
-  </ItemTemplate>
-  <FooterTemplate>
-      </tbody>
-    </table>
-  </FooterTemplate>
-</xmod:Feed>
-```
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [FeedName](#prop-feedname) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Name of the feed (as defined on the Manage Feeds page) |
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | jQuery selector | | The element whose content is replaced or appended |
+| [InsertMode](#prop-insertmode) | `Replace` `Append` `Prepend` | `Replace` | How the loaded content is placed into the target |
+| [LoadingImageUrl](#prop-loadingimageurl) | URL | | Image shown in the target while the feed is loading. Tilde paths supported |
+| LoadingCssClass | string | | CSS class(es) applied to the loading image |
+| [InfinitePaging](#prop-infinitepaging) | `True` `False` | `False` | Enable infinite-scroll plumbing — adds the JavaScript helper used by Load Feed buttons in infinite-paging mode |
+| IDSelector | jQuery selector | | When `InfinitePaging="True"`, selects the element holding the last record's ID — sent as `LastId` to the feed |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Child Tags
+
+| Tag | Required | Description |
+|-----|----------|-------------|
+| [`<Field>`](#child-field) | optional | Pass extra parameters to the feed (e.g. filter values). Add as many as needed |
+
+### <span id="child-field">`<Field>`</span>
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| Name <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Parameter name as expected by the feed's `<ListDataSource>` parameter |
+| Value | string \| token | | Parameter value |
+
+## Property Details
+
+*   <span id="prop-feedname">**FeedName**</span>: The exact feed name from the Manage Feeds page (case-sensitive). The feed should set `ContentType="text/html"` so that what gets dropped into the page is renderable HTML, not RSS or JSON wrapped in markup.
+
+*   <span id="prop-target">**Target**</span>: A jQuery selector — typically an `#id` selector for the placeholder element. The loaded content replaces (or extends) this element's contents.
+
+*   <span id="prop-insertmode">**InsertMode**</span>: How the loaded content is placed.
+
+    | Value | Behavior |
+    |-------|----------|
+    | `Replace` _(default)_ | Replaces the target's existing content |
+    | `Append` | Adds the loaded content at the end of the target |
+    | `Prepend` | Adds the loaded content at the start of the target |
+
+*   <span id="prop-loadingimageurl">**LoadingImageUrl**</span>: An image (typically an animated GIF) shown in the target while the AJAX request is in flight. The image is removed when the feed responds. The XMP-managed wrapper image picks up the class `xmp-loading-image` automatically; any classes you set in `LoadingCssClass` are added alongside it.
+
+*   <span id="prop-infinitepaging">**InfinitePaging**</span>: When `True`, registers an additional JavaScript helper (`xmp_InfinitePaging`) that Load Feed buttons can call to fetch the next page using the last record's ID as a cursor. Pair with `IDSelector` so the helper knows where to find the cursor value, and use a `<Field>` named to match your feed's pagination parameter.

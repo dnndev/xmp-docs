@@ -1,62 +1,65 @@
 ---
 id: template-navigate-url
 title: 'xmod:NavigateUrl'
-category: SEO
+category: Navigation
 context: template
-summary: >-
-  The NavigateUrl tag (new to version 4.6) allows you to call the DNN API
-  function NavigateUrl(). This allows you to generate URLs that utilize the
-  site's configured URL Provider and makes it easier to generate Friendly links.
+summary: Renders a URL using DNN's `NavigateUrl()` API — friendly URLs go through your site's URL provider and respect the site's URL rewriting rules.
 keywords:
   - navigate
   - url
+  - friendly
   - template
+since: '4.6'
+related:
+  - redirect
 ---
+
 # `<xmod:NavigateUrl>`
 
-The NavigateUrl tag (new to version 4.6) allows you to call the DNN API function NavigateUrl(). This allows you to generate URLs that utilize the site's configured URL Provider and makes it easier to generate Friendly links.
+`<xmod:NavigateUrl>` calls DNN's `NavigateUrl()` API and writes the resulting URL into the rendered output. Going through DNN means the result honors the site's friendly-URL provider, language, and URL rewriting rules — typing the URL by hand wouldn't.
 
-## Syntax
-```html
-<xmod:NavigateUrl
-    TabId="integer"
-    ControlKey="string">
-
-    Optionally, add one or more Parameter tags
-    <Parameter Name="string" Value="string" />
-    ...
-
-</xmod:NavigateUrl>
-```
-
-## Remarks
-
-*   **ControlKey**:Optional. Specify this if you want to load a particular control on a page. Must supply the TabId if using this property. This property is not frequently used.  
-
-*   **TabId**: Optional. The unique numeric value that represents the page. "Tab" is used for historical reasons. Pages in DNN used to be called Tabs. If no TabId is provided, NavigateUrl will return the current page's URL.  
-
-*   **Parameter**: Optional. You can specify multiple Parameter tags. These child tags are used to pass parameters via the rendered URL. The tag will URLEncode the value prior to passing it to DNN. The URL parameter name is the value of the Name property. The parameter's value is defined in the Value property. All values are passed as text so no data type can be specified.
+Most commonly, you'll embed the tag inside an HTML attribute (e.g. `href`) to produce a link to a specific page with parameters.
 
 ## Example
-```html {13}
-<div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
 
-        <!-- EMPLOYEES TEMPLATE -->
+Render a friendly URL to page 237 with an `eid` parameter pulled from the current row:
 
-        <xmod:Template Id="Employees">
-          <ListDatasource commandtext="SELECT * FROM XMPDemo_Employees" />
-
-          <ItemTemplate>
-            [[FirstName]] [[LastName]]<br />
-            <a href="<xmod:NavigateUrl TabId="237"><Parameter Name="eid" Value='[[Id]]' /></xmod:NavigateUrl>">View Work History</a>
-          </ItemTemplate>
-
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>
+```html {4}
+<xmod:Template Id="Employees">
+  <ListDataSource CommandText="SELECT * FROM Employees" />
+  <ItemTemplate>
+    [[FirstName]] [[LastName]]<br />
+    <a href="<xmod:NavigateUrl TabId='237'><Parameter Name='eid' Value='[[Id]]' /></xmod:NavigateUrl>">View Work History</a>
+  </ItemTemplate>
+</xmod:Template>
 ```
+
+When DNN's friendly-URL provider is in use, the rendered URL looks like `/work-history/eid/42` rather than `/Default.aspx?TabId=237&eid=42`.
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [TabId](#prop-tabid) | integer | (current page) | The DNN page (tab) ID to link to. When omitted, the URL points to the current page |
+| [ControlKey](#prop-controlkey) | string | | Optional control key — useful when linking to a specific module action page |
+
+## Child Tags
+
+| Tag | Required | Description |
+|-----|----------|-------------|
+| [`<Parameter>`](#child-parameter) | optional | One URL parameter. Add as many as needed |
+
+### <span id="child-parameter">`<Parameter>`</span>
+
+Each `<Parameter>` adds one query-string-style parameter to the generated URL. Values are URL-encoded automatically. All values are passed as text (no `DataType`).
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| Name <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Parameter name |
+| Value | string \| token | | Parameter value |
+
+## Property Details
+
+*   <span id="prop-tabid">**TabId**</span>: The DNN-assigned page ID. "Tab" is the legacy DNN term for what users now call a page. To find a page's TabId, hover the page in DNN's page management UI or look at its URL when editing. Omit this property to generate a URL for the current page.
+
+*   <span id="prop-controlkey">**ControlKey**</span>: Used to load a specific module action — for example, `Edit` to open a module's edit screen. Rarely needed in template markup. Requires `TabId` to be set.
