@@ -3,99 +3,69 @@ id: form-calendar-button
 title: CalendarButton
 category: Buttons
 context: form
-summary: >-
-  The CalendarButton tag renders as a push-button at run-time. When clicked, a
-  calendar date-picker pops up to enable the user to select a date.
+summary: The CalendarButton tag renders as a push-button that opens a date-picker calendar and writes the selected date to a target text box.
 keywords:
   - calendar
   - button
   - form
+since: '1.0'
+related:
+  - calendar-image
+  - calendar-link
+  - date-input
+  - textbox
 ---
 # `<CalendarButton>`
 
-The CalendarButton tag renders as a push-button at run-time. When clicked, a calendar date-picker pops up to enable the user to select a date.
+The CalendarButton tag renders a push-button that opens a pop-up date-picker. When the user picks a date, it's written into the [target](#prop-target) control (typically a `<TextBox>`). Use [`<CalendarImage>`](calendar-image.md) for an image trigger or [`<CalendarLink>`](calendar-link.md) for a hyperlink that does the same thing.
 
-## Syntax
-```html
-<CalendarButton
-    AccessKey="string"   
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Format="date-formatting expression"
-    Height="size"
-    Style="string"
-    TabIndex="integer"
-    Target="ID of control that will receive the selected date"
-    Text="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size"
-  /> 
-```
-
-## Remarks
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Format**: If specified, this overrides the default date format used by the pop-up calendar. If left blank, the web server's default short date format will be used. An example format would be: `format="yyyy-MM-dd"` where _yyyy_ returns the four digit year, _MM_ returns a two-digit month, and _dd_ returns a two-digit day. If you need the value to stay in that format, consider also using the `<validate type="regex">` tag to validate the target control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **Target**: This is the ID of the control where the calendar's selected date will be sent. This should be a text box.  
-
-*   **Text**: The caption that will be displayed on the button.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
+::: info Validation is skipped
+CalendarButton sets `CausesValidation="False"` automatically, so opening the calendar won't trigger client-side validation on the form. (For an alternative date entry experience that *does* validate, see [`<DateInput>`](date-input.md).)
+:::
 
 ## Example
 ```html {8}
-<AddForm>  
-  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
-  <table>  
-    <tr>  
-      <td>  
-         <Label For="txtEventDate" Text="Event Date" />  
-         <TextBox Id="txtEventDate" DataField="EvtDate" DataType="datetime" />  
-         <CalendarButton Text="Select Date" Target="txtEventDate" Format="yyyy-MM-dd" />  
-       </td>  
-    </tr>  
-    ...  
-    <tr>  
-      <td colspan="2">  
-        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>  
-      </td>  
-    </tr>  
-  </table>  
+<AddForm>
+  <SubmitCommand CommandText="INSERT INTO Events(EvtDate) VALUES(@EvtDate)" />
+  <table>
+    <tr>
+      <td>
+         <Label For="txtEventDate" Text="Event Date" />
+         <TextBox Id="txtEventDate" DataField="EvtDate" DataType="datetime" />
+         <CalendarButton Text="Select Date" Target="txtEventDate" Format="yyyy-MM-dd" />
+       </td>
+    </tr>
+    <tr>
+      <td colspan="2"><AddButton Text="Add"/> <CancelButton Text="Cancel"/></td>
+    </tr>
+  </table>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | control ID | | ID of the control (typically a `<TextBox>`) that will receive the selected date |
+| Text | string | | Caption displayed on the button |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| [Format](#prop-format) | date format string | | Format string used when writing the selected date into the target. If omitted, the server's short date format is used |
+| Height | [size](../unit-types.md) | | Height of the control |
+| ID | string | | Unique identifier for the control within the form |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -113,3 +83,9 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-target">**Target**</span>: The `ID` of the form control that will receive the selected date — typically a `<TextBox>`. The control must be in the same form as the calendar trigger.
+
+*   <span id="prop-format">**Format**</span>: A .NET date format string used to write the selected date into the target control. If omitted, the server's short date format is used. Common patterns: `yyyy-MM-dd` (ISO date), `MM/dd/yyyy` (US), `dd/MM/yyyy` (UK). If you need to enforce that format on submission, pair the target textbox with a `<Validate Type="regex">` rule.
