@@ -3,107 +3,71 @@ id: form-add-button
 title: AddButton
 category: Buttons
 context: form
-summary: >-
-  The AddButton tag renders as a push-button at run-time. When clicked, the form
-  executes the `<SubmitCommand>` associated with the `<AddForm>`.
+summary: The AddButton tag renders as a push-button that, when clicked, executes the SubmitCommand of the enclosing AddForm.
 keywords:
   - add
   - button
   - form
+since: '1.0'
+related:
+  - add-image
+  - add-link
+  - add-edit-form
 ---
 # `<AddButton>`
 
-The AddButton tag renders as a push-button at run-time. When clicked, the form executes the `<SubmitCommand>` associated with the `<AddForm>`.
+The AddButton tag renders as a push-button at run-time. When clicked, it executes the `<SubmitCommand>` associated with the enclosing `<AddForm>`. Use `<AddImage>` for a clickable image button or `<AddLink>` for a hyperlink that performs the same action.
 
-## Syntax
-```html
-<AddButton
-  AccessKey="_string_"
-  BackColor="_color name_|#dddddd"
-  BorderColor="_color name_|#dddddd"  
-  BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"  
-  BorderWidth="_size_"  
-  CssClass="_string_"  
-  Font-Bold="True|**False**"  
-  Font-Italic="True|**False**"  
-  Font-Names="_string_"  
-  Font-Overline="True|**False**"  
-  Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"  
-  Font-Strikeout="True|**False**"  
-  Font-Underline="True|**False**"  
-  ForeColor="_color name_|#dddddd"  
-  Height="_size_"  
-  OnClientClick="_string_"  
-  Redirect="_url_"  
-  RedirectMethod="**Get**|Post"  
-  Style="_string_"  
-  TabIndex="_integer_"  
-  Text="_string_"  
-  ToolTip="_string_"  
-  Visible="**True**|False"  
-  Width="_size_"
-/>
-```
-
-## Remarks
-
-*   The Add Button should only be used in `<AddForm>` tags. It's purpose is to initiate the `<SubmitCommand>` associated with the `<AddForm>`.  
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Redirect**: Enables you to redirect the user to an alternative URL after the button is clicked. The redirection occurs after any form processes initiated by the button click completes. Field tokens may be used in the redirect attribute. However, function tokens such as [[Portal:ID]], [[Join()]], [[User:ID]], etc. cannot be used. When field tokens are used, they are URL Encoded. New to version 4.0: You can use a period (.) for the Redirect property's value. The period acts as shortcut to redirect to the current page.  
-
-*   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post"  
-    IMPORTANT: When using "Post", the ID that you supply for your form controls determine the name of the field that is posted to the target URL, not the DataField.  
-
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **Text**: The caption that will be displayed on the button.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
+::: info Use only inside AddForm
+The AddButton triggers the `<AddForm>`'s `<SubmitCommand>`. It has no effect outside an `<AddForm>`.
+:::
 
 ## Example
-```html
-<AddForm>  
-  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />  
-  <table>  
-    <tr>  
-      <td>  
-         <label for="txtFirstName" text="First Name" />  
-         <textbox id="txtFirstName" datafield="FirstName" datatype="string" />  
-       </td>  
-    </tr>  
-    <tr>  
-      <td>  
-        <label for="txtLastName" text="Last Name" />  
-        <textbox id="txtLastName" datafield="LastName" datatype="_string_" />  
-      </td>  
-    </tr>  
-    <tr>  
-      <td colspan="2">  
-        <addbutton text="Add"/> <cancelbutton text="Cancel"/>  
-      </td>  
-    </tr>  
-  </table>  
+```html {15}
+<AddForm>
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName)
+                              VALUES(@FirstName, @LastName)" />
+  <table>
+    <tr>
+      <td>
+         <Label For="txtFirstName" Text="First Name" />
+         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+       </td>
+    </tr>
+    <tr>
+      <td><Label For="txtLastName" Text="Last Name" />
+          <TextBox Id="txtLastName" DataField="LastName" DataType="string" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><AddButton Text="Add"/> <CancelButton Text="Cancel"/></td>
+    </tr>
+  </table>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| Text | string | | Caption displayed on the button |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| Height | [size](../unit-types.md) | | Height of the control |
+| ID | string | | Unique identifier for the control within the form |
+| [OnClientClick](#prop-onclientclick) | JavaScript | | Client-side script to run when the button is clicked |
+| [Redirect](#prop-redirect) | URL \| `.` | | URL the user is redirected to after the form processes the click |
+| [RedirectMethod](#prop-redirectmethod) | `Get` `Post` | `Get` | HTTP method used for the redirect |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -121,3 +85,15 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-onclientclick">**OnClientClick**</span>: A JavaScript expression to run when the button is clicked, before the server-side processing happens. Useful for confirmation dialogs, client-side validation, or showing a busy indicator. If your script returns `false`, the button does nothing further (no postback, no submit). If it returns `true` (or doesn't return anything), the button proceeds normally.
+
+*   <span id="prop-redirect">**Redirect**</span>: After the form's `<SubmitCommand>` runs, redirect the user to this URL. [Field tokens](../tokens/field.md) may be used in the value (and are URL-encoded automatically), but [function tokens](../tokens/functions.md) like `[[Portal:ID]]` and `[[User:ID]]` are not supported here. Use a single period (`.`) as a shortcut for "the current page" — useful when you want to clear the form after a successful submit.
+
+*   <span id="prop-redirectmethod">**RedirectMethod**</span>: The HTTP method used for the redirect. `Get` (the default) appends form values as query string parameters. `Post` submits them as a form POST.
+
+    ::: warning Post uses ID, not DataField
+    When `RedirectMethod="Post"`, the field names in the posted form come from each form control's `ID`, not its `DataField`. If your downstream page expects specific field names, set the IDs to match.
+    :::
