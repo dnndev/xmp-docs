@@ -3,139 +3,110 @@ id: form-email
 title: Email
 category: Actions
 context: form
-summary: >-
-  The Email tag does not render visibly at run-time. It is a behind-the-scenes
-  operator. Upon successful submission of the form, XMod Pro will send an email
-  based on the information provided in this tag. You may include more than one
-  Email tag in each form. The Email tag can be used to send multiple emails but
-  it is not intended as a bulk email mechanism.
+summary: After a form submits successfully, sends an email. Body content goes between the opening and closing tags. A form may contain any number of `<Email>` tags.
 keywords:
   - email
   - form
+since: '1.0'
+related:
+  - redirect
+  - silent-post
+  - add-user
 ---
+
 # `<Email>`
 
-The Email tag does not render visibly at run-time. It is a behind-the-scenes operator. Upon successful submission of the form, XMod Pro will send an email based on the information provided in this tag. You may include more than one Email tag in each form. The Email tag can be used to send multiple emails but it is not intended as a bulk email mechanism.
+After a form submits successfully, the `<Email>` tag sends an email. The body of the email is the content between the opening and closing `<Email>` tags — plain text or HTML, with field tokens substituted at send time. A form may contain any number of `<Email>` tags; each can target different recipients with different bodies.
 
-## Syntax
-```html
-<Email 
-  To="comma-delimited list of email addresses"
-  From="email address"
-  CC="string" 
-  BCC="string"
-  ReplyTo="string"
-  Subject="string"
-  Format="Text|Html"
-  Attachment="mapped or relative path and filename of attachment"
-  SendIf="expression"
-  EnableSsl="False|True"
-  SmtpPassword="string"
-  SmtpServer="string"
-  SmtpUsername="string">
-    ...Text/HTML and [[FieldTokens]] to make up Body of the Email...
-</Email>
-```
+::: info Action timing
+The `<Email>` tag only runs when the form submits successfully. Tokens in the attributes and body are evaluated at that point — not when the form loads — so `[[FieldName]]` tokens read user input.
+:::
 
-## Remarks
-
-*   You may include more than one Email tag in each form.  
-
-*   The Email tag can be used to send multiple emails but it is not intended as a bulk email mechanism.  
-
-*   **Field Tokens** may be used in the email attributes and in the body of the email.  
-
-*   **Attachment**: Attaches a file(s) in the file system of the website to the email. The value must be a file system-based path (mapped path) and filename, or a relative path prefixed with a tilde (`~`) (New to version 4.8). You can send multiple attachments by passing in a pipe (`|`) delimited string.  
-
-    Example 1 (mapped path):
-		
-    `Attachment='/files/filename.ext'`
-
-    Example 2 (mapped path with drive):
-
-    `Attachment='c:/files/filename.ext'`
-
-    Example 3 (relative path):
-
-    `Attachment='~/portals/0/files/filename.ext'`
-
-    Example 4 (multiple attachments):
-
-    `Attachment='~/portals/0/files/filename.ext|~/portals/0/files/filename2.ext'`
-
-
-*   **BCC**: Blind Carbon Copy - email addresses will receive a copy of the email but will not show up in the list of recipients. You may specify a single email address or a list of addresses. Addresses can be separated by commas. NOTE, you may use email addresses derived from list controls as well. The list control must use the pipe (`|`) separator to separate its values for this to work correctly. (added in version 2.1)  
-
-*   **CC**: Carbon Copy - email addresses will receive a copy of the email and will show up in the list of recipients as having been CC'ed. You may specify a single email address or a list of addresses. Addresses can be separated by commas. NOTE, you may use email addresses derived from list controls as well. The list control must use the pipe (`|`) separator to separate its values for this to work correctly. (added in version 2.1)  
-
-*   **EnableSsl**: Will set the EnableSSL flag and will send your emails. Default is set to false.  
-
-*   **Format**: `Text` to send a plain text email or `HTML` to send an HTML-based email.  
-
-*   **From** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The email address that should be displayed in the **From** field of the email.  
-
-*   **ReplyTo**: (New to version 4.0) The email address that will be listed as the **Reply-To** address when the email recipient clicks "Reply" in their email client. Use this if you want replies sent to an email address that is different than the From email address.  
-
-*   **SendIf**: (new to version 2.6) An expression that, when it evaluates to True, indicates the email should be sent. Typically you'll use this attribute if you want to only send an email if a user selects a certain value in your form.  
-
-    Example 1: 
-    
-    `SendIf='[[Department]] = Sales'`
-    
-    In this example we are taking the value of the "Department" column and comparing it to "Sales" If they are equal, the email will be sent. If they are not, the email will not be sent.  
-
-    Example 2: 
-    
-    `SendIf='[[Department]] <> Sales'` 
-    
-    In this example, if "Department" doesn't equal "Sales", the email will be sent. Otherwise, it won't be sent.  
-
-    :::tip NOTE
-    Comparisons are not text-only and are not case-sensitive. You can test for equality using the `=` operator or inequality using the `<>` operator.
-    :::
-
-*   **SmtpPassword**: Password for the SMTP Account.  
-
-*   **SmtpServer**: Account name for the SMTP Server.  
-
-*   **SmtpUsername**: Username for the SMTP Account  
-
-*   **To** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: A single email address or comma-delimited list of email addresses that should receive the email. 
-
-    :::tip NOTE
-    You may use email addresses derived from list controls as well. The list control must use the pipe (`|`) separator to separate its values for this to work correctly.
-    :::
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+::: warning Not for bulk mail
+The `<Email>` tag is for transactional emails — confirmations, notifications, and similar one-shot messages. It is not a bulk mailer.
+:::
 
 ## Example
-```html {22-27}
+
+```html {15-20}
 <AddForm>
   <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />
   <table>
     <tr>
-      <td>
-         <label for="txtFirstName" text="First Name" /> 
-         <textbox id="txtFirstName" datafield="FirstName" datatype="string" />
-       </td>
+      <td><Label For="txtFirstName" Text="First Name" /></td>
+      <td><TextBox Id="txtFirstName" DataField="FirstName" DataType="String" /></td>
     </tr>
     <tr>
-      <td>
-        <Label For="txtLastName" Text="Last Name" />
-        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
-      </td>
+      <td><Label For="txtLastName" Text="Last Name" /></td>
+      <td><TextBox Id="txtLastName" DataField="LastName" DataType="String" /></td>
     </tr>
     <tr>
-      <td colspan="2">
-        <AddButton Text="Add"/> <CanceBbutton Text="Cancel"/>
-      </td>
+      <td colspan="2"><AddButton Text="Add" /> <CancelButton Text="Cancel" /></td>
     </tr>
   </table>
-  <Email To="you@yoursite.com" From="me@mysite.com,them@theirsite.com" 
-    Subject="A New Record Has Been Added ([[FirstName]] [[LastName]])" Format="html">
+  <Email To="you@yoursite.com" From="me@mysite.com"
+         Subject="A New Record Has Been Added ([[FirstName]] [[LastName]])" Format="Html">
     The following record was added to the database:<br />
     <strong>First Name:</strong> [[FirstName]]<br />
     <strong>Last Name:</strong> [[LastName]]
   </Email>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [To](#prop-to) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | email \| comma-list | | Primary recipient(s) |
+| [From](#prop-from) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | email | | Sender's email address |
+| Subject | string | | Email subject line. Field tokens may be used |
+| [CC](#prop-cc) | email \| comma-list | | Carbon-copy recipients |
+| [BCC](#prop-bcc) | email \| comma-list | | Blind-carbon-copy recipients |
+| ReplyTo | email | | Address used when the recipient clicks "Reply" |
+| Format | `Text` `Html` | `Text` | Plain-text or HTML email |
+| [Attachment](#prop-attachment) | path \| pipe-list | | One or more files to attach |
+| [SendIf](#prop-sendif) | expression | | When set and the expression is false, the email is not sent |
+| EnableSsl | `True` `False` | `False` | When `True`, the SMTP connection uses SSL |
+| SmtpServer | string | (DNN setting) | Override the SMTP server for this email |
+| SmtpUsername | string | (DNN setting) | Override the SMTP username |
+| SmtpPassword | string | (DNN setting) | Override the SMTP password |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Body content
+
+The text between the opening and closing `<Email>` tags is the body of the email. When `Format="Html"`, you can use HTML markup. Field tokens such as `[[FirstName]]` are substituted at send time.
+
+```html
+<Email To="ops@example.com" From="server@example.com" Subject="New entry" Format="Html">
+  <p>A new entry was created by [[User:DisplayName]]:</p>
+  <p>[[Notes]]</p>
+</Email>
+```
+
+## Property Details
+
+*   <span id="prop-to">**To**</span>: One email address or a comma-delimited list. List controls (e.g. `<CheckboxList>`) can also feed this property — the control must use the pipe (`|`) separator for its values.
+
+*   <span id="prop-from">**From**</span>: The sender's email address. Many SMTP servers reject messages whose `From` does not match an authorized sender, so this is typically your site's no-reply or system address.
+
+*   <span id="prop-cc">**CC**</span>: Carbon-copy recipients — they receive the email and are visible in the recipient list. Same format as `To`.
+
+*   <span id="prop-bcc">**BCC**</span>: Blind-carbon-copy recipients — they receive the email but are not visible in the recipient list. Same format as `To`.
+
+*   <span id="prop-attachment">**Attachment**</span>: A file system path or a tilde-prefixed virtual path. Pipe-separate multiple paths to attach more than one file.
+
+    | Form | Example |
+    |------|---------|
+    | Mapped path | `/files/filename.ext` |
+    | Mapped path with drive | `c:/files/filename.ext` |
+    | Virtual (tilde) path | `~/portals/0/files/filename.ext` _(since v4.8)_ |
+    | Multiple files | `~/portals/0/files/a.ext\|~/portals/0/files/b.ext` |
+
+*   <span id="prop-sendif">**SendIf**</span>: A simple equality expression. When set and the result is false, the email is not sent. Useful for sending an email only when the user opted in or selected a particular option. Comparisons are text-only and case-insensitive.
+
+    ```html
+    <Email SendIf="[[Department]] = Sales" To="sales@example.com" From="..." Subject="...">
+      ...
+    </Email>
+    ```

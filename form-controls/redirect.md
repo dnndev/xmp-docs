@@ -3,80 +3,69 @@ id: form-redirect
 title: Redirect
 category: Actions
 context: form
-summary: >-
-  New to Version 4.0! The Redirect action tag will send the user to the
-  specified URL (Target) at run-time. In previous versions you could set a
-  redirect target on the Add and Update button tags and you still can. However,
-  the Redirect tag allows you to perform conditional redirects based on form
-  data.
+summary: After a form submits successfully, redirects the user to a URL — optionally only when a condition is met.
 keywords:
   - redirect
   - form
+since: '4.0'
+related:
+  - silent-post
+  - email
+  - login
 ---
+
 # `<Redirect>`
 
-New to Version 4.0! The Redirect action tag will send the user to the specified URL (Target) at run-time. In previous versions you could set a redirect target on the Add and Update button tags and you still can. However, the Redirect tag allows you to perform conditional redirects based on form data.
+After a form submits successfully, redirects the user to the URL specified by `Target`. Use the `If` attribute to redirect only when a condition is met — the form can declare multiple `<Redirect>` tags, and the first one whose condition matches wins. If none match, the form falls back to the redirect on the clicked Add/Update button (if any), then to the default page.
 
-## Syntax
-```html
-<Redirect
-    If="expression"
-    Target="Redirect address"
-    Method="string" />
-```
-
-## Remarks
-
-*   The Redirect action is only executed if the form has been successfully submitted. If there is a validation error or an error is thrown from the database, the action will not be performed.
-
-*   **Order Is Important**: Action tags are executed sequentially, so the order they appear within the form can be important. As an example, if one action fails with an error, all actions prior to the failed action will have executed. Those that occur after the failed action will not be executed. Additionally, some actions may have the ability to modify form values (this modification occurs after any form data has been sent to the database) - i.e. process form values, do calculations on them, transform them, even add and remove values from the list. Those changes will affect any action tags that are executed downstream that use Field tokens.
-*   **Using Tokens**: Unlike most form tags, which evaluate their tokens when the form is loaded, Action tags evaluate their tokens when they're executed (after successful form submission). This means that values passed into the form such as URL parameters will need to be stored in a hidden form control (typically a TextBox with its Visibility property set to False). On the other hand, this enables Action tags to use Field tokens as their property values so these tags can use values input by the user in the form.
-
-*   **If**: An expression that, when it evaluates to True, indicates the Redirect should be executed. No other redirects will be processed because a user can only be sent to one destination at a time. The If property allows you to perform conditional redirection. All redirect tags will be evaluated in the order they appear on the form. If the first tag's If evaluates to False, XMod Pro will move on to the 2nd Redirect tag. It will continue to iterate through the Redirect tags until one evaluates to True or doesn't specify an If property. If no Redirects evaluate to True, normal processing takes place. This could mean the redirect on the clicked button is executed or, if there is not, normal redirection back to the calling page.
-
-    Typically you'll use this attribute if you want to only send an Redirect if a user selects a certain value in your form.
-
-    _Example:_ `<Redirect If='[[Department]] = Sales' Target="/mysite.com/sales.apx" />`
-
-    In this example we are taking the value of the "Department" column and comparing it to "Sales". If they are equal, the user will be sent to the sales.aspx page. If they are not, XMod Pro will look for the next Redirect tag and evaluate it.
-
-    NOTE: Comparisons are text-only and are not case-sensitive. You can test for equality using the `=` operator or inequality using the `<>` operator.
-
-*   **Method**: Determines how the redirection will be sent. The default value is Get. Valid values are:
-
-    *   `Get`: The user is redirected via the HTTP GET method (i.e. the normal method when navigating between web pages)
-    *   `Post`: The user is redirected via the HTTP POST method.
-
-*   **Target** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: This is the URL to which the user will be sent if the IF property evaluates to True or there is no IF property specified. You can use a period (`.`) for the Target property's value. The period acts as shortcut to redirect to the current page.
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+::: info Action timing
+Action tags only run when the form submits successfully. They evaluate their tokens at that point — not when the form loads — so you can use `[[FieldName]]` tokens to read user input. They also run in document order, so an action that fails throws away every action listed below it.
+:::
 
 ## Example
-```html {22-23}
+
+```html {15-16}
 <AddForm>
-  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName) VALUES(@FirstName, @LastName)" />
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName)
+                              VALUES(@FirstName, @LastName)" />
   <table>
     <tr>
-      <td>
-         <Label For="txtFirstName" Text="First Name" />
-         <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
-       </td>
+      <td><Label For="txtFirstName" Text="First Name" /></td>
+      <td><TextBox Id="txtFirstName" DataField="FirstName" DataType="String" /></td>
     </tr>
     <tr>
-      <td>
-        <Label For="txtLastName" Text="Last Name" />
-        <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
-      </td>
+      <td><Label For="txtLastName" Text="Last Name" /></td>
+      <td><TextBox Id="txtLastName" DataField="LastName" DataType="String" /></td>
     </tr>
     <tr>
-      <td colspan="2">
-        <AddButton Text="Add" Redirect="/Find.aspx" /> <CancelButton Text="Cancel"/>
-      </td>
+      <td colspan="2"><AddButton Text="Add" Redirect="/Find.aspx" /> <CancelButton Text="Cancel" /></td>
     </tr>
   </table>
-  <Redirect Target="/Find.aspx?ln=Smith" Method="Get" If="[[LastName]] = Smith" />
-  <Redirect Target="/Find.aspx?ln=Jones" Method="Get" If="[[LastName]] = Jones" />
+  <Redirect Target="/Find.aspx?ln=Smith" If="[[LastName]] = Smith" />
+  <Redirect Target="/Find.aspx?ln=Jones" If="[[LastName]] = Jones" />
 </AddForm>
 ```
 
-In the example above, there are 3 possible redirections that can occur based on user input. If the user enters a last name of `Smith` or `smith` she will be redirected to the URL: `/Find.aspx?ln=Smith`. If the user enters `Jones` or `jones` then they will be redirected to the URL: `/Find.aspx?ln=Jones`. If the user doesn't enter anything or enters some other name or value, they will be sent to the default URL specified on the AddButton tag: `/Find.aspx` where, presumably, all records - regardless of last name - would be listed.
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | URL \| `.` | | The URL to redirect to. Use `.` to redirect to the current page |
+| [If](#prop-if) | expression | | Conditional expression — when omitted or true, this redirect runs |
+| Method | `Get` `Post` | `Get` | HTTP method used for the redirect |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Property Details
+
+*   <span id="prop-target">**Target**</span>: The URL the user is sent to. May be absolute (`https://example.com/page`), site-relative (`~/Find.aspx`), or root-relative (`/Find.aspx`). The special value `.` (a single period) means "redirect to the current page" — useful for refreshing the page after a successful form submission.
+
+*   <span id="prop-if">**If**</span>: A simple equality expression evaluated when the form submits. When the result is true (or `If` is omitted), this redirect runs and no later `<Redirect>` tags are considered. Comparisons are text-only and case-insensitive. Use `=` for equality and `<>` for inequality. Field tokens are typically used on at least one side of the comparison.
+
+    ```html
+    <Redirect If="[[Department]] = Sales" Target="~/sales.aspx" />
+    ```
+
+## Multiple Redirects
+
+A form may contain any number of `<Redirect>` tags. They are evaluated top-to-bottom, and the first match wins. Once a `<Redirect>` runs, all later actions and redirects are skipped — there's only one place a user can land. If no `<Redirect>` matches, control falls through to the redirect on the clicked button (e.g. `<AddButton Redirect="...">`), then to the default success behavior.
