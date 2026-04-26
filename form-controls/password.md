@@ -52,6 +52,7 @@ The Password tag renders as a single-line text input box at run time that masks 
 | AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
 | CssClass | string | | CSS class name(s) for styling the control |
 | [Default](#prop-default) | string | | Initial value displayed when the form first loads |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive). Different from `ReadOnly`, which still allows focus and selection |
 | Height | [size](../unit-types.md) | | Height of the control |
 | MaxLength | integer | | Maximum number of characters allowed |
 | [Nullable](#prop-nullable) | `True` `False` | `False` | Returns DBNull when the control is blank or whitespace |
