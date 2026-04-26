@@ -3,61 +3,68 @@ id: template-jquery-ready
 title: 'xmod:jQueryReady'
 category: Display Controls
 context: template
-summary: >-
-  The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in
-  the page. This tag requires jQuery be included in the page.
+summary: Registers a jQuery `$(document).ready(...)` block at the bottom of the page, with an automatic closure so `$` is the jQuery alias.
 keywords:
-  - xmodj
-  - query
+  - jquery
   - ready
   - template
+since: '1.0'
+related:
+  - script-block
 ---
+
 # `<xmod:jQueryReady>`
 
-The jQueryReady tag is a quick and easy way to embed a jQuery "ready" event in the page. This tag requires jQuery be included in the page.
+`<xmod:jQueryReady>` is a shorthand for the jQuery `$(document).ready()` boilerplate. Place your script between the opening and closing tags — XMP wraps it in a closure (so `$` is the jQuery alias even if another library has claimed `$`) and registers it as a startup script near the bottom of the page.
 
-## Syntax
-```html
-<xmod:jQueryReady>  
-  jQuery and/or Javascript script goes here. No need for a <script></script> tag
-</xmod:jQueryReady>
-```
-
-## Remarks
-
-*   **Usage**: Use this tag to quickly insert Javascript and/or jQuery code that should only be run after the document's DOM has been loaded. The `jQuery(document).ready()` function is standard fare when working with jQuery. This tag allows you to forget about the boilerplate script and focus on your script. The tag will place your script near the bottom of the page - standard practice for improving page load times. Importantly, the tag automatically creates a "closure" for your script allowing you to use the "$" shortcut instead of "jQuery" in your code. Use of the closure also helps ensure your script operates in its own scope and will be not be impacted by other Javascript on the page. This tag requires jQuery be included in the page.
+::: warning Requires jQuery
+The hosting DNN page must include jQuery for this tag to work. Default DNN skins include jQuery; verify a custom skin does too.
+:::
 
 ## Example
 
-In the example below, we've set the DIV tag containing the Employee's biography to initially be hidden (`style="display:none;"`). Then, we used the jQueryReady tag to attach some code to the H4 tag's ("Biography" header) click event. It simply makes the biography DIV tag visible.
+The example below adds a click handler to an `<h4>` so clicking it reveals a hidden biography `<div>`.
 
-```html {23-27}
+```html {19-23}
 <div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
+  <xmod:Template Id="Employees">
+    <DetailDataSource CommandText="SELECT * FROM Employees WHERE EmployeeId = @EmpID">
+      <Parameter Name="EmployeeId" Value="[[Url:eid]]" DataType="Int32" />
+    </DetailDataSource>
+    <DetailTemplate>
+      <h1>Employee Profile</h1>
+      <h3>[[FirstName]] [[LastName]]</h3>
+      <h4 class="bio">Biography</h4>
+      <div style="display:none;">[[Bio]]</div>
+    </DetailTemplate>
+  </xmod:Template>
 
-        <!-- EMPLOYEES TEMPLATE -->
-
-        <xmod:Template Id="Employees">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
-            <Parameter name="EmployeeId" alias="EmpID" />
-          </DetailDataSource>
-
-          <DetailTemplate>
-            <h1>Employee Profile</h1>
-            <h3>[[FirstName]] [[LastName]]</h3>
-            <h4 class="bio">Biography:</h4>
-            <div style="display:none;">[[Bio]]</div>
-          </DetailTemplate>
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
   <xmod:jQueryReady>
-    $("h4.bio").click(function(){
+    $("h4.bio").click(function () {
       $(this).next().show();
     });
   </xmod:jQueryReady>
 </div>
 ```
+
+XMP wraps the inner script in:
+
+```javascript
+(function ($) {
+  $(document).ready(function () {
+    // your script here
+  });
+})(jQuery);
+```
+
+So `$` is always the jQuery object inside the block.
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ScriptId](#prop-scriptid) | string | | When set, the script is registered only once per page using this ID — useful when the same view might render multiple times |
+
+## Property Details
+
+*   <span id="prop-scriptid">**ScriptId**</span>: A page-wide unique identifier. When set and a script with this ID is already on the page, this block is skipped. When omitted, every render produces a fresh registration (so the script may be duplicated if the view renders more than once on a single page).

@@ -3,81 +3,74 @@ id: template-include
 title: 'xmod:Include'
 category: Display Controls
 context: template
-summary: >-
-  The Include tag injects the raw contents of the specified file into the
-  template at the position of the tag. It is a good way to share HTML, script,
-  text or other blocks across multiple forms and templates - allowing you to
-  make changes in one file and have it propagate across all forms and templates
-  where the file is included.
+summary: Inserts the raw contents of an external file into the template at the location of the tag. Useful for sharing common HTML across multiple views.
 keywords:
   - include
   - template
+since: '1.0'
+related:
+  - script-block
+  - register
 ---
+
 # `<xmod:Include>`
 
-The Include tag injects the raw contents of the specified file into the template at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.
+`<xmod:Include>` reads the file at `FileName` and writes its contents into the rendered output verbatim. Use it to share a common header, footer, or HTML fragment across multiple views — change the file once and every view that includes it picks up the change.
 
-## Syntax
-```html
-<xmod:Include`  
-    FileName="string"
-/> 
-```
- 
-## Remarks
+Unlike most XMP tags, `<xmod:Include>` doesn't have to live inside a `<xmod:Template>` — you can place it anywhere in the view file, including before or between templates. It is not data-bound.
 
-The main purpose of the Include tag is to render the content of a file directly into the output stream. It is most beneficial if there is common HTML or text that you want to share among forms and templates. The content of the file is read-from and written to the stream in place of the Include tag. No formatting, processing, or checking occurs on the contents. The file must reside on your web server.
+::: tip Use sparingly
+Each `<xmod:Include>` is a separate disk read every time the view renders. For most pages, one or two includes is fine. If you need the same fragment dozens of times in one view, consider duplicating the markup or moving it into a [`<xmod:ScriptBlock>`](script-block.md) (which has a `RegisterOnce` deduplication option).
+:::
 
-Please note that every time XMP renders an Include tag, it attempts to read the file and then write its contents to the response stream. Take care to make sure not only include safe content, but also to not over-use the tag because it does involve a separate file operation each time the tag is rendered. In the vast majority of cases, there is no practical limit on the number of tags you can use. But like all programming, it's best to try and minimize your use of system resources as much as possible.
-
-## Attributes  
-
-*   **FileName**: The full path and filename of the file to include. You may use the tilde (`~`) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
+::: warning Trust the contents
+The file is rendered verbatim — no escaping, no sanitization, no XMP processing of tags or tokens inside the file. Only include files whose contents you control.
+:::
 
 ## Example
 
-In this example, you may have a file called CompanyHeader.html located in the "includes" directory of your website. This could be something simple like 
+You might keep a site-wide header in `~/includes/CompanyHeader.html`:
 
 ```html
 <h1>DNNDev.com</h1>
-<p><em>Makers of Cool DNN Tools since 2004</em></p>
+<p><em>Makers of Cool DNN Tools since 2004</em></p>
 ```
 
-By using the `<Include>` tag before the table, we're able to inject that HTML right into the form. Later, if we decide to change our name to **EvoqDev.com** then we just need to change the _CompanyHeader.html_ file and it will automatically change in every form and template in which it's used. Notice also that this tag is being used _outside_ the template tag. It is not data-bound and, so, is not reliant on being inside an ItemTemplate or AlternatingItemTemplate tag.
+Reference it from any view:
 
 ```html {2}
 <div>
-<xmod:Include FileName="~/includes/CompanyHeader.html" />
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
+  <xmod:Include FileName="~/includes/CompanyHeader.html" />
 
-        <!-- EMPLOYEES TEMPLATE -->
-
-        <xmod:Template Id="Employees">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
-            <Parameter Name="EmployeeId" Alias="EmpID" />
-          </DetailDataSource>
-
-          <DetailTemplate>
-            <h1>Employee Profile</h1>
-            <h3>[[FirstName]] [[LastName]]</h3>
-            <xmod:IfEmpty Value='[[imageUrl]]'>
-              <img src="/images/NoImage.png" />
-            </xmod:IfEmpty>
-            <xmod:IfNotEmpty Value='[[imageUrl]]'>
-              <img src="[[imageUrl]]" />
-            </xmod:IfNotEmpty>
-            <h4>Biography:</h4>
-            <div>[[Bio]]</div>
-            <xmod:MetaTags>
-              <Title>Employee Profile for [[FirstName]] [[LastName]]</Title>
-              <Keywords append="true">[[FirstName]],[[LastName]]</Keywords>
-            </xmod:MetaTags>
-          </DetailTemplate>
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
+  <xmod:Template Id="Employees">
+    <DetailDataSource CommandText="SELECT * FROM Employees WHERE EmployeeId = @EmpID">
+      <Parameter Name="EmployeeId" Value="[[Url:eid]]" DataType="Int32" />
+    </DetailDataSource>
+    <DetailTemplate>
+      <h1>[[FirstName]] [[LastName]]</h1>
+      <div>[[Bio]]</div>
+    </DetailTemplate>
+  </xmod:Template>
 </div>
 ```
+
+If the company name changes, update `CompanyHeader.html` once and every view that includes it picks up the new value.
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [FileName](#prop-filename) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | path | | Path to the file whose contents should be included |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Property Details
+
+*   <span id="prop-filename">**FileName**</span>: A path to a file on the web server. Use a tilde (`~`) prefix for paths relative to the site root, or an absolute virtual path. Examples:
+
+    | Form | Example |
+    |------|---------|
+    | Tilde (site root) | `~/includes/CompanyHeader.html` |
+    | Absolute virtual path | `/Portals/0/myfile.txt` |
+
+    The file's contents are written into the response stream as-is. XMP tags and tokens inside the file are **not** processed.
