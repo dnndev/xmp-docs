@@ -21,7 +21,7 @@ keywords:
 ---
 # Expression Tokens <Badge type="info" text="v5.0" />
 
-Expression tokens let you format, calculate, and conditionally display data right inside your views, forms, and feeds — no SQL changes or JavaScript needed.
+Expression tokens let you format, calculate, and conditionally display data right inside your views, forms, and feeds — no SQL changes or JavaScript needed. Use them to display prices as currency, format dates, calculate totals with tax, show "In Stock" or "Out of Stock" based on your data, apply CSS classes conditionally, combine fields inside tag properties, provide fallback values for missing data, and more.
 
 ## Introduction
 
@@ -37,26 +37,148 @@ Notice that inside an expression, you use the field name by itself — `ProductN
 
 Previously, this kind of formatting and logic required changes to your SQL queries, custom JavaScript, or other workarounds. Expression tokens let you do it all directly in your view, form, or feed markup.
 
-### What You Can Do
+### When to Use Expression Tokens
 
-- **Format values** — dates, currency, percentages, and custom number formats
-- **Calculate** — arithmetic, rounding, min/max, and other math operations
-- **Manipulate text** — uppercase, lowercase, trim, truncate, find-and-replace, and more
-- **Make decisions** — show different text or CSS classes based on your data
-- **Combine fields** — merge multiple fields into a single output
-- **Handle missing data** — provide fallback values when fields are empty or null
-- **Use system tokens** — reference the current user, portal, page, and module in your expressions
+Much of what you do in XMP views, forms, and feeds involves placing field tokens directly in your HTML markup. That approach is simple and works great — you don't need expression tokens for everything. This section helps you understand when plain tokens are enough and when expression tokens are the better tool.
 
-### When to Use Expression Tokens vs. xmod:Format
+#### Plain HTML: Just Use Tokens
 
-| Use Case | Best Tool |
-|----------|-----------|
-| Simple date/number formatting | [`<xmod:Format>`](../template-controls/format.md) control |
-| Math calculations | Expression tokens |
-| Conditional text | Expression tokens |
-| String manipulation | Expression tokens |
-| Combining multiple fields | Expression tokens |
-| Complex formatting with HTML structure | [`<xmod:Format>`](../template-controls/format.md) + expression tokens together |
+Inside your `<ItemTemplate>`, `<DetailTemplate>`, or anywhere you're writing regular HTML, you can place field tokens side by side and they simply output their values into the markup:
+
+```html
+<!-- Combining fields — just place them next to each other -->
+<span>[[FirstName]] [[LastName]]</span>
+
+<!-- Building URLs and paths -->
+<img src="/Portals/0/Images/[[PhotoFile]]" />
+<a href="/products?id=[[ProductID]]">[[ProductName]]</a>
+
+<!-- Mixing tokens with HTML structure -->
+<div class="card">
+  <h3>[[Title]]</h3>
+  <p>[[Description]]</p>
+  <span>[[City]], [[State]] [[Zip]]</span>
+</div>
+```
+
+This works because the HTML is plain text as far as XMP is concerned — it replaces each `[[...]]` token with its value and sends the result to the browser. No expression token needed.
+
+#### Tag Properties: Where Plain Tokens Fall Short
+
+The situation changes when you need to place a combined value inside a **property of an XMP tag or ASP.NET server control**. These properties expect a single evaluated value, so you can't just drop multiple tokens side by side:
+
+```html
+<!-- ✗ This WON'T work — you can't put two tokens in a single tag property -->
+<xmod:DetailButton Text="View [[FirstName]] [[LastName]]" />
+
+<!-- ✓ Use the & operator to concatenate -->
+<xmod:DetailButton Text="[[='View ' & FirstName & ' ' & LastName]]" />
+
+<!-- ✓ Or use the Concat function -->
+<xmod:DetailButton Text="[[=Concat('View ', FirstName, ' ', LastName)]]" />
+```
+
+Both approaches produce a single `[[=...]]` value that the tag property can evaluate. The `&` operator is concise and natural for simple cases; `Concat` is handy when you have many values to join. This is one of the most common reasons to reach for expression tokens.
+
+#### Formatting and Logic: Where Expression Tokens Shine
+
+Even in plain HTML, expression tokens become the right choice when you need to do more than just insert a raw value:
+
+**Formatting**
+```html
+<!-- Plain token gives you the raw value: 19.99 -->
+<span>[[Price]]</span>
+
+<!-- Expression token lets you format it: $19.99 -->
+<span>[[=Format(Price, 'C2')]]</span>
+
+<!-- Format a date: Jan 15, 2026 instead of 1/15/2026 12:00:00 AM -->
+<span>[[=Format(EventDate, 'MMM d, yyyy')]]</span>
+```
+
+**Calculations**
+```html
+<!-- Tax-inclusive price -->
+<span>[[=Format(Round(Price * 1.0825, 2), 'C2')]]</span>
+
+<!-- Discount percentage -->
+<span>[[=Round((1 - SalePrice / RegularPrice) * 100, 0)]]% off</span>
+```
+
+**Conditional output**
+```html
+<!-- Show different text based on data -->
+<span>[[=If(QtyInStock > 0, 'In Stock', 'Out of Stock')]]</span>
+
+<!-- Apply a CSS class based on data -->
+<tr class="[[=If(IsActive, 'active', 'inactive')]]">
+```
+
+**Handling missing data**
+```html
+<!-- Fall back to a default when a field is empty -->
+<span>[[=Coalesce(Nickname, FirstName, 'Anonymous')]]</span>
+```
+
+Previously, these kinds of operations required changes to your SQL queries, custom JavaScript, or other workarounds. Expression tokens let you handle them right in your markup.
+
+#### The `<xmod:Format>` Control
+
+XMP also has the [`<xmod:Format>`](../template-controls/format.md) control, which has been available since early versions. For simple date and number formatting, either tool works well — use whichever feels more natural. But `<xmod:Format>` has capabilities that expression tokens don't:
+
+**Culture-aware formatting** — format values for a specific locale, regardless of the server's default culture:
+
+```html
+<!-- Force British currency formatting, even on a US server -->
+<xmod:Format Type="Float" Value='[[Price]]' Pattern="c" OutputCulture="en-GB" />
+<!-- Output: £5.00 -->
+
+<!-- Parse a US date and display it for a French audience -->
+<xmod:Format Type="Date" Value='[[EventDate]]' InputCulture="en-US" OutputCulture="fr-FR" />
+<!-- Output: 25/04/2013 -->
+```
+
+Expression tokens use the server's default culture for formatting. If you need to target a specific locale, `<xmod:Format>` is the right tool.
+
+**Regex substitutions** — transform text using regular expression patterns:
+
+```html
+<xmod:Format Type="RegEx" Value='[[PhoneNumber]]'
+    Pattern="(\d{3})(\d{3})(\d{4})"
+    Replacement="($1) $2-$3" />
+<!-- Input: 5035551234 → Output: (503) 555-1234 -->
+```
+
+**Email cloaking** — obfuscate email addresses so web scrapers can't harvest them:
+
+```html
+<xmod:Format Type="Cloak" Value='[[Email]]' />
+```
+
+**Truncation with ellipsis** — trim long text to a maximum length:
+
+```html
+<xmod:Format Type="Text" Value='[[Description]]' MaxLength="100" />
+```
+
+::: tip When to choose which?
+For most formatting tasks — dates, currency, numbers — expression tokens and `<xmod:Format>` overlap. Expression tokens are more concise (`[[=Format(Price, 'C2')]]` vs. an entire `<xmod:Format>` tag) and can be placed anywhere, including inside HTML attributes. Choose `<xmod:Format>` when you need culture control, regex, or cloaking.
+:::
+
+#### Quick Reference
+
+| Scenario | Approach |
+|----------|----------|
+| Displaying a field value in HTML | Plain token: `[[FieldName]]` |
+| Combining fields in HTML | Plain tokens side by side: `[[First]] [[Last]]` |
+| Combining fields in a tag property | Expression: `[[=First & ' ' & Last]]` |
+| Formatting dates or numbers | Expression: `[[=Format(Price, 'C2')]]` |
+| Math and calculations | Expression: `[[=Round(Price * 1.08, 2)]]` |
+| Conditional text or CSS classes | Expression: `[[=If(Qty > 0, 'In Stock', 'Out')]]` |
+| Fallback for missing values | Expression: `[[=Coalesce(Phone, 'N/A')]]` |
+| Culture-specific formatting | [`<xmod:Format>`](../template-controls/format.md) with `OutputCulture` |
+| Regex text substitutions | [`<xmod:Format>`](../template-controls/format.md) with `Type="RegEx"` |
+| Email cloaking | [`<xmod:Format>`](../template-controls/format.md) with `Type="Cloak"` |
 
 ## Syntax
 
