@@ -3,122 +3,76 @@ id: form-ajax-link
 title: AjaxLink
 category: Buttons
 context: form
-summary: >-
-  The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will
-  dynamically insert HTML returned from a URL into an element on the page -
-  without a postback. This is a jQuery based control. It requires jQuery be
-  included in the page and that Javascript be enabled in the end-user's browser.
+summary: The AjaxLink tag renders a hyperlink that, when clicked, fetches HTML from a URL and inserts it into a target element on the page — without a postback.
 keywords:
   - ajax
   - link
   - form
+since: '1.0'
+related:
+  - ajax-button
+  - ajax-image
 ---
 # `<AjaxLink>`
 
-The AjaxLink tag renders as a hyperlink at run-time that, when clicked, will dynamically insert HTML returned from a URL into an element on the page - without a postback. This is a jQuery based control. It requires jQuery be included in the page and that Javascript be enabled in the end-user's browser.
+The AjaxLink tag renders a hyperlink that, when clicked, makes a jQuery AJAX call to a URL and inserts the returned HTML into a target element on the page — same behavior as [`<AjaxButton>`](ajax-button.md), just rendered as an inline `<a>` element.
 
-## Syntax
-```html
-<AjaxLink  
-    BackColor="_color name_|#dddddd"  
-    BorderColor="_color name_|#dddddd"  
-    BorderStyle="**NotSet**|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"  
-    BorderWidth_="size_"  
-    CssClass="_string_"  
-    Font-Bold="True|**False**"  
-    Font-Italic="True|**False**"  
-    Font-Names="_string_"  
-    Font-Overline="True|**False**"  
-    Font-Size="_string_|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"  
-    Font-Strikeout="True|**False**"  
-    Font-Underline="True|**False**"  
-    ForeColor="_color name_|#dddddd"  
-    Height="_size_"  
-    LoadingCssClass="_CSS class name_"  
-    LoadingImageUrl="_string_"  
-    OnError="string - JS function to call on error"  
-    OnSuccess="string - JS function to call on success"  
-    Style="_string_"  
-    Target="_jQuery element selector_"  
-    Text="string"  
-    ToolTip="_string_"  
-    Url="_url_"  
-    Visible="**True**|False"  
-    Width="_size_"
-/>
-```
+::: warning Requires jQuery
+This control depends on jQuery being included in the page. DNN typically includes jQuery automatically; if your install doesn't, use [`<ScriptBlock>`](script-block.md) to add it.
+:::
 
-## Remarks
-
-*   **Usage**: The XMod Pro Ajax link controls work in conjunction with jQuery. They enable you to leverage jQuery without having to write any Javascript. Because of this, you must ensure that jQuery has been included in the page. If you are using DNN 5 or later, the library is usually included in the page without any effort on your part. If not, use the `<ScriptBlock>` tag to include the library. You must specify the Url property and Target property. Optionally, you can specify the LoadingImageUrl and LoadingCssClass.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **LoadingCssClass**: A CSS class name to assign to the image which appears after the button has been clicked - to indicate content is being loaded. This property is ignored if no LoadingImageUrl is specified.  
-
-*   **LoadingImageUrl**: A URL to the image file that will be displayed after the button is clicked - to indicate content is being loaded. You can use the tilde (`~`) character as a placeholder for the website root directory. The image will be displayed immediately after the button when the button is clicked. It will be removed from the page after successful completion of the AJAX call. If no image url is specified, no image will be displayed.  
-
-*   **OnError**: You can optionally specify a Javascript function to call if there is an error in the AJAX call. Your function should accept the following parameters: `jqXHR`, `textStatus`, `errorThrown`. This should only contain a function name. An example would be:  
-    `OnError="myErrHandler"`  
-    Elsewhere, you would define your Javascript function like:  
-    ```js
-    function myErrHandler(jqXHR, textStatus, errorThrown) {  
-      alert("The following error occurred: " + textStatus);  
-    }  
-    ```
-
-*   **OnSuccess**: You can optionally specify a Javascript function to call when data is returned from the AJAX call. This overrides standard default processing of the AJAX call - which normally sets the HTML of the Target element. Instead, your function will be called and the returned data from the AJAX call will be passed to your function. This property should only contain a function name. An example might be:  
-    `OnSuccess="doSomethingCool"`  
-    Elsewhere you would define your Javascript function like:  
-    ```js
-    function doSomethingCool(data){
-      alert("The following data was returned:" + data);
-    }
-    ```
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`)  
-
-*   **Target**: A jQuery "selector" that identifies the element(s) that will contain the HTML returned from the Url. Note that content of the element will be replaced by the HTML. To select an element by its ID, use the `#` selector. So, to select an element with the client ID of _divMyResults_, the `Target` attribute would be `#divMyResults`. To select all DIV elements with the class name of _MyResults_, you would use the period selector (`.`) like so: `div.MyResults`.   
-
-*   **Text**: The caption that will be displayed on the control.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Url**: The Url that gets called by the Ajax function. This is Required.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).
-
-  
-
+::: info Url is required
+You must specify `Url`. You must also specify either `Target` (where to put the response) or `OnSuccess` (your own callback to handle it).
+:::
 
 ## Example
-
 ```html {12-13}
-<AddForm>  
-  <SubmitCommand CommandText="Update EmployeeReview SET Rating=@Rating" />  
+<AddForm>
+  <SubmitCommand CommandText="UPDATE EmployeeReview SET Rating=@Rating" />
 
-  <Label>Submit Rating for Employee</Label>  
-  <DropdownList Id="Rating" DataField="Rating" DataType="Int32">  
-    <ListItem Value="1">Poor</ListItem>  
-    <ListItem Value="2">Sub-Par</ListItem>  
-    <ListItem Value="3">Average</ListItem>  
-    <ListItem Value="4">Above Average</ListItem>  
-    <ListItem Value="5">Excellent</ListItem>  
-  </DropdownList>  
+  <Label>Submit Rating for Employee</Label>
+  <DropDownList Id="Rating" DataField="Rating" DataType="Int32">
+    <ListItem Value="1">Poor</ListItem>
+    <ListItem Value="2">Sub-Par</ListItem>
+    <ListItem Value="3">Average</ListItem>
+    <ListItem Value="4">Above Average</ListItem>
+    <ListItem Value="5">Excellent</ListItem>
+  </DropDownList>
   <AjaxLink Text="View Employee History" Url="mysite.com/history.aspx?eid=100"
-        Target="#divHistory" /></span>  
-  <div id="divHistory"></div>  
-  <AddButton Text="Add Rating" /> <CancelButton Text="Nevermind" />  
-</AddForm>  
+            Target="#divHistory" />
+  <div id="divHistory"></div>
+  <AddButton Text="Add Rating" /> <CancelButton Text="Nevermind" />
+</AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Url](#prop-url) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | URL | | The URL the AJAX request is sent to |
+| [Target](#prop-target) | jQuery selector | | The element(s) whose HTML will be replaced with the response. Required unless `OnSuccess` is specified |
+| Text | string | | Caption displayed as the link text |
+| CssClass | string | | CSS class name(s) for styling the control |
+| DataType | string | | jQuery `dataType` for the AJAX call (e.g. `json`, `html`, `text`) |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (rendered as plain text, not a clickable link) |
+| Height | [size](../unit-types.md) | | Height of the control |
+| ID | string | | Unique identifier for the control within the form |
+| [LoadingCssClass](#prop-loadingcssclass) | CSS class | | CSS class applied to the loading image while the AJAX call is in flight |
+| [LoadingImageUrl](#prop-loadingimageurl) | URL | | Image displayed next to the link while the AJAX call is in flight |
+| Method | `get` `post` | `get` | HTTP method used for the AJAX request |
+| [OnError](#prop-onerror) | JS function name | | JavaScript function called if the AJAX request fails |
+| [OnSuccess](#prop-onsuccess) | JS function name | | JavaScript function called with the response. When set, the response is *not* automatically inserted into `Target` |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -136,3 +90,33 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-url">**Url**</span>: The URL the AJAX request is sent to. The tilde (`~`) represents the application root. Required.
+
+*   <span id="prop-target">**Target**</span>: A jQuery selector identifying the element(s) whose HTML will be replaced with the response. Use `#elementId` to target a single element by ID (e.g. `#divResults`), or `.className` to target all elements with a CSS class (e.g. `div.results`). Required unless you provide an `OnSuccess` callback that handles the response yourself.
+
+*   <span id="prop-loadingimageurl">**LoadingImageUrl**</span>: A URL to an image (typically an animated spinner) shown immediately to the right of the link while the AJAX request is in flight. The image is removed automatically when the call completes successfully. The tilde (`~`) represents the application root. If omitted, no loading indicator is shown.
+
+*   <span id="prop-loadingcssclass">**LoadingCssClass**</span>: CSS class applied to the loading image. Useful for positioning or styling the spinner. Ignored if `LoadingImageUrl` is not specified.
+
+*   <span id="prop-onsuccess">**OnSuccess**</span>: The name of a JavaScript function to call when the AJAX call completes successfully. If specified, the function is called with the response data and the default behavior (inserting the response into `Target`) is skipped — your function is responsible for doing whatever needs to happen.
+
+    ```js
+    function doSomethingCool(data) {
+      alert("The following data was returned: " + data);
+    }
+    ```
+
+    Then on the control: `OnSuccess="doSomethingCool"` (function name only — no parens).
+
+*   <span id="prop-onerror">**OnError**</span>: The name of a JavaScript function to call if the AJAX call fails. The function receives the standard jQuery `jqXHR`, `textStatus`, and `errorThrown` arguments.
+
+    ```js
+    function myErrHandler(jqXHR, textStatus, errorThrown) {
+      alert("The following error occurred: " + textStatus);
+    }
+    ```
+
+    Then on the control: `OnError="myErrHandler"` (function name only — no parens).
