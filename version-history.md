@@ -23,7 +23,7 @@ XMod Pro v5 automatically tracks every version of your forms, views, and feeds. 
 
 This means you can experiment freely. Try a new layout, rework a data source, or restructure a form — knowing that your previous work is always just a few clicks away.
 
-<!-- SCREENSHOT: version-history-overview — Version History view showing the resource list on the left and timeline on the right -->
+<img src="./img/v5/version-history-overview.png" alt="Version History showing the resource list on the left with Forms, Views, and Feeds tabs, and the timeline prompt on the right" />
 
 ::: info Host Access Only
 Version History is only available to Host (SuperUser) accounts.
@@ -45,7 +45,7 @@ When you select a resource, its version timeline appears on the right. Versions 
 - **Comment** — An optional description of the change (added automatically for certain actions like restores)
 - **File changes** — Which files were added, modified, or removed in that version
 
-<!-- SCREENSHOT: version-history-timeline — Timeline showing several versions with timestamps, users, and file change indicators -->
+<img src="./img/v5/version-history-timeline.png" alt="Version timeline for a form showing versions grouped by date with Live badge, user avatars, notes, and action buttons for view, compare, restore, and delete" />
 
 Two special entries may appear in the timeline:
 
@@ -62,7 +62,7 @@ XMod Pro uses different comparison views depending on the resource type, so you 
 
 For forms built with the [Form Builder](form-builder.md), XMod Pro shows a **semantic diff** — a human-readable summary of structural changes rather than a raw code comparison. This tells you *what actually changed* in terms you can understand:
 
-<!-- SCREENSHOT: version-history-semantic-diff — Semantic diff showing controls added, removed, and changed with property-level detail -->
+<img src="./img/v5/version-history-semantic-diff.png" alt="Semantic diff showing the Changes tab with version selectors, a summary badge showing 2 removed controls, and detailed removal descriptions" />
 
 - **Controls added or removed** — Listed by name and type
 - **Properties changed** — Shows the before and after values for each changed property
@@ -75,7 +75,7 @@ A summary at the top shows the totals: how many controls were added, removed, ch
 
 For views, feeds, and custom forms, the comparison shows a **side-by-side code diff** with syntax highlighting:
 
-<!-- SCREENSHOT: version-history-code-diff — Side-by-side code diff with red/green highlighting for removed/added lines -->
+<img src="./img/v5/version-history-code-diff.png" alt="Side-by-side code diff showing two versions with line numbers, synchronized scrolling, and a diff summary showing lines added and removed" />
 
 - **Removed lines** highlighted in red on the left
 - **Added lines** highlighted in green on the right
@@ -117,5 +117,5 @@ To free up space, you can delete individual version snapshots from the timeline.
 ## Next Steps
 
 - **[Control Panel](control-panel.md)** — Overview of the XMod Pro Control Panel
-- **[Code Editor](code-editor.md)** — The built-in editor for views, feeds, and custom forms
+- **[Code Editors](code-editor.md)** — The built-in editors for views, feeds, and custom forms
 - **[The Explorer](explorer.md)** — Browse and manage your resources
