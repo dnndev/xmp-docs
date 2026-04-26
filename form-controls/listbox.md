@@ -3,171 +3,84 @@ id: form-listbox
 title: ListBox
 category: List Controls
 context: form
-summary: The ListBox tag renders as a single or multi-select listbox at run-time.
+summary: The ListBox tag renders as a single- or multi-select listbox at run-time.
 keywords:
   - list
   - box
   - form
+since: '1.0'
+related:
+  - dropdown-list
+  - checkbox-list
+  - radio-button-list
+  - control-datasource
 ---
 # `<ListBox>`
 
-The ListBox tag renders as a single or multi-select listbox at run-time.
-
-## Syntax
-```html
-<ListBox 
-    AccessKey="string" 
-    AppendDataBoundItems="True|False" 
-    BackColor="color name|#dddddd" 
-    BorderColor="color name|#dddddd" 
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
-    BorderWidth="size" 
-    CssClass="string" 
-    DataField="string"
-    DataSourceID="string" 
-    DataTextField="string" 
-    DataTextFormatString="string" 
-    DataType="string|int32|...."
-    DataValueField="string" 
-    Font-Bold="True|False" 
-    Font-Italic="True|False" 
-    Font-Names="string" 
-    Font-Overline="True|False" 
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
-    Font-Strikeout="True|False" 
-    Font-Underline="True|False" 
-    ForeColor="color name|#dddddd" 
-    Height="size" 
-    ID="string" 
-    Rows="integer" 
-    SelectedItemsSeparator="string||"
-    SelectionMode="Single|Multiple" 
-    Style="string" 
-    TabIndex="integer" 
-    ToolTip="string" 
-    Visible="True|False" 
-    Width="size"> 
-
-    <ListItem Value="string" Selected="True|False">Item1</ListItem> 
-    <ListItem Value="string">Item2</ListItem> 
-    ... 
-</ListBox> 
-```
-
-## Remarks
-
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **AppendDataBoundItems**: If True, items retrieved from a `<ControlDataSource>` tag will be appended to the list of items already defined in the control. This only applies if the control is bound to such a tag. The default value is False.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **DataField**: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's data on when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.  
-
-*   **DataSourceId**: If this control's data is supplied by a `<ControlDataSource>` tag, specify that tag's ID in this attribute. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
-
-*   **DataTextField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's display text. This attribute is required if the control's data is supplied via a `ControlDataSource>` tag.  
-
-*   **DataTextFormatString**: Gets or sets the formatting string used to control how data bound to the list control is displayed.  
-
-*   **DataType**: The type of data this control is supplying to the data commands. This is a [Database type](../data-types.md). Valid values are: string (default), int32, int64, boolean, . This attribute is required if the control will participate in operations with your form's data commands. NOTE: If this is a multi-select listbox, you MUST set the DataType to "string" because the value returned from the control will be a string.  
-
-*   **DataValueField**: When using a `<ControlDataSource>` this attribute specifies the column name in that datasource that supplies each list item's hidden value. This attribute is required only if the control's data is supplied via a `<ControlDataSource>` tag.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
-
-*   **Nullable**: If Nullable is set to True (the default value is False), the control will return a DBNull value if no item has been selected. If a DBNull value is passed to this control, regardless of the Nullable setting, the control will de-select all items in the control.  
-
-*   **Rows**: A numeric value greater than or equal to 1 that determines the number of rows to display in a list box.  
-
-*   **SelectionMode**: Determines whether the listbox allows a maximum of one selection or more than one selection. Valid values are: single and multiple. This attribute is optional. The default value is single.  
-
-*   **SelectedItemsSeparator**: If the control enables the selection of multiple items, the control will merge the selected values together using a pipe (`|`) as a separator. You can change the character used to separate the selected values using this property. If, for instance, you wanted to separate them with a comma, you would set `SelectedItemsSeparator=","` The separator is only used on controls capable of multiple selection and ONLY when more than one item has been selected.  
-
-    So, for example, if your control had the following values selected: 32, 578, and 38, then the value returned to the database would be: 32|578|38\. If only the number 32 was selected, the value would be: 32\. When dealing with multiple selections, remember to set the DataType to "string" because while "32|578|38" is a series of numbers, for the database, it is first and foremost a string containing a numeric text and the pipe character.  
-
-    ::: tip 
-    If you are using this control to supply email addresses to the `<Email>` tag, it assumes values are delimited with a pipe. However, since email addresses are comma-delimited, you could set SelectedItemsSeparator to a comma and it should still function.  
-    :::
-
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-*   **Usage**: The Listbox can operate in one of two modes: **single selection**, where only one item is allowed to be selected at a time, and **multiple selection**, which allows more than one item to be selected. The Listbox allows `<ListItem>` child tags which define the items that will appear in the list. The control can also be bound to a `<ControlDataSource>` tag. To do so, specify the ID of the `<ControlDataSource>` tag in the ListBox's `DataSourceId` attribute, the name of the column in the data source that should supply the display text for each list item, and the column in the data source that should supply the hidden value of each list item.
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+The ListBox tag renders as a single-select or multi-select listbox at run-time. Items can be defined inline as `<ListItem>` children, bound to a [`<ControlDataSource>`](control-datasource.md), or both.
 
 ## Example 1 - Basic Usage
 ```html {13-17}
-<AddForm> 
-  ... 
-  <table> 
-    <tr> 
-       <td> 
-        <Label For="txtFirstName" Text="First Name" /> 
-        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" /> 
-      </td> 
-    </tr> 
-    <tr> 
-      <td> 
-        <Label For="lstColors" Text="Favorite Color" /> 
-        <ListBox Id="lstColors" DataField="FavoriteColors" DataType="string" SelectionMode="single">
+<AddForm>
+  ...
+  <table>
+    <tr>
+       <td>
+        <Label For="txtFirstName" Text="First Name" />
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Label For="lstColors" Text="Favorite Color" />
+        <ListBox Id="lstColors" DataField="FavoriteColors" DataType="string" SelectionMode="Single">
           <ListItem Value="#00FF00">Green</ListItem>
-          <ListItem value="#FF0000" selected="true">Red</ListItem>
-          <ListItem value="#0000FF">Blue</ListItem>
-        </ListBox> 
-      </td> 
-    </tr> 
-    <tr> 
-      <td colspan="2"> 
-        <AddButton Text="Add"/> <CancelButton Text="Cancel"/> 
-      </td> 
-    </tr> 
-  </table> 
+          <ListItem Value="#FF0000" Selected="True">Red</ListItem>
+          <ListItem Value="#0000FF">Blue</ListItem>
+        </ListBox>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add"/> <CancelButton Text="Cancel"/>
+      </td>
+    </tr>
+  </table>
 </AddForm>
 ```
 
-## Example 2 - Binding to a Data Source
-```html {3,5-6}
-<AddForm>
-  ...
-  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
-  ...
-  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
-     DataField="FavoriteColor" DataType="Int32" />
-</AddForm>
-```
+## Properties
 
-## Example 3 - Adding Items to a Data-Bound List
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ID](#prop-id) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Unique identifier for the control within the form |
+| [DataField](#prop-datafield) | string | | Parameter name for data binding to your form's data commands |
+| [DataType](#prop-datatype) | `String` `Int32` `Int64` `Boolean` [more...](../data-types.md) | `String` | Database type for data commands. Multi-select listboxes must use `String` |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| [AppendDataBoundItems](#prop-appenddataboundeditems) | `True` `False` | `False` | When `True`, items retrieved from a `<ControlDataSource>` are appended to inline `<ListItem>` children rather than replacing them |
+| CssClass | string | | CSS class name(s) for styling the control |
+| [DataSourceID](#prop-datasourceid) | string | | ID of a `<ControlDataSource>` tag whose data fills this control |
+| [DataTextField](#prop-datatextfield) | string | | When data-bound, the source column whose value is shown as each item's display text |
+| DataTextFormatString | format string | | A .NET format string applied to each item's display text |
+| [DataValueField](#prop-datavaluefield) | string | | When data-bound, the source column whose value becomes each item's hidden value |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| Height | [size](../unit-types.md) | | Height of the control |
+| [Nullable](#prop-nullable) | `True` `False` | `False` | Returns DBNull when nothing is selected |
+| Rows | integer | `4` | Number of rows visible in the listbox |
+| [SelectedItemsSeparator](#prop-selecteditemsseparator) | string | `\|` | Character(s) used to join values together in multi-select mode |
+| [SelectionMode](#prop-selectionmode) | `Single` `Multiple` | `Single` | Whether one or many items can be selected |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
 
-This example shows how to use the AppendDataBoundItems property to add a "None Selected" item to a list that is being populated from a table.
-```html {3,5-8}
-<AddForm>
-  ...
-  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
-  ...
-  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
-     DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True">
-    <ListItem Value="-1">(None Selected)</ListItem>
-  </ListBox>
-</AddForm>
-```
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -185,3 +98,62 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-id">**ID**</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
+
+*   <span id="prop-datafield">**DataField**</span>: Name of the parameter in the `<SubmitCommand>` which will be filled with this control's selected value(s) when the form is submitted and/or the parameter in the `<SelectCommand>` which will supply this control's data when the form is loaded. This attribute is required if the control will participate in operations with your form's data commands.
+
+*   <span id="prop-datatype">**DataType**</span>: The type of data this control supplies to the data commands. This is a [Database type](../data-types.md). This attribute is required if the control will participate in operations with your form's data commands.
+
+    ::: warning Multi-select requires String
+    If the listbox is in multi-select mode, you **must** set `DataType="String"`. The control concatenates the selected values into a single delimited string (see `SelectedItemsSeparator`), so even if the underlying values are numeric, the value sent to the database is always a string like `"32|578|38"`.
+    :::
+
+*   <span id="prop-appenddataboundeditems">**AppendDataBoundItems**</span>: When `True` and the control is bound to a `<ControlDataSource>`, the items returned by the data source are appended to any inline `<ListItem>` children. When `False` (the default), the bound data replaces inline items.
+
+*   <span id="prop-datasourceid">**DataSourceID**</span>: ID of a `<ControlDataSource>` tag whose data fills this control's items. Required only if the control's items come from a data source. (The casing — capital `ID` — comes from the underlying ASP.NET ListControl; XMP markup is case-insensitive.)
+
+*   <span id="prop-datatextfield">**DataTextField**</span>: When using a `<ControlDataSource>`, the column name whose value supplies each list item's display text. Required when `DataSourceID` is set.
+
+*   <span id="prop-datavaluefield">**DataValueField**</span>: When using a `<ControlDataSource>`, the column name whose value supplies each list item's hidden value. Required when `DataSourceID` is set.
+
+*   <span id="prop-nullable">**Nullable**</span>: If `Nullable` is `True` and no item has been selected, the control returns `DBNull` to the data commands. If a `DBNull` value is passed back to the control (e.g. when loading a record for editing), the control de-selects all items.
+
+*   <span id="prop-selectionmode">**SelectionMode**</span>: When set to `Single` (the default), only one item can be selected at a time. When set to `Multiple`, the user can select multiple items by holding Ctrl or Shift while clicking.
+
+*   <span id="prop-selecteditemsseparator">**SelectedItemsSeparator**</span>: When `SelectionMode="Multiple"`, the control merges the selected values into a single string using a separator. The default separator is the pipe character (`|`). For example, with three items selected (32, 578, and 38) the value sent to the database would be `"32|578|38"`. If only one item is selected, no separator is used.
+
+    The separator only applies in multi-select mode and only when more than one item is selected. To use a different character (e.g. comma), set `SelectedItemsSeparator=","`.
+
+    ::: tip Email lists
+    If you are using this control to supply email addresses to the `<Email>` tag, the Email tag expects a pipe-delimited list by default. However, since email recipient lists are usually comma-delimited elsewhere, you can set `SelectedItemsSeparator=","` and the Email tag will still parse them correctly.
+    :::
+
+## Example 2 - Binding to a Data Source
+```html {3,5-6}
+<AddForm>
+  ...
+  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
+  ...
+  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+     DataField="FavoriteColor" DataType="Int32" />
+</AddForm>
+```
+
+## Example 3 - Adding Items to a Data-Bound List
+
+This example shows how to use `AppendDataBoundItems` to add a "(None Selected)" item to a list that is being populated from a table.
+
+```html {3,5-8}
+<AddForm>
+  ...
+  <ControlDataSource Id="dsColors" CommandText="SELECT ColorId, ColorName FROM MyColorsTable" />
+  ...
+  <ListBox Id="lstColors" DataSourceId="dsColors" DataTextField="ColorName" DataValueField="ColorId"
+     DataField="FavoriteColor" DataType="Int32" AppendDataBoundItems="True">
+    <ListItem Value="-1">(None Selected)</ListItem>
+  </ListBox>
+</AddForm>
+```
