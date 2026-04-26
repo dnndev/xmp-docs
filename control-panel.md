@@ -21,7 +21,7 @@ keywords:
 
 The Control Panel is the central workspace for everything you build with XMod Pro. From here you can create and edit forms, views, and feeds, manage database tables, organize resources into projects, and access every tool XMod Pro offers — all in a single, modern interface.
 
-<!-- SCREENSHOT: cp-overview — Full Control Panel with Dashboard visible, toolbar at top, showing resource cards and recent work -->
+<img src="./img/v5/cp-overview.png" alt="The XMod Pro Control Panel showing the Dashboard with resource cards, recent work, and pinned items" />
 
 In v5, the Control Panel has been completely redesigned. It now uses a tab-based layout similar to a code editor like VS Code — you can have multiple resources open at once, switch between them instantly, and pick up right where you left off. Your open tabs are remembered between sessions.
 
@@ -38,13 +38,13 @@ To open the Control Panel:
 3. Enter **Edit Mode** by clicking the pencil icon at the bottom of the DNN Persona Bar (the sidebar on the left)
 4. Select **Control Panel** from the module's action menu
 
-<!-- SCREENSHOT: cp-action-menu — The module action menu showing the Control Panel option -->
+<!-- SCREENSHOT: cp-action-menu — needs manual capture: hover over module to show action menu with Control Panel option -->
 
 ## The Toolbar
 
 The toolbar runs across the top of the Control Panel and gives you quick access to every major feature.
 
-<!-- SCREENSHOT: cp-toolbar — The toolbar with all buttons visible -->
+<img src="./img/v5/cp-toolbar.png" alt="The Control Panel toolbar showing Home, Explorer, Command Palette, New, Help, Database Tools, Version History, Settings, Fullscreen, and Exit buttons" />
 
 From left to right:
 
@@ -63,7 +63,7 @@ From left to right:
 
 The Dashboard is your home screen — the first thing you see when you open the Control Panel. It's designed to get you to what you need quickly.
 
-<!-- SCREENSHOT: cp-dashboard — Dashboard showing resource cards, recent work, and pinned items -->
+<img src="./img/v5/cp-dashboard.png" alt="The Dashboard showing resource cards for Projects, Forms, Views, and Feeds, plus Recent Work and Pinned Items sections" />
 
 At the top, you'll see **resource cards** for Forms, Views, Feeds, and Projects. Each card shows a count and offers buttons to browse or create new resources.
 
@@ -78,7 +78,7 @@ The Dashboard also provides quick access to the **View Quick Start** wizard, whi
 
 The Explorer is a slide-out sidebar where you browse, search, and manage all your resources. Click the **Explorer** button in the toolbar to open it.
 
-<!-- SCREENSHOT: cp-explorer — Explorer sidebar open showing the Forms tab with search and filters -->
+<img src="./img/v5/cp-explorer.png" alt="The Explorer sidebar showing the Forms tab with a list of forms, search box, and filter options" />
 
 It's organized into four tabs:
 
@@ -100,7 +100,7 @@ For full details, see [The Explorer](explorer.md).
 
 When you open a resource, it appears as a tab — just like browser tabs or tabs in a code editor. You can have as many tabs open as you need and switch between them without losing your place.
 
-<!-- SCREENSHOT: cp-tabs — Multiple editor tabs open showing different resource types with color-coded icons -->
+<img src="./img/v5/cp-tabs.png" alt="Multiple editor tabs open showing a blue form tab (ContactForm), green view tab (_MyNewTemplate), and orange feed tab (CustomerExport)" />
 
 Tabs are color-coded by resource type so you can tell them apart at a glance:
 
@@ -123,19 +123,25 @@ Your open tabs are **saved between sessions** — when you come back to the Cont
 
 Press **Ctrl+K** (or **Cmd+K** on Mac) to open the Command Palette — a quick search that lets you find and open any resource by name without touching the Explorer. Just start typing, and results appear instantly.
 
+<img src="./img/v5/cp-command-palette-search.png" alt="The Command Palette showing search results for 'Contact' across Projects, Forms, and Views" />
+
+Results are grouped by type — Projects, Forms, Views, and Feeds — with counts showing how many matches were found in each category. Use the **Tab** key to move between sections, the **arrow keys** to navigate items, and **Enter** to open the selected resource.
+
 This is the fastest way to jump to a specific form, view, or feed when you know its name.
 
 ## Settings
 
-Click the **gear icon** in the toolbar to open the global settings dialog. Here you can configure:
+Click the **gear icon** in the toolbar to open the Global Settings dialog.
 
-- **Theme** — Switch between light and dark mode
-- **Editor Font** — Choose Fira Code or JetBrains Mono
-- **Editor Font Size** — Set your preferred text size
-- **Indentation** — Tabs or spaces, and the tab width
-- **Snippets** — Manage your code snippet library
+<img src="./img/v5/cp-settings-editor.png" alt="The Global Settings dialog showing the Editor tab with indentation and appearance options" />
 
-These settings apply everywhere in the Control Panel, including the [Code Editor](code-editor.md).
+Settings are organized into three tabs:
+
+- **General** — Configure [Version History](version-history.md) options: enable/disable automatic versioning, keep original backups, set max versions per resource, and auto-delete old versions
+- **Editor** — Customize the code editor's look and behavior: indentation (tabs or spaces), theme (light or dark), font family and size, word wrap, and Google Fonts support
+- **Shortcuts** — View and customize keyboard shortcuts
+
+These settings apply everywhere in the Control Panel, including the [code editors](code-editor.md).
 
 ## Keyboard Shortcuts
 
@@ -148,7 +154,7 @@ These settings apply everywhere in the Control Panel, including the [Code Editor
 ## Next Steps
 
 - **[The Explorer](explorer.md)** — Browse and manage your resources in detail
-- **[Code Editor](code-editor.md)** — The built-in editor for views, feeds, and custom forms
+- **[Code Editors](code-editor.md)** — The built-in editors for views, feeds, and custom forms
 - **[Database Tools](database-tools.md)** — Create and manage database tables
 - **[Version History](version-history.md)** — Browse, compare, and restore previous versions
 - **[Forms](forms.md)** — Learn about XMod Pro forms
