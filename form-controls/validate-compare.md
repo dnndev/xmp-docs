@@ -1,127 +1,87 @@
 ---
 id: form-validate-compare
-title: Validate type="compare"
+title: Validate Type="Compare"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "compare" is referred to as a Comparison
-  Validator and is used to ensure the value of the target control is the same as
-  a hard-coded value or the same as the value in a second control. It is useful
-  when prompting the user for an email address or password.
+summary: The Validate tag with Type="Compare" prevents the form from being submitted unless the target control's value matches another control's value or a hard-coded value.
 keywords:
   - validate
-  - type="compare"
+  - compare
   - form
+since: '1.0'
+related:
+  - validate-required
+  - validate-range
+  - validate-email
+  - validation-summary
 ---
-# `<Validate type="compare">`
+# `<Validate Type="Compare">`
 
-The Validate tag whose type is set to "compare" is referred to as a Comparison Validator and is used to ensure the value of the target control is the same as a hard-coded value or the same as the value in a second control. It is useful when prompting the user for an email address or password.
-
-## Syntax
-```html
-<Validate 
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CompareTarget="string"
-    CompareValue="string"
-    CssClass="string"
-    DataType="String|Integer|Double|Date|Currency"
-    Display="Static|Dynamic"
-    EnableClientScript="True|False"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    Message="string"
-    Operator="Equal|NotEqual|GreaterThan|GreaterThanEqual|LessThan|LessThanEqual|DataTypeCheck"
-    Target="string"
-    Text="string"
-    Type="Compare"
-    Width="size" 
-/> 
-```
- 
-
-## Remarks
-
-When the "type" attribute is set to **Compare**, the control prevents the form from being submitted if its associated control does not match a value - either a hard-coded value or the value in a second control. You associate a control with the `<Validate>` tag by setting its "target" attribute to the ID of the control you wish to validate. To compare the target control with the value of a second control, place the second control's ID in the "comparetarget" attribute and do not define the "comparevalue" attribute. To compare the target control with a hard-coded value, place that value in the "comparevalue" attribute and do not define the "comparetarget" attribute. If you set the "operator" attribute to DataTypeCheck then choose the datatype to check-for using the "DataType" attribute. The "message" attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.
-
-*   **CompareTarget**: Place the second control's `ID` here to compare the target control with the value of a second control, and do not define the `CompareValue` attribute.  
-
-*   **CompareValue**: To compare the target control with a hard-coded value, place that value in the `CompareValue` attribute and do not define the `CompareTarget` attribute.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **DataType**: Use this property to choose the datatype to check for. DataTypes include String, Integer, Double, Date, Currency. Default is String.  
-
-*   **Display**: This attribute determines if the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically allocate the space for the message when validation fails. Defaults to **Dynamic** display.  
-
-*   **EnableClientScript**: Use the EnableClientScript property to specify whether client-side validation is enabled. Defaults to **True**.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the `<ValidationSummary>`, then this is the message that will be displayed in the `<ValidationSummary>` when validation fails.  
-
-*   **Operator**: If you set the `Operator` attribute to `DataTypeCheck`, then choose the datatype to check for - using the `DataType` attribute.  
-
-*   **Target** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Set this attribute to the ID of the control you wish to validate.  
-
-*   **Text**: If you are using the `<ValidationSummary>` tag, then you can also supply a `Text` attribute. When validation fails, the `Text` will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.  
-
-*   **Type** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: When the `Type` attribute is set to **Compare**, the control prevents the form from being submitted if its associated control does not match a value - either a hard-coded value or the value in a second control.  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+The Compare validator checks the target control's value against another control's value or a hard-coded value, using a configurable comparison operator. The classic use case is "make sure the password and confirm-password fields match," but it works equally well for date ranges, type checks, and minimum-value comparisons.
 
 ## Example
-```html {14-15,21}
+
+Confirming an email address by comparing two textboxes:
+
+```html {12-13,19}
 <AddForm>
   ...
   <table>
     <tr>
       <td>
-        <Label For="txtEmailOne" Text="Email" />
-        <TextBox Id="txtEmailOne" />
+        <Label For="txtEmail" Text="Email" />
+        <TextBox Id="txtEmail" DataField="Email" DataType="string" />
       </td>
-      </tr>
-      <tr>
-        <td>
-          <Label For="txtEmail" Text="Email" /> 
-          <TextBox Id="txtEmail" DataField="Email" DataType="string" />
-          <Validate Type="compare" Target="txtEmail" CompareTarget="txtEmailOne" 
-                    Message="The email addresses don't match" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <AddButton text="Add"/>&nbsp;<cancelbutton text="Cancel"/>
-          <ValidationSummary />
-        </td>
-      </tr>
+    </tr>
+    <tr>
+      <td>
+        <Label For="txtEmailConfirm" Text="Confirm Email" />
+        <TextBox Id="txtEmailConfirm" />
+        <Validate Type="Compare" Target="txtEmailConfirm" CompareTarget="txtEmail"
+                  Message="The email addresses don't match" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
+        <ValidationSummary />
+      </td>
+    </tr>
   </table>
 </AddForm>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Compare` | | Identifies this as a Compare validator |
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | control ID | | ID of the control to validate |
+| [CompareTarget](#prop-comparetarget) | control ID | | ID of the control whose value to compare against. Use *either* `CompareTarget` *or* `CompareValue`, not both |
+| [CompareValue](#prop-comparevalue) | string | | Hard-coded value to compare against. Use *either* `CompareTarget` *or* `CompareValue`, not both |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [DataType](#prop-datatype) | `String` `Integer` `Double` `Date` `Currency` | `String` | The data type used for the comparison |
+| [Display](#prop-display) | `Static` `Dynamic` | `Dynamic` | Whether the validator reserves layout space when no error is shown |
+| [EnableClientScript](#prop-enableclientscript) | `True` `False` | `True` | When `True`, validation runs in the browser as well as on the server |
+| Height | [size](../unit-types.md) | | Height of the validator's error display |
+| [Message](#prop-message) | string | | Text shown in the `<ValidationSummary>` when validation fails |
+| [Operator](#prop-operator) | `Equal` `NotEqual` `GreaterThan` `GreaterThanEqual` `LessThan` `LessThanEqual` `DataTypeCheck` | `Equal` | The comparison operator |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when validation fails |
+| Width | [size](../unit-types.md) | | Width of the validator's error display |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| BackColor | color name \| #dddddd | Background color of the validator's error display |
+| BorderColor | color name \| #dddddd | Border color |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style |
+| BorderWidth | [size](../unit-types.md) | Border width |
 | Font-Bold | `True` `False` | Bold text |
 | Font-Italic | `True` `False` | Italic text |
 | Font-Names | string | Font family name |
@@ -129,6 +89,28 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
 | Font-Strikeout | `True` `False` | Strikethrough text decoration |
 | Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| ForeColor | color name \| #dddddd | Text color. **Note:** the validator hard-codes red, bold text by default. If you set `CssClass`, XMP automatically clears `ForeColor` so your stylesheet's color rules take effect |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `Compare` to identify this as a Compare validator.
+
+*   <span id="prop-target">**Target**</span>: The `ID` of the form control whose value should be checked.
+
+*   <span id="prop-comparetarget">**CompareTarget**</span>: The `ID` of a second control whose value the target should be compared with. Use this *or* `CompareValue`, not both. Maps to ASP.NET's `ControlToCompare`.
+
+*   <span id="prop-comparevalue">**CompareValue**</span>: A hard-coded value the target should be compared with (e.g. `CompareValue="18"` to require a minimum age). Use this *or* `CompareTarget`, not both. Maps to ASP.NET's `ValueToCompare`.
+
+*   <span id="prop-operator">**Operator**</span>: How the two values are compared. Defaults to `Equal`. The special value `DataTypeCheck` ignores any compare value and instead just verifies that the target control's value can be parsed as the specified `DataType` — useful as a quick "is this a valid number/date?" check without needing a regex.
+
+*   <span id="prop-datatype">**DataType**</span>: How the values should be parsed before comparison. Defaults to `String` (literal text comparison). Set to `Integer`, `Double`, `Date`, or `Currency` for type-aware comparisons.
+
+*   <span id="prop-message">**Message**</span>: The error text shown in the `<ValidationSummary>` (if you have one) when validation fails. If no `<ValidationSummary>` is present, this text appears at the validator's location instead.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when validation fails. Used together with `Message` and `<ValidationSummary>`: a short inline marker (`*`, `**`, or an icon) at the validator + the full sentence in the summary block.
+
+*   <span id="prop-display">**Display**</span>: Whether the validator reserves layout space even when no error is shown. `Dynamic` (the default) collapses to no space until validation fails. `Static` always reserves space.
+
+*   <span id="prop-enableclientscript">**EnableClientScript**</span>: When `True` (the default), the validator runs in the browser before the form is submitted, giving the user immediate feedback. Set to `False` to force server-side-only validation.

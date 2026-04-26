@@ -1,84 +1,23 @@
 ---
 id: form-validate-range
-title: Validate type="Range"
+title: Validate Type="Range"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "range" is referred to as a Range
-  Validator and is used to ensure the value of the target control falls within
-  the specified range of values. This can be used, for example, to ensure that
-  only a limited number of tickets can be purchased - that the number of tickets
-  ordered is at least one but not more than five.
+summary: The Validate tag with Type="Range" prevents the form from being submitted unless the target control's value falls between MinimumValue and MaximumValue.
 keywords:
   - validate
-  - type="
-  - range"
+  - range
   - form
+since: '1.0'
+related:
+  - validate-required
+  - validate-compare
+  - validate-regular-expression
+  - validation-summary
 ---
-# `<Validate type="Range">`
+# `<Validate Type="Range">`
 
-The Validate tag whose type is set to "range" is referred to as a Range Validator and is used to ensure the value of the target control falls within the specified range of values. This can be used, for example, to ensure that only a limited number of tickets can be purchased - that the number of tickets ordered is at least one but not more than five.
-
-## Syntax
-```html
-<Validate 
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    DataType="String|Integer|Double|Date|Currency"
-    Display="Static|Dynamic"
-    EnableClientScript="True|False" 
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    MaximumValue="string"
-    Message="string"
-    MinimumValue="string"
-    Target="string"
-    Text="string"
-    Type="Range"
-    Width="size"
-/> 
-```
-
-## Remarks
-
-When the `Type` attribute is set to **Range**, the control prevents the form from being submitted if its associated control's value does not match the range specified using the "MaximumValue" and "MinimumValue" attributes. You associate a control with the `<Validate>` tag by setting its `Target` attribute to the `ID` of the control you wish to validate. The `Message` attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.
-
-*   **DataType**: Use this property to choose the datatype to check for. DataTypes include String, Integer, Double, Date, Currency. Default is String.  
-
-*   **Display**: This attribute determines if the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form - or whether it will dynamically allocate the space for the message when validation fails. Defaults to **Dynamic** display.  
-
-*   **EnableClientScript**: Use the `EnableClientScript` property to specify whether client-side validation is enabled. Defaults to **True**.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **MaximumValue**: Sets the maximum value of the validation range.  
-
-*   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the `<ValidationSummary>`, then this is the message that will be displayed in the `<ValidationSummary>` when validation fails.  
-
-*   **MinimumValue**: Sets the minimum value of the validation range.  
-
-*   **Target** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Set this attribute to the ID of the control you wish to validate.  
-
-*   **Text**: If you are using the `<ValidationSummary>` tag, then you can also supply a "text" attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.  
-
-*   **Type** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: When the "type" attribute is set to **Range**, the control prevents the form from being submitted if its associated control's value does not match the range specified using the "MaximumValue" and "MinimumValue" attributes.  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+The Range validator prevents the form from being submitted unless the target control's value falls between `MinimumValue` and `MaximumValue` (inclusive). Use it for numeric ranges (quantities, ages, ratings) or date ranges (must be in the future, within a 30-day window, etc.).
 
 ## Example
 ```html {8-9,15}
@@ -87,10 +26,10 @@ When the `Type` attribute is set to **Range**, the control prevents the form fro
   <table>
     <tr>
       <td>
-        <Label For="txtQuantity" Text="Number of Tickets" /> 
+        <Label For="txtQuantity" Text="Number of Tickets" />
         <TextBox Id="txtQuantity" DataField="Quantity" DataType="int32" />
-        <Validate Type="range" Target="txtQuantity" MinimumValue="1" MaximumValue="5" 
-          Message="You can only order between 1 and 5 tickets" DataType="Integer" />
+        <Validate Type="Range" Target="txtQuantity" MinimumValue="1" MaximumValue="5"
+                  DataType="Integer" Message="You can only order between 1 and 5 tickets" />
       </td>
     </tr>
     <tr>
@@ -103,17 +42,36 @@ When the `Type` attribute is set to **Range**, the control prevents the form fro
 </AddForm>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Range` | | Identifies this as a Range validator |
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | control ID | | ID of the control to validate |
+| [MinimumValue](#prop-minimumvalue) | string | | Lowest allowed value (inclusive) |
+| [MaximumValue](#prop-maximumvalue) | string | | Highest allowed value (inclusive) |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [DataType](#prop-datatype) | `String` `Integer` `Double` `Date` `Currency` | `String` | How the values should be parsed for comparison |
+| [Display](#prop-display) | `Static` `Dynamic` | `Dynamic` | Whether the validator reserves layout space when no error is shown |
+| [EnableClientScript](#prop-enableclientscript) | `True` `False` | `True` | When `True`, validation runs in the browser as well as on the server |
+| Height | [size](../unit-types.md) | | Height of the validator's error display |
+| [Message](#prop-message) | string | | Text shown in the `<ValidationSummary>` when validation fails |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when validation fails |
+| Width | [size](../unit-types.md) | | Width of the validator's error display |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| BackColor | color name \| #dddddd | Background color of the validator's error display |
+| BorderColor | color name \| #dddddd | Border color |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style |
+| BorderWidth | [size](../unit-types.md) | Border width |
 | Font-Bold | `True` `False` | Bold text |
 | Font-Italic | `True` `False` | Italic text |
 | Font-Names | string | Font family name |
@@ -121,6 +79,26 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
 | Font-Strikeout | `True` `False` | Strikethrough text decoration |
 | Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| ForeColor | color name \| #dddddd | Text color. **Note:** the validator hard-codes red, bold text by default. If you set `CssClass`, XMP automatically clears `ForeColor` so your stylesheet's color rules take effect |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `Range` to identify this as a Range validator.
+
+*   <span id="prop-target">**Target**</span>: The `ID` of the form control whose value should be checked.
+
+*   <span id="prop-minimumvalue">**MinimumValue**</span>: The lowest allowed value, inclusive. Combine with `MaximumValue` to define the range.
+
+*   <span id="prop-maximumvalue">**MaximumValue**</span>: The highest allowed value, inclusive.
+
+*   <span id="prop-datatype">**DataType**</span>: How the values should be parsed before comparison. Defaults to `String` (literal text comparison). For numeric or date ranges, set to `Integer`, `Double`, `Date`, or `Currency` so the comparison is type-aware. **Tip:** if you forget to set `DataType` for a numeric range, "10" will sort *below* "5" because they're compared as strings.
+
+*   <span id="prop-message">**Message**</span>: The error text shown in the `<ValidationSummary>` (if you have one) when validation fails. If no `<ValidationSummary>` is present, this text appears at the validator's location instead.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when validation fails. Used together with `Message` and `<ValidationSummary>`: a short inline marker (`*`, `**`, or an icon) at the validator + the full sentence in the summary block.
+
+*   <span id="prop-display">**Display**</span>: Whether the validator reserves layout space even when no error is shown. `Dynamic` (the default) collapses to no space until validation fails. `Static` always reserves space.
+
+*   <span id="prop-enableclientscript">**EnableClientScript**</span>: When `True` (the default), the validator runs in the browser before the form is submitted, giving the user immediate feedback. Set to `False` to force server-side-only validation.
