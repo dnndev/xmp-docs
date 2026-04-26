@@ -3,96 +3,19 @@ id: form-captcha
 title: Captcha
 category: Input Controls
 context: form
-summary: The Captcha tag renders as a CAPTCHA control at run time.
+summary: The Captcha tag renders a CAPTCHA challenge to help verify the user is human and reduce automated form spam.
 keywords:
   - captcha
   - form
+since: '1.0'
 ---
 # `<Captcha>`
 
-The Captcha tag renders as a CAPTCHA control at run time.
+The Captcha tag renders a CAPTCHA challenge — an image of distorted characters the user must read and type — to help confirm the user is human. If your forms are public, web bots will eventually find them and submit junk; a CAPTCHA reduces the frequency of those submissions.
 
 ::: warning NOTE
 Due to a limitation in the underlying DNN CAPTCHA control, this tag can only be used in the FormView module.
 :::
-
-## Syntax
-```html
-<Captcha 
-    BackColor="color name|#dddddd" 
-    BackgroundColor="color name|#dddddd" 
-    BackgroundImage="url" 
-    BorderColor="color name|#dddddd" 
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset" 
-    BorderWidth="size" 
-    CaptchaChars="string"
-    CaptchaHeight="size"
-    CaptchaLength="integer"
-    CaptchaWidth="size"
-    CssClass="string" 
-    ErrorMessage="string" 
-    ErrorStyle-BackColor="color name|#dddddd"
-    ErrorStyle-BorderColor="color name|#dddddd"
-    ErrorStyle-BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|OutSet"
-    ErrorStyle-BorderWidth="size"
-    ErrorStyle-Font-Bold="True|False"
-    ErrorStyle-Font-Italic="True|False" 
-    ErrorStyle-Font-Names="string" 
-    ErrorStyle-Font-Overline="True|False" 
-    ErrorStyle-Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
-    ErrorStyle-Font-Strikeout="True|False" 
-    ErrorStyle-Font-Underline="True|False" 
-    ErrorStyle-ForeColor="color name|#dddddd" 
-    Expiration="integer"
-    Font-Bold="True|False" 
-    Font-Italic="True|False" 
-    Font-Names="string" 
-    Font-Overline="True|False" 
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large" 
-    Font-Strikeout="True|False" 
-    Font-Underline="True|False" 
-    ForeColor="color name|#dddddd" 
-    Height="size" 
-    ID="string" 
-    Text="string"
-    Width="size"
-/> 
-```
- 
-## Remarks
-
-If your forms are available to the public, chances are you'll get web 'bots filling in those forms with bogus information. To help protect against this, you can add a CAPTCHA control to your form. The control attempts to prove the user is an actual human by asking them to view a series of characters and typing those characters into a box for verification. The characters are rendered as an image and are skewed and obfuscated so that (hopefully) only a human could read them. While it is no guarantee your forms won't get spammed, the control typically reduces the frequency of those attacks.
-
-*   **BackgroundColor**: Gets and sets the background color.  
-
-*   **BackgroundImage**: A URL to an image file to use as the background on which the characters will be placed. (optional).  
-
-*   **CaptchaChars**: If you wish to specify your own characters that will be used to make up the code the user must type, you can specify them in this property.  
-
-*   **CaptchaHeight**: The height of the area in which the characters will be displayed.  
-
-*   **CaptchaLength**: The number of characters to use for the code.  
-
-*   **CaptchaWidth**: The width of the area in which the characters will be displayed.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **ErrorMessage**: The message to display to the user if Captcha validation failed.  
-
-*   **ErrorStyle**: The style to use for displaying the error message. ErrorStyle is specified using the following syntax: `ErrorStyle-styleAttributeName` where _styleAttributeName_ is the name of the style attribute such as `ForeColor` or `Font-Bold`. See the syntax section above for more.  
-
-*   **Expiration**: Gets and sets the Expiration time in seconds.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
-
-*   **Text**: The caption to display.  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 ## Example
 ```html {18}
@@ -101,13 +24,13 @@ If your forms are available to the public, chances are you'll get web 'bots fill
   <table>
     <tr>
       <td>
-        <Label For="txtFirstName" Text="First Name" /> 
+        <Label For="txtFirstName" Text="First Name" />
         <Textbox id="txtFirstName" DataField="FirstName" DataType="string" />
       </td>
     </tr>
     <tr>
       <td>
-        <Label For="txtLastName" Text="First Name" /> 
+        <Label For="txtLastName" Text="Last Name" />
         <Textbox Id="txtLastName" DataField="LastName" DataType="string" />
        </td>
     </tr>
@@ -118,17 +41,44 @@ If your forms are available to the public, chances are you'll get web 'bots fill
     </tr>
     <tr>
       <td colspan="2">
-        <AddbButton Text="Add"/>&nbsp; <CancelButton Text="Cancel"/>
+        <AddButton Text="Add"/>&nbsp; <CancelButton Text="Cancel"/>
       </td>
     </tr>
   </table>
 </AddForm>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ID](#prop-id) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Unique identifier for the control within the form |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| BackgroundColor | color name \| #dddddd | | Background color used behind the CAPTCHA characters |
+| BackgroundImage | URL | | URL to an image file used as the background behind the characters |
+| [CaptchaChars](#prop-captchachars) | string | `abc...XYZ23456789` | Character set used to generate the challenge text |
+| CaptchaHeight | [size](../unit-types.md) | `100px` | Height of the CAPTCHA image |
+| CaptchaLength | integer | `6` | Number of characters in the challenge |
+| CaptchaWidth | [size](../unit-types.md) | `300px` | Width of the CAPTCHA image |
+| CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| ErrorMessage | string | (localized) | Message shown to the user if their input does not match the challenge |
+| [ErrorStyle](#prop-errorstyle) | style attributes | | Styling for the error message — uses ASP.NET nested style syntax (e.g. `ErrorStyle-ForeColor="red"`) |
+| Expiration | integer (seconds) | `120` | How long the challenge remains valid before it must be regenerated |
+| Height | [size](../unit-types.md) | | Height of the control |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| Text | string | (localized) | Caption displayed next to the CAPTCHA image (e.g. "Enter the code shown above") |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -145,4 +95,14 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Underline | `True` `False` | Underline text decoration |
 | ForeColor | color name \| #dddddd | Text color of the control |
 
+The `ErrorStyle` property accepts the same set of nested style attributes (e.g. `ErrorStyle-Font-Bold`, `ErrorStyle-ForeColor`). These are likewise deprecated — prefer styling the error message via CSS targeting the rendered error element.
+
 </details>
+
+## Property Details
+
+*   <span id="prop-id">**ID**</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.
+
+*   <span id="prop-captchachars">**CaptchaChars**</span>: The pool of characters from which challenge text is randomly drawn. The default set deliberately omits visually ambiguous characters (such as `O`, `0`, `I`, `1`) to reduce user errors. Override this only if you have a specific reason — for example, to limit the challenge to digits or to avoid characters that don't render well in your chosen font.
+
+*   <span id="prop-errorstyle">**ErrorStyle**</span>: Styling for the error message displayed when the user's input doesn't match the challenge. Uses ASP.NET nested style syntax: prefix any deprecated style attribute with `ErrorStyle-` (e.g. `ErrorStyle-ForeColor="red"`, `ErrorStyle-Font-Bold="True"`). For modern styling, prefer CSS targeting the rendered error element.
