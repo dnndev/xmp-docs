@@ -3,103 +3,63 @@ id: form-continue-button
 title: 'xmod:ContinueButton'
 category: Buttons
 context: form
-summary: >-
-  The ContinueButton tag renders as a push-button at run-time. It is only valid
-  within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`. When clicked, the
-  user is returned either to the page that would have been displayed after
-  successfully submitting the form or to the URL specified in the Redirect
-  attribute.
+summary: The ContinueButton tag renders a push-button inside an AddSuccessTemplate or EditSuccessTemplate that returns the user to the page they came from or to a custom URL.
 keywords:
   - continue
   - button
   - form
+since: '1.0'
+related:
+  - continue-image
+  - continue-link
 ---
 # `<xmod:ContinueButton>`
 
-The ContinueButton tag renders as a push-button at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>`. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.
+The ContinueButton tag renders a push-button used inside an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` — the optional "thank you" view shown after a form is successfully submitted. When clicked, the user is sent to the page they would have seen if no success template had been displayed, or to the URL specified in `Redirect`.
 
-## Syntax
-```html
-<xmod:ContinueButton  
-    AccessKey="string"
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    OnClientClick="string"
-    Redirect="url"
-    RedirectMethod="Get|Post"
-    Style="string"
-    TabIndex="integer"
-    Text="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size"
-/> 
-```
-
-## Remarks
-
-*   The ContinueButton should only be used in `<AddSuccessTemplate>` and `<EditSuccessTemplate>` tags. It's purpose is to return the user to the page he/she would have seen if no success template was displayed or to send the user to the URL of your choice via the Redirect attribute.  
-
-*   Unlike other form controls, the ContinueButton control is really a template tag and, thus, begin with the "xmod:" prefix like so: `<xmod:ContinueButton>` rather than `<ContinueButton>`.   
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Redirect**: Enables you to redirect the user to an alternative URL after the button is clicked. The redirection occurs after any form processes initiated by the button click completes.  
-
-*   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
-
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **Text**: The caption that will be displayed on the button.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).
-
-
+::: info xmod: prefix required
+Unlike the other Add/Update/Cancel buttons, ContinueButton, ContinueImage, and ContinueLink are *template tags* — they live inside `<…SuccessTemplate>`, not inside the form itself — so they require the `xmod:` prefix. Use `<xmod:ContinueButton>` rather than `<ContinueButton>`.
+:::
 
 ## Example
-```html {9-10}
+```html {6-7}
 <AddForm>
   ...
 </AddForm>
 
 <AddSuccessTemplate>
-<ItemTemplate>
+  <ItemTemplate>
     <h1>Thanks for Signing Up</h1>
-      <p>Click the button below to go to your profile page</p>
-      <xmod:ContinueButton Text="View Your Profile" 
-        Redirect="http://mysite.com/profile" RedirectMethod="Get" />
-</ItemTemplate>
+    <p>Click the button below to go to your profile page.</p>
+    <xmod:ContinueButton Text="View Your Profile"
+                         Redirect="http://mysite.com/profile" RedirectMethod="Get" />
+  </ItemTemplate>
 </AddSuccessTemplate>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| Text | string | | Caption displayed on the button |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| Height | [size](../unit-types.md) | | Height of the control |
+| ID | string | | Unique identifier for the control within the form |
+| [OnClientClick](#prop-onclientclick) | JavaScript | | Client-side script to run when the button is clicked |
+| [Redirect](#prop-redirect) | URL | | URL the user is redirected to. If omitted, the user is returned to the page they would have seen if the success template hadn't been displayed |
+| [RedirectMethod](#prop-redirectmethod) | `Get` `Post` | `Get` | HTTP method used for the redirect |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the control |
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -117,3 +77,11 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-onclientclick">**OnClientClick**</span>: A JavaScript expression to run when the button is clicked, before the redirect happens. If your script returns `false`, the button does nothing further. If it returns `true` (or doesn't return anything), the button proceeds normally.
+
+*   <span id="prop-redirect">**Redirect**</span>: After the click, redirect the user to this URL. If omitted, the user is sent to the page they would have seen if the success template hadn't been shown — typically the page that contained the form.
+
+*   <span id="prop-redirectmethod">**RedirectMethod**</span>: The HTTP method used for the redirect. `Get` (the default) appends form values as query string parameters. `Post` submits them as a form POST.

@@ -3,112 +3,66 @@ id: form-continue-image
 title: 'xmod:ContinueImage'
 category: Buttons
 context: form
-summary: >-
-  The ContinueImage tag renders as a clickable image at run-time. It is only
-  valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When
-  clicked, the user is returned either to the page that would have been
-  displayed after successfully submitting the form or to the URL specified in
-  the Redirect attribute.
+summary: The ContinueImage tag renders a clickable image inside an AddSuccessTemplate or EditSuccessTemplate that returns the user to the page they came from or to a custom URL.
 keywords:
   - continue
   - image
   - form
+since: '1.0'
+related:
+  - continue-button
+  - continue-link
 ---
 # `<xmod:ContinueImage>`
 
-The ContinueImage tag renders as a clickable image at run-time. It is only valid within an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` tag. When clicked, the user is returned either to the page that would have been displayed after successfully submitting the form or to the URL specified in the Redirect attribute.
+The ContinueImage tag renders a clickable image used inside an `<AddSuccessTemplate>` or `<EditSuccessTemplate>` — same behavior as [`<xmod:ContinueButton>`](continue-button.md), just rendered as an image.
 
-## Syntax
-```html
-<xmod:ContinueImage
-    AccessKey="string"
-    AlternateText="string"
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"
-    ImageUrl="url"
-    OnClientClick="string"
-    Redirect="url"
-    RedirectMethod="Get|Post"
-    Style="string"
-    TabIndex="integer"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size"  
- />  
-```
-
-## Remarks
-
-*   The ContinueImage tag should only be used in `<AddSuccessTemplate>` and `<EditSuccessTemplate>` tags. It's purpose is to return the user to the page he/she would have seen if no success template was displayed or to send the user to the URL of your choice via the Redirect attribute.  
-
-*   Unlike other form controls, the ContinueImage control is really a template tag and, thus, begins with the "xmod:" prefix like so: `<xmod:ContinueImage>` rather than `<ContinueImage>`.  
-
-*   **AccessKey**: In browsers that support it, this property can be set to a character on the keyboard that can be used to set focus to the control. For instance, setting the value to F allows the user to access the control by pressing Alt+F on their keyboard (for Windows machines).  
-
-*   **AlternateText**: Use this attribute's value will be used as the image's `alt` text. The `alt` text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.  
-
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
-
-*   **ImageUrl**: Specify a URL to the image. You may use the tilde (`~`) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Redirect**: Enables you to redirect the user to an alternative URL after the button is clicked. The redirection occurs after any form processes initiated by the button click completes.  
-
-*   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
-
-*   **Style**: Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **TabIndex**: Sets the tab index for the control.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).
-
-
+::: info xmod: prefix required
+ContinueImage is a *template tag* (it lives inside `<…SuccessTemplate>`, not inside the form itself), so it requires the `xmod:` prefix. Use `<xmod:ContinueImage>` rather than `<ContinueImage>`.
+:::
 
 ## Example
-```html {9-12}
+```html {6-9}
 <AddForm>
   ...
 </AddForm>
 
-<AddSuccessTemplate
+<AddSuccessTemplate>
   <ItemTemplate>
     <h1>Thanks for Signing Up</h1>
-    <p>Click the button below to go to your profile page</p>
-    <xmod:ContinueImage AlternateText="View Your Profile" 
-                        Redirect="http://mysite.com/profile" 
-                        RedirectMethod="Get" 
+    <p>Click the button below to go to your profile page.</p>
+    <xmod:ContinueImage AlternateText="View Your Profile"
+                        Redirect="http://mysite.com/profile" RedirectMethod="Get"
                         ImageUrl="~/images/profile.gif"/>
   </ItemTemplate>
 </AddSuccessTemplate>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ImageUrl](#prop-imageurl) | URL | | Path to the image file to display |
+| AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
+| AlternateText | string | | Alt text for accessibility (screen readers) and search engines |
+| CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive) |
+| Height | [size](../unit-types.md) | | Height of the image |
+| ID | string | | Unique identifier for the control within the form |
+| ImageAlign | `NotSet` `Left` `Right` `Baseline` `Top` `Middle` `Bottom` `AbsBottom` `AbsMiddle` `TextTop` | `NotSet` | Alignment of the image with respect to surrounding content |
+| [OnClientClick](#prop-onclientclick) | JavaScript | | Client-side script to run when the image is clicked |
+| [Redirect](#prop-redirect) | URL | | URL the user is redirected to. If omitted, the user is returned to the page they would have seen if the success template hadn't been displayed |
+| [RedirectMethod](#prop-redirectmethod) | `Get` `Post` | `Get` | HTTP method used for the redirect |
+| Style | string | | Inline CSS (e.g. `color: red; border: solid 1px black;`) |
+| TabIndex | integer | | Tab order for keyboard navigation |
+| ToolTip | string | | Text displayed on mouse hover |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| Width | [size](../unit-types.md) | | Width of the image |
+
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
@@ -126,3 +80,13 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | ForeColor | color name \| #dddddd | Text color of the control |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-imageurl">**ImageUrl**</span>: Path to the image file. The tilde (`~`) represents the application root, so `ImageUrl="~/images/continue.gif"` resolves to `/dnntestsite/images/continue.gif` on a development install and `/images/continue.gif` on production.
+
+*   <span id="prop-onclientclick">**OnClientClick**</span>: A JavaScript expression to run when the image is clicked, before the redirect happens. If your script returns `false`, the button does nothing further.
+
+*   <span id="prop-redirect">**Redirect**</span>: After the click, redirect the user to this URL. If omitted, the user is sent to the page they would have seen if the success template hadn't been shown — typically the page that contained the form.
+
+*   <span id="prop-redirectmethod">**RedirectMethod**</span>: The HTTP method used for the redirect. `Get` (the default) appends form values as query string parameters. `Post` submits them as a form POST.
