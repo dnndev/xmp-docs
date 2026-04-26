@@ -3,79 +3,92 @@ id: form-script-block
 title: ScriptBlock
 category: Scripting
 context: form
-summary: >-
-  The ScriptBlock tag is used to inject HTML `<script>` tags into one of several
-  different locations in the page. Typically this is used to insert Javascript
-  functions and/or libraries into the page. You can also insert `<style>` tags
-  into the page using this tag.
+summary: Injects a `<script>` block (or external script file) into one of several locations in the rendered page. Includes deduplication via `ScriptId` and conditional registration via `If`.
 keywords:
   - script
   - block
   - form
+since: '1.0'
+related:
+  - jquery-ready
+  - include
 ---
+
 # `<ScriptBlock>`
 
-The ScriptBlock tag is used to inject HTML `<script>` tags into one of several different locations in the page. Typically this is used to insert Javascript functions and/or libraries into the page. You can also insert `<style>` tags into the page using this tag.
+`<ScriptBlock>` registers a JavaScript block (or an external script file) with the hosting page so it ends up in the head, body-top, or body-bottom of the rendered HTML. The block is identified by `ScriptId`, which lets the same script appear in multiple forms or templates without rendering twice when `RegisterOnce="True"`.
 
-## Syntax
-```html
-<ScriptBlock
-    ScriptId="string"
-    BlockType="HeadScript|ClientScript|StartupScript|ClientScriptInclude"
-    RegisterOnce="True|False"
-    Url="url">
-
-    <script type="text/javascript">
-      ...Javascript...
-    </script>
-
-</ScriptBlock>
-```
-
-
-## Remarks
-
-*   **ScriptId** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: This is an identifier for your block that uniquely identifies it within the hosting page - across modules. It is used when registering your script block and is required in order to prevent the block from being inserted more than once in the page.  
-
-*   **BlockType**: This attribute allows you to specify which where in the page the scrip should be rendered. The default value is ClientScript
-    *   `HeadScript`: The script block will be inserted between the `<head>` and `</head>` section of the page.
-    *   `ClientScript`: The script block will be inserted near the top of the page. This is the default.
-    *   `ClientScriptInclude`: Use this block type to insert a `<script>` tag that links to an external file. This is useful for including Javascript libraries.
-    *   `StartupScript`: The script block will be inserted near the bottom of the page.  
-
-*   **RegisterOnce**: If this value is set to True, the tag will first check to see if a code block with ScriptId has been registered in the page. If not, it will register your block. If it has been registered already, then no action is taken. If this value is False, the default value, then your script block will be inserted, regardless of any previously registered block. The RegisterOnce is only available for ClientScript, ClientScriptInclude, and StartupScript block types.  
-
-*   **Url**: If the BlockType is set to ClientScriptInclude, this is the path to the Javascript file you wish to include. It is ignored if BlockType is set to a different value. You may optionally use the tilde (`~`) character in the URL to represent the path to the root of the web application.
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` tags — wrap it in a CDATA section if your script contains characters that confuse the XML parser.
 
 ## Example
+
 ```html {2-14}
 <AddForm>
-<ScriptBlock ScriptId="AlertScripts" RegisterOnce="true">
-  <script type="text/javascript">
-    function helloWorld(){
-      alert('Hello World');
-    }
-    function goodbyeWorld(){
-      alert('Goodbye Cruel World');
-    }
-    function showMessage(sMessage){
-      alert(sMessage);
-    }
-  </script>
-</ScriptBlock>
-  <table width="100%">
+  <ScriptBlock ScriptId="AlertScripts" RegisterOnce="True">
+    <script type="text/javascript">
+      function helloWorld() {
+        alert('Hello World');
+      }
+      function goodbyeWorld() {
+        alert('Goodbye Cruel World');
+      }
+      function showMessage(sMessage) {
+        alert(sMessage);
+      }
+    </script>
+  </ScriptBlock>
+  <table>
     <tr>
-      <td width="250" valign="top">
-        
-        <!-- SCRIPT BLOCK EXAMPLE -->
+      <td>
         <a href="#" onclick="helloWorld();">Hello World</a><br />
         <a href="#" onclick="goodbyeWorld();">Goodbye</a><br />
-        <a href="#" onclick="showMessage('Hello and Goodbye')">Show Message</a>
-       
+        <a href="#" onclick="showMessage('Hello and Goodbye');">Show Message</a>
       </td>
     </tr>
   </table>
-</AddForm>  
+</AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [ScriptId](#prop-scriptid) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Unique identifier used to deduplicate the script across the page |
+| [BlockType](#prop-blocktype) | `ClientScript` `StartupScript` `HeadScript` `ClientScriptInclude` | `ClientScript` | Where in the page the script is rendered |
+| [RegisterOnce](#prop-registeronce) | `True` `False` | `False` | When `True`, skip registration if the same `ScriptId` is already on the page |
+| [Url](#prop-url) | URL | | Used only with `BlockType="ClientScriptInclude"` — the path to the external `.js` file |
+| [If](#prop-if) | expression | | When set and the expression is false, the script is not registered _(since v5.0)_ |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Property Details
+
+*   <span id="prop-scriptid">**ScriptId**</span>: A page-wide unique identifier. When `RegisterOnce="True"`, XMP checks whether a script with this ID has already been registered (by another `<ScriptBlock>`, another module, or DNN itself) and skips this block if so. Choose names specific enough to avoid collisions — `"AcmeXmpFormHelpers"` is safer than `"helpers"`.
+
+*   <span id="prop-blocktype">**BlockType**</span>: Where the script lands in the rendered HTML.
+
+    | Value | Location |
+    |-------|----------|
+    | `ClientScript` _(default)_ | Near the top of the page body |
+    | `StartupScript` | Near the bottom of the page body — runs after most of the DOM is in place |
+    | `HeadScript` | Inside the page's `<head>` |
+    | `ClientScriptInclude` | Renders a `<script src="...">` reference to the file at `Url` |
+
+*   <span id="prop-registeronce">**RegisterOnce**</span>: When `True`, the script is registered only if no other script with the same `ScriptId` is already on the page. Use this when the same form (or several forms sharing a helper) might be rendered more than once on a single page. `RegisterOnce` applies to `ClientScript`, `StartupScript`, and `ClientScriptInclude` block types.
+
+*   <span id="prop-url">**Url**</span>: When `BlockType="ClientScriptInclude"`, the path to the external `.js` file. Tilde (`~`) is supported for site-root-relative paths. Ignored for other block types.
+
+    ```html
+    <ScriptBlock ScriptId="AcmeUtils"
+                 BlockType="ClientScriptInclude"
+                 Url="~/scripts/acme-utils.js"
+                 RegisterOnce="True" />
+    ```
+
+*   <span id="prop-if">**If**</span>: A simple equality expression evaluated when the form renders. When the expression is false (or resolves to `false` or `0`), the script is not registered. When the property is omitted, the script is always registered (the v4.x behavior). Use `=` for equality and `<>` for inequality.
+
+    ```html
+    <ScriptBlock ScriptId="DebugHelpers" If="[[User:IsHost]] = True">
+      <script>console.log('XMP debug helpers loaded');</script>
+    </ScriptBlock>
+    ```

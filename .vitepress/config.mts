@@ -188,6 +188,7 @@ export default defineConfig({
           { text: 'Validate Required', link: '/form-controls/validate-required' },
           { text: 'Validate XML', link: '/form-controls/validate-xml' },
           { text: 'Validation Summary', link: '/form-controls/validation-summary' },
+          { text: 'Variable', link: '/form-controls/variable' },
         ]
       },
       {

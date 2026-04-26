@@ -3,63 +3,28 @@ id: form-tabstrip
 title: Tabstrip
 category: Layout
 context: form
-summary: >-
-  The Tabstrip tag renders as a series of tabs that, when clicked, shows the
-  corresponding content within that tab. This control requires that Javascript
-  be enabled in the browser to function correctly.
+summary: Renders a tabbed UI with each `<Tab>` showing different content. Useful for breaking a long form into manageable sections.
 keywords:
   - tabstrip
   - form
+since: '1.0'
+related:
+  - panel
 ---
+
 # `<Tabstrip>`
 
-The Tabstrip tag renders as a series of tabs that, when clicked, shows the corresponding content within that tab. This control requires that Javascript be enabled in the browser to function correctly.
+`<Tabstrip>` renders a row of tabs along the top of a region, each with its own panel of content below. Clicking a tab swaps the visible panel. Add `<Tab>` child tags — one per tab — and place the form's content inside each.
 
-## Syntax
-```html
-<Tabstrip
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    HoverBackColor="color name|#dddddd"
-    HoverForeColor="color name|#dddddd"
-    SelectedBackColor="color name|#dddddd"
-    SelectedForeColor="color name|#dddddd"
-    ShowPanelBorders="True|False"
-    Visible="True|False"
-    Width="size">
-    <Tab text="string">
-       ...HTML/Text Content...
-    </Tab>
-    ...Additional <Tab> tags as needed...
-</Tabstrip>
-```
+The control is helpful for breaking long forms into shorter, focused sections (e.g. *Contact Info*, *Notes*, *Preferences*). Tab switching is handled in JavaScript with no postback.
 
-## Remarks
-
-This tag allows you to create a tabbed user interface for your form much like a Rolodex or set of manila folders. When a tab is clicked, it becomes the selected tab and its associated content is shown, while any previously visible tab content is hidden. The tabstrip relies on and requires that Javascript be enabled in your users' browsers. Using the `<Tabstrip>` control you can quickly create an attractive interface to turn larger forms into paged forms, presenting data to the user in smaller, more manageable chunks.
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).
-*   **HoverBackColor**: Color of the background of each tab when the mouse hovers over it.
-*   **HoverForeColor**: Color of the text in the tab when the mouse hovers over it.
-*   **SelectedBackColor**: Color of the background of the currently selected tab.
-*   **SelectedForeColor**: Color of the text of the currently selected tab.
-*   **ShowPanelBorders**: Determines if the tab panels have visible borders (true) or not (false).
-*   **Visible**: Determines if the control is visible (true) or hidden (false).
-*   **Width**: Width of the control in [units](../unit-types.md).
-
-
+::: warning JavaScript required
+`<Tabstrip>` relies on inline JavaScript for tab switching. If JavaScript is disabled in the browser, the user only sees the first tab's content.
+:::
 
 ## Example
-```html {3-5,24-25,33-34}
+
+```html {3-4,7,28}
 <AddForm>
   ...
   <Tabstrip Font-Bold="True" Font-Names="Arial,Helvetica,sans-serif"
@@ -67,20 +32,12 @@ This tag allows you to create a tabbed user interface for your form much like a 
     <Tab Text="Customer Info">
       <table>
         <tr>
-          <td>
-            <Label For="txtFirstName" Text="First Name" />
-          </td>
-          <td>
-            <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
-          </td>
+          <td><Label For="txtFirstName" Text="First Name" /></td>
+          <td><TextBox Id="txtFirstName" DataField="FirstName" DataType="String" /></td>
         </tr>
         <tr>
-          <td>
-            <Label For="txtLastName" Text="Last Name" />
-          </td>
-          <td>
-            <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
-          </td>
+          <td><Label For="txtLastName" Text="Last Name" /></td>
+          <td><TextBox Id="txtLastName" DataField="LastName" DataType="String" /></td>
         </tr>
       </table>
     </Tab>
@@ -88,34 +45,64 @@ This tag allows you to create a tabbed user interface for your form much like a 
       <table>
         <tr>
           <td colspan="2">
-            <TextArea Id="taNotes" DataField="Notes" DataType="string"/>
+            <TextArea Id="taNotes" DataField="Notes" DataType="String" />
           </td>
         </tr>
       </table>
     </Tab>
   </Tabstrip>
-  <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
+  <AddButton Text="Add" /> <CancelButton Text="Cancel" />
 </AddForm>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ShowPanelBorders | `True` `False` | `True` | When `True`, draws borders around each tab's content panel |
+| Width | [size](../unit-types.md) | `100%` | Width of the tabstrip |
+| Height | [size](../unit-types.md) | | Height of the tabstrip |
+| Align | `left` `center` `right` | `left` | Horizontal alignment of the tabs row |
+| Visible | `True` `False` | `True` | Shows or hides the tabstrip |
+
 <details>
-<summary>Deprecated Properties</summary>
+<summary>Deprecated Properties (styling)</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+The tabstrip exposes several legacy color and font properties that produce inline styles. Modern stylesheets should override the rendered tabstrip's CSS instead.
 
-| Property | Values | Description |
-|----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
-| Font-Bold | `True` `False` | Bold text |
-| Font-Italic | `True` `False` | Italic text |
-| Font-Names | string | Font family name |
-| Font-Overline | `True` `False` | Overline text decoration |
-| Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
-| Font-Strikeout | `True` `False` | Strikethrough text decoration |
-| Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| BackColor | color name \| #dddddd | `#CCCCCC` | Tab background color |
+| BorderColor | color name \| #dddddd | `#000000` | Tab border color |
+| ForeColor | color name \| #dddddd | `#000000` | Tab text color |
+| SelectedBackColor | color name \| #dddddd | `#FFFFFF` | Background of the active tab |
+| SelectedForeColor | color name \| #dddddd | `#000000` | Text color of the active tab |
+| HoverBackColor | color name \| #dddddd | `#000000` | Background when hovering a tab |
+| HoverForeColor | color name \| #dddddd | `#FFFFFF` | Text color when hovering a tab |
+| Font-Bold | `True` `False` | `False` | Bold tab labels |
+| Font-Italic | `True` `False` | | Italic tab labels |
+| Font-Names | string | Verdana, Tahoma, Arial, Helvetica, sans-serif | Font family for tab labels |
+| Font-Overline | `True` `False` | | Overline text decoration |
+| Font-Size | size | `11pt` | Font size of the tab labels |
+| Font-Strikeout | `True` `False` | | Strikethrough |
+| Font-Underline | `True` `False` | | Underline |
 
 </details>
+
+## Child Tags
+
+| Tag | Required | Description |
+|-----|----------|-------------|
+| [`<Tab>`](#child-tab) | required | One per tab. Place each tab's HTML and form controls between `<Tab>` and `</Tab>` |
+
+### <span id="child-tab">`<Tab>`</span>
+
+Each `<Tab>` declares one tab in the tabstrip. The first tab is selected by default.
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| Text <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | The label shown on the tab |
+
+The content between `<Tab>` and `</Tab>` is what appears in the tab's panel — any HTML, form controls, or nested layout tags are allowed.
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required attribute

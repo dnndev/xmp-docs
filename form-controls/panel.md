@@ -3,156 +3,97 @@ id: form-panel
 title: Panel
 category: Layout
 context: form
-summary: >-
-  The Panel tag is a container tag that holds other tags and HTML. It can be
-  used just as a container, making it easy to set the container's colors and
-  borders. Primarily, though, it is used to show/hide parts of the form based on
-  what role the current user is in. So, for instance, you can include controls
-  that will only be available to administrators or editors or registered users,
-  etc.
+summary: A container tag for grouping form content. Use it as a layout wrapper or to conditionally show/hide content based on the user's roles or a runtime expression.
 keywords:
   - panel
   - form
+since: '1.0'
+related:
+  - tabstrip
+  - label
 ---
+
 # `<Panel>`
 
-The Panel tag is a container tag that holds other tags and HTML. It can be used just as a container, making it easy to set the container's colors and borders. Primarily, though, it is used to show/hide parts of the form based on what role the current user is in. So, for instance, you can include controls that will only be available to administrators or editors or registered users, etc.
+`<Panel>` is a container tag — like an HTML `<div>` — that groups related form content. Beyond layout, its main use is conditional rendering: show some controls only to administrators, or only when a particular field has a particular value.
 
-## Syntax
-```html
-<Panel 
-    AccessKey="string" 
-    BackColor="color name|#dddddd" 
-    BackImageUrl="uri" 
-    BorderColor="color name|#dddddd" 
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|Inset|Outset" 
-    BorderWidth="size" 
-    CssClass="string" 
-    DefaultButton="string"
-    Font-Bold="True|False" 
-    Font-Italic="True|False" 
-    Font-Names="string" 
-    Font-Overline="True|False" 
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium|Large|X-Large|XX-Large" 
-    Font-Strikeout="True|False" 
-    Font-Underline="True|False" 
-    ForeColor="color name|#dddddd" 
-    Height="size" 
-    HorizontalAlign="NotSet|Left|Center|Right|Justify" 
-    ID="string" 
-    ScrollBars="None|Horizontal|Vertical|Both|Auto" 
-    ShowIf="Expression"
-    ShowRoles="Role1Name,Role2Name"
-    Style="string" 
-    Visible="True|False" 
-    Width="size" 
-    Wrap="True|False"> 
+Use `ShowRoles` to gate the panel by DNN security role, `ShowIf` to gate it by a runtime expression, or both — the panel renders only when both conditions pass.
 
-      ...HTML, Text, and Control Tags...
- 
-</Panel>     
-```
+::: tip Testing role-gated panels
+When testing `ShowRoles`, log out of the host/superuser account first. Host accounts see all panels regardless of `ShowRoles`, so a panel can look correct in your testing and still be hidden from your real users.
+:::
 
-## Remarks
+## Example — Show by role
 
-This tag can be used solely as a container (much like the DIV tag in HTML). More often, it will be used to only show portions of a form to members of particular roles. To do this, use the ShowRoles attribute.
-
-*   **AccessKey**: Gets or sets the access key that allows you to quickly navigate to the control.  
-
-*   **BackImageUrl**: Sets the URL of the background image for the panel control.  
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **DefaultButton**: Set this to the ID of a push-button `<AddButton>`, `<UpdateButton>` or `<CancelButton>` on your form and it will be "clicked" when the user presses the ENTER key.Link and Image buttons may work for this as well, but are not supported. Link buttons, for instance, work on IE but not in Firefox.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **HorizontalAlign**: Sets the horizontal alignment of controls within the panel.  
-
-*   **ID** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Name, consisting of letters and numbers, beginning with a letter, that uniquely identifies the control within the form.  
-
-*   **ScrollBars**: Sets the visibility and position of scroll bars for the control:
-    *   `None`: No scroll bars are shown (default)
-    *   `Horizontal`: Only a horizontal scroll bar is shown
-    *   `Vertical`: Only a vertical scroll bar is shown
-    *   `Both`: Both horizontal and vertical scroll bars are shown
-    *   `Auto`: Horizontal and/or vertical scroll bars are show - only if necessary  
-
-*   **ShowIf**: (New to version 4.7) An expression that, when it evaluates to True, shows the content inside the panel tag. This operates as a simple boolean check. If A = B or if A <> B.  
-    This property works in conjunction with the _ShowRoles_ property. If ShowRoles is not specified, then _ShowIf_ will determine if the content is shown. If ShowRoles is specified, then it must evaluate to True and _ShowIf_ must be True for the content to be shown. If _ShowRoles_ evaluates to False, then _EvaluateIf_ is ignored. The content will not be shown.
-    *   Example 1: `ShowIf="1=1"`. In this example we are taking the value of the number "1" and comparing it to "1". If they are equal, this evaluates to TRUE and the contents of panel tag are shown.
-
-        Example 2: `ShowIf="1=5"`. In this example we are taking the value of the number "1" and comparing it to "5". Since they are not equal, it evaluates to FALSE and no contents are shown.
-
-    *   Example 3: `ShowIf='[[Join("{0}=Kelly",[[Url:name]])]]'`. In this example, the passed-in name parameter is 'Kelly'.  
-
-*   **ShowRoles**: A comma-delimited list of security role names. When specified, only members of the security roles will be shown the content of the panel. Note that if you are logged-in as host, you will see the panel contents even though the account may not be a member of one of the specified roles. To accurately test the functionality, you should login as a Non-host/superuser account.  
-
-*   **Style**:Same as the HTML style attribute.It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-*   **Wrap**: If true (default), content within the panel wraps. If false, content does not wrap.  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
-
-## Examples
-### Show Panel Based on User Security Role
 ```html {3-5}
 <AddForm>
   ...
   <Panel ShowRoles="Editor">
-    <CheckBox Id="chkApproved" DataField="Approved" DataType="boolean" Text="Approved?" />
+    <Checkbox Id="chkApproved" DataField="Approved" DataType="Boolean" Text="Approved?" />
   </Panel>
   <table>
     <tr>
       <td>
-        <label For="txtFirstName" Text="First Name" /> 
-        <textbox Id="txtFirstName" DataField="FirstName" DataType="string" />
+        <Label For="txtFirstName" Text="First Name" />
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="String" />
       </td>
     </tr>
     <tr>
       <td>
-        <label For="txtLastName" Text="Last Name" /> 
-        <textbox Id="txtLastName" DataField="LastName" DataType="string" />
-       </td>
+        <Label For="txtLastName" Text="Last Name" />
+        <TextBox Id="txtLastName" DataField="LastName" DataType="String" />
+      </td>
     </tr>
     <tr>
-      <td colspan="2">
-        <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
-      </td>
+      <td colspan="2"><AddButton Text="Add" /> <CancelButton Text="Cancel" /></td>
     </tr>
   </table>
 </AddForm>
 ```
 
-### Show Panel Based on Url Parameter
+## Example — Show by URL parameter
+
 ```html {3-5}
 <AddForm>
   ...
-  <Panel ShowIf='[[Join("{0}=Kelly",[[Url:name]])]]' >
-
+  <Panel ShowIf='[[Join("{0}=Kelly",[[Url:name]])]]'>
+    <p>Welcome, Kelly!</p>
   </Panel>
 
-  <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
-
+  <AddButton Text="Add" /> <CancelButton Text="Cancel" />
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ID | string | | Unique identifier for the panel |
+| [ShowRoles](#prop-showroles) | comma-list | | Comma-delimited list of DNN role names. Panel renders only if the current user is in one of these roles |
+| [ShowIf](#prop-showif) | expression | | Expression evaluated at render time. Panel renders only when the expression is true _(since v4.7)_ |
+| [DefaultButton](#prop-defaultbutton) | control id | | ID of an `<AddButton>`, `<UpdateButton>`, or `<CancelButton>` "clicked" when the user presses Enter inside the panel |
+| HorizontalAlign | `NotSet` `Left` `Center` `Right` `Justify` | `NotSet` | Horizontal alignment of content inside the panel |
+| ScrollBars | `None` `Horizontal` `Vertical` `Both` `Auto` | `None` | Show scrollbars when the panel's content overflows |
+| Wrap | `True` `False` | `True` | When `False`, content does not wrap |
+| BackImageUrl | URL | | Background image for the panel |
+| AccessKey | string | | Keyboard shortcut character |
+| CssClass | string | | CSS class name(s) for styling |
+| Style | string | | Inline CSS |
+| Height | [size](../unit-types.md) | | Height of the panel |
+| Width | [size](../unit-types.md) | | Width of the panel |
+| Visible | `True` `False` | `True` | Shows or hides the panel |
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| BackColor | color name \| #dddddd | Background color |
+| BorderColor | color name \| #dddddd | Border color |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style |
+| BorderWidth | [size](../unit-types.md) | Border width |
 | Font-Bold | `True` `False` | Bold text |
 | Font-Italic | `True` `False` | Italic text |
 | Font-Names | string | Font family name |
@@ -160,6 +101,23 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
 | Font-Strikeout | `True` `False` | Strikethrough text decoration |
 | Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| ForeColor | color name \| #dddddd | Text color |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-showroles">**ShowRoles**</span>: A comma-delimited list of DNN role names. The panel renders only when the current user belongs to at least one of the listed roles. The host/superuser account sees the panel regardless — log in as a regular user to test the gate.
+
+*   <span id="prop-showif">**ShowIf**</span>: A simple equality expression evaluated each time the panel renders. When the result is true, the panel renders; when false, it doesn't. Comparisons are text-only and case-insensitive. Use `=` for equality and `<>` for inequality.
+
+    `ShowIf` and `ShowRoles` combine with AND semantics — when both are set, both must pass for the panel to render.
+
+    ```html
+    <Panel ShowIf="[[Country]] = US">
+      <Label For="txtState" Text="State" />
+      <TextBox Id="txtState" DataField="State" DataType="String" />
+    </Panel>
+    ```
+
+*   <span id="prop-defaultbutton">**DefaultButton**</span>: The `Id` of a button that should be clicked when the user presses Enter while focused inside the panel. Push-buttons (`<AddButton>`, `<UpdateButton>`, `<CancelButton>`) work reliably across browsers; link and image buttons may not.

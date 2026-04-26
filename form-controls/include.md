@@ -1,50 +1,39 @@
 ---
 id: form-include
 title: Include
-category: Structure
+category: Layout
 context: form
-summary: >-
-  The Include tag injects the raw contents of the specified file into the form
-  at the position of the tag. It is a good way to share HTML, script, text or
-  other blocks across multiple forms and templates - allowing you to make
-  changes in one file and have it propagate across all forms and templates where
-  the file is included.
+summary: Inserts the raw contents of an external file into the form at the location of the tag. Useful for sharing common HTML across multiple forms.
 keywords:
   - include
   - form
+since: '1.0'
+related:
+  - script-block
 ---
+
 # `<Include>`
 
-The Include tag injects the raw contents of the specified file into the form at the position of the tag. It is a good way to share HTML, script, text or other blocks across multiple forms and templates - allowing you to make changes in one file and have it propagate across all forms and templates where the file is included.
+`<Include>` reads the file at `FileName` and writes its raw contents into the form's output stream. Use it to share a common header, footer, disclaimer, or HTML block across multiple forms — change the file once and every form that includes it picks up the change.
 
-## Syntax
-```html
-<Include
-  FileName="string"
-/>
-```
+::: tip Use sparingly
+Each `<Include>` is a separate disk read every time the form renders. For most forms, one or two includes is fine. If you find yourself including the same fragment dozens of times in a single form, consider duplicating the markup or extracting it to a [`<ScriptBlock>`](script-block.md) (which has a `RegisterOnce` deduplication option).
+:::
 
-## Remarks
-
-The main purpose of the Include tag is to render the content of a file directly into the output stream. It is most beneficial if there is common HTML or text that you want to share among forms and templates. The content of the file is read-from and written to the stream in place of the Include tag. No formatting, processing, or checking occurs on the contents. The file must reside on your web server.
-
-Please note that every time XMP renders an Include tag, it attempts to read the file and then write its contents to the response stream. Take care to make sure not only include safe content, but also to not over-use the tag because it does involve a separate file operation each time the tag is rendered. In the vast majority of cases, there is no practical limit on the number of tags you can use. But like all programming, it's best to try and minimize your use of system resources as much as possible.
-
-## Attributes  
-
-*   **FileName** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: The full path and filename of the file to include. You may use the tilde (`~`) character to denote the root of the website or use a relative path: "/Portals/0/myfile.txt" and "~/Portals/0/myfile.txt" would be examples of what you could use.
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+::: warning Trust the contents
+The file is rendered verbatim — no escaping or sanitization. Only include files whose contents you control.
+:::
 
 ## Example
 
-In this example, you may have a file called CompanyHeader.html located in the "includes" directory of your website. This could be something simple like 
+You might keep a site-wide header in `~/includes/CompanyHeader.html`:
+
 ```html
 <h1>DNNDev.com</h1>
-<p><em>Makers of Cool DNN Tools since 2004</em></p>
+<p><em>Makers of Cool DNN Tools since 2004</em></p>
 ```
 
-By using the `<Include>` tag before the table, we're able to inject that HTML right into the form. Later, if we decide to change our name to _EvoqDev.com_ then we just need to change the **CompanyHeader.html** file and it will automatically change in every form and template in which it's used.
+Reference it from any form:
 
 ```html {2}
 <AddForm>
@@ -52,16 +41,35 @@ By using the `<Include>` tag before the table, we're able to inject that HTML ri
   <table>
     <tr>
       <td>
-        <Label For="txtFirstName" text="First Name" /> 
-        <Textbox id="txtFirstName" DataField="FirstName" DataType="string" />
+        <Label For="txtFirstName" Text="First Name" />
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="String" />
       </td>
     </tr>
     ...
     <tr>
-      <td colspan="2">
-        <AddButton Text="Add"/>&nbsp;<CancelButton Text="Cancel"/>
-      </td>
+      <td colspan="2"><AddButton Text="Add" /> <CancelButton Text="Cancel" /></td>
     </tr>
   </table>
 </AddForm>
 ```
+
+If the company name changes, update `CompanyHeader.html` once and every form that includes it picks up the new value.
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [FileName](#prop-filename) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | path | | Path to the file whose contents should be included |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Property Details
+
+*   <span id="prop-filename">**FileName**</span>: A path to a file on the web server. Use a tilde (`~`) prefix for paths relative to the site root, or an absolute virtual path. Examples:
+
+    | Form | Example |
+    |------|---------|
+    | Tilde (site root) | `~/includes/CompanyHeader.html` |
+    | Absolute virtual path | `/Portals/0/myfile.txt` |
+
+    The contents are written verbatim — there is no processing of XMP tags, tokens, or markup inside the included file.
