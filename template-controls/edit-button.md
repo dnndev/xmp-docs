@@ -3,119 +3,99 @@ id: template-edit-button
 title: 'xmod:EditButton'
 category: Action Links
 context: template
-summary: >-
-  The EditButton tag renders as a push-button at run-time. It is used to show
-  the form defined by the `<EditForm>` tag in the module instance's selected
-  form.
+summary: A push-button inside a `<xmod:Template>` (or `<xmod:DataList>`) that opens the EditForm for the row identified by the supplied `<Parameter>` tags.
 keywords:
   - edit
   - button
   - template
+since: '1.0'
+related:
+  - edit-image
+  - edit-link
+  - add-button
+  - delete-button
 ---
+
 # `<xmod:EditButton>`
 
-The EditButton tag renders as a push-button at run-time. It is used to show the form defined by the `<EditForm>` tag in the module instance's selected form.
+`<xmod:EditButton>` renders a push-button that opens the EditForm for the current row. The supplied `<Parameter>` tags fill the EditForm's `<SelectCommand>` parameters so the form loads the correct record.
 
-## Syntax
-```html
-<xmod:EditButton
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Form="form name"
-    Height="size"
-    OnClientClick="javascript"
-    Style="string"
-    Text="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size" >
+This tag is gated by the parent template's `EditRoles`. Place it inside `<ItemTemplate>` or `<AlternatingItemTemplate>` so each row gets its own button with row-specific parameters.
 
-      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
-      <Parameter Name="string" Value="string" Datatype="boolean|string|int32" />
-      ...additional parameters as needed ...
-</xmod:EditButton>
-```
-
-## Remarks
-
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
-*   **Form**: (New to version 4.7) This property allows you to specify an alternate form to display. It overrides the form specified in the module's configuration for the button. Use this property to be able to use additional forms. It is helpful if you are using multiple template tags with different content and want to allow the user to manage data directly from that template's tag without having to go to a different page.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **Text**: The caption that will be displayed on the control.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
+::: info Sibling variants
+- [`<xmod:EditImage>`](edit-image.md) — same behavior, rendered as a clickable image
+- [`<xmod:EditLink>`](edit-link.md) — same behavior, rendered as a hyperlink
+:::
 
 ## Example
-```html {20-22,35}
-<div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
 
-        <!-- EMPLOYEES TEMPLATE -->
+```html {12-14}
+<xmod:Template Id="Employees">
+  <ListDataSource CommandText="SELECT * FROM Employees WHERE DepartmentId = @DepartmentId">
+    <Parameter Name="DepartmentId" Alias="DepartmentId" />
+  </ListDataSource>
+  <ItemTemplate>
+    <strong>[[FirstName]] [[LastName]]</strong>
+    <xmod:EditButton Text="Edit Employee">
+      <Parameter Name="EmployeeId" Value="[[EmployeeId]]" DataType="Int32" />
+    </xmod:EditButton>
+  </ItemTemplate>
+</xmod:Template>
 
-        <xmod:Template Id="Employees">
-          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
-            <Parameter name="DepartmentId" alias="DepartmentId" />
-          </ListDataSource>
-
-          <HeaderTemplate>
-            <p>Employees</p>
-          </HeaderTemplate>
-
-          <ItemTemplate>
-            <div style="text-align: middle;">
-              <strong>[[FirstName]] [[LastName]]</strong>
-              <xmod:EditButton Text="Edit Employee">
-                <Parameter Name="EmployeeId" Value='[[EmployeeId]]' Datatype="int32" />
-              </xmod:EditButton>
-            </div>
-          </ItemTemplate>
-
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div> 
-
-----------------------------
-...
 <EditForm>
-  <SelectCommand CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId=@EmployeeId" />
-    ...
-</EditForm>  
+  <SelectCommand CommandText="SELECT * FROM Employees WHERE EmployeeId = @EmployeeId" />
+  ...
+</EditForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ID | string | | Unique identifier for the button |
+| Text | string | | Caption displayed on the button |
+| [Ajax](#prop-ajax) | `True` `False` | `False` | When `True`, opens the EditForm via async postback. Requires `ID` set _(since v2.6)_ |
+| [Form](#prop-form) | form name | | Override the configured EditForm with a different form _(since v4.7)_ |
+| CssClass | string | | CSS class name(s) |
+| Style | string | | Inline CSS |
+| Width | [size](../unit-types.md) | | Width of the button |
+| Height | [size](../unit-types.md) | | Height of the button |
+| ToolTip | string | | Hover tooltip |
+| Visible | `True` `False` | `True` | Shows or hides the button |
+| OnClientClick | JavaScript | | Client-side script to run on click. Returning `false` cancels the action |
+| AccessKey | string | | Keyboard shortcut character |
+| Enabled | `True` `False` | `True` | When `False`, the button is disabled |
+| TabIndex | integer | | Tab order for keyboard navigation |
+
+<details>
+<summary>Deprecated Properties (styling)</summary>
+
+| Property | Description |
+|----------|-------------|
+| BackColor / BorderColor / BorderStyle / BorderWidth | Use `CssClass` or `Style` instead |
+| Font-Bold / Font-Italic / Font-Names / Font-Overline / Font-Size / Font-Strikeout / Font-Underline | Use `CssClass` instead |
+| ForeColor | Use `CssClass` or `Style` instead |
+
+</details>
+
+## Child Tags
+
+| Tag | Required | Description |
+|-----|----------|-------------|
+| [`<Parameter>`](#child-parameter) | required (one per `<SelectCommand>` parameter) | Supplies the value for the EditForm's `<SelectCommand>` parameter of the same name |
+
+### <span id="child-parameter">`<Parameter>`</span>
+
+Use one `<Parameter>` for each `@param` in the EditForm's `<SelectCommand>`. The values are typically field tokens that identify the row.
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| Name <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Parameter name (matches `@param` in the EditForm's SelectCommand) |
+| Value | string \| token | | Parameter value. Field tokens like `[[ID]]` are typical |
+| DataType | [database type](../data-types.md) | `String` | Data type used when binding |
+
+## Property Details
+
+*   <span id="prop-ajax">**Ajax**</span>: When `True`, the EditForm appears in place via async postback rather than a full page refresh. The button **must** have its `ID` property set for AJAX to work. The parent `<xmod:Template>` should also have `Ajax="True"`.
+
+*   <span id="prop-form">**Form**</span>: Specifies an alternate form name to load instead of the EditForm configured for the module. Useful when one page has multiple `<xmod:Template>` tags and each needs its own EditForm.
