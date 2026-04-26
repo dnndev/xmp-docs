@@ -24,7 +24,7 @@ XMod Pro v5 ships with a library of **built-in snippets** covering the most comm
 
 ## Using Snippets
 
-Snippets are available in two places within the [Code Editor](code-editor.md):
+Snippets are available in two places within the [code editors](code-editor.md):
 
 ### From the Reference Panel
 
@@ -33,7 +33,7 @@ Open the **Reference Panel** (click the book icon in the toolbar or press **Ctrl
 - **My Snippets** — Snippets you've created
 - **Built-in Snippets** — Snippets that ship with XMod Pro
 
-<!-- SCREENSHOT: snippets-reference-panel — Reference Panel showing My Snippets and Built-in Snippets sections -->
+<img src="./img/v5/snippets-reference-panel.png" alt="Reference Panel showing My Snippets with a gear icon for the Snippet Manager, and Built-in Snippets listing context-filtered snippets" />
 
 Click any snippet name to insert it at the cursor position in the editor. The Reference Panel filters snippets to show only those relevant to what you're editing — form snippets when editing a form, view snippets when editing a view, and so on.
 
@@ -55,7 +55,7 @@ After insertion, `txtField` is selected and ready to edit. Press **Tab** to jump
 
 Click the **gear icon** next to "My Snippets" in the Reference Panel to open the **Snippet Manager**.
 
-<!-- SCREENSHOT: snippets-manager — Snippet Manager dialog showing the list of snippets with context badges -->
+<img src="./img/v5/snippets-manager.png" alt="Snippet Manager dialog showing 27 snippets with context filter, New Snippet button, and built-in snippets with FORM badges and descriptions" />
 
 The Snippet Manager lets you:
 
@@ -79,7 +79,7 @@ Click **New Snippet** in the Snippet Manager and fill in:
 - **Description** — A brief note about what the snippet does (optional but recommended)
 - **Code** — The snippet content, optionally including tabstop placeholders
 
-<!-- SCREENSHOT: snippets-edit — Snippet edit form showing name, context, description, and code fields -->
+<img src="./img/v5/snippets-edit.png" alt="Snippet edit form showing Name, Context dropdown, Description, and Snippet Code fields with tabstop syntax example" />
 
 ::: tip Tabstop Syntax
 Use `${1:placeholder}` for the first tabstop, `${2:placeholder}` for the second, and so on. When the snippet is inserted, the user can press **Tab** to jump between placeholders. For example:
@@ -150,5 +150,5 @@ If you're upgrading from v4.x, your existing `snippets.js` file will be automati
 
 ## Next Steps
 
-- **[Code Editor](code-editor.md)** — The editor where snippets are used
+- **[Code Editors](code-editor.md)** — The editors where snippets are used
 - **[Control Panel](control-panel.md)** — Overview of the XMod Pro Control Panel
