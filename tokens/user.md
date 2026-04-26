@@ -3,65 +3,73 @@ id: tokens-user
 title: User Tokens
 category: User Tokens
 context: all
-summary: >-
-  User Tokens provide you with the ability to use information about the current
-  user at run-time such as the user's ID, name, email, etc.
+summary: User tokens (`[[User:property]]`) return information about the currently logged-in user — ID, name, email, and any DNN profile property.
 keywords:
   - user
   - tokens
+since: '1.0'
+related:
+  - portal
+  - module
+  - request
 ---
+
 # User Tokens
 
-User Tokens provide you with the ability to use information about the current user at run-time such as the user's ID, name, email, etc.
+`[[User:property]]` returns a property of the user who is currently viewing the page. Use it to personalize content, prefill form fields, or pass the user's ID into a SQL parameter.
+
+When no one is logged in, the user is the DNN anonymous user and most properties return empty strings.
 
 ## Syntax
 
-`[[User:userSettingName]]`
+```
+[[User:property]]
+```
 
+`property` is one of the built-in properties below or the name of any DNN profile property defined for the portal.
 
-## Remarks
+## Built-in properties
 
-*   **Usage**: These tokens can be used in templates and forms. Standard token rules apply. See discussion of Field Tokens.  
+| Token | Returns |
+|-------|---------|
+| `[[User:ID]]` | The numeric DNN UserID. Useful for SQL parameters that filter by user |
+| `[[User:Username]]` | The user's username |
+| `[[User:DisplayName]]` | The user's display name (e.g. "Kelly Ford") |
+| `[[User:FirstName]]` | The user's first name |
+| `[[User:LastName]]` | The user's last name |
+| `[[User:Email]]` | The user's email address |
 
-*   **`[[User:ID]]`**: Returns the numeric ID that uniquely identifies the current user. This ID is assigned by DotNetNuke when the user is created.  
+## DNN profile properties
 
-*   **`[[User:FirstName]]`**: The user's first name.  
+Any standard or custom DNN profile property is accessible by name:
 
-*   **`[[User:LastName]]`**: The user's last name.  
-
-*   **`[[User:DisplayName]]`**: The user's display name.  
-
-*   **`[[User:Username]]`**: The username associated with the user's account.  
-
-*   **`[[User:Email]]`**: The user's email address.  
-
-*   **`[[User:_profileItemName_]]`**: An item from the user's profile. Replace profileItemName with the name of the item. For example: `[[User:Telephone]]`, `[[User:Street]]`, `[[User:Cell]]`, `[[User:Fax]]`, `[[User:Region]]`, etc.  
-*   **Standard Token Usage Rules**:
-    *   Tokens must begin with double-brackets (`[[`) and end with double-brackets (`]]`)
-    *   Tokens can be used as the value of an HTML attribute or in standard text. For example:  
-        ```html
-        <img src="[[Employees_list@PictureUrl]]" align="left" />
-        <strong>[[Employees_list@UserFullName]]</strong>
-        ```
-    *   In many cases, tokens can also be used as the attribute value for an XMod Pro tag. However, when using them in this manner, you MUST delimit the attribute value with single quotes, **not** double quotes. For example:  
-        **CORRECT**: 
-        ```html
-        <xmod:DetailButton Text='[[Employees_list@UserFullName]]' />
-        ```
-        **INCORRECT**: 
-        ```html
-        <xmod:DetailButton Text="[[Employees_list@UserFullName]]" />
-        ```
+| Token | Returns |
+|-------|---------|
+| `[[User:Telephone]]` | Phone number from profile |
+| `[[User:Street]]` | Street address |
+| `[[User:City]]` | City |
+| `[[User:Region]]` | State / region |
+| `[[User:PostalCode]]` | ZIP / postal code |
+| `[[User:Country]]` | Country |
+| `[[User:Cell]]` | Cell phone |
+| `[[User:Fax]]` | Fax |
+| _Custom properties_ | Use the property's name as defined in DNN's Site Settings → User Profile |
 
 ## Example
 
 ```html
-<xmod:Template>  
-  ...  
-  <HeaderTemplate>  
-    <h1>[[User:DisplayName]] ([[User:ID]])</h1>  
-    <a href="mailto:[[User:Email]]">Send An Email</a>  
-    <xmod:AddButton text='[[User:Username]]' />  
-  </HeaderTemplate>  
-  ...  
+<xmod:Template>
+  <HeaderTemplate>
+    <h1>Welcome, [[User:DisplayName]]!</h1>
+    <a href="mailto:[[User:Email]]">Send yourself an email</a>
+  </HeaderTemplate>
+  <ListDataSource CommandText="SELECT * FROM Posts WHERE AuthorID = @uid">
+    <Parameter Name="uid" Value="[[User:ID]]" DataType="Int32" />
+  </ListDataSource>
+  <ItemTemplate>
+    <p>[[Title]]</p>
+  </ItemTemplate>
 </xmod:Template>
+```
+
+See the [Tokens Overview](README.md#standard-token-rules) for the standard rules that apply to all tokens.

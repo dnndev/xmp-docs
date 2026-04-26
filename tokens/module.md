@@ -3,60 +3,49 @@ id: tokens-module
 title: Module Tokens
 category: Module Tokens
 context: all
-summary: >-
-  Module Tokens provide you with the ability to use information about the
-  current module instance at run-time such as the module's ID. Additional Module
-  Tokens will be added to this topic as they become available.
+summary: Module tokens (`[[Module:property]]`) return information about the current XMP module instance — its ID and the page it's on.
 keywords:
   - module
   - tokens
+since: '1.0'
+related:
+  - page
+  - portal
 ---
+
 # Module Tokens
 
-Module Tokens provide you with the ability to use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.
+`[[Module:property]]` returns information about the current XMP module instance. Use it when you need a value that's unique per module — for example, when generating client-side element IDs that wouldn't conflict if the same view were rendered twice on the same page.
 
 ## Syntax
 
-`[[Module:ModuleSettingName]]`
+```
+[[Module:property]]
+```
 
+## Properties
 
-## Remarks
-
-*   These tokens can be used in templates and forms. Standard token rules apply. See discussion of Field Tokens.  
-
-*   **`[[Module:ID]]`**: Returns the numeric ID that uniquely identifies the current module's instance. This ID is assigned by DotNetNuke when the module instance is first added to a page. It is useful when appended to a hard-coded value to help produce a value that is unique to the page.  
-
-*   **`[[Module:TabId]]`**: Returns the numeric ID that uniquely identifies the tab (or page) on which the module instance resides. (New in version 1.4).  
-
-*   **Standard Token Usage Rules**:
-    *   Tokens must begin with double-brackets (`[[`) and end with double-brackets (`]]`)
-    *   Tokens can be used as the value of an HTML attribute or in standard text. For example:  
-        ```html
-        <img src="[[Employees_list@PictureUrl]]" align="left" />
-        <strong>[[Employees_list@UserFullName]]</strong>
-        ```
-    *   In many cases, tokens can also be used as the attribute value for an XMod Pro tag. However, when using them in this manner, you MUST delimit the attribute value with single quotes, **not** double quotes. For example:  
-        **CORRECT**: 
-        ```html
-        <xmod:DetailButton Text='[[Employees_list@UserFullName]]' />
-        ```
-        **INCORRECT**: 
-        ```html
-        <xmod:DetailButton Text="[[Employees_list@UserFullName]]" />
-        ```
+| Token | Returns |
+|-------|---------|
+| `[[Module:ID]]` | The numeric ModuleID assigned by DNN when the module was added to the page. Useful as a unique suffix for client-side IDs |
+| `[[Module:TabId]]` | The DNN TabID of the page the module is on. Same value as `[[Page:ID]]` _(since v1.4)_ |
 
 ## Example
 
+Use `[[Module:ID]]` to keep `<AddForm>`'s `ClientName` unique on pages that may host multiple instances of the same form:
+
 ```html
-<xmod:Template>  
-  ...  
-  <HeaderTemplate>  
-    <h1>This module's ID is: [[Module:ID]]</h1>  
-  </HeaderTemplate>  
-  ...  
-</xmod:Template>  
-
-<AddForm ClientName='[[Join("MyForm", [[Module:ID]])]]'>  
-
+<AddForm ClientName='[[Join("ContactForm_{0}", [[Module:ID]])]]'>
+  ...
 </AddForm>
 ```
+
+Embed the module ID in client-side script:
+
+```html
+<xmod:jQueryReady>
+  $('#widget_[[Module:ID]]').show();
+</xmod:jQueryReady>
+```
+
+See the [Tokens Overview](README.md#standard-token-rules) for the standard rules that apply to all tokens.

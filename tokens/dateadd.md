@@ -3,70 +3,65 @@ id: tokens-dateadd
 title: DateAdd Token
 category: Function Tokens
 context: all
-summary: >-
-  The DateAdd token provides you with the ability to generate a date, relative
-  to the current date. This allows you to create a date that is, say, use
-  information about the current module instance at run-time such as the module's
-  ID. Additional Module Tokens will be added to this topic as they become
-  available.
+summary: The DateAdd token (`[[DateAdd:n,unit,format]]`) returns a date relative to today, optionally formatted with a .NET date pattern.
 keywords:
   - date
-  - add
-  - token
+  - dateadd
+  - tokens
+since: '1.0'
+related:
+  - functions
+  - expressions
 ---
+
 # DateAdd Token
 
-The DateAdd token provides you with the ability to generate a date, relative to the current date. This allows you to create a date that is, say, use information about the current module instance at run-time such as the module's ID. Additional Module Tokens will be added to this topic as they become available.
+`[[DateAdd:n,unit,format]]` returns a date relative to today. Use it for "today plus 7 days" cutoffs, "first of next month" filters, or just to render today's date in a specific format.
 
 ## Syntax
 
-`[[DateAdd:number,interval,format]]`
+```
+[[DateAdd:number,interval,format]]
+```
 
-## Remarks
+To get today's date, supply zero as the number — `[[DateAdd:0]]`. The token only fires when at least one argument is present.
 
-*   These tokens can be used in templates and forms. Standard token rules apply. See discussion of Field Tokens.  
+## Arguments
 
-*   **number**: Required if any arguments are specified. This is an integer that specifies how many of _interval_ to add to the current date. The number may be positive (greater than 0) to get to a date in the future. A negative number (a number less than zero) can be used to get a date in the past.  
+| Position | Required | Values | Meaning |
+|----------|----------|--------|---------|
+| number | required | integer (positive, negative, or zero) | How many `interval`s to add. Negative goes into the past |
+| interval | required if `number` is set | `d` `w` `m` `y` | Day, week, month, year |
+| format | optional | .NET date format pattern | How to render the result. If omitted, the system default format is used |
 
-*   **interval**: Required if number is specified. One of the following characters to identify which interval to add to the current date:
-    *   d: Day
-    *   w: Week
-    *   m: Month
-    *   y: Year
-*   **format**: Optional. If you would like to determine exactly how the calculated date is returned, you can use standard date formatting expressions here. One example would be yyyy-MM-dd to display August 1st, 2012 would display 2012-08-01\. Whereas MM/dd/yyyy will display 08/01/2012 and dd.MM.yy would display 01.08.12.
+## Examples
 
-*   In order for this to work for the Current Date, you have to include an argument, such as: `[[DateAdd:0]]` 
-    Do the following if you want formatting for the current date: `[[DateAdd:0,d,MM/dd/yyyy]]`
+| Token | Result (assuming today is 2026-08-01) |
+|-------|---------------------------------------|
+| `[[DateAdd:0]]` | Today's date in the system default format |
+| `[[DateAdd:0,d,MM/dd/yyyy]]` | `08/01/2026` |
+| `[[DateAdd:1,w]]` | `2026-08-08` (next week, default format) |
+| `[[DateAdd:-1,m,yyyy-MM]]` | `2026-07` (last month) |
+| `[[DateAdd:5,y,yyyy-MM-dd]]` | `2031-08-01` (five years from now) |
+| `[[DateAdd:7,d,dddd]]` | `Saturday` (day name 7 days from now) |
 
-*   **Standard Token Usage Rules**:
-    *   Tokens must begin with double-brackets (`[[`) and end with double-brackets (`]]`)
-    *   Tokens can be used as the value of an HTML attribute or in standard text. For example:  
-        `<img src="[[Employees_list@PictureUrl]]" align="left" /> <strong>[[Employees_list@UserFullName]]</strong>`
-    *   In many cases, tokens can also be used as the attribute value for an XMod Pro tag. However, when using them in this manner, you MUST delimit the attribute value with single quotes (`'`), **not** double quotes (`"`). For example:  
-        **CORRECT**: 
-        ```xml
-        <xmod:DetailButton Text='[[Employees_list@UserFullName]]' />
-        ```
-        **INCORRECT**: 
-        ```xml
-        <xmod:DetailButton Text="[[Employees_list@UserFullName]]" />
-        ```
+For the full list of date format specifiers, see Microsoft's [custom date and time format strings](https://learn.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) docs.
 
 ## Example
 
 ```html
-<xmod:Template>  
-  ...
-  <HeaderTemplate>  
-    <h1>This current date is: [[DateAdd:0]]</h1>  
-    <h1>Next week the date will be: [[DateAdd:1,w]]</h1>  
-    <h1>Last month the date was: [[DateAdd:-1,m]]</h1>  
-    <h1>In five years the date will be: [[DateAdd:5,y,yyyy-MM-dd]]</h1>  
-  </HeaderTemplate>  
-  ...  
-</xmod:Template>  
-
-<AddForm ClientName='[[Join("MyForm", [[DateAdd:0,d,yyyyMMdd]])]]'>  
-  
-</AddForm>
+<xmod:Template>
+  <ListDataSource CommandText="SELECT * FROM Articles WHERE PublishDate >= @cutoff">
+    <Parameter Name="cutoff" Value="[[DateAdd:-7,d,yyyy-MM-dd]]" DataType="DateTime" />
+  </ListDataSource>
+  <HeaderTemplate>
+    <h1>Articles from the past 7 days</h1>
+    <p>As of [[DateAdd:0,d,MMMM d, yyyy]]</p>
+  </HeaderTemplate>
+  <ItemTemplate>
+    <p><strong>[[Title]]</strong> — [[PublishDate]]</p>
+  </ItemTemplate>
+</xmod:Template>
 ```
+
+See the [Tokens Overview](README.md#standard-token-rules) for the standard rules that apply to all tokens.

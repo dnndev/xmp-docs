@@ -249,6 +249,7 @@ export default defineConfig({
         text: 'Tokens',
         collapsed: true,
         items: [
+          { text: 'Tokens Overview', link: '/tokens/' },
           { text: 'Data', link: '/tokens/data' },
           { text: 'DateAdd', link: '/tokens/dateadd' },
           { text: 'Field', link: '/tokens/field' },

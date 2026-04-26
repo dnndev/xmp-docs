@@ -3,72 +3,58 @@ id: tokens-portal
 title: Portal Tokens
 category: Portal Tokens
 context: all
-summary: >-
-  Portal Tokens provide you with the ability to use information about the
-  current portal at run-time such as the portal's ID, it's name, email, etc.
+summary: Portal tokens (`[[Portal:property]]`) return settings of the current DNN portal — name, ID, contact email, home directory, and more.
 keywords:
   - portal
   - tokens
+since: '1.0'
+related:
+  - user
+  - module
+  - page
 ---
+
 # Portal Tokens
 
-Portal Tokens provide you with the ability to use information about the current portal at run-time such as the portal's ID, it's name, email, etc.
+`[[Portal:property]]` returns a setting of the current DNN portal. Use it to drop the site's name, contact email, or logo into your views and forms, or to pass the portal ID into SQL when you have multiple portals sharing tables.
 
-`[[Portal:portalSettingName]]`
+## Syntax
 
-## Remarks
+```
+[[Portal:property]]
+```
 
-*   These tokens can be used in templates and forms. Standard token rules apply. See discussion of Field Tokens.  
+## Properties
 
-*   **`[[Portal:Alias]]`**: Returns the domain for the current portal as defined in the DNN Portal Aliases table. (New in version 1.4).  
-
-*   **`[[Portal:Description]]`**: The description assigned to the current portal, as defined in the Portal Settings page. (New in version 1.4).  
-
-*   **`[[Portal:Email]]`**: The contact email for this portal.  
-
-*   **`[[Portal:Expiry]]`**: The expiration date of the current portal. Returns 12:00:00 AM if no expiration date has been set. (New in version 1.4).  
-
-*   **`[[Portal:HomeDirectory]]`**: Path to the portal's home directory.  
-
-*   **`[[Portal:HomeDirectoryMapped]]`**: Mapped (file system) path to the portal's home directory.  
-
-*   **`[[Portal:HomeTabId]]`**: The tab ID for the home page of the portal.  
-
-*   **`[[Portal:ID]]`**: Returns the numeric ID that uniquely identifies the current portal's instance. This ID is assigned by DotNetNuke when the portal is created.  
-
-*   **`[[Portal:LoginTabId]]`**: The tab in the portal that contains the login form. (New in version 1.4).  
-
-*   **`[[Portal:LogoFile]]`**: The name of the image file used for the portal's logo.  
-
-*   **`[[Portal:Name]]`**: The name of the portal.  
-
-*   **`[[Portal:TimeZoneOffset]]`**: The offset, in minutes, from GMT for the current portal. This may be a positive or negative number. (New in version 1.4).  
-
-*   **Standard Token Usage Rules**:
-    *   Tokens must begin with double-brackets (`[[`) and end with double-brackets (`]]`)
-    *   Tokens can be used as the value of an HTML attribute or in standard text. For example:  
-        ```html
-        <img src="[[Employees_list@PictureUrl]]" align="left" />
-        <strong>[[Employees_list@UserFullName]]</strong>
-        ```
-    *   In many cases, tokens can also be used as the attribute value for an XMod Pro tag. However, when using them in this manner, you MUST delimit the attribute value with single quotes, **not** double quotes. For example:  
-        **CORRECT**: 
-        ```html
-        <xmod:DetailButton Text='[[Employees_list@UserFullName]]' />
-        ```
-        **INCORRECT**: 
-        ```html
-        <xmod:DetailButton Text="[[Employees_list@UserFullName]]" />
-        ```
+| Token | Returns |
+|-------|---------|
+| `[[Portal:ID]]` | Numeric DNN PortalID for the current portal |
+| `[[Portal:Name]]` | The portal's display name |
+| `[[Portal:Description]]` | The portal's description from Site Settings _(since v1.4)_ |
+| `[[Portal:Email]]` | The portal's primary contact email |
+| `[[Portal:Alias]]` | The active domain alias for the portal _(since v1.4)_ |
+| `[[Portal:LogoFile]]` | Filename of the portal logo |
+| `[[Portal:HomeDirectory]]` | Web-relative path to the portal's home directory |
+| `[[Portal:HomeDirectoryMapped]]` | File-system path to the portal's home directory |
+| `[[Portal:HomeTabId]]` | Page (TabID) of the portal's home page |
+| `[[Portal:LoginTabId]]` | Page (TabID) of the portal's custom login page _(since v1.4)_ |
+| `[[Portal:Expiry]]` | Portal expiration date. Returns `12:00:00 AM` when no expiration is set _(since v1.4)_ |
+| `[[Portal:TimeZoneOffset]]` | Offset from GMT in minutes. May be positive or negative _(since v1.4)_ |
 
 ## Example
 
 ```html
-<xmod:Template>  
-  ...  
-  <HeaderTemplate>  
-    <h1>[[Portal:Name]] ([[Portal:ID]]</h1>  
-    <a href="mailto:[[Portal:Email]]">Send An Email</a>  
-  </HeaderTemplate>  
-  ...  
+<xmod:Template>
+  <HeaderTemplate>
+    <h1>Welcome to [[Portal:Name]]</h1>
+    <p>Questions? <a href="mailto:[[Portal:Email]]">Contact us</a>.</p>
+    <img src="[[Portal:HomeDirectory]][[Portal:LogoFile]]" alt="[[Portal:Name]]" />
+  </HeaderTemplate>
+  <ListDataSource CommandText="SELECT * FROM Articles WHERE PortalId = @pid">
+    <Parameter Name="pid" Value="[[Portal:ID]]" DataType="Int32" />
+  </ListDataSource>
+  ...
 </xmod:Template>
+```
+
+See the [Tokens Overview](README.md#standard-token-rules) for the standard rules that apply to all tokens.
