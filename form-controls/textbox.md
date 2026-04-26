@@ -53,6 +53,7 @@ The Textbox tag renders as a single-line text input box at run time. You will pr
 | [DataType](#prop-datatype) | `String` `Int32` `Int64` `Boolean` [more...](../data-types.md) | `String` | Database type for data commands |
 | AccessKey | string | | Keyboard shortcut character (e.g. `F` for Alt+F) |
 | CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive). Different from `ReadOnly`, which still allows focus and selection |
 | Height | [size](../unit-types.md) | | Height of the control |
 | [HtmlEncode](#prop-htmlencode) | `True` `False` | `False` | HTML-encodes content before sending to the SubmitCommand |
 | MaxLength | integer | | Maximum number of characters allowed |
