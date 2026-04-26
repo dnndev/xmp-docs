@@ -48,6 +48,7 @@ The DateInput tag renders as a single-line textbox at run time that accepts date
 | CssClass | string | | CSS class name(s) for styling the control |
 | [Culture](#prop-culture) | locale ID | | Culture used when converting input to a date (e.g. `en-US`, `fr-FR`) |
 | [DateOnly](#prop-dateonly) | `True` `False` | `False` | Strips the time component from the value |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive). Different from `ReadOnly`, which still allows focus and selection |
 | [Format](#prop-format) | format string | | Date/time display format used when editing a record |
 | Height | [size](../unit-types.md) | | Height of the control |
 | [Nullable](#prop-nullable) | `True` `False` | `False` | Returns DBNull when the control is blank or whitespace |
