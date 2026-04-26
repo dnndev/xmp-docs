@@ -3,118 +3,81 @@ id: form-validate-xml
 title: Validate Type="XML"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "xml" is referred to as an XML Validator
-  and is used to ensure the user provides a well-formed XML snippet as input for
-  a given control. **NOTE:** that this provides very basic verification the XML
-  is well-formed. Deeper checks are not performed.
+summary: The Validate tag with Type="XML" prevents the form from being submitted unless the target control's value parses as well-formed XML.
 keywords:
   - validate
-  - type="
+  - xml
   - form
+since: '1.0'
+related:
+  - validate-regular-expression
+  - validate-required
+  - validation-summary
 ---
 # `<Validate Type="XML">`
 
-The Validate tag whose type is set to "xml" is referred to as an XML Validator and is used to ensure the user provides a well-formed XML snippet as input for a given control. **NOTE:** that this provides very basic verification the XML is well-formed. Deeper checks are not performed.
+The XML validator prevents the form from being submitted unless the target control's value can be parsed as well-formed XML. It's a quick well-formedness check (matching tags, balanced quotes, single root element) — it does **not** validate against any schema or DTD.
 
-## Syntax
-```html
-<Validate 
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Display="Static|Dynamic"
-    EnableClientScript="True|False"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    Message="string"
-    Target="string"
-    Text="string"
-    Type="XML"
-    Width="size" 
-/>
-```
-
-## Remarks
-
-The XML validator is one type of the `<Validate>` tag. When the `Type` attribute is set to **xml**, the control prevents the form from being submitted if its associated control does not contain well-formed XML. You associate a control with the `<Validate>` tag by setting its `Target` attribute to the ID of the control you wish to validate. The `Message` attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a `Text` attribute. When validation fails, the `Text` will be displayed where your `<Validate>` tag is and the `Message` will be displayed in the `<ValidationSummary`. The `Display` attribute determines if the the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically display allocate the space for the message when validation fails. The `<Validate>` tag defaults to **Dynamic** display.
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.
-
-*   **Display**: This attribute determines if the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically allocate the space for the message when validation fails. Defaults to **Dynamic** display.  
-
-*   **EnableClientScript**: Use the `EnableClientScript` property to specify whether client-side validation is enabled. Defaults to **True**.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the `<ValidationSummary>`, then this is the message that will be displayed in the `<ValidationSummary>` when validation fails.  
-
-*   **Target** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Set this attribute to the ID of the control you wish to validate.  
-
-*   **Text**: If you are using the `<ValidationSummary>` tag, then you can also supply a `Text` attribute. When validation fails, the `Text` will be displayed where your `<Validate>` tag is and the `Message` will be displayed in the `<ValidationSummary>`.  
-
-*   **Type** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: When the `Type` attribute is set to **xml**, the control prevents the form from being submitted if its associated control does not contain well-formed XML.  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+::: info Server-side only
+This validator runs only on the server. The form must pass all client-side validation and POST back before the XML check happens.
+:::
 
 ## Example
-```html {21,27}
+```html {15,21}
 <AddForm>
-  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName, MyXml) 
+  <SubmitCommand CommandText="INSERT INTO Users(FirstName, LastName, MyXml)
                               VALUES(@FirstName, @LastName, @MyXml)" />
-    <table>
-      <tr>
-        <td>
-          <Label For="txtFirstName" Text="FirstName" /> 
-          <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <Label For="txtLastName" Text="Last Name" /> 
-          <TextBox Id="txtLastName" DataField="LastName" DataType="string" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <Label For="txtXml" Text="Your XML" /> 
-          <TextArea Id="txtXml" DataField="MyXml" DataType="string" />
-          <Validate Type="xml" Target="txtXml" Message="Please enter well-formed XML" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <AddButton Text="Add" />&nbsp;<CancelButton Text="Cancel" />
-          <ValidationSummary />
-        </td>
-      </tr>
-    </table>
+  <table>
+    <tr>
+      <td>
+        <Label For="txtFirstName" Text="First Name" />
+        <TextBox Id="txtFirstName" DataField="FirstName" DataType="string" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Label For="txtXml" Text="Your XML" />
+        <TextArea Id="txtXml" DataField="MyXml" DataType="string" />
+        <Validate Type="XML" Target="txtXml" Message="Please enter well-formed XML" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <AddButton Text="Add" />&nbsp;<CancelButton Text="Cancel" />
+        <ValidationSummary />
+      </td>
+    </tr>
+  </table>
 </AddForm>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `XML` | | Identifies this as an XML validator |
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | control ID | | ID of the control to validate |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [Display](#prop-display) | `Static` `Dynamic` | `Dynamic` | Whether the validator reserves layout space when no error is shown |
+| [EnableClientScript](#prop-enableclientscript) | `True` `False` | `True` | When `True`, the validator participates in the page's client-side validation framework. Note that the actual XML check always runs on the server |
+| Height | [size](../unit-types.md) | | Height of the validator's error display |
+| [Message](#prop-message) | string | | Text shown in the `<ValidationSummary>` when validation fails |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when validation fails |
+| Width | [size](../unit-types.md) | | Width of the validator's error display |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| BackColor | color name \| #dddddd | Background color of the validator's error display |
+| BorderColor | color name \| #dddddd | Border color |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style |
+| BorderWidth | [size](../unit-types.md) | Border width |
 | Font-Bold | `True` `False` | Bold text |
 | Font-Italic | `True` `False` | Italic text |
 | Font-Names | string | Font family name |
@@ -122,6 +85,20 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
 | Font-Strikeout | `True` `False` | Strikethrough text decoration |
 | Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| ForeColor | color name \| #dddddd | Text color. **Note:** the validator hard-codes red, bold text by default. If you set `CssClass`, XMP automatically clears `ForeColor` so your stylesheet's color rules take effect |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `XML` to identify this as an XML validator.
+
+*   <span id="prop-target">**Target**</span>: The `ID` of the form control whose value should be checked.
+
+*   <span id="prop-message">**Message**</span>: The error text shown in the `<ValidationSummary>` (if you have one) when validation fails. If no `<ValidationSummary>` is present, this text appears at the validator's location instead.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when validation fails. Used together with `Message` and `<ValidationSummary>`: a short inline marker (`*`, `**`, or an icon) at the validator + the full sentence in the summary block.
+
+*   <span id="prop-display">**Display**</span>: Whether the validator reserves layout space even when no error is shown. `Dynamic` (the default) collapses to no space until validation fails. `Static` always reserves space.
+
+*   <span id="prop-enableclientscript">**EnableClientScript**</span>: Whether the validator participates in the client-side validation framework. The actual XML well-formedness check always runs server-side (XML parsing requires a server-side .NET XmlDocument), so the only practical effect is whether the validator's display is updated client-side after a postback.

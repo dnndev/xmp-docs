@@ -1,87 +1,39 @@
 ---
 id: form-validate-email
-title: Validate type="Email"
+title: Validate Type="Email"
 category: Validation
 context: form
-summary: >-
-  The Validate tag whose type is set to "email" is referred to as an Email
-  Validator and is used to ensure the value of the target control matches the
-  form of a valid email address. It does not validate the email account is valid
-  or active.
+summary: The Validate tag with Type="Email" prevents the form from being submitted unless the target control's value matches the pattern of a valid email address.
 keywords:
   - validate
-  - type="
-  - email"
+  - email
   - form
+since: '1.0'
+related:
+  - validate-required
+  - validate-regular-expression
+  - validation-summary
 ---
-# `<Validate type="Email">`
+# `<Validate Type="Email">`
 
-The Validate tag whose type is set to "email" is referred to as an Email Validator and is used to ensure the value of the target control matches the form of a valid email address. It does not validate the email account is valid or active.
+The Email validator prevents the form from being submitted unless the target control's value looks like a valid email address. It uses a built-in regex that handles most well-formed email addresses — a convenient shortcut so you don't have to write your own pattern.
 
-## Syntax
-```html
-<Validate 
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Display="Static|Dynamic"
-    EnableClientScript="True|False"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    Message="string"
-    Target="string"
-    Text="string"
-    Type="Email"
-    Width="size" 
-/> 
-```
+::: info Format only — not deliverability
+This validator only checks the *shape* of the address, not whether the inbox actually exists or accepts mail. To verify deliverability you need a separate confirmation step (e.g. send a "click here to confirm" email).
+:::
 
-## Remarks
-
-When the `Type` attribute is set to **Email**, the control prevents the form from being submitted if its associated control's value does not match the pattern of a properly formed email address. It does not validate the email _account_ is active or valid. The Email Validator is a handy short-cut. It uses a built-in pattern that should validate most forms of email address. If you find it insufficient for specific situations, you can always use the RegularExpression Validator and use your own pattern.
-
-You associate a control with the `<Validate>` tag by setting its "target" attribute to the ID of the control you wish to validate. The `Message` attribute is the text that will be displayed to the user when validation fails. If you are using the `<ValidationSummary>` tag, then you can also supply a `Text` attribute. When validation fails, the "text" will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.
-
-*   **Display**: This attribute determines if the `<Validate>` tag will reserve space for its message in the page layout - typically resulting in blank space in your form -or whether it will dynamically allocate the space for the message when validation fails. Defaults to **Dynamic** display.  
-
-*   **EnableClientScript**: Use the `EnableClientScript` property to specify whether client-side validation is enabled. Defaults to **True**.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **Message**: This is the text that will be displayed to the user, when validation fails. If you are using the `<ValidationSummary>`, then this is the message that will be displayed in the `<ValidationSummary>` when validation fails.  
-
-*   **Target** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: Set this attribute to the ID of the control you wish to validate.  
-
-*   **Text**: If you are using the `<ValidationSummary>` tag, then you can also supply a `Text` attribute. When validation fails, the `Text` will be displayed where your `<Validate>` tag is and the "message" will be displayed in the `<ValidationSummary>`.  
-
-*   **Type** <span style="color:red; font-weight:bold; font-size:1.2em;">*</span>: When the `Type` attribute is set to **Email**, the control prevents the form from being submitted if its associated control's value does not match the pattern of a properly formed email address. It does not validate the email _account_ is active or valid. The Email Validator is a handy short-cut. It uses a built-in pattern that should validate most forms of email address. If you find it insufficient for specific situations, you can always use the RegularExpression Validator and use your own pattern.  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
-
-
-<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+If the built-in pattern doesn't fit your needs, use [`<Validate Type="RegEx">`](validate-regular-expression.md) with your own `ValidationExpression`.
 
 ## Example
-```html {8,14}
+```html {7-8,14}
 <AddForm>
   ...
   <table>
     <tr>
       <td>
-        <Label For="txtEmail" Text="Email" /> 
+        <Label For="txtEmail" Text="Email" />
         <TextBox Id="txtEmail" DataField="Email" DataType="string" />
-        <Validate Type="email" Target="txtEmail" Message="Please enter a valid email address" />
+        <Validate Type="Email" Target="txtEmail" Message="Please enter a valid email address" />
       </td>
     </tr>
     <tr>
@@ -94,17 +46,33 @@ You associate a control with the `<Validate>` tag by setting its "target" attrib
 </AddForm>
 ```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Email` | | Identifies this as an Email validator |
+| [Target](#prop-target) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | control ID | | ID of the control to validate |
+| CssClass | string | | CSS class name(s) for styling the validator's error display |
+| [Display](#prop-display) | `Static` `Dynamic` | `Dynamic` | Whether the validator reserves layout space when no error is shown |
+| [EnableClientScript](#prop-enableclientscript) | `True` `False` | `True` | When `True`, validation runs in the browser as well as on the server |
+| Height | [size](../unit-types.md) | | Height of the validator's error display |
+| [Message](#prop-message) | string | | Text shown in the `<ValidationSummary>` when validation fails |
+| [Text](#prop-text) | string | | Text shown inline at the validator's location when validation fails |
+| Width | [size](../unit-types.md) | | Width of the validator's error display |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
 <details>
 <summary>Deprecated Properties</summary>
 
-These properties use ASP.NET inline styling and are no longer recommended. Use `CssClass` for CSS classes or `Style` for inline CSS instead.
+These properties use ASP.NET inline styling and are no longer recommended for modern web development. Use the `CssClass` property to apply CSS classes or the `Style` property for inline CSS instead.
 
 | Property | Values | Description |
 |----------|--------|-------------|
-| BackColor | color name \| #dddddd | Background color of the control |
-| BorderColor | color name \| #dddddd | Border color of the control |
-| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style of the control |
-| BorderWidth | [size](../unit-types.md) | Border width of the control |
+| BackColor | color name \| #dddddd | Background color of the validator's error display |
+| BorderColor | color name \| #dddddd | Border color |
+| BorderStyle | `NotSet` `None` `Dotted` `Dashed` `Solid` `Double` `Groove` `Ridge` `Inset` `Outset` | Border style |
+| BorderWidth | [size](../unit-types.md) | Border width |
 | Font-Bold | `True` `False` | Bold text |
 | Font-Italic | `True` `False` | Italic text |
 | Font-Names | string | Font family name |
@@ -112,6 +80,20 @@ These properties use ASP.NET inline styling and are no longer recommended. Use `
 | Font-Size | `XX-Small` `X-Small` `Small` `Medium` `Large` `X-Large` `XX-Large` or size | Font size |
 | Font-Strikeout | `True` `False` | Strikethrough text decoration |
 | Font-Underline | `True` `False` | Underline text decoration |
-| ForeColor | color name \| #dddddd | Text color of the control |
+| ForeColor | color name \| #dddddd | Text color. **Note:** the validator hard-codes red, bold text by default. If you set `CssClass`, XMP automatically clears `ForeColor` so your stylesheet's color rules take effect |
 
 </details>
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: Set to `Email` to identify this as an Email validator.
+
+*   <span id="prop-target">**Target**</span>: The `ID` of the form control whose value should be checked.
+
+*   <span id="prop-message">**Message**</span>: The error text shown in the `<ValidationSummary>` (if you have one) when validation fails. If no `<ValidationSummary>` is present, this text appears at the validator's location instead.
+
+*   <span id="prop-text">**Text**</span>: The text shown inline at the validator's location when validation fails. Used together with `Message` and `<ValidationSummary>`: a short inline marker (`*`, `**`, or an icon) at the validator + the full sentence in the summary block.
+
+*   <span id="prop-display">**Display**</span>: Whether the validator reserves layout space even when no error is shown. `Dynamic` (the default) collapses to no space until validation fails. `Static` always reserves space.
+
+*   <span id="prop-enableclientscript">**EnableClientScript**</span>: When `True` (the default), the validator runs in the browser before the form is submitted, giving the user immediate feedback. Set to `False` to force server-side-only validation.
