@@ -52,6 +52,7 @@ The Textarea tag renders as a multi-line text input box at run time. Use it for 
 | [CharacterCountLabel](#prop-charactercountlabel) | string | | Label text shown next to the character count |
 | Columns | integer | | Display width of the control in characters |
 | CssClass | string | | CSS class name(s) for styling the control |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled (grayed out and not interactive). Different from `ReadOnly`, which still allows focus and selection |
 | Height | [size](../unit-types.md) | | Height of the control |
 | [HtmlEncode](#prop-htmlencode) | `True` `False` | `False` | HTML-encodes content before sending to the SubmitCommand |
 | [MaxLength](#prop-maxlength) | integer | | Maximum character count for the CharacterCount feature |
