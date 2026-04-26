@@ -3,91 +3,88 @@ id: template-markdown
 title: 'xmod:Markdown'
 category: Display Controls
 context: template
-summary: >-
-  The Markdown tag, first introduced in version 4.9, is used to convert
-  markdown-formatted content for display using HTML. The content can be created
-  using the `<Markdown>` form input tag (which provides a markdown editor),
-  though since markdown is plain text, it could come from a `<Textarea>` or any
-  other text editor.
+summary: Renders Markdown-formatted content as HTML. Supply the markdown as the tag's inner content (often via a `[[FieldName]]` token).
 keywords:
   - markdown
   - template
+since: '4.9'
+related:
+  - format
+  - script-block
 ---
+
 # `<xmod:Markdown>`
 
-The Markdown tag, first introduced in version 4.9, is used to convert markdown-formatted content for display using HTML. The content can be created using the [`<Markdown>`](../form-controls/markdown.md) form input tag (which provides a markdown editor), though since markdown is plain text, it could come from a `<Textarea>` or any other text editor.
+`<xmod:Markdown>` (introduced in v4.9) converts Markdown content to HTML at render time. The Markdown source goes between the opening and closing tags — typically a `[[FieldName]]` token bound to a Markdown column populated by the [`<Markdown>`](../form-controls/markdown.md) form control, but plain hardcoded Markdown works too.
 
-:::danger WARNING
-Markdown is not a means for protecting against Cross Site Scripting attacks (XSS). It does not make HTML "safe". You should take the same care with your source content as you would any other content that can contain HTML, Javascript, etc. 
+XMP uses the [Markdig](https://github.com/xoofx/markdig) library with the *Advanced Extensions* and *EmojiAndSmiley* profiles enabled.
+
+::: danger Markdown is not a sanitizer
+Markdown does not make raw HTML safe. By default, raw HTML inside Markdown passes through to the rendered page — if user-supplied content can contain HTML, you must sanitize it before storing it (or use `Bootstrap="true"`, which disables raw HTML).
 :::
 
-## Syntax
-```html
-<xmod:Markdown 
-  Bootstrap="true|false">
-...Markdown Content...
-</xmod:Markdown>
-```
-
-## Remarks
-
-*   **Content**: The markdown content should be supplied between the opening `<xmod:Markdown>` and closing `</xmod:Markdown>` tags. This can be in the form of hard-coded markdown text or a field retrieved from the database using a `[[field]]` token. The tag will trim spacing from the beginning and end of the content so it is possible to put content on new lines, but since spacing and indentation is important in markdown, you should make sure the content starts at the beginning of each line and not indented.
-
-    Data-Bound tag example:
-    ```html
-    <xmod:Markdown>[[YourMarkdownContentField]]</xmod:Markdown>
-    ```
-    Inline markdown example. Note that content starts at the _beginning_ of each line, not indented. If you indent the lines they will not render as markdown because indentation is significant in markdown.
-    ```html
-      <xmod:Markdown>
-    # Your Markdown Content
-    ## An H2 Heading
-    * Item One
-    * Item Two
-      * Item Two A
-      * Item Two B
-      </xmod:Markdown>
-    ```
-
-*   **Code Blocks**: If the markdown contains fenced code blocks, the rendered HTML will be a `<pre><code>...</code></pre>` block of code. If the fenced block specifies a language like ` ```html ` or ` ```javascript ` then the `<code>` tag will contain a class indicating the language like: `<code class="language-html">` or `<code class="language-javascript">`. It is up to your stylesheet to style the code and provide any syntax highlighting.
-
-* **Bootstrap**: (optional) False, by default, if Bootstrap is set to `true`, certain tags will be rendered with basic Bootstrap classes: 
-
-  * HTML is displayed as text (not encoded) inside `<p>` tags.
-    ```html
-    <h1>This should render as plain text</h1>
-    <a href="https://dnndev.com">Go to DNNDev.com</a>
-    --- Renders As ---
-    <p>
-      "<h1>This should render as plain text</h1>
-       <a href="https://dnndev.com">Go to DNNDev.com</a>"
-    </p>
-  * Adds `.table` to `<table>`
-  * Adds `.blockquote` to `<blockquote>`
-  * Adds `.figure` to `<figure>`
-  * Adds `.figure-caption` to `<figcaption>`
-  * Adds `.img-fluid` to all images
-    ```markdown
-    ![Image Text](/url)
-    --- Renders As... ---
-    <img src="/url" class="img-fluid" alt="Image Text">
-    ```
-
 ## Example
-```html
-<xmod:Template>
-  <DetailDataSource 
-    CommandText="SELECT Author, Title, Article 
-                 FROM Articles WHERE ArticleId = @id">
-    <Parameter Name="id" Value='[[Url:id]]' DataType="Int32" />
-  </DetailDataSource>
 
+```html {7}
+<xmod:Template>
+  <DetailDataSource CommandText="SELECT Author, Title, Article FROM Articles WHERE ArticleId = @id">
+    <Parameter Name="id" Value="[[Url:id]]" DataType="Int32" />
+  </DetailDataSource>
   <DetailTemplate>
     <h1>[[Title]]</h1>
     <h4>by [[Author]]</h4>
     <xmod:Markdown>[[Article]]</xmod:Markdown>
   </DetailTemplate>
+</xmod:Template>
 ```
 
+Inline Markdown content works too, but indentation matters in Markdown — start every content line at column 0:
 
+```html
+<xmod:Markdown>
+# Section heading
+## Subheading
+* Item one
+* Item two
+  * Nested item
+</xmod:Markdown>
+```
 
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Bootstrap](#prop-bootstrap) | `True` `False` | `False` | When `True`, adds Bootstrap utility classes to common rendered elements and disables raw HTML pass-through |
+
+## Property Details
+
+*   <span id="prop-bootstrap">**Bootstrap**</span>: When `True`, the Markdig pipeline runs with the Bootstrap profile and `DisableHtml`. The differences:
+
+    | Element | `Bootstrap="False"` (default) | `Bootstrap="True"` |
+    |---------|-------------------------------|--------------------|
+    | Raw HTML in source | Passes through to output | Rendered as plain text inside `<p>` |
+    | `<table>` | No class | Adds `.table` |
+    | `<blockquote>` | No class | Adds `.blockquote` |
+    | `<figure>` | No class | Adds `.figure` |
+    | `<figcaption>` | No class | Adds `.figure-caption` |
+    | Images | `<img src="...">` | `<img src="..." class="img-fluid">` |
+
+    For sites built on Bootstrap, this is the easier path — Markdown renders into already-styled markup with no extra CSS.
+
+## Code blocks
+
+Fenced code blocks render as `<pre><code>...</code></pre>`. When the fence specifies a language (e.g. ` ```javascript`), the `<code>` tag picks up a class:
+
+````markdown
+```javascript
+console.log('hello');
+```
+````
+
+renders as:
+
+```html
+<pre><code class="language-javascript">console.log('hello');</code></pre>
+```
+
+XMP doesn't bundle a syntax highlighter — your stylesheet (or a JS library like Prism or highlight.js) handles the visual highlighting.

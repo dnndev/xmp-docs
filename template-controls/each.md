@@ -3,87 +3,86 @@ id: template-each
 title: 'xmod:Each'
 category: Display Controls
 context: template
-summary: >-
-  The Each tag (new to version 4.6) is used to split a delimited value - such as
-  a comma-separated or pipe-separated value in your database. You can then
-  iterate through each of these values, rendering out HTML. In other words, if
-  you have a list of images stored in an Images column in your table, you can
-  build a bullet list from that.
+summary: Splits a delimited string into items and renders templated HTML for each one. Useful for unpacking comma- or pipe-delimited columns.
 keywords:
   - each
   - template
+since: '4.6'
+related:
+  - format
+  - select
 ---
+
 # `<xmod:Each>`
 
-The Each tag (new to version 4.6) is used to split a delimited value - such as a comma-separated or pipe-separated value in your database. You can then iterate through each of these values, rendering out HTML. In other words, if you have a list of images stored in an Images column in your table, you can build a bullet list from that.
+`<xmod:Each>` splits the value at `Delimiter` and renders one of the inner templates for each piece. It's the typical way to unpack a multi-value column — for example, an `Images` column containing `pic1.jpg|pic2.jpg|pic3.jpg`, or a `Tags` column containing comma-separated tags.
 
-**NOTE**: The Each tag is designed to render Text and HTML. It will not render other XMod Pro tags.
+::: warning HTML and text only
+The inner templates render plain HTML, text, and the `{value}` / `{index}` / `{count}` placeholders. Other XMod Pro tags (`<xmod:Format>`, `<xmod:Select>`, `[[FieldName]]` tokens, etc.) inside an `<ItemTemplate>` are **not** processed.
+:::
 
-## Syntax
+## Example
+
+Render an unordered list of `<img>` tags from a pipe-delimited `Images` column:
+
+```html {2-4}
+<ul>
+  <xmod:Each Delimiter="|" Value="[[Images]]">
+    <ItemTemplate><li><img src="/img/{value}" alt="Photo {index} of {count}" /></li></ItemTemplate>
+  </xmod:Each>
+</ul>
+```
+
+Build a comma-separated list with a final "and":
+
 ```html
-<xmod:Each
-    Delimiter="string - defaults to pipe ( | ) character"
-    Value="string">
-
-    <FirstItemTemplate>...Text, HTML, {index}, {count}, {value}...</FirstItemTemplate>
-    <ItemTemplate>...Text, HTML, {index}, {count}, {value}...</ItemTemplate>
-    <AlternatingItemTemplate>...Text, HTML, {index}, {count}, {value}...</AlternatingItemTemplate>
-    <LastItemTemplate>...Text, HTML, {index}, {count}, {value}...</LastItemTemplate>
-    <SeparatorTemplate>...Text, HTML{index}, {count}, {value}...</SeparatorTemplate>
+<xmod:Each Delimiter="," Value="[[Authors]]">
+  <ItemTemplate>{value}</ItemTemplate>
+  <LastItemTemplate>and {value}</LastItemTemplate>
+  <SeparatorTemplate>, </SeparatorTemplate>
 </xmod:Each>
 ```
 
-## Remarks
+## Properties
 
-*   **Delimiter**: Optional. Defaults to the pipe character "|" which is the default for most XMod Pro Form controls that allow multiple selections like the CheckboxList and multi-select list boxes. This is the text that separates each value.  
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Value](#prop-value) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string \| token | | The delimited string to split |
+| Delimiter | string | `\|` | The character (or string) that separates items in `Value` |
 
-*   **FirstItemTemplate**: This renders only when the tag is processing the first item in the list.  
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
 
-*   **LastItemTemplate**: This renders only when the tag is processing the last item in the list.  
+## Child Tags
 
-*   **ItemTemplate**: This renders for each item in the list. However, it will not render if this is the first item and a FirstItemTemplate has been defined. Likewise, it will not render if processing the last item in the list and a LastItemTemplate has been defined. Additionally, if an AlternatingItemTemplate has been defined and the current item is an even number, the ItemTemplate will not be rendered.  
+| Tag | Description |
+|-----|-------------|
+| [`<ItemTemplate>`](#child-itemtemplate) | Rendered for each item that doesn't match a more specific template below. Required for any output |
+| `<FirstItemTemplate>` | Rendered instead of `<ItemTemplate>` for the first item, when set |
+| `<LastItemTemplate>` | Rendered instead of `<ItemTemplate>` for the last item, when set |
+| `<AlternatingItemTemplate>` | Rendered instead of `<ItemTemplate>` for items at even positions (0-based), when set |
+| `<SeparatorTemplate>` | Rendered between items (not after the last) |
 
-*   **AlternatingItemTemplate**: This renders if the current item being processed is an even number. It will not render if a LastItemTemplate has been defined and the last item is an even number.  
+### <span id="child-itemtemplate">Placeholders inside templates</span>
 
-*   **SeparatorTemplate**: This will render its content after each item in the list. It will not render after the last item in the list.  
+Inside any of the templates, three placeholders are replaced at render time:
 
-*   **Value**: This is the delimited string that will be processed by the tag.  
+| Placeholder | Replaced with |
+|-------------|---------------|
+| `{value}` | The current item's value |
+| `{index}` | The current item's 1-based position in the list |
+| `{count}` | The total number of items in the list |
 
-*   **{index} Placeholder**: This will be replaced at run-time by the item number of the item currently being processed. This value is 1-based. So, in a 10-item list, the first item will be 1 and the last item will be 10.  
+## Property Details
 
-*   **{count} Placeholder**: This will be replaced at run-time by the total count of items in the list. So, in a 10-item list, this will be 10.  
+*   <span id="prop-value">**Value**</span>: The delimited string to split. Typically a `[[FieldName]]` token bound to a multi-value column. If the value is empty, nothing renders (no templates fire).
 
-*   **{value} Placeholder**: This will be replaced at run-time by the value of the current item. So, if the original value being processed was: Red|Green|Blue and the tag is processing the 2nd item in the list, {value} will be replaced by Green.
+## Template selection rules
 
-## Example
-```html {19-21}
-<div>
-  <table width="100%">
-    <tr>
-      <td width="250" valign="top">
+When choosing which template to render for a given item, `<xmod:Each>` walks this priority:
 
-        <!-- EMPLOYEES TEMPLATE -->
+1. **First item** → `<FirstItemTemplate>` if set, otherwise `<ItemTemplate>`
+2. **Last item** → `<LastItemTemplate>` if set; otherwise `<AlternatingItemTemplate>` if the position is even, otherwise `<ItemTemplate>`
+3. **Even-positioned item** → `<AlternatingItemTemplate>` if set, otherwise `<ItemTemplate>`
+4. **All other items** → `<ItemTemplate>`
 
-        <xmod:Template Id="Employees">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmpID">
-            <Parameter Name="EmployeeId" Value='[[Url:eid]]' DataType="Int32" />
-          </DetailDataSource>
-
-          <DetailTemplate>
-            <h1>Employee Profile</h1>
-            <h3>[[FirstName]] [[LastName]]</h3>
-            <h4>Biography:</h4>
-            <h6>Images</h6
-            <ul>
-              <xmod:Each Delimiter="|" Value='[[Images]]'>
-                <ItemTemplate><img src="/img/{value}" /></ItemTemplate>
-              </xmod:Each>
-            </ul>
-          </DetailTemplate>
-        
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>
-```
+`<SeparatorTemplate>` renders after every item except the last.

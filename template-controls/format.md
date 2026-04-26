@@ -1,132 +1,117 @@
 ---
 id: template-format
 title: 'xmod:Format'
-category: Formatting
+category: Display Controls
 context: template
-summary: >-
-  The Format tag allows you to present your data in a more user-friendly format.
-  With it, you can format currency, numbers, dates. You can perform text
-  substitutions and regular expression substitutions. It also provides you with
-  the ability to cloak text - i.e. obfuscate it so that web 'bots have more
-  difficulty scraping your web pages for data like email addresses.
+summary: Formats a value — number, currency, date, regex match — for display. Also handles HTML/URL encoding/decoding and email cloaking.
 keywords:
   - format
   - template
+since: '1.0'
+related:
+  - markdown
+  - each
+  - select
 ---
+
 # `<xmod:Format>`
 
-The Format tag allows you to present your data in a more user-friendly format. With it, you can format currency, numbers, dates. You can perform text substitutions and regular expression substitutions. It also provides you with the ability to cloak text - i.e. obfuscate it so that web 'bots have more difficulty scraping your web pages for data like email addresses.
+`<xmod:Format>` takes a value (typically a `[[FieldName]]` token) and reformats it for display: numbers and dates get formatted to a culture-aware pattern, text gets `String.Format`-style placeholder substitution, regular expressions get replaced, and HTML or URL content gets encoded or decoded.
 
-## Syntax
-```html
-<xmod:Format 
-    Type="Numeric|Float|Date|Text|RegEx|Cloak|HtmlEncode|HtmlDecode|UrlEncode|UrlDecode"
-    Value="string"
-    Pattern="string"
-    Replacement="string"
-    MaxLength="integer"
-    InputCulture="locale ID"
-    OutputCulture="locale ID" 
-/>
-```
-
-## Remarks
-
-The Format tag is used to operate on data - usually from form fields, but it can also operate on hard-coded values. It gives you the ability to take a value and adjust its appearance. For instance the value "1" could be formatted as "01", "1", or "1.00". The value "2005-05-21" could be formatted like "05/21/2005", "Sat May 21 2005", etc.
-
-The Format tag will format values as numbers (no floating point), floating-point numbers, and dates. It will also allow you to perform text substitutions as well as regular expression substitutions. Format tags are empty tags, meaning that they do not contain any inner text. Please follow the XHTML syntax for empty tags which is to write them as a single tag. (i.e. `<xmod:format ... />` See example)
-
-*   **Type:** This determines how it should treat the value it will be formatting. For numbers and dates, the input value must be convertible to the type you specify. Valid values are below:
-
-  *   `Numeric`: the input value will be treated as a whole number (1, 100, -1, 1000, etc.).
-  *   `Float`: the input value will be treated as a floating point number (1.01, -0.315, etc.)
-  *   `Date`: the input will be treated as a date/time value (5/21/05, 2005-05-21 1:00 pm, etc.)
-  *   `Text`: the input is treated as text. This mode allows you to perform replacements in that text by using placeholders ({0}, {1}, etc.) and a list of replacement values. The first item in the list would replace {0}, the second would replace {1}, and so on. (see examples for more info)
-  *   `RegEx`: the input is treated as text. This mode allows you to put your regular expression skills to work to perform magical feats of text manipulation. In the pattern attribute, you would place the regular expression pattern for matching. In the replacement attribute, you would place your regular expression replacement pattern (see examples for more info)
-  *   `Cloak`: This type of formatting can be used for potentially sensitive information that you want to hide from robots and spiders which crawl the web looking to harvest information. The primary use for this is to obfuscate email addresses but other data can be used as well. When using the cloak format type, you only need to supply a value. All other attributes are ignored.  
-
-      ::: tip NOTE
-      Cloaking uses Javascript to obscure the data within the HTML source code. If Javascript is enabled in the browser, the text will display. If Javascript is disabled, the text will not display. While this is effective at hiding data like email addresses from spam bots, no solution is foolproof. Additionally, this method cannot be used to supply data to a "mailto" hyperlink because of the Javascript involved.
-      :::
-
-  *   `HtmlEncode/Decode`: the input value will have its HTML encoded (or decoded) before rendering out to the page.
-  *   `UrlEncode/Decode`: the input value will be encoded for URL's (or decoded from a URL-encoded value).  
-
-*   **Value:** This is the input value that you intend to format. It can be hard-coded - i.e. a value you type in, or it can be a field token representing the value of a field. NOTE: Sometimes the value you're dealing with may contain double and/or single quotes. In many cases this may prevent the parser from correctly recognizing the correct value of the "value" attribute. In these cases, you can place the value inside the opening and closing tags. See the examples section for details.  
-
-*   **Pattern:** This is the pattern XMod will use to perform the formatting. What you place here will depend on what type you have specified. Some examples are listed below.
-    *   `Numeric`: "0" , "#0", "00", "0.00", "c" (currency), "g" (general number format). On a US system, the results for the input value "1" would be: "1", "1", "01", "1.00", "$1.00", "1"
-    *   `Date`: "MM/dd/yyyy" (01/31/2005), "ddd MMM dd yyyy" (Wed Apr 13 2005)
-    *   `Text`: For text replacements the "pattern" ({0}, {1}, etc.) is embedded in the input value, so no pattern is specified.
-    *   `RegEx`: The input value may be: "Hello NAME, How's the CONDITION" In this case your pattern may be: "(.*)(NAME)(.*)(CONDITION)" and your replacement value might be "$1John$3weather" with the result being: "Hello John, How's the weather".
-    *   `Cloak`: This attribute is not used.  
-
-*   **Replacement:** The replacement is used for text and regex formatting types. What you place in this attribute depends on which formatting type you're using:
-    *   `Text`: For text replacements, you would supply a comma-delimited list of values to use for the replacements. Their order will determine which placeholder (i.e. {0}, {1}, etc.) they replace. For example, if the input value is "Hello {0}, How's the {1}?" your replacement might be "John,weather" with the result being "Hello John, How's the weather?"
-    *   `RegEx`: For regular expression-based formatting, you would specify a pattern to match in the pattern attribute and use the captured items in your replacement. For example: The input value may be: "Hello NAME, How's the CONDITION" In this case your pattern may be: "(.*)(NAME)(.*)(CONDITION)" and your replacement value might be "$1John$3weather" with the result being: "Hello John, How's the weather". Notice there are 4 captures in the pattern. the first and third match any characters. The second and fourth match "NAME" and "CONDITION" respectively. In your replacement, the $1 stands for the first capture, $3 stands for the 3rd capture.  
-
-*   **MaxLength:** If this value is 1 or greater, the format tag will truncate the resulting text and add an ellipsis (...). The total number of characters (including the ellipsis) will not exceed the number of characters specified. This attribute is ignored if the Format Type is Cloak because truncating the results could prevent the cloaked text from displaying correctly.  
-
-*   **InputCulture/OutputCulture:** If the input value is in a culture-specific format, you can specify what culture should be used when trying to convert that value. Dates, for instance, vary widely based on culture. There are many pre-defined culture names (known as LCID's or locale ID's) which are valid values such as: en-US (English - United States), en-GB (English - United Kingdom), fr-FR (French - France), de-DE (German - Germany), es-ES (Spanish - Spain), es-MX (Spanish - Mexico, etc.
-    *   `InputCulture` is used to tell the tag what culture to assume when processing the incoming value (the value attribute).
-    *   `OutputCulture` is used to tell the tag what culture to assume when performing the formatting.  
-
-    For example, the input value may be a US date, but you want to format it for display to a French audience. In that case, you would specify "en-US" as the InputCulture and "fr-FR" as the OutputCulture. When used this way, you can avoid using the pattern attribute altogether and rely on the default formatting for the respective cultures. See the "date" examples below for an example of this.
+It's a self-closing tag — supply the value via the `Value` attribute, or place it between the opening and closing tags when the value contains characters that confuse attribute delimiters (single or double quotes).
 
 ## Example
-```html
-<xmod:Template ...> 
-    ... 
-    <ItemTemplate>
 
-EXAMPLE #1
-      If Quantity=5 Output Value Will Be: 05.00
+```html {3,8,13,17,22}
+<xmod:Template ...>
+  <ItemTemplate>
+    <!-- Floating-point with leading zero, two decimals: 5 → 05.00 -->
+    Price (2dp): <xmod:Format Type="Float" Value="[[Price]]" Pattern="0#.00" />
 
-      <xmod:Format Type="Float" Value='[[Price]]' Pattern="0#.00" />
+    <!-- Whole number, two digits: 5 → 05 -->
+    Quantity: <xmod:Format Type="Numeric" Value="[[Quantity]]" Pattern="d2" />
 
-EXAMPLE #2
-      If Quantity=5 Output Value Will Be: 05
+    <!-- Currency formatted in the server's culture: 5 → $5.00 (US) or £5.00 (UK) -->
+    Price: <xmod:Format Type="Float" Value="[[Price]]" Pattern="c" />
 
-      <xmod:Format Type="Numeric" Value='[[Quantity]]' Pattern="d2" />
+    <!-- Currency forced to UK formatting on every server -->
+    Price (UK): <xmod:Format Type="Float" Value="[[Price]]" Pattern="c" OutputCulture="en-GB" />
 
-      NOTES: The "d" pattern is a pre-defined pattern for working 
-      with numeric values. It works only with whole numbers. It 
-      instructs the tag to display the value as a decimal (base 10). 
-      The "2" instructs the tag to display the number as a 2 digit 
-      number.
+    <!-- Date: 04/25/2013 → 04/25/2013 -->
+    Date: <xmod:Format Type="Date" Value="[[ReleaseDate]]" Pattern="MM/dd/yyyy" />
 
-EXAMPLE #3
-      If Quantity=5 
-        Output On US Systems:$5.00
-        Output On United Kingdom Systems:£5.00
-
-      <xmod:Format Type="Float" Value='[[Price]]' Pattern="c" />
-
-      NOTES: No output culture is specified so the output defaults 
-      to the web server's culture. The "c" pattern stands for 
-      formatting the value as currency.
-
-EXAMPLE #4
-      If Quantity=5 
-        Output On US Systems:£5.00
-        Output On United Kingdom Systems:£5.00
-
-      <xmod:Format Type="Numeric" Value='[[Price]]' Pattern="c" 
-        OutputCulture="en-GB" />
-
-      NOTES: United Kingdom English is specified as the output 
-      culture, effectively forcing the value to be formatted 
-      with the £ symbol, even on US systems.
- 
-
-EXAMPLE #5
-      If theDateColumn=04/25/2013 
-        Output Value Will Be:04/25/2013
-
-      <xmod:Format Type="Date" Value='[[theDateColumn]]' Pattern="MM/dd/yyyy" />
-
-
-    </ItemTemplate> 
-    ... 
+    <!-- Email cloaked from spam bots -->
+    Contact: <xmod:Format Type="Cloak" Value="[[Email]]" />
+  </ItemTemplate>
 </xmod:Template>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| [Type](#prop-type) <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `Numeric` `Float` `Date` `Text` `RegEx` `Cloak` `HtmlEncode` `HtmlDecode` `UrlEncode` `UrlDecode` | | What kind of formatting to perform |
+| [Value](#prop-value) | string \| token | | The value to format. Alternatively, place between the opening and closing tags |
+| [Pattern](#prop-pattern) | format string | | Pattern used for `Numeric`, `Float`, `Date`, and `RegEx` types |
+| [Replacement](#prop-replacement) | string | | Replacement values used for `Text` and `RegEx` types |
+| [MaxLength](#prop-maxlength) | integer | `0` (no limit) | Truncate the formatted output to N characters and append an ellipsis. Ignored when `Type="Cloak"` |
+| [InputCulture](#prop-cultures) | locale id | (current culture) | Culture used to parse `Value` (e.g. for non-US date formats) |
+| [OutputCulture](#prop-cultures) | locale id | (current culture) | Culture used to format the output |
+
+<span style="color:red; font-weight:bold; font-size:1.2em;">*</span> Required property
+
+## Property Details
+
+*   <span id="prop-type">**Type**</span>: How the value is interpreted and formatted.
+
+    | Type | Value treated as | Pattern + Replacement |
+    |------|------------------|-----------------------|
+    | `Numeric` | Whole number | .NET integer format string (`d`, `d2`, `n`, `c`, custom) |
+    | `Float` | Floating-point number | .NET numeric format string (`0.00`, `c`, `g`, custom) |
+    | `Date` | Date/time | .NET date format string (`MM/dd/yyyy`, `ddd MMM dd yyyy`, custom) |
+    | `Text` | Composite format string with `{0}`, `{1}`, … placeholders | `Replacement` is a comma-delimited list of values to fill the placeholders |
+    | `RegEx` | Subject string for a regex replace | `Pattern` is the match regex; `Replacement` is the replacement (with `$1`, `$2`, … back-references) |
+    | `Cloak` | Email or other string to obfuscate from spam bots | (no pattern — uses DNN's `CloakText` JavaScript obfuscator) |
+    | `HtmlEncode` / `HtmlDecode` | Text to HTML-encode or decode | (no pattern) |
+    | `UrlEncode` / `UrlDecode` | Text to URL-encode or decode | (no pattern) |
+
+    ::: tip Cloak caveat
+    `Cloak` uses inline JavaScript to assemble the value at render time. If JavaScript is disabled, the cloaked text doesn't appear at all. It also can't be used inside a `mailto:` link, since the `href` is parsed before the script runs.
+    :::
+
+*   <span id="prop-value">**Value**</span>: The value to format. Either as the `Value` attribute or as the inner content of the tag — useful when the value contains both single and double quotes that would conflict with attribute delimiters.
+
+    ```html
+    <xmod:Format Type="Text">[[QuotedField]]</xmod:Format>
+    ```
+
+*   <span id="prop-pattern">**Pattern**</span>: The format pattern. Meaning depends on `Type`:
+
+    | Type | Pattern is |
+    |------|------------|
+    | `Numeric` / `Float` | A .NET [numeric format string](https://learn.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings) — e.g. `0`, `00`, `0.00`, `c` (currency), `n` (number with separators), `g` (general) |
+    | `Date` | A .NET [date format string](https://learn.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) — e.g. `MM/dd/yyyy`, `dddd MMMM d, yyyy` |
+    | `Text` | _Not used_ — the placeholders are inside `Value` itself |
+    | `RegEx` | The regular expression to match in `Value` |
+
+*   <span id="prop-replacement">**Replacement**</span>: Replacement payload. Meaning depends on `Type`:
+
+    | Type | Replacement is |
+    |------|----------------|
+    | `Text` | Comma-delimited list of values that fill `{0}`, `{1}`, … inside `Value` |
+    | `RegEx` | The replacement string for the regex, with `$1`, `$2`, … back-references |
+    | _other_ | _Ignored_ |
+
+    Text example — `Value="Hello {0}, How's the {1}?"`, `Replacement="John,weather"` → `"Hello John, How's the weather?"`
+
+*   <span id="prop-maxlength">**MaxLength**</span>: When greater than `0`, truncates the formatted output to that many characters and appends `...`. The ellipsis is included in the count, so `MaxLength="10"` produces at most 10 characters total. Ignored for `Cloak` because truncating obfuscated text can break the unscrambling.
+
+*   <span id="prop-cultures">**InputCulture / OutputCulture**</span>: Locale identifiers (e.g. `en-US`, `fr-FR`, `de-DE`) used when parsing or formatting culture-sensitive values like dates and numbers.
+
+    | Use | Example |
+    |-----|---------|
+    | Parse a French-formatted date as input | `InputCulture="fr-FR"` |
+    | Render currency in UK pounds regardless of server | `OutputCulture="en-GB"` Pattern="c"` |
+    | Both | Take a US date and display it French-style — `InputCulture="en-US" OutputCulture="fr-FR"` |
+
+    Use `invariant` for culture-neutral formatting.
