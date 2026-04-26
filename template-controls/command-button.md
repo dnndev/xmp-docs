@@ -3,154 +3,106 @@ id: template-command-button
 title: 'xmod:CommandButton'
 category: Action Links
 context: template
-summary: >-
-  The CommandButton tag renders as a push-button at run-time. It is used to
-  execute data commands in another template within the module instance. For
-  instance, if you had two templates, you might put a CommandButton in template
-  #1 to pass a parameter to the `<ListdataSource>` of template #2, causing that
-  template to re-load with the new result set.
+summary: A push-button that fires one or more commands at other templates on the page — refreshing their list views, opening their detail views, or triggering a custom command on the parent template.
 keywords:
   - command
   - button
   - template
+since: '1.0'
+related:
+  - command-image
+  - command-link
 ---
+
 # `<xmod:CommandButton>`
 
-The CommandButton tag renders as a push-button at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandButton in template #1 to pass a parameter to the `<ListdataSource>` of template #2, causing that template to re-load with the new result set.
+`<xmod:CommandButton>` is the most flexible action button in the template family. When clicked, it fires one or more `<Command>` child tags. Each command targets another `<xmod:Template>` (or `<xmod:DataList>`) by ID and triggers one of its commands — list refresh, detail open, custom command, etc. — passing parameter values along.
 
-## Syntax
-```html
-<xmod:CommandButton
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    OnClientClick="javascript"
-    Redirect="url"
-    RedirectMethod="Get|Post"
-    Style="string"
-    Text="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size">  
+This is what makes side-by-side master/detail layouts possible: a button in the master template can refresh the detail template with the clicked row's parameters.
 
-    <Command Target="string" Type="List|Detail">
-        <Parameter Name="string" Value="string" />
-        <Parameter Name="string" Value="string" />
-        additional parameters as needed ...
-    </Command>
-    additional commands as needed ...
-</xmod:CommandButton>
-```
-
-## Remarks
-
-*   **Usage:** Command controls are used to execute a pre-defined data command in another template. You can execute multiple commands within a single control. Commands are defined in the `<Command>` child tags. Each command will be executed in sequence, but please note that _there is no transaction assumed_. If a command fails, all those that went before it will NOT be rolled back.  
-
-    For each command, you identify the template whose datasource you want to execute by specifying the template's ID in the "target" attribute. If you set the "type" attribute to List, the `<ListDataSource>` will be executed and passed any parameters you specify via `<Parameter>` child tags.  
-
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Redirect**: Enables you to redirect the user to an alternative URL after the button is clicked. The redirection occurs after any form processes initiated by the button click completes.  
-
-*   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
-
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **Text**: The caption that will be displayed on the control.  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
+::: info Sibling variants
+- [`<xmod:CommandImage>`](command-image.md) — same behavior, rendered as a clickable image
+- [`<xmod:CommandLink>`](command-link.md) — same behavior, rendered as a hyperlink
+:::
 
 ## Example
-```html {10-17}
-<div>
-  <table width="100%">
-    <tr>
-      <td colspan="2">
 
-        <!-- DEPARTMENTS TEMPLATE -->
-        <xmod:Template Id="Departments">
-          <ListDataSource CommandText="SELECT DepartmentId, DepartmentName FROM XMPDemo_Departments ORDER BY DepartmentName" />
-          <ItemTemplate>
-            <xmod:CommandButton Text='[[DepartmentName]]'>
-              <Command Target="Employees" Type="list">
-                <Parameter Name="DepartmentId" Value='[[DepartmentId]]' />
-              </Command>
-              <Command Target="EmployeeProfile" Type="detail">
-                <Parameter Name="EmployeeId" Value="-1" />
-              </Command>
-            </xmod:CommandButton>&nbsp;
-          </ItemTemplate>
-        </xmod:Template>
-      </td>
-    <tr>
-      <td width="250" valign="top">
+A Departments template with a button per department that, when clicked, refreshes both the Employees template (with the selected department's ID) and resets the EmployeeProfile template's detail view:
 
-        <!-- EMPLOYEES TEMPLATE -->
-        <xmod:Template Id="Employees">
-          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
-           <Parameter Name="DepartmentId" Alias="DepartmentId" />
-         </ListDataSource>
-<HeaderTemplate>
-            <p>Employees</p>
-          </HeaderTemplate>
-          <ItemTemplate>
-            <div style="text-align: middle;">
-              <xmod:CommandImage Text="Profile" ImageUrl="~/images/icon_hostusers_32px.gif" ImageAlign="absmiddle">
-                <Command Type="detail" Target="EmployeeProfile">
-                  <Parameter Name="EmployeeId" Value='[[EmployeeId]]' />
-                </Command>
-              </xmod:CommandImage> &nbsp;<strong>[[FirstName]] [[LastName]]</strong>
-            </div>
-          </ItemTemplate>
-        </xmod:Template>
-      </td>
-      <td width="500" valign="top">
-
-        <!-- EMPLOYEE PROFILE TEMPLATE -->
-        <xmod:Template Id="EmployeeProfile">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">
-            <Parameter Name="EmployeeId" Alias="EmployeeId" value="-1"/>
-          </DetailDataSource>
-          <DetailTemplate>
-            <h1>Employee Profile</h2>
-            <p style="font-size: 14px; font-weight: bold;">[[FirstName]] [[LastName]]</p>
-            <p style="font-size: 12px; font-weight: bold;"><em>[[JobTitle]]</em></p>
-            <p>[[Resume]]</p>
-          </DetailTemplate>
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>  
+```html {3-10}
+<xmod:Template Id="Departments">
+  <ListDataSource CommandText="SELECT DepartmentId, DepartmentName FROM Departments ORDER BY DepartmentName" />
+  <ItemTemplate>
+    <xmod:CommandButton Text="[[DepartmentName]]">
+      <Command Target="Employees" Type="List">
+        <Parameter Name="DepartmentId" Value="[[DepartmentId]]" />
+      </Command>
+      <Command Target="EmployeeProfile" Type="Detail">
+        <Parameter Name="EmployeeId" Value="-1" />
+      </Command>
+    </xmod:CommandButton>
+  </ItemTemplate>
+</xmod:Template>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ID | string | | Unique identifier for the button |
+| Text | string | | Caption displayed on the button |
+| Ajax | `True` `False` | `False` | When `True`, the commands run via async postback. Requires `ID` set _(since v2.6)_ |
+| [Redirect](#prop-redirect) | URL \| `.` | | After the commands run, redirect the user to this URL |
+| RedirectMethod | `Get` `Post` | `Get` | HTTP method used for the redirect |
+| CssClass | string | | CSS class name(s) |
+| Style | string | | Inline CSS |
+| Width | [size](../unit-types.md) | | Width of the button |
+| Height | [size](../unit-types.md) | | Height of the button |
+| ToolTip | string | | Hover tooltip |
+| Visible | `True` `False` | `True` | Shows or hides the button |
+| OnClientClick | JavaScript | | Client-side script to run on click. Returning `false` cancels the action |
+| AccessKey | string | | Keyboard shortcut character |
+| Enabled | `True` `False` | `True` | When `False`, the button is disabled |
+| TabIndex | integer | | Tab order for keyboard navigation |
+
+<details>
+<summary>Deprecated Properties (styling)</summary>
+
+`BackColor`, `BorderColor`, `BorderStyle`, `BorderWidth`, `Font-*`, `ForeColor` — use `CssClass` or `Style` instead.
+
+</details>
+
+## Child Tags
+
+| Tag | Required | Description |
+|-----|----------|-------------|
+| [`<Command>`](#child-command) | required | One command to fire when the button is clicked. Add as many as needed |
+
+### <span id="child-command">`<Command>`</span>
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| Target <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | template ID | | The `Id` of the `<xmod:Template>` (or `<xmod:DataList>`) the command runs against |
+| Type <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | `List` `Detail` `Add` `Edit` `Delete` `Custom` | | Which command to run on the target |
+| Name | string | | Used when `Type="Custom"` — the `CommandName` of the matching `<DataCommand>` in the target's `<CustomCommands>` |
+
+::: warning No transaction
+Commands run sequentially, but they're not wrapped in a transaction. If a later command fails, the earlier ones are not rolled back.
+:::
+
+Each `<Command>` accepts `<Parameter>` child tags that fill the target's command parameters:
+
+```html
+<Command Target="Employees" Type="List">
+  <Parameter Name="DepartmentId" Value="[[DepartmentId]]" />
+</Command>
+```
+
+| Parameter attribute | Values | Default | Description |
+|---------------------|--------|---------|-------------|
+| Name <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Parameter name (matches `@param` in the target's command) |
+| Value | string \| token | | Parameter value |
+
+## Property Details
+
+*   <span id="prop-redirect">**Redirect**</span>: After the commands run, navigate to this URL. Use a single period (`.`) as a shortcut for "the current page".

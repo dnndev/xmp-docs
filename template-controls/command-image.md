@@ -3,160 +3,71 @@ id: template-command-image
 title: 'xmod:CommandImage'
 category: Action Links
 context: template
-summary: >-
-  The CommandImage tag renders as a clickable image at run-time. It is used to
-  execute data commands in another template within the module instance. For
-  instance, if you had two templates, you might put a CommandImage in template
-  #1 to pass a parameter to the `<ListDataSource>` of template #2, causing that
-  template to re-load with the new result set.
+summary: A clickable image that fires one or more commands at other templates on the page. Image variant of [`<xmod:CommandButton>`](command-button.md).
 keywords:
   - command
   - image
   - template
+since: '1.0'
+related:
+  - command-button
+  - command-link
 ---
+
 # `<xmod:CommandImage>`
 
-The CommandImage tag renders as a clickable image at run-time. It is used to execute data commands in another template within the module instance. For instance, if you had two templates, you might put a CommandImage in template #1 to pass a parameter to the `<ListDataSource>` of template #2, causing that template to re-load with the new result set.
+`<xmod:CommandImage>` renders a clickable image that fires one or more `<Command>` child tags — same behavior as [`<xmod:CommandButton>`](command-button.md), just rendered as an image rather than a push-button.
 
-## Syntax
-```html
-<xmod:CommandImage
-    AlternateText="string"
-    BackColor="color name|#dddddd"
-    BorderColor="color name|#dddddd"
-    BorderStyle="NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge| Inset|Outset"
-    BorderWidth="size"
-    CssClass="string"
-    Font-Bold="True|False"
-    Font-Italic="True|False"
-    Font-Names="string"
-    Font-Overline="True|False"
-    Font-Size="string|Smaller|Larger|XX-Small|X-Small|Small|Medium| Large|X-Large|XX-Large"
-    Font-Strikeout="True|False"
-    Font-Underline="True|False"
-    ForeColor="color name|#dddddd"
-    Height="size"
-    ImageAlign="NotSet|Left|Right|Baseline|Top|Middle|Bottom|AbsBottom|AbsMiddle|TextTop"
-    ImageUrl="url"
-  OnClientClick="javascript" 
-    Redirect="url"
-    RedirectMethod="Get|Post"
-    Style="string"
-    ToolTip="string"
-    Visible="True|False"
-    Width="size">
- 
-    <Command Target="string" Type="List|Detail">
-      <Parameter Name="string" Value="string" />
-      <Parameter Name="string" Value="string" />
-      additional parameters as needed ...
-    </Command>
-    additional commands as needed ...
-</xmod:CommandImage>
-```
-
-## Remarks
-
-*   **Usage:** Command controls are used to execute a pre-defined data command in another template. You can execute multiple commands within a single control. Commands are defined in the `<Command>` child tags. Each command will be executed in sequence, but please note that _there is no transaction assumed_. If a command fails, all those that went before it will NOT be rolled back.  
-
-    For each command, you identify the template whose datasource you want to execute by specifying the template's ID in the "target" attribute. If you set the "type" attribute to List, the `<ListDataSource>` will be executed and passed any parameters you specify via `<Parameter>` child tags.  
-
-*   **AlternateText**: Use this attribute's value will be used as the image's "alt" text. The "alt" text is generally used by screen reader software used by visually impaired users to identify the content of an image. It may also be used by search engines.  
-
-*   **BackColor**: Color of the background of the control.  
-
-*   **BorderColor**: Color of the border around the control.  
-
-*   **BorderStyle**: Style of the border around the control.  
-
-*   **BorderWidth**: Width of the border around the control, specified in [units](../unit-types.md)
-
-*   **CssClass**: Name of the Cascading Style Sheets (CSS) class used to style this control.  
-
-*   **Font Properties**: A series of attributes such as font-bold, font-size, etc. that allow you to control how the text in the control is displayed. [More](../font-properties.md)
-
-*   **ForeColor**: Sets the foreground color (typically the color of the text) of the control.  
-
-*   **Height**: Height of the control, specified in [units](../unit-types.md).  
-
-*   **ImageAlign**: This attribute determines how the image will be aligned with respect to the other elements in its context.  
-
-*   **ImageUrl**: Specify a URL to the image. You may use the tilde (~) character to represent the application's root directory. For instance: ImageUrl="~/images/myimage.gif" might map to "/dnntestsite/images/myimage.gif" on your localhost development machine and "/images/myimage.gif" on your production server.  
-
-*   **OnClientClick**: Should you wish to perform some action on the client when the control is clicked, add your Javascript function call or script in this attribute. If your script returns _false_ the control will not perform its normal processing. If you return true then the control will perform its normal processing.  
-
-*   **Redirect**: Enables you to redirect the user to an alternative URL after the button is clicked. The redirection occurs after any form processes initiated by the button click completes.  
-
-*   **RedirectMethod**: Determines the HTTP method by which the user is redirected: "Get" or "Post".  
-
-*   **Style**: Same as the HTML style attribute. It allows you to apply CSS styling to the control (e.g. `color: red; border: solid 1px black;`).  
-
-*   **ToolTip**: In browsers that support it, sets the text to display when the mouse pointer hovers over the control.  
-
-*   **Visible**: Determines if the control is visible (true) or hidden (false).  
-
-*   **Width**: Width of the control in [units](../unit-types.md).  
+::: info Sibling variants
+- [`<xmod:CommandButton>`](command-button.md) — push-button
+- [`<xmod:CommandLink>`](command-link.md) — hyperlink
+:::
 
 ## Example
-```html {34-38}
-<div>
-  <table width="100%">
-    <tr>
-      <td colspan="2">
 
-        <!-- DEPARTMENTS TEMPLATE -->
-        <xmod:Template Id="Departments">
-          <ListDataSource CommandText="SELECT DepartmentId, DepartmentName FROM XMPDemo_Departments ORDER BY DepartmentName" />
-          <ItemTemplate>
-            <xmod:CommandButton Text='[[DepartmentName]]'>
-              <Command Target="Employees" Type="list">
-                <Parameter Name="DepartmentId" Value='[[DepartmentId]]' />
-              </Command >
-              <Command Target="EmployeeProfile" Type="detail">
-                <Parameter Name="EmployeeId" Value="-1" />
-              </Command>
-            </xmod:CommandButton>&nbsp;
-          </ItemTemplate>
-        </xmod:Template>
-      </td>
-    <tr>
-      <td width="250" valign="top">
-
-        <!-- EMPLOYEES TEMPLATE -->
-        <xmod:Template Id="Employees">
-          <ListDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE DepartmentId = @DepartmentId"> 
-            <Parameter Name="DepartmentId" Alias="DepartmentId" />
-          </ListDataSource>
-          <HeaderTemplate>
-            <p>Employees</p>
-          </HeaderTemplate>
-          <ItemTemplate>
-            <div style="text-align: middle;">
-              <xmod:CommandImage Text="Profile" ImageUrl="~/images/icon_hostusers_32px.gif" ImageAlign="absmiddle">
-                <Command Type="detail" Target="EmployeeProfile">
-                  <Parameter Name="EmployeeId" Value='[[EmployeeId]]' />
-                </Command>
-              </xmod:CommandImage> &nbsp;<strong>[[FirstName]] [[LastName]]</strong>
-            </div>
-          </ItemTemplate>
-        </xmod:Template>
-      </td>
-      <td width="500" valign="top">
-
-        <!-- EMPLOYEE PROFILE TEMPLATE -->
-        <xmod:Template Id="EmployeeProfile">
-          <DetailDataSource CommandText="SELECT * FROM XMPDemo_Employees WHERE EmployeeId = @EmployeeId">
-            <Parameter Name="EmployeeId" Alias="EmployeeId" Value="-1" />
-          </DetailDataSource>
-          <DetailTemplate>
-            <h1>Employee Profile</h2>
-            <p style="font-size: 14px; font-weight: bold;">[[FirstName]] [[LastName]]</p>
-            <p style="font-size: 12px; font-weight: bold;"><em>[[JobTitle]]</em></p>
-            <p>[[Resume]]</p>
-          </DetailTemplate>
-        </xmod:Template>
-      </td>
-    </tr>
-  </table>
-</div>  
+```html {5-9}
+<xmod:Template Id="Employees">
+  <ListDataSource CommandText="SELECT * FROM Employees" />
+  <ItemTemplate>
+    <strong>[[FirstName]] [[LastName]]</strong>
+    <xmod:CommandImage AlternateText="View Profile" ImageUrl="~/images/profile.gif">
+      <Command Type="Detail" Target="EmployeeProfile">
+        <Parameter Name="EmployeeId" Value="[[EmployeeId]]" />
+      </Command>
+    </xmod:CommandImage>
+  </ItemTemplate>
+</xmod:Template>
 ```
+
+## Properties
+
+| Property | Values | Default | Description |
+|----------|--------|---------|-------------|
+| ID | string | | Unique identifier for the image button |
+| ImageUrl | URL | | Path to the image file. Tilde (`~`) supported |
+| AlternateText | string | | Alt text for screen readers and search engines |
+| ImageAlign | `NotSet` `Left` `Right` `Baseline` `Top` `Middle` `Bottom` `AbsBottom` `AbsMiddle` `TextTop` | `NotSet` | Image alignment relative to surrounding content |
+| Ajax | `True` `False` | `False` | When `True`, the commands run via async postback. Requires `ID` set _(since v2.6)_ |
+| Redirect | URL \| `.` | | After the commands run, redirect the user to this URL |
+| RedirectMethod | `Get` `Post` | `Get` | HTTP method used for the redirect |
+| CssClass | string | | CSS class name(s) |
+| Style | string | | Inline CSS |
+| Width | [size](../unit-types.md) | | Width of the image |
+| Height | [size](../unit-types.md) | | Height of the image |
+| ToolTip | string | | Hover tooltip |
+| Visible | `True` `False` | `True` | Shows or hides the control |
+| OnClientClick | JavaScript | | Client-side script to run on click. Returning `false` cancels the action |
+| AccessKey | string | | Keyboard shortcut character |
+| Enabled | `True` `False` | `True` | When `False`, the control is disabled |
+| TabIndex | integer | | Tab order for keyboard navigation |
+
+<details>
+<summary>Deprecated Properties (styling)</summary>
+
+`BackColor`, `BorderColor`, `BorderStyle`, `BorderWidth`, `Font-*`, `ForeColor` — use `CssClass` or `Style` instead.
+
+</details>
+
+## Child Tags
+
+Same as [`<xmod:CommandButton>`](command-button.md#child-command) — required `<Command Target Type Name>` tags with optional `<Parameter>` children.
