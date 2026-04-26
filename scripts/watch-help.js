@@ -14,8 +14,14 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const docsDir = path.dirname(__dirname)
 
-// Destination for deployed help content
-const deployPath = 'C:/TestSites/xmp5dev/DesktopModules/XModPro/help/help-content.json'
+// Destinations for deployed help content.
+// The Vue admin-ui fetches from /DesktopModules/XModPro/admin-ui/control-panel/help-content.json
+// (see src/stores/help.js). The source-tree public/ copy keeps the next
+// `npm run build` of the control-panel in sync for packaging.
+const deployTargets = [
+  'C:/TestSites/xmp5dev/DesktopModules/XModPro/admin-ui/control-panel/help-content.json',
+  'C:/Users/kford/source/dnndev/xmp/XModPro/admin-ui/control-panel/public/help-content.json'
+]
 
 // Debounce timer
 let buildTimeout = null
@@ -49,16 +55,19 @@ function buildAndDeploy() {
       log(`Build stderr: ${stderr}`)
     }
 
-    // Copy to deploy location
+    // Copy to each deploy location
     const sourcePath = path.join(docsDir, 'help-content.json')
 
-    try {
-      fs.copyFileSync(sourcePath, deployPath)
-      log(`Deployed to ${deployPath}`)
-      log('Ready for browser refresh!\n')
-    } catch (copyError) {
-      log(`Deploy error: ${copyError.message}`)
+    for (const target of deployTargets) {
+      try {
+        fs.mkdirSync(path.dirname(target), { recursive: true })
+        fs.copyFileSync(sourcePath, target)
+        log(`Deployed to ${target}`)
+      } catch (copyError) {
+        log(`Deploy error (${target}): ${copyError.message}`)
+      }
     }
+    log('Ready for browser refresh!\n')
 
     isBuilding = false
   })
@@ -85,7 +94,10 @@ log('XModPro Help Watcher')
 log('====================')
 log(`Docs dir: ${docsDir}`)
 log(`Watching: ${watchPattern}`)
-log(`Deploy to: ${deployPath}`)
+log('Deploy targets:')
+for (const target of deployTargets) {
+  log(`  ${target}`)
+}
 
 // Initialize watcher
 const watcher = chokidar.watch(watchPattern, {

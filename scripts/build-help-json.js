@@ -27,6 +27,12 @@ const CONFIG = {
     'tokens',
     'tutorials'
   ],
+  // Sibling Vite `public/` folders that need a synchronized copy so the
+  // control-panel production build bundles the latest help content into
+  // its dist/. Without this, packages ship stale help (or none at all).
+  publicMirrors: [
+    '../XModPro/admin-ui/control-panel/public/help-content.json'
+  ],
   // Root-level files to include
   rootFiles: [
     'getting-started.md',
@@ -298,6 +304,21 @@ async function build() {
   console.log(`Total topics: ${topics.length}`)
   console.log(`Output size: ${(Buffer.byteLength(jsonContent) / 1024).toFixed(1)} KB`)
   console.log(`Written to: ${outputPath}`)
+
+  // Mirror to sibling repos so the control-panel production build bundles
+  // the latest help into its dist/. Missing targets are logged but not fatal —
+  // a dev who only has the docs repo checked out should still be able to
+  // regenerate help-content.json.
+  for (const mirror of CONFIG.publicMirrors) {
+    const mirrorPath = path.resolve(rootDir, mirror)
+    try {
+      fs.mkdirSync(path.dirname(mirrorPath), { recursive: true })
+      fs.writeFileSync(mirrorPath, jsonContent, 'utf8')
+      console.log(`Mirrored to: ${mirrorPath}`)
+    } catch (err) {
+      console.warn(`  (skipped mirror ${mirrorPath}: ${err.message})`)
+    }
+  }
 }
 
 // Run

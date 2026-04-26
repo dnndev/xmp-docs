@@ -100,7 +100,11 @@ npm run help:watch        # Watch .md files, auto-rebuild and deploy to dev site
 npm run build:all         # Build both help JSON and VitePress site
 ```
 
-The watch script (`scripts/watch-help.js`) auto-deploys the generated JSON to `C:/TestSites/xmp5dev/DesktopModules/XModPro/help/help-content.json`.
+The watch script (`scripts/watch-help.js`) auto-deploys the generated JSON to two locations:
+- `C:/TestSites/xmp5dev/DesktopModules/XModPro/admin-ui/control-panel/help-content.json` — the path the Vue admin-ui actually fetches (see `src/stores/help.js`)
+- `C:/Users/kford/source/dnndev/xmp/XModPro/admin-ui/control-panel/public/help-content.json` — keeps the source-tree `public/` copy current so the next packaged build bundles fresh help into `dist/`
+
+`npm run help:build` also mirrors to the source-tree `public/` folder automatically, so a one-shot build before packaging is enough. `Build-XmpV5.ps1` invokes `help:build` before the Vue build as a belt-and-suspenders safeguard.
 
 ## Content Architecture
 
