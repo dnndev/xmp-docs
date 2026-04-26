@@ -25,7 +25,7 @@ In the first two tutorials, you created a list-based view of your data and then 
 3.  Ensure you're logged in as Host or SuperUser.
 4.  We're going to create a form. Open the [Control Panel](../control-panel.md) and click the **+** button to create a new **Form**. Choose "Custom Form" to work with code directly.
 5.  Give your form the name **FeedbackForm**. Form names can consist of only letters, numbers, hyphens (-) and underscores (_).
-6.  The [Code Editor](../code-editor.md) will open. Delete any boilerplate text — we'll type our own.
+6.  The [Custom Form Editor](../custom-form-editor.md) will open. Delete any boilerplate text — we'll type our own.
 7.  As with our other tutorials, we'll present and explain the individual parts of our form first and then present you with the full form definition at the end.
     1.  `<AddForm>`
 

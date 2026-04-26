@@ -39,7 +39,7 @@ CREATE TABLE [dbo].[XMP_Feedback](
 
 1.  If you haven't done so already, open the page in your site that contains the Feedback form we created in [Tutorial Three](3_feedback-form.md).
 2.  Ensure you're logged in as Host or SuperUser.
-3.  We're going to edit our form. Open the [Control Panel](../control-panel.md), find **FeedbackForm** in the [Explorer](../explorer.md) (Forms tab), and click it to open it in the [Code Editor](../code-editor.md).
+3.  We're going to edit our form. Open the [Control Panel](../control-panel.md), find **FeedbackForm** in the [Explorer](../explorer.md) (Forms tab), and click it to open it in the [Custom Form Editor](../custom-form-editor.md).
 4.  Let's first review what we have:
 
     ```html

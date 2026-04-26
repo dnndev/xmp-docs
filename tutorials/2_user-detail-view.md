@@ -34,7 +34,7 @@ Please recall the columns in the Users table:
 There are some other fields and different versions of DNN may have slight variations but we'll focus on just these. It's also important to _note the capitalization of the field names_ as you will need to match it exactly when referring to that field: 'UserID' is not the same as 'UserId' or 'userid'.
 
 1.  If you haven't done so already, open the page we created in the first tutorial and ensure you're logged in as Host or SuperUser.
-2.  We're going to edit the view we created in the first tutorial. Open the [Control Panel](../control-panel.md), find **AllUsers** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [Code Editor](../code-editor.md).
+2.  We're going to edit the view we created in the first tutorial. Open the [Control Panel](../control-panel.md), find **AllUsers** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [View Editor](../view-editor.md).
 3.  Let's first review the view code:
     ```html
     <xmod:template>

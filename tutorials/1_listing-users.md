@@ -42,7 +42,7 @@ There are some other fields besides those listed above, and different versions o
 
     <!-- SCREENSHOT: tutorial1-create-view — The + menu in the Control Panel toolbar showing the New View option -->
 
-4.  Give your view the name **AllUsers**. The name can only consist of letters, numbers, hyphens (-) and underscores (_). The [Code Editor](../code-editor.md) will open with some boilerplate code. Delete all the text — we'll type our own.
+4.  Give your view the name **AllUsers**. The name can only consist of letters, numbers, hyphens (-) and underscores (_). The [View Editor](../view-editor.md) will open with some boilerplate code. Delete all the text — we'll type our own.
 
 5.  We'll type our view definition into the Code Editor. Whenever you see `text that looks like this`, we're referring to code. At the end, we'll put all the pieces together so you can see the whole definition. At that point you can type or copy/paste the code into the editor.
 
@@ -97,7 +97,7 @@ There are some other fields besides those listed above, and different versions o
       </FooterTemplate>
     </xmod:template>
     ```
-7.  Type or copy and paste the above code into the Code Editor and click **Save** (or press **Ctrl+S**). If there are errors in your view definition, the editor's [validation indicators](../code-editor.md#validation) will alert you.
+7.  Type or copy and paste the above code into the View Editor and click **Save** (or press **Ctrl+S**). If there are errors in your view definition, the editor's [validation indicators](../view-editor.md#validation) will alert you.
 8.  Now, all we need to do is configure the XMod Pro module to use the view we just created. Navigate to your page with the XMod Pro module and select **Configure** from the module's action menu.
 
     ![](../img/ActionMenu_Configure.png)

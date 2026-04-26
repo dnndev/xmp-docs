@@ -24,7 +24,7 @@ The Form Builder lets you create data entry forms visually — without writing a
 
 <img src="./img/v5/form-builder-overview.png" alt="Form Builder showing the canvas with several controls and the Property Panel on the right" width="700" />
 
-In v5, the Form Builder has been completely redesigned. It's more capable, more efficient, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Code Editor](code-editor.md) at any time.
+In v5, the Form Builder has been completely redesigned. It's more capable, more efficient, and built around a keyboard-friendly workflow. You can build a fully functional, styled, data-bound form in minutes — and if you ever need more control, you can switch to the [Custom Form Editor](custom-form-editor.md) at any time.
 
 ::: info Host Access Only
 The Form Builder is only available to Host (SuperUser) accounts, accessed through the [Control Panel](control-panel.md).
@@ -44,7 +44,7 @@ In the first step, you'll:
 
 - **Name your form** — give it a descriptive name. Since this also serves as the file's name, it can only contain letters (uppercase and lowercase), numbers, underscores and dashes.
 - **Assign it to a project** (optional) — keep related forms, views, and feeds organized together
-- **Choose a form type** — **Auto-Layout** opens the Form Builder; **Custom** opens the [Code Editor](code-editor.md) for hand-coded forms
+- **Choose a form type** — **Auto-Layout** opens the Form Builder; **Custom** opens the [Custom Form Editor](custom-form-editor.md) for hand-coded forms
 - **Start with a blank form** — check this to skip the data configuration step and start with an empty canvas
 
 If you leave "Start with a blank form" unchecked, the next step lets you configure a data source:
@@ -227,7 +227,7 @@ To see how your form will look and behave at runtime, use the **Preview** button
 
 ## Converting to a Custom Form
 
-The Form Builder is designed for the most common form-building scenarios. When you need more control — custom HTML layout, JavaScript interactivity, or advanced tag configurations — you can convert your form to a **custom form** and continue working in the [Code Editor](code-editor.md).
+The Form Builder is designed for the most common form-building scenarios. When you need more control — custom HTML layout, JavaScript interactivity, or advanced tag configurations — you can convert your form to a **custom form** and continue working in the [Custom Form Editor](custom-form-editor.md).
 
 This is a one-way conversion that gives you full control over the form's markup and styling. The Form Builder generates clean, well-structured code as a starting point.
 
@@ -245,6 +245,6 @@ This is a one-way conversion that gives you full control over the form's markup 
 ## Next Steps
 
 - **[Forms](forms.md)** — Learn about XMod Pro forms as a concept
-- **[Code Editor](code-editor.md)** — Edit forms as code for maximum flexibility
+- **[Custom Form Editor](custom-form-editor.md)** — Edit forms as code for maximum flexibility
 - **[The Explorer](explorer.md)** — Browse and manage all your resources
 - **[Control Panel](control-panel.md)** — Overview of the XMod Pro Control Panel

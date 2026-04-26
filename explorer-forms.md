@@ -16,7 +16,7 @@ keywords:
 ---
 # Explorer: Forms Tab <Badge type="info" text="v5.0" />
 
-The Forms tab in the [Explorer](explorer.md) lists all your form definitions. Click any form's name to open it in its editor — the visual [Form Builder](form-builder.md) or the [Form Code Editor](code-editor.md) for custom forms.
+The Forms tab in the [Explorer](explorer.md) lists all your form definitions. Click any form's name to open it in its editor — the visual [Form Builder](form-builder.md) or the [Custom Form Editor](custom-form-editor.md) for custom forms.
 
 <img src="./img/v5/cp-explorer-forms-tab.png" alt="The Forms tab" width="300">
 
@@ -35,7 +35,7 @@ The Forms tab has three filter groups, each with toggle buttons:
 
 **Type** — Filter by how the form was created:
 - **Builder** — Forms created with the visual [Form Builder](form-builder.md)
-- **Custom** — Forms written by hand in the [Code Editor](code-editor.md)
+- **Custom** — Forms written by hand in the [Custom Form Editor](custom-form-editor.md)
 - **Both** — Show all
 
 **Usage** — Filter by whether the form is assigned to a module on a page:
@@ -83,4 +83,4 @@ Click the three-dot menu (**⋮**) on any form to see the available actions:
 - **[The Explorer](explorer.md)** — Overview of the Explorer panel
 - **[Forms](forms.md)** — What forms are and how they work
 - **[Form Builder](form-builder.md)** — Visually design forms
-- **[Code Editor](code-editor.md)** — Hand-code forms, views, and feeds
+- **[Custom Form Editor](custom-form-editor.md)** — Hand-code forms with full control

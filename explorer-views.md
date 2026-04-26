@@ -15,7 +15,7 @@ keywords:
 ---
 # Explorer: Views Tab <Badge type="info" text="v5.0" />
 
-The Views tab in the [Explorer](explorer.md) lists all your view definitions. Click any view's name to open it in the [Code Editor](code-editor.md).
+The Views tab in the [Explorer](explorer.md) lists all your view definitions. Click any view's name to open it in the [View Editor](view-editor.md).
 
 <img src="./img/v5/cp-explorer-views-tab.png" alt="The Views tab" width="300">
 
@@ -67,4 +67,4 @@ Click the three-dot menu (**⋮**) on any view to see the available actions:
 
 - **[The Explorer](explorer.md)** — Overview of the Explorer panel
 - **[Views](views.md)** — What views are and how they work
-- **[Code Editor](code-editor.md)** — Hand-code forms, views, and feeds
+- **[View Editor](view-editor.md)** — Create and edit views with code

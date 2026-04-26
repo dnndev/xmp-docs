@@ -22,7 +22,7 @@ In the last tutorial, we modified our feedback form so that it now saves data to
 1.  In Tutorials 3 and 4, we used the **FormView** module. This is useful if we just want to display a form. However, since we'll be displaying the data from that form as well, we'll need to use the main XMod Pro module. So, open a page on your site and place an XMod Pro module instance on that page, configuring it to use the "Feedback Form" form.
 2.  Ensure you're logged-in as Host or SuperUser.
 3.  We're going to create a new view. Open the [Control Panel](../control-panel.md) and click the **+** button to create a new **View**.
-4.  Give your view the name **CustomerFeedback**. The [Code Editor](../code-editor.md) will open with some boilerplate code. Delete all the text — we'll type our own.
+4.  Give your view the name **CustomerFeedback**. The [View Editor](../view-editor.md) will open with some boilerplate code. Delete all the text — we'll type our own.
 5.  Enter the following view definition into the Code Editor and click **Save**:
 
     ```html

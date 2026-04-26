@@ -14,7 +14,7 @@ keywords:
 ---
 # Explorer: Feeds Tab <Badge type="info" text="v5.0" />
 
-The Feeds tab in the [Explorer](explorer.md) lists all your feed definitions. Click any feed's name to open it in the [Code Editor](code-editor.md).
+The Feeds tab in the [Explorer](explorer.md) lists all your feed definitions. Click any feed's name to open it in the [Feed Editor](feed-editor.md).
 
 <img src="./img/v5/cp-explorer-feeds-tab.png" alt="The Feeds tab" width="300">
 
@@ -63,4 +63,4 @@ Unlike forms and views, feeds don't have a **View Usage** action because feeds a
 
 - **[The Explorer](explorer.md)** — Overview of the Explorer panel
 - **[Feeds](feeds.md)** — What feeds are and how they work
-- **[Code Editor](code-editor.md)** — Hand-code forms, views, and feeds
+- **[Feed Editor](feed-editor.md)** — Create and edit feeds with code

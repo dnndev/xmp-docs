@@ -17,5 +17,5 @@ In XMod Pro v5, form management has been redesigned. The functionality previousl
 
 - **[Explorer: Forms](explorer-forms.md)** — Browse, search, filter, rename, duplicate, and delete your forms
 - **[Form Builder](form-builder.md)** — Create and edit forms visually with the redesigned Form Builder
-- **[Code Editor](code-editor.md)** — Edit custom form code with syntax highlighting, autocomplete, and validation
+- **[Custom Form Editor](custom-form-editor.md)** — Edit custom form code with syntax highlighting, autocomplete, and validation
 :::

@@ -22,7 +22,7 @@ In the last tutorial, we created a view to display a list of the feedback we've 
 
 1.  If you haven't done so already, open the page in your site that contains the Feedback form and its display view we've been working with.
 2.  Ensure you're logged-in as Host or SuperUser.
-3.  We're going to modify our existing view. Open the [Control Panel](../control-panel.md), find **CustomerFeedback** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [Code Editor](../code-editor.md).
+3.  We're going to modify our existing view. Open the [Control Panel](../control-panel.md), find **CustomerFeedback** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [View Editor](../view-editor.md).
 4.  The current view is displayed below. The lines we'll be modifying are highlighted.
     ```html {2,30-32}
     <xmod:addbutton text="Submit Feedback" />
@@ -94,7 +94,7 @@ In the last tutorial, we created a view to display a list of the feedback we've 
 
     ![](./Walkthrough6_DisplayWithEditButton.png)
 
-6.  Before that Edit Button will work correctly, we need to add an Edit Form to our form definition. Open the [Control Panel](../control-panel.md), find **FeedbackForm** in the [Explorer](../explorer.md) (Forms tab), and click it to open it in the [Code Editor](../code-editor.md).
+6.  Before that Edit Button will work correctly, we need to add an Edit Form to our form definition. Open the [Control Panel](../control-panel.md), find **FeedbackForm** in the [Explorer](../explorer.md) (Forms tab), and click it to open it in the [Custom Form Editor](../custom-form-editor.md).
 
 7.  Since we won't be modifying the `<AddForm>` code, we'll omit that for the sake of brevity. After the closing `</AddForm>` tag, add the following highlighted code:
 
@@ -189,7 +189,7 @@ In the last tutorial, we created a view to display a list of the feedback we've 
 11. Click the Update Record button and your changes will be saved. The end result should look something like this:
     ![](./Walkthrough6_DisplayWithChangeHighlighted.png)
 
-12. There's one more feature we want to add to our solution — the ability to delete a record. For this we'll add a Delete Button and a Delete Command to our view. Open the [Control Panel](../control-panel.md), find **CustomerFeedback** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [Code Editor](../code-editor.md).
+12. There's one more feature we want to add to our solution — the ability to delete a record. For this we'll add a Delete Button and a Delete Command to our view. Open the [Control Panel](../control-panel.md), find **CustomerFeedback** in the [Explorer](../explorer.md) (Views tab), and click it to open it in the [View Editor](../view-editor.md).
 
 13. Make the following changes — highlighted below:
     ```html {2,13-15,36-39}

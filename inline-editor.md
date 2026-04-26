@@ -13,7 +13,7 @@ keywords:
 # Inline Editor
 
 ::: tip Replaced in v5.0
-The Inline Editor from earlier versions of XMod Pro has been replaced by the **[Code Editor](code-editor.md)** in the [Control Panel](control-panel.md). The Code Editor provides a much richer editing experience — including syntax highlighting, autocomplete, validation, code folding, and a built-in reference panel.
+The Inline Editor from earlier versions of XMod Pro has been replaced by the **[code editors](code-editor.md)** in the [Control Panel](control-panel.md). The code editors provide a much richer editing experience — including syntax highlighting, autocomplete, validation, code folding, and a built-in reference panel.
 
 To edit a view, form, or feed, open it from the [Explorer](explorer.md) or [Dashboard](control-panel.md) in the Control Panel.
 :::
