@@ -15,7 +15,7 @@ XMod Pro provides a number of unique ways to localize not only the static text i
 
 ## Getting the Current Locale ID
 
-(New to version 2.1) To render the locale ID of the currently selected culture out to your form or view (template), use the `[[Request:Locale]]` token. If the user has selected Spanish from Mexico, the token will render `es-MX`; For English in Great Britain, it will be `en-GB`; for French spoken in France, it will be `fr-FR`.
+(New to version 2.1) To render the locale ID of the currently selected culture out to your form or view, use the `[[Request:Locale]]` token. If the user has selected Spanish from Mexico, the token will render `es-MX`; For English in Great Britain, it will be `en-GB`; for French spoken in France, it will be `fr-FR`.
 
 ## Formatting Display Values
 
@@ -34,14 +34,14 @@ Use the [`<DateInput>`](./form-controls/date-input.md) control's _Culture_ attri
 First, you need to create a Resource File for each culture for which you have translations. Resource files follow the standard format for localization resource files in DotNetNuke. Files should be named using the following form:
 
 *   `FormName.ascx.localeID.resx` for forms or
-*   `TemplateName.ascx.localeID.resx` for templates
+*   `ViewName.ascx.localeID.resx` for views
 
 Some examples:
 
 *   `ContactUs.ascx.es-MX.resx` (Spanish-Mexico resource file)
 *   `EmployeeList.ascx.fr-FR.resx` (French-France resource file)
 
-The resource file's base name must match the name of the form/templat to with which it is associated followed by `.ascx`. This is then followed by `.` plus the locale ID and `.resx`.
+The resource file's base name must match the name of the form or view with which it is associated, followed by `.ascx`. This is then followed by `.` plus the locale ID and `.resx`.
 
 ## Resource File Example
 
@@ -121,15 +121,15 @@ The format of the resource file should follow that outlined for standard localiz
 
 In the example above, we've created a small translation file for Spanish/Mexico. You can create one or more resource files for each language you need to provide translations for. Note that you should also provide a default resource file for your fallback language. Additionally, for the default/fallback language to be loaded properly, you should define a fallback language for each language you install in your DNN website.
 
-Within each file, for each block of text you want to translate, you must specify a `<data>` tag. This tag has a name property which contains the key name that XMod Pro will use to look up the translation. This name should be in the form "keyName.Text". The .Text portion is required for each of your names. The `<data>` tag also contains a `<value>` tag that contains the text you want to inject into the form or template.
+Within each file, for each block of text you want to translate, you must specify a `<data>` tag. This tag has a name property which contains the key name that XMod Pro will use to look up the translation. This name should be in the form "keyName.Text". The .Text portion is required for each of your names. The `<data>` tag also contains a `<value>` tag that contains the text you want to inject into the form or view.
 
 ### Where to Place the Resource File
 
-Once you've created your resource file, save it in the same directory in which your form/template is stored. For forms, this is: `/Portals/_default/XModPro/Forms/XX` where _XX_ is the Portal ID. For templates, the folder is: `/Portals/_default/XModPro/Templates/XX` where _XX_ is the portal's ID.
+Once you've created your resource file, save it in the same directory in which your form or view is stored. For forms, this is: `/Portals/_default/XModPro/Forms/XX` where _XX_ is the Portal ID. For views, the folder is: `/Portals/_default/XModPro/Templates/XX` where _XX_ is the portal's ID. (The on-disk folder is still named `Templates` for backward compatibility.)
 
-### Linking Your Form/Template to the Resource File
+### Linking Your Form or View to the Resource File
 
-In your form/template, you would simply add a localization token wherever it was needed - like so:
+In your form or view, you would simply add a localization token wherever it was needed - like so:
 
 ```xml
 <AddForm>
@@ -148,27 +148,27 @@ At run-time, if the user has selected es-MX as his/her culture, then those token
 
 ## Content Localization
 
-Content localization is a tricky issue. It is potentially more complicated when an application like XMod Pro does not have control over the data. To keep things as simple and flexible as possible, we have implemented the ability to use multiple forms and/or templates for this purpose. At run-time, XMod Pro will look to see if a form/template has been defined for the currently selected culture. If found, that file will be loaded. If not, XMod Pro will load the 'default' file.
+Content localization is a tricky issue. It is potentially more complicated when an application like XMod Pro does not have control over the data. To keep things as simple and flexible as possible, we have implemented the ability to use multiple forms and/or views for this purpose. At run-time, XMod Pro will look to see if a form or view has been defined for the currently selected culture. If found, that file will be loaded. If not, XMod Pro will load the 'default' file.
 
 This method has many benefits:
 
 1.  You can avoid having to create Resource Files and use `[[Localize:keyName]]` tokens.
-2.  You can create the forms/templates just as you do standard forms and templates
+2.  You can create the forms and views just as you do standard forms and views.
 3.  You have the opportunity to define distinct data commands for each culture. You could even write/read from distinct culture-specific database tables.
 4.  You can have a completely different layout and even completely different controls for each culture.
 5.  You can send notification emails to different addresses based on the culture.
 
 ### How It Works
 
-First, define the form/template that will be your 'default' or 'fallback' file using the tools within XMod Pro.
+First, define the form or view that will be your 'default' or 'fallback' file using the tools within XMod Pro.
 
-Second, either create another form/template from scratch or simply copy your form/template to act as a starting point. This second file must follow the following naming convention:
+Second, either create another form or view from scratch or simply copy your existing one to act as a starting point. This second file must follow the following naming convention:
 
 ```
 BaseName.localeID
 ```
 
-Where _BaseName_ is the name of your 'default' form/template and _localeID_ is the ID of the culture (es-MX, fr-FR, en-GB, etc.)
+Where _BaseName_ is the name of your 'default' form or view and _localeID_ is the ID of the culture (es-MX, fr-FR, en-GB, etc.)
 
 So, for a form called "ContactUs", you might create the following forms:
 
@@ -177,10 +177,10 @@ So, for a form called "ContactUs", you might create the following forms:
 *   ContactUs.fr-FR     (French in France)
 *   ContactUs.en-GB   (English in Great Britain)
 
-The default file is always required. You can create as many or as few localized files as you need. Simply define your localized forms/templates as you would any other form/template, making changes as needed to accommodate the language
+The default file is always required. You can create as many or as few localized files as you need. Simply define your localized forms and views as you would any other form or view, making changes as needed to accommodate the language.
 
-### Configuring Your Module to Use Localized Forms/Templates
+### Configuring Your Module to Use Localized Forms and Views
 
-There is nothing special that you need to do when configuring your XMod Pro modules to use the localized forms and templates. Simply select the BASE form/template. If a localized version of the form/template exists and it matches the user's currently selected culture, that form/template will be loaded automatically. You can also force a certain localized file to be loaded by selecting it specifically on the configuration page.
+There is nothing special that you need to do when configuring your XMod Pro modules to use the localized forms and views. Simply select the BASE form or view. If a localized version exists and it matches the user's currently selected culture, that form or view will be loaded automatically. You can also force a certain localized file to be loaded by selecting it specifically on the configuration page.
 
 That's all there is to it.

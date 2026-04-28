@@ -16,7 +16,7 @@ This topic won't teach you how to use Javascript. Instead, it provides technique
 
 ## Injecting Script Into the Page
 
-For plain Javascript, you can simply type it into your form or template and it will be rendered out to the page at run-time. If you need to register a Javascript libraries in other files or inject a function or several functions, use a Script Block tag. Use the `<xmod:ScriptBlock>` tag in templates and the `<ScriptBlock>` tag in forms.
+For plain JavaScript, you can simply type it into your form or view and it will be rendered out to the page at run-time. If you need to register a JavaScript library in other files or inject a function or several functions, use a Script Block tag. Use the `<xmod:ScriptBlock>` tag in views and the `<ScriptBlock>` tag in forms.
 
 ## Using Script Inside XMod Pro Tag Attributes
 
