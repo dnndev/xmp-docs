@@ -104,7 +104,7 @@ export default defineConfig({
           { text: '4. Saving Feedback Form Data', link: '/tutorials/4_saving-feedback-form-data' },
           { text: '5. Displaying Feedback Form Data', link: '/tutorials/5_displaying-feedback-form-data' },
           { text: '6. Editing/Deleting Feedback Form Data', link: '/tutorials/6_editing-deleting-feedback-form-data' },
-          { text: '7. Multiple View Areas', link: '/tutorials/7_templates-with-multiple-views' },
+          { text: '7. Multi-Layout Views', link: '/tutorials/7_multi-layout-views' },
         ]
       },
       {
