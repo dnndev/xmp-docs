@@ -57,18 +57,22 @@ Custom Settings let you define per-instance values that your views and forms can
 
 **Schema-driven** — In v5, view and form authors declare which settings their file expects using a `#settings` directive at the top of the file. The Configure page reads that declaration and presents one row per setting, with a label, optional help text, a toggle, and an input control matched to the setting's data type.
 
-Authors declare settings as a JSON array inside an XMP comment:
+Authors declare settings as a JSON object inside an XMP comment:
 
 ```html
 [-- #settings
-[
-  { "Name": "PageSize", "DefaultValue": 10, "Max": 100 },
-  { "Name": "Layout", "Items": ["list", "card", "table"] },
-  { "Name": "Heading" },
-  { "Name": "ShowAddButton", "DefaultValue": true }
-]
+{
+  "settings": [
+    { "Name": "PageSize", "DefaultValue": 10, "Max": 100 },
+    { "Name": "Layout", "Items": ["list", "card", "table"] },
+    { "Name": "Heading" },
+    { "Name": "ShowAddButton", "DefaultValue": true }
+  ]
+}
 --]
 ```
+
+See the [Module Settings Schema reference](module-settings-schema.md) for the full property list, validation rules, and more examples.
 
 XMod Pro infers a sensible label, data type, and input control for each entry — so `{ "Name": "PageSize" }` is a complete declaration. The defaults work like this:
 

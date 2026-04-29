@@ -116,6 +116,7 @@ export default defineConfig({
           { text: 'Font Properties', link: '/font-properties' },
           { text: 'Using JavaScript', link: '/using-javascript' },
           { text: 'Localization', link: '/localization' },
+          { text: 'Module Settings Schema', link: '/module-settings-schema' },
           { text: 'FAQ', link: '/faq' },
           { text: 'Revision History', link: '/revision-history' },
           { text: 'EULA', link: '/eula' },

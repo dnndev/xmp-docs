@@ -61,6 +61,7 @@ const CONFIG = {
     'unit-types.md',
     'font-properties.md',
     'localization.md',
+    'module-settings-schema.md',
     'faq.md',
     'reference.md'
   ],
