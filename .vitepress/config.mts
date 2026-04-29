@@ -161,6 +161,7 @@ export default defineConfig({
           { text: 'Login', link: '/form-controls/login' },
           { text: 'Markdown', link: '/form-controls/markdown' },
           { text: 'Panel', link: '/form-controls/panel' },
+          { text: 'Parameter', link: '/form-controls/parameter' },
           { text: 'Password', link: '/form-controls/password' },
           { text: 'Radio Button', link: '/form-controls/radio-button' },
           { text: 'Radio Button List', link: '/form-controls/radio-button-list' },
