@@ -103,6 +103,54 @@ Each `<Command>` accepts `<Parameter>` child tags that fill the target's command
 | Name <span style="color:red; font-weight:bold; font-size:1.2em;">*</span> | string | | Parameter name (matches `@param` in the target's command) |
 | Value | string \| token | | Parameter value |
 
+See the [`<Parameter>` reference](../form-controls/parameter.md) for the full attribute list (`DefaultValue`, `Alias`, `DataType`, `Size`, `Direction`).
+
+## Custom Commands
+
+`Type="List"`, `Type="Detail"`, `Type="Add"`, `Type="Edit"`, and `Type="Delete"` fire the target template's built-in commands — its `<ListDataSource>`, `<DetailDataSource>`, etc. **`Type="Custom"`** is the escape hatch: it lets you fire a *named* command that you define yourself, for one-off actions that don't fit the CRUD shape.
+
+You define custom commands inside the target template's `<CustomCommands>` block. Each one is a `<DataCommand>` with its own `CommandName`, `CommandText` (any SQL or stored proc), and `<Parameter>` children. After the command runs, the target template re-renders its current view — so a button that flips a flag in the database can immediately show the updated row.
+
+```html {5-10,14-18}
+<xmod:Template Id="Articles">
+  <ListDataSource CommandText="SELECT ArticleId, Headline, Published FROM Articles
+                                ORDER BY Headline" />
+
+  <CustomCommands>
+    <DataCommand CommandName="TogglePublished"
+                 CommandText="UPDATE Articles SET Published = 1 - Published WHERE ArticleId = @ArticleId">
+      <Parameter Name="ArticleId" DataType="Int32" />
+    </DataCommand>
+  </CustomCommands>
+
+  <ItemTemplate>
+    [[Headline]] — [[=If(Published, 'published', 'draft')]]
+    <xmod:CommandButton Text="[[=If(Published, 'Unpublish', 'Publish')]]">
+      <Command Name="TogglePublished" Type="Custom">
+        <Parameter Name="ArticleId" Value="[[ArticleId]]" />
+      </Command>
+    </xmod:CommandButton>
+  </ItemTemplate>
+</xmod:Template>
+```
+
+How the pieces fit together:
+
+1. The `<CustomCommands>` block (highlighted lines 5-10) defines a single named command, `TogglePublished`. It takes one parameter, `ArticleId`, and flips the `Published` bit on that row.
+2. The `<xmod:CommandButton>` (highlighted lines 14-18) fires it. The `<Command>` tag's `Name` attribute matches the `CommandName` of the `<DataCommand>` — *not* `CommandName`, just `Name`. `Type="Custom"` is what tells XMP to look in `<CustomCommands>` rather than running a built-in.
+3. The button passes the current row's `ArticleId` along, so the SQL knows which row to update.
+4. After the command runs, the Articles template re-renders its list, and the row reflects the new `Published` value.
+
+::: tip Targeting another template
+Custom commands work cross-template too — set `Target="OtherTemplateId"` on the `<Command>` tag and it'll fire the named command on that template instead. This is handy for a settings template that has buttons modifying a separate data template.
+:::
+
+::: warning Don't confuse the two `Name` attributes
+The `<Command Name="...">` attribute matches the `<DataCommand CommandName="...">` value. They're spelled differently — `Name` on the firing side, `CommandName` on the defining side. Tag misspellings (`<Command CommandName="...">`) silently fail to find a match and the button does nothing.
+:::
+
+For the full surface of `<CustomCommands>` and `<DataCommand>` (alternate connection strings, output parameters), see [`<xmod:Template>`](template.md#child-customcommands).
+
 ## Property Details
 
 *   <span id="prop-redirect">**Redirect**</span>: After the commands run, navigate to this URL. Use a single period (`.`) as a shortcut for "the current page".
