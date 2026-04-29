@@ -55,15 +55,32 @@ Custom Settings let you define per-instance values that your views and forms can
 
 ![Custom Settings section](img/v5/config-custom-settings.png)
 
-**Auto-scan** — When you select a view or form, XMod Pro automatically scans the file for any `[[Module:...]]` tokens and lists them in the Custom Settings table. Each token shows a **source badge** indicating where it was found:
+**Schema-driven** — In v5, view and form authors declare which settings their file expects using a `#settings` directive at the top of the file. The Configure page reads that declaration and presents one row per setting, with a label, optional help text, a toggle, and an input control matched to the setting's data type.
 
-- **Template** — found in the view only
-- **Form** — found in the form only
-- **Both** — found in both
-- **Manual** — added by hand, not found by scanning
-- **Not referenced** — was previously saved but is no longer used in either file
+Authors declare settings as a JSON array inside an XMP comment:
 
-To include a discovered token, check its checkbox and enter a value. You can also add settings manually with the **+ Add Setting** button, or edit and delete existing ones.
+```html
+[-- #settings
+[
+  { "Name": "PageSize", "DefaultValue": 10, "Max": 100 },
+  { "Name": "Layout", "Items": ["list", "card", "table"] },
+  { "Name": "Heading" },
+  { "Name": "ShowAddButton", "DefaultValue": true }
+]
+--]
+```
+
+XMod Pro infers a sensible label, data type, and input control for each entry — so `{ "Name": "PageSize" }` is a complete declaration. The defaults work like this:
+
+- **Label** — auto-generated from the `Name` by splitting at PascalCase boundaries (`PageSize` → "Page Size", `ShowAddButton` → "Show Add Button"). Override with an explicit `Label` property.
+- **Data type** — inferred from other properties: `Items` present → `choice` (dropdown); `DefaultValue` is `true`/`false` → `boolean` (checkbox); `DefaultValue` is numeric or `Min`/`Max` is set → `integer` (number input); otherwise → `text` (text input).
+- **DefaultValue** — shown as informational text on the row when the toggle is off; pre-fills the input the first time the toggle is flipped on.
+
+**Toggle behavior** — Each row has a toggle switch. When **off**, no value is saved for that module instance and the `[[Module:settingName]]` token resolves empty (or to whatever your view/form treats as the default). When **on**, the input becomes editable and the value is persisted on save. Settings declared with `"Required": true` are forced on and can't be turned off; if the user clears the value, the save is blocked with an inline message.
+
+**When you assign both a view and a form**, XMod Pro merges the two `#settings` declarations into one list. If both files declare the same `Name`, the view's definition wins and a warning is shown.
+
+**Other Settings** — values that were saved previously but no longer match any declaration in the currently assigned view or form (for example, after switching to a different view) appear in an **Other Settings** section below the schema-driven list. You can keep or remove each one. The **+ Add Setting** button is also still available for one-off values that aren't declared anywhere.
 
 ### Debug Mode <Badge type="warning" text="Host Only" />
 
