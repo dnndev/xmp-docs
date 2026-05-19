@@ -23,6 +23,14 @@ const deployTargets = [
   'C:/Users/kford/source/dnndev/xmp/XModPro/admin-ui/control-panel/public/help-content.json'
 ]
 
+// Help images live in XModPro.Help/img and are referenced from inside the
+// markdown content as ![](img/foo.png). HelpViewer.vue rewrites those to
+// /DesktopModules/XModPro/help/img/foo.png at render time, so dev needs the
+// images mirrored to that location or every help image 404s. We mirror once
+// at startup (images change rarely; a watch loop isn't worth the overhead).
+const imageSourceDir = path.join(docsDir, 'img')
+const imageDeployDir = 'C:/TestSites/xmp5dev/DesktopModules/XModPro/help/img'
+
 // Debounce timer
 let buildTimeout = null
 const DEBOUNCE_MS = 500
@@ -73,6 +81,30 @@ function buildAndDeploy() {
   })
 }
 
+function deployImages() {
+  if (!fs.existsSync(imageSourceDir)) {
+    log(`Image source not found: ${imageSourceDir} (skipping image mirror)`)
+    return
+  }
+
+  try {
+    fs.mkdirSync(imageDeployDir, { recursive: true })
+    const files = fs.readdirSync(imageSourceDir)
+    let copied = 0
+    for (const file of files) {
+      const src = path.join(imageSourceDir, file)
+      const dst = path.join(imageDeployDir, file)
+      if (fs.statSync(src).isFile()) {
+        fs.copyFileSync(src, dst)
+        copied++
+      }
+    }
+    log(`Mirrored ${copied} help image(s) to ${imageDeployDir}`)
+  } catch (err) {
+    log(`Image mirror error: ${err.message}`)
+  }
+}
+
 function onFileChange(filePath) {
   // Only process .md files
   if (!filePath.endsWith('.md')) return
@@ -98,6 +130,11 @@ log('Deploy targets:')
 for (const target of deployTargets) {
   log(`  ${target}`)
 }
+log(`Image mirror: ${imageSourceDir} -> ${imageDeployDir}`)
+
+// One-shot image mirror at startup -- images change rarely so we don't watch them.
+// Restart the watcher to pick up new images.
+deployImages()
 
 // Initialize watcher
 const watcher = chokidar.watch(watchPattern, {
