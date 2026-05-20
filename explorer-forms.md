@@ -28,17 +28,20 @@ Type in the search box to instantly filter the list by name. The count below upd
 
 The Forms tab has three filter groups, each with toggle buttons:
 
-**Scope** — Filter by where the form is stored:
+#### **Scope**
+Filter by where the form is stored:
 - **Portal** — Forms belonging to the current DNN portal
 - **Global** — Forms shared across all portals
 - **Both** — Show all
 
-**Type** — Filter by how the form was created:
+#### **Type**
+Filter by how the form was created:
 - **Builder** — Forms created with the visual [Form Builder](form-builder.md)
 - **Custom** — Forms written by hand in the [Custom Form Editor](custom-form-editor.md)
 - **Both** — Show all
 
-**Usage** — Filter by whether the form is assigned to a module on a page:
+#### **Usage**
+Filter by whether the form is assigned to a module on a page:
 - **In-Use** — Forms currently assigned to a module
 - **Unused** — Forms not assigned to any module
 - **Both** — Show all

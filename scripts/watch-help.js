@@ -87,18 +87,26 @@ function deployImages() {
     return
   }
 
-  try {
-    fs.mkdirSync(imageDeployDir, { recursive: true })
-    const files = fs.readdirSync(imageSourceDir)
-    let copied = 0
-    for (const file of files) {
-      const src = path.join(imageSourceDir, file)
-      const dst = path.join(imageDeployDir, file)
-      if (fs.statSync(src).isFile()) {
+  // Walk subdirectories too -- v5 screenshots live in img/v5/, and previous
+  // non-recursive versions of this function silently skipped them, producing
+  // 404s for every image referenced from a v5 doc page.
+  let copied = 0
+  function mirrorDir(srcDir, dstDir) {
+    fs.mkdirSync(dstDir, { recursive: true })
+    for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+      const src = path.join(srcDir, entry.name)
+      const dst = path.join(dstDir, entry.name)
+      if (entry.isDirectory()) {
+        mirrorDir(src, dst)
+      } else if (entry.isFile()) {
         fs.copyFileSync(src, dst)
         copied++
       }
     }
+  }
+
+  try {
+    mirrorDir(imageSourceDir, imageDeployDir)
     log(`Mirrored ${copied} help image(s) to ${imageDeployDir}`)
   } catch (err) {
     log(`Image mirror error: ${err.message}`)
