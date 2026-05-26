@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - toggle-image
-  - toggle-link
+  - template-toggle-image
+  - template-toggle-link
 ---
 
 # `<xmod:ToggleButton>`

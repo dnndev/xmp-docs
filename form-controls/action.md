@@ -10,9 +10,9 @@ keywords:
   - form
 since: '4.0'
 related:
-  - email
-  - silent-post
-  - redirect
+  - form-email
+  - form-silent-post
+  - form-redirect
 ---
 
 # `<Action>`

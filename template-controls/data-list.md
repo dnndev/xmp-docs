@@ -10,9 +10,9 @@ keywords:
   - grid
 since: '1.0'
 related:
-  - template
-  - pager
-  - search-sort
+  - template-template
+  - template-pager
+  - template-search-sort
 ---
 
 # `<xmod:DataList>`

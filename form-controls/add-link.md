@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - add-button
-  - add-image
-  - add-edit-form
+  - form-add-button
+  - form-add-image
+  - form-add-edit-form
 ---
 # `<AddLink>`
 

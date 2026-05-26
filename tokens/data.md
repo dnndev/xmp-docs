@@ -11,8 +11,8 @@ keywords:
   - tokens
 since: '1.3'
 related:
-  - field
-  - template
+  - tokens-field
+  - template-template
 ---
 
 # Data Parameter Tokens

@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - ajax-button
-  - ajax-image
+  - template-ajax-button
+  - template-ajax-image
 ---
 
 # `<xmod:AjaxLink>`

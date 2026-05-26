@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - cancel-image
-  - cancel-link
-  - add-edit-form
+  - form-cancel-image
+  - form-cancel-link
+  - form-add-edit-form
 ---
 # `<CancelButton>`
 

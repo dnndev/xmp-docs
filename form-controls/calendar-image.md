@@ -10,10 +10,10 @@ keywords:
   - form
 since: '1.0'
 related:
-  - calendar-button
-  - calendar-link
-  - date-input
-  - textbox
+  - form-calendar-button
+  - form-calendar-link
+  - form-date-input
+  - form-textbox
 ---
 # `<CalendarImage>`
 

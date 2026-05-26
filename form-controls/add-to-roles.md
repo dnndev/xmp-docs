@@ -10,9 +10,9 @@ keywords:
   - form
 since: '4.0'
 related:
-  - remove-from-roles
-  - add-user
-  - update-user
+  - form-remove-from-roles
+  - form-add-user
+  - form-update-user
 ---
 
 # `<AddToRoles>`

@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - template
-  - data-list
+  - template-template
+  - template-data-list
 ---
 
 # `<xmod:Slideshow>`

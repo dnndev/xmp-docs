@@ -10,10 +10,10 @@ keywords:
   - form
 since: '4.0'
 related:
-  - validate-database
-  - validation-summary
-  - add-user
-  - login
+  - form-validate-database
+  - form-validation-summary
+  - form-add-user
+  - form-login
 ---
 # `<Validate Type="Action">`
 

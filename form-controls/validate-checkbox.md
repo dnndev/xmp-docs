@@ -10,10 +10,10 @@ keywords:
   - form
 since: '1.0'
 related:
-  - validate-required
-  - validate-checkbox-list
-  - validation-summary
-  - checkbox
+  - form-validate-required
+  - form-validate-checkbox-list
+  - form-validation-summary
+  - form-checkbox
 ---
 # `<Validate Type="Checkbox">`
 

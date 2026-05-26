@@ -11,9 +11,9 @@ keywords:
   - template
 since: '1.0'
 related:
-  - load-feed
-  - load-feed-image
-  - load-feed-link
+  - template-load-feed
+  - template-load-feed-image
+  - template-load-feed-link
 ---
 
 # `<xmod:LoadFeedButton>`

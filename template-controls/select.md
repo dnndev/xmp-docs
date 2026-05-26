@@ -11,8 +11,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - format
-  - each
+  - template-format
+  - template-each
 ---
 
 # `<xmod:Select>`

@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - delete-button
-  - delete-link
+  - template-delete-button
+  - template-delete-link
 ---
 
 # `<xmod:DeleteImage>`

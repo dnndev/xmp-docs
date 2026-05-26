@@ -9,9 +9,9 @@ keywords:
   - tokens
 since: '1.0'
 related:
-  - data
-  - functions
-  - expressions
+  - tokens-data
+  - tokens-functions
+  - tokens-expressions
 ---
 
 # Field Tokens

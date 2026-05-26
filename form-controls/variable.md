@@ -9,8 +9,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - textbox
-  - add-to-roles
+  - form-textbox
+  - form-add-to-roles
 ---
 
 # `<Variable>`

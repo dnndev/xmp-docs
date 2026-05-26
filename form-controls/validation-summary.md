@@ -10,11 +10,11 @@ keywords:
   - form
 since: '1.0'
 related:
-  - validate-required
-  - validate-compare
-  - validate-range
-  - validate-email
-  - validate-regular-expression
+  - form-validate-required
+  - form-validate-compare
+  - form-validate-range
+  - form-validate-email
+  - form-validate-regular-expression
 ---
 # `<ValidationSummary>`
 

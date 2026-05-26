@@ -11,8 +11,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - template
-  - format
+  - template-template
+  - template-format
 ---
 
 # `<xmod:MetaTags>`

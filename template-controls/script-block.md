@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - jquery-ready
-  - include
+  - template-jquery-ready
+  - template-include
 ---
 
 # `<xmod:ScriptBlock>`

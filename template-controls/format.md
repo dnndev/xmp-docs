@@ -9,9 +9,9 @@ keywords:
   - template
 since: '1.0'
 related:
-  - markdown
-  - each
-  - select
+  - template-markdown
+  - template-each
+  - template-select
 ---
 
 # `<xmod:Format>`

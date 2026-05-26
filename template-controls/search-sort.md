@@ -11,9 +11,9 @@ keywords:
   - template
 since: '1.0'
 related:
-  - template
-  - data-list
-  - pager
+  - template-template
+  - template-data-list
+  - template-pager
 ---
 
 # `<SearchSort>`

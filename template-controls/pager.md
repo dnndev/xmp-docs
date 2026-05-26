@@ -10,9 +10,9 @@ keywords:
   - template
 since: '1.0'
 related:
-  - template
-  - data-list
-  - search-sort
+  - template-template
+  - template-data-list
+  - template-search-sort
 ---
 
 # `<Pager>`

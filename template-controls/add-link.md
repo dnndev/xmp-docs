@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - add-button
-  - add-image
+  - template-add-button
+  - template-add-image
 ---
 
 # `<xmod:AddLink>`

@@ -10,10 +10,10 @@ keywords:
   - form
 since: '1.0'
 related:
-  - validate-required
-  - validate-range
-  - validate-email
-  - validation-summary
+  - form-validate-required
+  - form-validate-range
+  - form-validate-email
+  - form-validation-summary
 ---
 # `<Validate Type="Compare">`
 

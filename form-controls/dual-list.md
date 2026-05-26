@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.5'
 related:
-  - listbox
-  - checkbox-list
-  - control-datasource
+  - form-listbox
+  - form-checkbox-list
+  - form-control-datasource
 ---
 # `<DualList>`
 

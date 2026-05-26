@@ -10,7 +10,7 @@ keywords:
   - template
 since: '1.0'
 related:
-  - script-block
+  - template-script-block
 ---
 
 # `<xmod:jQueryReady>`

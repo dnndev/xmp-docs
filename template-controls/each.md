@@ -9,8 +9,8 @@ keywords:
   - template
 since: '4.6'
 related:
-  - format
-  - select
+  - template-format
+  - template-select
 ---
 
 # `<xmod:Each>`

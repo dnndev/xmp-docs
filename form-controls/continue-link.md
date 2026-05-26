@@ -10,8 +10,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - continue-button
-  - continue-image
+  - form-continue-button
+  - form-continue-image
 ---
 # `<xmod:ContinueLink>`
 

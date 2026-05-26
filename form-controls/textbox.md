@@ -9,9 +9,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - textarea
-  - password
-  - label
+  - form-textarea
+  - form-password
+  - form-label
 ---
 
 # `<Textbox>`

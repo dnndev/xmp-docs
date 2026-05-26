@@ -9,8 +9,8 @@ keywords:
   - tokens
 since: '4.3'
 related:
-  - module
-  - portal
+  - tokens-module
+  - tokens-portal
 ---
 
 # Page Tokens

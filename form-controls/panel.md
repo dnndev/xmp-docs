@@ -9,8 +9,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - tabstrip
-  - label
+  - form-tabstrip
+  - form-label
 ---
 
 # `<Panel>`

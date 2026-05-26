@@ -10,9 +10,9 @@ keywords:
   - template
 since: '1.0'
 related:
-  - detail-image
-  - detail-link
-  - return-button
+  - template-detail-image
+  - template-detail-link
+  - template-return-button
 ---
 
 # `<xmod:DetailButton>`

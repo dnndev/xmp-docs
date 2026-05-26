@@ -11,8 +11,8 @@ keywords:
   - template
 since: '4.2'
 related:
-  - if-not-empty
-  - select
+  - template-if-not-empty
+  - template-select
 ---
 
 # `<xmod:IfEmpty>`

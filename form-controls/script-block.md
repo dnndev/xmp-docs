@@ -10,8 +10,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - jquery-ready
-  - include
+  - form-jquery-ready
+  - form-include
 ---
 
 # `<ScriptBlock>`

@@ -10,8 +10,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - ajax-image
-  - ajax-link
+  - form-ajax-image
+  - form-ajax-link
 ---
 # `<AjaxButton>`
 

@@ -11,7 +11,7 @@ keywords:
   - template
 since: '4.6'
 related:
-  - redirect
+  - template-redirect
 ---
 
 # `<xmod:NavigateUrl>`

@@ -11,9 +11,9 @@ keywords:
   - tokens
 since: '1.0'
 related:
-  - field
-  - expressions
-  - dateadd
+  - tokens-field
+  - tokens-expressions
+  - tokens-dateadd
 ---
 
 # Function Tokens

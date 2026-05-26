@@ -11,8 +11,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - include
-  - script-block
+  - template-include
+  - template-script-block
 ---
 
 # `<xmod:Register>`

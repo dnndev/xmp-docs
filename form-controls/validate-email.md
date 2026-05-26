@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - validate-required
-  - validate-regular-expression
-  - validation-summary
+  - form-validate-required
+  - form-validate-regular-expression
+  - form-validation-summary
 ---
 # `<Validate Type="Email">`
 

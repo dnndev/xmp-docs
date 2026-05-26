@@ -11,8 +11,8 @@ keywords:
   - form
 since: '4.0'
 related:
-  - add-to-roles
-  - update-user
+  - form-add-to-roles
+  - form-update-user
 ---
 
 # `<RemoveFromRoles>`

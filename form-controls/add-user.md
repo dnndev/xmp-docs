@@ -10,9 +10,9 @@ keywords:
   - form
 since: '4.0'
 related:
-  - update-user
-  - login
-  - add-to-roles
+  - form-update-user
+  - form-login
+  - form-add-to-roles
 ---
 
 # `<AddUser>`

@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - update-image
-  - update-link
-  - add-edit-form
+  - form-update-image
+  - form-update-link
+  - form-add-edit-form
 ---
 # `<UpdateButton>`
 

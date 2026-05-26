@@ -9,9 +9,9 @@ keywords:
   - form
 since: '4.0'
 related:
-  - add-user
-  - update-user
-  - redirect
+  - form-add-user
+  - form-update-user
+  - form-redirect
 ---
 
 # `<Login>`

@@ -18,8 +18,8 @@ keywords:
   - return value
 since: '1.0'
 related:
-  - control-datasource
-  - add-edit-form
+  - form-control-datasource
+  - form-add-edit-form
 ---
 
 # `<Parameter>`

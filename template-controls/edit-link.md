@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - edit-button
-  - edit-image
+  - template-edit-button
+  - template-edit-image
 ---
 
 # `<xmod:EditLink>`

@@ -10,7 +10,7 @@ keywords:
   - form
 since: '1.0'
 related:
-  - script-block
+  - form-script-block
 ---
 
 # `<jQueryReady>`

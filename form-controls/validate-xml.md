@@ -10,9 +10,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - validate-regular-expression
-  - validate-required
-  - validation-summary
+  - form-validate-regular-expression
+  - form-validate-required
+  - form-validation-summary
 ---
 # `<Validate Type="XML">`
 

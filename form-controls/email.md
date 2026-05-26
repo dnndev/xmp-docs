@@ -9,9 +9,9 @@ keywords:
   - form
 since: '1.0'
 related:
-  - redirect
-  - silent-post
-  - add-user
+  - form-redirect
+  - form-silent-post
+  - form-add-user
 ---
 
 # `<Email>`

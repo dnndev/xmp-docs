@@ -10,9 +10,9 @@ keywords:
   - form
 since: '4.0'
 related:
-  - validate-action
-  - validation-summary
-  - submit-command
+  - form-validate-action
+  - form-validation-summary
+  - form-add-edit-form
 ---
 # `<Validate Type="Database">`
 

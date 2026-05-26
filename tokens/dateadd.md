@@ -10,8 +10,8 @@ keywords:
   - tokens
 since: '1.0'
 related:
-  - functions
-  - expressions
+  - tokens-functions
+  - tokens-expressions
 ---
 
 # DateAdd Token

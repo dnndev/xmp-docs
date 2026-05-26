@@ -9,9 +9,9 @@ keywords:
   - tokens
 since: '1.0'
 related:
-  - portal
-  - module
-  - request
+  - tokens-portal
+  - tokens-module
+  - tokens-request
 ---
 
 # User Tokens

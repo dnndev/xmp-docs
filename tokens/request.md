@@ -12,9 +12,9 @@ keywords:
   - tokens
 since: '1.0'
 related:
-  - field
-  - user
-  - portal
+  - tokens-field
+  - tokens-user
+  - tokens-portal
 ---
 
 # Request Tokens

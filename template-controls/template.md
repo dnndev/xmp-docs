@@ -9,10 +9,10 @@ keywords:
   - view
 since: '1.0'
 related:
-  - data-list
-  - pager
-  - search-sort
-  - feed
+  - template-data-list
+  - template-pager
+  - template-search-sort
+  - template-feed
 ---
 
 # `<xmod:Template>`

@@ -9,8 +9,8 @@ keywords:
   - template
 since: '4.9'
 related:
-  - format
-  - script-block
+  - template-format
+  - template-script-block
 ---
 
 # `<xmod:Markdown>`

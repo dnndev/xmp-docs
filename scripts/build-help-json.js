@@ -36,6 +36,8 @@ const CONFIG = {
   // Root-level files to include
   rootFiles: [
     'getting-started.md',
+    'activating.md',
+    'configuring-xmod-pro.md',
     'how-xmp-works.md',
     'views.md',
     'forms.md',
@@ -63,7 +65,9 @@ const CONFIG = {
     'localization.md',
     'module-settings-schema.md',
     'faq.md',
-    'reference.md'
+    'reference.md',
+    'revision-history.md',
+    'eula.md'
   ],
   // Output file
   outputFile: 'help-content.json',
@@ -246,6 +250,39 @@ function buildCategoryIndex(topics) {
 }
 
 /**
+ * Validate that every `related` entry resolves to an existing topic id.
+ *
+ * The in-app help viewer matches related entries against topic ids and
+ * silently drops any that miss (see help.js `relatedTopics` getter), so a
+ * stale or unprefixed slug produces an empty "Related Topics" section with no
+ * error. We surface those misses here at build time instead.
+ *
+ * Returns the number of unresolved entries.
+ */
+function validateRelated(topics) {
+  const ids = new Set(topics.map(t => t.id))
+  const misses = []
+  for (const topic of topics) {
+    if (!topic.related) continue
+    const related = Array.isArray(topic.related) ? topic.related : [topic.related]
+    for (const ref of related) {
+      if (!ids.has(ref)) misses.push({ from: topic.id, ref })
+    }
+  }
+  if (misses.length > 0) {
+    console.warn('')
+    console.warn('⚠'.repeat(40))
+    console.warn(`⚠ ${misses.length} unresolved "related" entr${misses.length === 1 ? 'y' : 'ies'} — these links are silently dropped in-app:`)
+    for (const m of misses) {
+      console.warn(`⚠   ${m.from}  ->  "${m.ref}"  (no topic with that id)`)
+    }
+    console.warn('⚠ Fix: use the full prefixed id (e.g. form-textarea). See HELP_SCHEMA.md → ID Convention.')
+    console.warn('⚠'.repeat(40))
+  }
+  return misses.length
+}
+
+/**
  * Main build function
  */
 async function build() {
@@ -283,6 +320,9 @@ async function build() {
   }
   console.log(`  Found ${rootCount} topics`)
 
+  // Validate cross-references before writing
+  const unresolvedRelated = validateRelated(topics)
+
   // Build output
   const output = {
     version: CONFIG.version,
@@ -303,6 +343,7 @@ async function build() {
   console.log('')
   console.log('='.repeat(40))
   console.log(`Total topics: ${topics.length}`)
+  console.log(`Related cross-refs: ${unresolvedRelated === 0 ? 'all resolve ✓' : unresolvedRelated + ' UNRESOLVED ⚠'}`)
   console.log(`Output size: ${(Buffer.byteLength(jsonContent) / 1024).toFixed(1)} KB`)
   console.log(`Written to: ${outputPath}`)
 

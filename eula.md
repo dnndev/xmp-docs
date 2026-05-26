@@ -1,3 +1,15 @@
+---
+id: eula
+title: End User License Agreement
+category: Reference
+context: all
+summary: The XMod Pro End User License Agreement (EULA) — the legal terms governing use of the software.
+keywords:
+  - eula
+  - license
+  - legal
+  - terms
+---
 # End User License Agreement (EULA)
 
 END USER LICENSE AGREEMENT

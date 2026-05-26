@@ -11,8 +11,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - navigate-url
-  - command-button
+  - template-navigate-url
+  - template-command-button
 ---
 
 # `<xmod:Redirect>`

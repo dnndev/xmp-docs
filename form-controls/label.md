@@ -9,8 +9,8 @@ keywords:
   - form
 since: '1.0'
 related:
-  - textbox
-  - panel
+  - form-textbox
+  - form-panel
 ---
 
 # `<Label>`

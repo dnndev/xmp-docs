@@ -11,10 +11,10 @@ keywords:
   - form
 since: '1.0'
 related:
-  - dropdown-list
-  - checkbox-list
-  - listbox
-  - control-datasource
+  - form-dropdown-list
+  - form-checkbox-list
+  - form-listbox
+  - form-control-datasource
 ---
 # `<RadioButtonList>`
 

@@ -9,7 +9,7 @@ keywords:
   - form
 since: '1.0'
 related:
-  - panel
+  - form-panel
 ---
 
 # `<Tabstrip>`

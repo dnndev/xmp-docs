@@ -10,8 +10,8 @@ keywords:
   - template
 since: '1.0'
 related:
-  - command-button
-  - command-image
+  - template-command-button
+  - template-command-image
 ---
 
 # `<xmod:CommandLink>`

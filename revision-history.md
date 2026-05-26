@@ -1,3 +1,15 @@
+---
+id: revision-history
+title: Revision History
+category: Reference
+context: all
+summary: Version-by-version changelog of XMod Pro releases, including new features, fixes, and breaking changes.
+keywords:
+  - changelog
+  - releases
+  - version history
+  - what's new
+---
 # Revision History
 
 ## 5.0.0

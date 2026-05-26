@@ -10,10 +10,10 @@ keywords:
   - template
 since: '1.0'
 related:
-  - add-image
-  - add-link
-  - edit-button
-  - delete-button
+  - template-add-image
+  - template-add-link
+  - template-edit-button
+  - template-delete-button
 ---
 
 # `<xmod:AddButton>`

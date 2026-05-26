@@ -11,11 +11,11 @@ keywords:
   - template
 since: '1.0'
 related:
-  - load-feed-button
-  - load-feed-image
-  - load-feed-link
-  - feed
-  - json-feed
+  - template-load-feed-button
+  - template-load-feed-image
+  - template-load-feed-link
+  - template-feed
+  - template-json-feed
 ---
 
 # `<xmod:LoadFeed>`
