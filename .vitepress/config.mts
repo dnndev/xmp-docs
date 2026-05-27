@@ -4,7 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "XMod Pro Documentation",
   description: "XMod Pro Documentation for DNN",
-  base: "/help/xmodpro/",
+  base: "/help/xmodpro/v5/",
+  srcExclude: ['docs/**', 'CLAUDE.md', 'HELP_SCHEMA.md', 'README.md'],
 
   vite: {
     server: {
@@ -36,6 +37,17 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     
+    nav: [
+      {
+        text: 'v5.x',
+        items: [
+          { text: 'v5.x (current)', link: '/' },
+          // Cross-version links are absolute: the v4 site is a sibling, not an internal route.
+          { text: 'v4.x', link: 'https://dnndev.com/help/xmodpro/v4/' }
+        ]
+      }
+    ],
+
     search: {
       provider: 'algolia',
       options: {
