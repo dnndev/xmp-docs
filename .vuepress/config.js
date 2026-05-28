@@ -1,6 +1,6 @@
 module.exports = {
   title: "XMod Pro Documentation",
-  base: "/help/xmodpro/",
+  base: "/help/xmodpro/v4/",
   ga: "UA-1237368-1",
   markdown: {
     lineNumbers: true
@@ -16,6 +16,15 @@ module.exports = {
     ["@vuepress/search", true]
   ],
   themeConfig: {
+    nav: [
+      {
+        text: 'Version',
+        items: [
+          { text: 'v5.x (latest)', link: 'https://dnndev.com/help/xmodpro/' },
+          { text: 'v4.x (current)', link: '/' }
+        ]
+      }
+    ],
     repo: "dnndev/xmp-docs",
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
