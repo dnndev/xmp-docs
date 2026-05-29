@@ -95,9 +95,20 @@ function New-WinScpOpenCommand {
 
 function Invoke-WinScp {
     param([string]$WinScp, [string[]]$Commands)
-    $winArgs = @('/ini=nul', '/command') + $Commands
-    & $WinScp @winArgs
-    if ($LASTEXITCODE -ne 0) { throw "WinSCP exited with code $LASTEXITCODE" }
+    # Run commands from a temporary script file rather than /command. WinSCP's
+    # /command parser does not un-escape the \" that PowerShell emits for embedded
+    # quotes, which corrupts quoted paths (leading/trailing backslashes) and the
+    # SFTP -hostkey value. A script file is parsed by WinSCP directly, so quoted
+    # paths work correctly. The file contains the session password, so it is
+    # written to a temp location and removed in the finally block.
+    $scriptFile = [System.IO.Path]::GetTempFileName()
+    try {
+        [System.IO.File]::WriteAllLines($scriptFile, $Commands)
+        & $WinScp '/ini=nul' "/script=$scriptFile"
+        if ($LASTEXITCODE -ne 0) { throw "WinSCP exited with code $LASTEXITCODE" }
+    } finally {
+        Remove-Item -LiteralPath $scriptFile -Force -ErrorAction SilentlyContinue
+    }
 }
 
 function Build-Site {
