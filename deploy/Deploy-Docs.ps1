@@ -19,7 +19,7 @@
 .PARAMETER ConfigPath
     Override the connection config path (used for testing).
 #>
-[CmdletBinding()]
+[CmdletBinding(PositionalBinding = $false)]
 param(
     [switch]$SkipBuild,
     [switch]$DryRun,
