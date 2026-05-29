@@ -135,6 +135,9 @@ function Get-HttpResult {
 function Test-Deployment {
     $ok = $true
     $root = Get-HttpResult 'https://dnndev.com/help/xmodpro/'
+    # The root always redirects to the current canonical version (v5), regardless
+    # of which version this script deploys. 301 or 302 both acceptable (302 during
+    # rollout, 301 after the redirect is promoted).
     if ($root.Status -in 301,302 -and $root.Location -match '/help/xmodpro/v5/') {
         Write-Host "  [PASS] root -> $($root.Status) $($root.Location)" -ForegroundColor Green
     } else {
@@ -155,6 +158,7 @@ $cfg = Get-DeployConfig -Path $ConfigPath
 
 if ($Root) {
     if (-not $cfg.RemoteRootPath) { throw 'deploy.config.ps1 is missing RemoteRootPath (needed for -Root).' }
+    if ($cfg.RemoteRootPath -notmatch '/$') { throw "RemoteRootPath must end with '/': $($cfg.RemoteRootPath)" }
     $webConfig = Join-Path $ScriptDir 'help-xmodpro-root-web.config'
     if (-not (Test-Path $webConfig)) { throw "Not found: $webConfig" }
     $winscp = Find-WinScp
