@@ -21,3 +21,6 @@ npm-debug.log*
 .playwright-mcp/
 nul
 
+# Production deploy connection details (host/user/paths) — never commit
+deploy/deploy.config.ps1
+
