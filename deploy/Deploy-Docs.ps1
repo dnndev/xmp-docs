@@ -98,7 +98,7 @@ function New-WinScpOpenCommand {
 }
 
 function Invoke-WinScp {
-    param([string]$WinScp, [string[]]$Commands)
+    param([string]$WinScp, [string[]]$Commands, [switch]$IgnoreExitCode)
     # Run commands from a temporary script file rather than /command. WinSCP's
     # /command parser does not un-escape the \" that PowerShell emits for embedded
     # quotes, which corrupts quoted paths (leading/trailing backslashes) and the
@@ -109,7 +109,7 @@ function Invoke-WinScp {
     try {
         [System.IO.File]::WriteAllLines($scriptFile, $Commands)
         & $WinScp '/ini=nul' "/script=$scriptFile"
-        if ($LASTEXITCODE -ne 0) { throw "WinSCP exited with code $LASTEXITCODE" }
+        if (-not $IgnoreExitCode -and $LASTEXITCODE -ne 0) { throw "WinSCP exited with code $LASTEXITCODE" }
     } finally {
         Remove-Item -LiteralPath $scriptFile -Force -ErrorAction SilentlyContinue
     }
@@ -196,6 +196,15 @@ if (-not (Test-Path $localDist)) {
 $winscp = Find-WinScp
 $pw   = Get-FtpPassword
 $open = New-WinScpOpenCommand -Cfg $cfg -Password $pw
+
+# synchronize will not create the top-level remote target, so ensure it exists
+# first. WinSCP mkdir creates intermediate directories; on repeat deploys the
+# "already exists" error is harmless, so this call's exit code is ignored. (A real
+# inability to create the dir surfaces clearly when the synchronize that follows
+# cannot list it.) This also lets a first-time -DryRun preview against a new folder.
+$ensureDir = @('option batch continue','option confirm off',$open,"mkdir `"$($cfg.RemoteVersionPath)`"",'exit')
+Invoke-WinScp -WinScp $winscp -Commands $ensureDir -IgnoreExitCode
+
 $syncSwitches = if ($DryRun) { '-preview -delete' } else { '-delete' }
 $sync = "synchronize remote $syncSwitches `"$localDist`" `"$($cfg.RemoteVersionPath)`""
 
