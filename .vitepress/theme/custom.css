@@ -30,6 +30,70 @@
   --vp-home-hero-image-filter: blur(44px);
 }
 
+/* Beta banner
+ * Rendered into the `layout-top` slot. VitePress offsets the fixed navbar,
+ * sidebar, content, and hero by --vp-layout-top-height, so we declare that
+ * variable to match the banner's height at each breakpoint and pin the banner
+ * to the top of the viewport. */
+:root {
+  --vp-layout-top-height: 44px;
+}
+
+.beta-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--vp-z-index-layout-top);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--vp-layout-top-height);
+  padding: 6px 24px;
+  background-color: #fff7ed;
+  border-bottom: 2px solid #ea580c;
+  color: #9a3412;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.beta-banner__icon {
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.beta-banner a {
+  color: #c2410c;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.dark .beta-banner {
+  background-color: #2a1a0f;
+  border-bottom-color: #c2410c;
+  color: #fdba74;
+}
+
+.dark .beta-banner a {
+  color: #fb923c;
+}
+
+/* Text wraps on narrow screens — give the offset variable more room so the
+ * fixed navbar still clears the (now taller) banner. */
+@media (max-width: 768px) {
+  :root {
+    --vp-layout-top-height: 64px;
+  }
+}
+
+@media (max-width: 460px) {
+  :root {
+    --vp-layout-top-height: 88px;
+  }
+}
+
 /* Home feature icons — transparent background */
 .VPFeature .icon {
   background-color: transparent;

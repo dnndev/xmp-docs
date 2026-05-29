@@ -39,11 +39,12 @@ export default defineConfig({
     
     nav: [
       {
-        text: 'v5.x',
+        text: 'Version',
         items: [
-          { text: 'v5.x (current)', link: '/' },
+          // v4.x is the current stable release; v5.x is still in beta.
           // Cross-version links are absolute: the v4 site is a sibling, not an internal route.
-          { text: 'v4.x', link: 'https://dnndev.com/help/xmodpro/v4/' }
+          { text: 'v4.x (current)', link: 'https://dnndev.com/help/xmodpro/v4/' },
+          { text: 'v5.x (beta)', link: '/' }
         ]
       }
     ],
