@@ -2,3 +2,6 @@
 node_modules/
 yarn-error.log
 /.vs
+
+# Production deploy connection details (host/user/paths) — never commit
+deploy/deploy.config.ps1
