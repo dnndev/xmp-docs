@@ -20,7 +20,7 @@ module.exports = {
       {
         text: 'Version',
         items: [
-          { text: 'v5.x (latest)', link: 'https://dnndev.com/help/xmodpro/' },
+          { text: 'v5.x (beta)', link: 'https://dnndev.com/help/xmodpro/' },
           { text: 'v4.x (current)', link: '/' }
         ]
       }
