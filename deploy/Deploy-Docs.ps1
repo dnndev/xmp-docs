@@ -131,6 +131,9 @@ function Get-HttpResult {
 function Test-Deployment {
     $ok = $true
     $root = Get-HttpResult 'https://dnndev.com/help/xmodpro/'
+    # The root always redirects to the current canonical version (v5), regardless
+    # of which version this script deploys. 301 or 302 both acceptable (302 during
+    # rollout, 301 after the redirect is promoted).
     if ($root.Status -in 301,302 -and $root.Location -match '/help/xmodpro/v5/') {
         Write-Host "  [PASS] root -> $($root.Status) $($root.Location)" -ForegroundColor Green
     } else {
