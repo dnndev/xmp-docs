@@ -176,20 +176,32 @@ $winscp = Find-WinScp
 $pw   = Get-FtpPassword
 $open = New-WinScpOpenCommand -Cfg $cfg -Password $pw
 
-# synchronize will not create the top-level remote target, so ensure it exists
-# first. WinSCP mkdir creates intermediate directories; on repeat deploys the
-# "already exists" error is harmless, so this call's exit code is ignored. (A real
-# inability to create the dir surfaces clearly when the synchronize that follows
-# cannot list it.) This also lets a first-time -DryRun preview against a new folder.
-$ensureDir = @('option batch continue','option confirm off',$open,"mkdir `"$($cfg.RemoteVersionPath)`"",'exit')
-Invoke-WinScp -WinScp $winscp -Commands $ensureDir -IgnoreExitCode
+# synchronize will not create the top-level remote target. Create it before a
+# REAL deploy only — never during -DryRun, so a preview stays read-only and a
+# wrong/missing path surfaces as an error instead of silently creating folders.
+# mkdir creates intermediate dirs; an "already exists" error on repeat deploys is
+# harmless, so this call's exit code is ignored.
+if (-not $DryRun) {
+    $ensureDir = @('option batch continue','option confirm off',$open,"mkdir `"$($cfg.RemoteVersionPath)`"",'exit')
+    Invoke-WinScp -WinScp $winscp -Commands $ensureDir -IgnoreExitCode
+}
 
 $syncSwitches = if ($DryRun) { '-preview -delete' } else { '-delete' }
 $sync = "synchronize remote $syncSwitches `"$localDist`" `"$($cfg.RemoteVersionPath)`""
 
 $mode = if ($DryRun) { 'DRY RUN (preview only)' } else { 'DEPLOY' }
 Write-Host "${mode}: $localDist  ->  $($cfg.RemoteVersionPath)" -ForegroundColor Cyan
-Invoke-WinScp -WinScp $winscp -Commands @('option batch abort','option confirm off',$open,$sync,'exit')
+try {
+    Invoke-WinScp -WinScp $winscp -Commands @('option batch abort','option confirm off',$open,$sync,'exit')
+} catch {
+    if ($DryRun) {
+        Write-Host ''
+        Write-Host 'If the error above was a directory-listing failure, the remote target' -ForegroundColor Yellow
+        Write-Host "  $($cfg.RemoteVersionPath)" -ForegroundColor Yellow
+        Write-Host 'may not exist yet. A real deploy (without -DryRun) creates it before uploading.' -ForegroundColor Yellow
+    }
+    throw
+}
 Write-Host 'Done.' -ForegroundColor Green
 
 if ($Verify) { Test-Deployment }
