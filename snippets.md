@@ -73,7 +73,7 @@ Click **New Snippet** in the Snippet Manager and fill in:
 - **Name** — A descriptive name (must be unique)
 - **Context** — Where this snippet should appear:
   - **Form** — Only in the form editor
-  - **Template** — Only in the view editor
+  - **View** — Only in the view editor
   - **Feed** — Only in the feed editor
   - **All** — In all editors
 - **Description** — A brief note about what the snippet does (optional but recommended)

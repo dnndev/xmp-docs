@@ -47,7 +47,7 @@ The Configure page has four tabs: **Settings**, **DNN Search Integration** (Host
 
 On the Settings tab you choose which **view** and **form** this module will display. You can assign just a view, just a form, or both. If you assign only a form, visitors will see the form as soon as they navigate to the page — perfect for "Contact Us" or feedback scenarios.
 
-The **Template** and **Form** dropdowns are searchable — just start typing to filter. Each dropdown combines both portal-level and global items into a single list, grouped under **Portal** and **Global** headings. (Portal items belong to the current portal only, while Global items are shared across all portals in the DNN installation.)
+The **View** and **Form** dropdowns are searchable — just start typing to filter. Each dropdown combines both portal-level and global items into a single list, grouped under **Portal** and **Global** headings. (Portal items belong to the current portal only, while Global items are shared across all portals in the DNN installation.)
 
 ### Custom Settings <Badge type="warning" text="Host Only" />
 
