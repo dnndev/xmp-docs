@@ -15,7 +15,7 @@ keywords:
 ---
 # `<xmod:Feed>`
 
-The Feed tag, first introduced in version 3.0, is used to define the output of feeds. A feed typically is thought of as an RSS feed, but it can be much more than that. With the Feed tag, you can produce virtually any XML-based output, a printer-friendly HTML page, a plain text page, even a comma-delimited file that can be automatically opened by Excel or a similar program.
+The Feed tag, first introduced in version 3.0, is used to define the output of feeds. A feed typically is thought of as an RSS feed, but it can be much more than that. With the Feed tag, you can produce virtually any XML-based output, a printer-friendly HTML page, a plain text page, even a comma-delimited file that can be automatically opened by Excel or a similar program. If your goal is specifically **JSON** — the format most often used to feed data to AJAX-driven views and forms, or to JavaScript plugins — the dedicated [`<xmod:JsonFeed>`](json-feed.md) tag produces it with far less markup. Reach for `<xmod:Feed>` when you need full control over the output's layout and formatting.
 
 ## Creating A Feed
 
