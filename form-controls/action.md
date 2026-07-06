@@ -85,7 +85,7 @@ Adds a single name/value pair to the action's `Properties` list. The custom acti
 
     With a class file like this:
 
-    ```vbnet
+    ```vb
     Imports DotNetNuke.Entities.Modules
     Imports KnowBetter.XModPro.Common
     Imports KnowBetter.XModPro.Web.Controls.Form.Action
@@ -147,7 +147,7 @@ Adds a single name/value pair to the action's `Properties` list. The custom acti
 3.  Create a class that inherits from `KnowBetter.XModPro.Web.Controls.Form.Action.ActionBase`.
 4.  Override the `Execute` method:
 
-    ```vbnet
+    ```vb
     Imports DotNetNuke.Entities.Modules
     Imports KnowBetter.XModPro.Common
     Imports KnowBetter.XModPro.Web.Controls.Form.Action
