@@ -40,16 +40,18 @@ There are some other fields besides those listed above, and different versions o
 2.  Since only Hosts and SuperUsers can work with views, ensure you're logged in as such a user.
 3.  Display of your data is done using views. So, we'll need to create one. Open the [Control Panel](../control-panel.md) and click the **+** button in the toolbar to create a new **View**.
 
-    <!-- SCREENSHOT: tutorial1-create-view — The + menu in the Control Panel toolbar showing the New View option -->
+    ![The New menu in the Control Panel toolbar, showing the option to create a new View](../img/v5/tutorial-list-users-new-view-menu.png)
 
 4.  Give your view the name **AllUsers**. The name can only consist of letters, numbers, hyphens (-) and underscores (_). The [View Editor](../view-editor.md) will open with some boilerplate code. Delete all the text — we'll type our own.
+
+    ![The View Editor open with the default boilerplate code for a new view](../img/v5/tutorial-list-users-editor-boilerplate.png)
 
 5.  We'll type our view definition into the Code Editor. Whenever you see `text that looks like this`, we're referring to code. At the end, we'll put all the pieces together so you can see the whole definition. At that point you can type or copy/paste the code into the editor.
 
     1.  `<xmod:template id="AllUsers">`
-        This is the `<xmod:template>` tag — the XML tag that defines a view. You can have one or more of these in your view definition. We'll just use one for this example. You may use your own HTML to surround the tag, to lay it out in whatever manner you need.
+        This is the `<xmod:template>` tag — the tag that defines a view. You can have one or more of these in your view definition. We'll just use one for this example. You may use your own HTML to surround the tag, to lay it out in whatever manner you need.
 
-        In this example, we've given the tag an ID of "AllUsers". The ID is a unique identifier for this `<xmod:template>` tag within the broader definition. The ID can be anything you'd like, but it must start with a letter and consist of only letters, numbers, hyphens and underscores. While an ID isn't strictly required in this case, it's a good habit to get into. Later you'll use the ID when implementing communications between areas. See the [`<xmod:template>` tag topic](../template-controls/template.md) for additional attributes.
+        In this example, we've given the tag an ID of "AllUsers". The ID is a unique identifier for this `<xmod:template>` tag within the broader definition. The ID can be anything you'd like, but it must start with a letter and consist of only letters, numbers, hyphens and underscores. While an ID isn't strictly required in this case, it's a good habit to get into. Later you'll use the ID when implementing communications between template tags. See the [`<xmod:template>` tag topic](../template-controls/template.md) for additional attributes.
 
     2.  `<ListDataSource CommandText="SELECT UserID, DisplayName FROM Users ORDER BY DisplayName ASC" />`
         This tag tells XMod Pro what data it should retrieve for your list. In the CommandText attribute, you can insert your own SQL `SELECT` query or use `EXEC sprocName` to execute a stored procedure. In this example, we're simply retrieving the UserID and the user's DisplayName. Depending on how your database is set up, you may need to prepend a database owner and/or object qualifier to the table name like: dbo.DNN_Users or something similar.
@@ -98,14 +100,23 @@ There are some other fields besides those listed above, and different versions o
     </xmod:template>
     ```
 7.  Type or copy and paste the above code into the View Editor and click **Save** (or press **Ctrl+S**). If there are errors in your view definition, the editor's [validation indicators](../view-editor.md#validation) will alert you.
-8.  Now, all we need to do is configure the XMod Pro module to use the view we just created. Navigate to your page with the XMod Pro module and select **Configure** from the module's action menu.
 
-    ![](../img/ActionMenu_Configure.png)
+    ![The completed view definition typed into the View Editor, with a green validation indicator showing the code is valid](../img/v5/tutorial-list-users-editor-code.png)
+
+    When you save, XMod Pro asks you to name the view. Enter **AllUsers** and click **Save**.
+
+    ![The Save dialog with the view named AllUsers](../img/v5/tutorial-list-users-save-dialog.png)
+
+8.  Now, all we need to do is configure the XMod Pro module to use the view we just created. Navigate to your page with the XMod Pro module, open its edit toolbar, and click **Configure this XMP Module**.
+
+    ![The XMod Pro module edit toolbar, with the Configure this XMP Module (wrench) button](../img/v5/tutorial-list-users-configure-menu.png)
 
 9.  On the Settings tab, select "AllUsers" from the list of available Views.
-10. Click **Close** to save your changes and return to the page.
-11. Your display should look something like this (though your list of users may be different and your site's style may be different):
-    ![](./Walkthrough1_AllUsersListView.png)
+
+    ![The module settings Settings tab, selecting AllUsers from the View dropdown](../img/v5/tutorial-list-users-module-settings.png)
+10. Click **Save Changes** to save your settings and return to the page.
+11. Your display should look something like this (though your list of users may be different and your site's style may be different). Notice how the even-numbered rows are **bold** — that's the `<AlternatingItemTemplate>` at work:
+    ![The rendered AllUsers view showing a bulleted list of users, with alternating rows in bold](../img/v5/tutorial-list-users-rendered-list.png)
 
 #### Next Steps:
 
