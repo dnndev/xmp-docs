@@ -51,7 +51,7 @@ Data parameter tokens work inside layout templates of the *same* `<xmod:Template
 | `<DetailTemplate>` | ✗ | ✓ |
 | `<NoItemsTemplate>` | ✓ when list returned no rows | ✓ when detail returned no row |
 
-Data parameter tokens are not available in forms or in other templates on the same page.
+Data parameter tokens are not available in forms or in other views on the same page.
 
 ## Example
 

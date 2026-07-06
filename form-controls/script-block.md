@@ -16,7 +16,7 @@ related:
 
 # `<ScriptBlock>`
 
-`<ScriptBlock>` registers a JavaScript block (or an external script file) with the hosting page so it ends up in the head, body-top, or body-bottom of the rendered HTML. The block is identified by `ScriptId`, which lets the same script appear in multiple forms or templates without rendering twice when `RegisterOnce="True"`.
+`<ScriptBlock>` registers a JavaScript block (or an external script file) with the hosting page so it ends up in the head, body-top, or body-bottom of the rendered HTML. The block is identified by `ScriptId`, which lets the same script appear in multiple forms or views without rendering twice when `RegisterOnce="True"`.
 
 The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` tags — wrap it in a CDATA section if your script contains characters that confuse the XML parser.
 

@@ -62,4 +62,4 @@ Each `<Parameter>` adds one query-string-style parameter to the generated URL. V
 
 *   <span id="prop-tabid">**TabId**</span>: The DNN-assigned page ID. "Tab" is the legacy DNN term for what users now call a page. To find a page's TabId, hover the page in DNN's page management UI or look at its URL when editing. Omit this property to generate a URL for the current page.
 
-*   <span id="prop-controlkey">**ControlKey**</span>: Used to load a specific module action — for example, `Edit` to open a module's edit screen. Rarely needed in template markup. Requires `TabId` to be set.
+*   <span id="prop-controlkey">**ControlKey**</span>: Used to load a specific module action — for example, `Edit` to open a module's edit screen. Rarely needed in view markup. Requires `TabId` to be set.

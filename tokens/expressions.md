@@ -18,6 +18,10 @@ keywords:
   - string functions
   - if
   - coalesce
+  - filelink
+  - file url
+  - secure files
+  - download
 ---
 # Expression Tokens <Badge type="info" text="v5.0" />
 
@@ -456,6 +460,45 @@ Nest `If` calls for multiple conditions:
 [[=Format(Now(), 'MMMM d, yyyy')]]  → January 15, 2026
 ```
 
+### File Functions <Badge type="info" text="v5.0" />
+
+| Function | Syntax | Description |
+|----------|--------|-------------|
+| `FileLink` | `FileLink(fileId)` | Returns a working URL for a DNN file, given its File ID |
+| `FileLink` | `FileLink(fileId, true)` | Same, but forces the browser to download the file instead of displaying it |
+
+#### FileLink Function
+
+`FileLink` turns a DNN **File ID** — the number stored in your table when a user uploads through a [FileUpload](../form-controls/file-upload.md) control — into a URL you can drop straight into an `<img>`, `<a>`, or `<iframe>`:
+
+```html
+<!-- Display an uploaded image -->
+<img src="[[=FileLink(ImageFileId)]]" alt="[[Caption]]" />
+
+<!-- Link to a document -->
+<a href="[[=FileLink(BrochureFileId)]]">View Brochure</a>
+```
+
+**Why not just build the path yourself?** For files in a standard folder you *could* — `FileLink` returns the same direct URL you'd write by hand. The reason it exists is **secure and database folders**. DNN stores those files on disk with a `.resources` extension so they can't be reached directly, and serves them through `LinkClick.aspx` with an encrypted, permission-checked ticket instead. `FileLink` detects the folder type and returns the correct URL either way, so the *same* markup works no matter where the file lives — and secure files stay secure.
+
+**Forcing a download** — pass `true` as the second argument to make the browser download the file (with a Save dialog) rather than trying to display it inline. Use this for PDFs, spreadsheets, and other documents; leave it off for images and anything you want shown on the page:
+
+```html
+<!-- Download instead of opening in the browser -->
+<a href="[[=FileLink(InvoiceFileId, true)]]">Download Invoice (PDF)</a>
+```
+
+**Null-safe by design** — if the File ID is empty, not a number, zero or negative, or points to a file that no longer exists, `FileLink` returns an empty string rather than a broken link. This makes it safe to use on optional (nullable) columns. Combine it with `If` to skip the markup entirely when there's no file:
+
+```html
+<!-- Only render the link when there's actually a file -->
+[[=If(InvoiceFileId, Concat('<a href="', FileLink(InvoiceFileId, true), '">Download Invoice</a>'), '')]]
+```
+
+::: tip Where does the File ID come from?
+When a visitor uploads a file with the [`<FileUpload>`](../form-controls/file-upload.md) form control, XMP saves the DNN File ID into your table column. Store that column and pass it to `FileLink` in your view or feed to link back to the file later.
+:::
+
 ## String Literals
 
 String literals use **single quotes only**:
@@ -552,6 +595,19 @@ Use `If` to check before using a value:
 
 <!-- Default image -->
 <img src="[[=Coalesce(PhotoUrl, '/images/no-photo.png')]]" />
+```
+
+### File Links
+
+```html
+<!-- Show an uploaded image (works for secure folders too) -->
+<img src="[[=FileLink(PhotoFileId)]]" alt="[[Title]]" />
+
+<!-- Download link for an uploaded document -->
+<a href="[[=FileLink(ContractFileId, true)]]">Download Contract</a>
+
+<!-- Only render the link when a file is present -->
+[[=If(ResumeFileId, Concat('<a href="', FileLink(ResumeFileId, true), '">Resume</a>'), 'No resume on file')]]
 ```
 
 ## Do's and Don'ts

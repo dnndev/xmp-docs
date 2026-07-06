@@ -88,7 +88,7 @@ Use this optional tag if you want to bind a list-based control to a set of data.
 
 Beginning in version 1.3, XMod Pro now supports the ability to use data from your `<SelectCommand>` in the attributes of your form controls. This allows you to retrieve values from your database or from passed-in parameters or hard-coded values in your forms to further enhance their dynamic nature. For instance, if a customer is ordering a product, your `<SelectCommand>` can look that product up in the inventory database and set the MaximumValue of the Range Validator so that it prevents the user from ordering more a quantity greater than the stock you have in the warehouse.
 
-Using `[[Field]]` tokens is easy. They follow the same rules as `[[Field]]` tokens in templates.
+Using `[[Field]]` tokens is easy. They follow the same rules as `[[Field]]` tokens in views.
 
 **Example:**
 ```html
