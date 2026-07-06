@@ -208,18 +208,43 @@ Drag controls into a container to nest them, or drag them out to move them back 
 
 ## Themes and Styling
 
-The Form Builder includes a theming system that lets you style your forms without writing CSS.
+The Form Builder includes a built-in **theme system** that lets you style your forms visually — no CSS required. Click **Form Settings** to open the styling editor, where you pick a starting theme and fine-tune its look with a live preview.
 
-<!-- SCREENSHOT: form-builder-themes — Form settings dialog showing theme selection and CSS variable customization -->
+<!-- SCREENSHOT: form-builder-themes — Form Settings dialog: theme dropdown, live preview (left), customization editor (right) -->
 
-Open the **Form Settings** dialog to configure:
+### Choosing a Theme
 
-- **Theme** — Choose from a library of built-in themes, or create your own
-- **Label Position** — Top (above the control), Left (beside it), Inside (floating placeholder), or None
-- **CSS Variable Customization** — Fine-tune the theme by adjusting variables for spacing, typography, borders, button colors, and more
-- **Live Preview** — See your changes in real time as you adjust settings
+Pick a starting point from the **Theme** dropdown. XMod Pro ships with eight built-in themes:
 
-You can save custom themes for reuse across your forms.
+| Theme | Description |
+|-------|-------------|
+| **XMP Default** | Clean, professional baseline with neutral colors |
+| **Bare Minimum** | Pure structure with minimal styling; inherits your page's defaults |
+| **Modern** | Contemporary design with teal accents and generous spacing |
+| **Classic** | Traditional layout with left-aligned labels and square corners |
+| **Warm** | Friendly, approachable design with amber accents |
+| **Compact** | Space-efficient layout for data-heavy forms |
+| **Slate** | Sophisticated enterprise design with slate-gray tones |
+| **Bold** | High-contrast design for improved accessibility |
+
+The **Preview** panel on the left updates instantly as you make changes.
+
+### Customizing a Theme
+
+The editor on the right groups every setting into collapsible sections. Adjust only what you need — leave a field unset and the theme's own value applies:
+
+- **Layout** — max width, form padding, row spacing, and label position (Top or Left)
+- **Borders** — corner radius, width, color, and focus color
+- **Typography** — label size, weight, and color
+- **Controls** — input padding and background color
+- **Buttons** — padding, corner radius, and primary/secondary colors
+- **Validation** — error color
+
+Size settings use sliders (switchable between `rem` and `px`); colors use a color picker. Each field has a **clear** button to reset it.
+
+### Saving Your Theme
+
+Click **Save Settings** to apply your choices. If you customized a *built-in* theme, XMod Pro prompts you to **Save as New Theme** — name it, and it's stored as a **custom theme** you can reuse on other forms. Custom themes can be edited in place and removed with **Delete** (built-in themes can't be deleted).
 
 ## Previewing Your Form
 
