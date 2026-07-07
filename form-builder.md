@@ -246,10 +246,6 @@ Size settings use sliders (switchable between `rem` and `px`); colors use a colo
 
 Click **Save Settings** to apply your choices. If you customized a *built-in* theme, XMod Pro prompts you to **Save as New Theme** — name it, and it's stored as a **custom theme** you can reuse on other forms. Custom themes can be edited in place and removed with **Delete** (built-in themes can't be deleted).
 
-## Previewing Your Form
-
-To see how your form will look and behave at runtime, use the **Preview** button. This opens a live preview that renders the form exactly as it would appear on your DNN page — including validation, styling, and data source connections.
-
 ## Converting to a Custom Form
 
 The Form Builder is designed for the most common form-building scenarios. When you need more control — custom HTML layout, JavaScript interactivity, or advanced tag configurations — you can convert your form to a **custom form** and continue working in the [Custom Form Editor](custom-form-editor.md).
