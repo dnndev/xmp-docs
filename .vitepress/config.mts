@@ -5,7 +5,7 @@ export default defineConfig({
   title: "XMod Pro Documentation",
   description: "XMod Pro Documentation for DNN",
   base: "/help/xmodpro/v5/",
-  srcExclude: ['docs/**', 'CLAUDE.md', 'HELP_SCHEMA.md', 'README.md'],
+  srcExclude: ['docs/**', 'CLAUDE.md', 'README.md'],
 
   vite: {
     server: {
