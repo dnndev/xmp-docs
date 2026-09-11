@@ -154,10 +154,34 @@ Click the **gear icon** in the toolbar to open the Global Settings dialog.
 Settings are organized into three tabs:
 
 - **General** — Configure [Version History](version-history.md) options: enable/disable automatic versioning, keep original backups, set max versions per resource, and auto-delete old versions
-- **Editor** — Customize the code editor's look and behavior: indentation (tabs or spaces), theme (light or dark), font family and size, word wrap, and Google Fonts support
+- **Editor** — Customize the code editor's look and behavior (see below)
 - **Shortcuts** — View and customize keyboard shortcuts
 
-These settings apply everywhere in the Control Panel, including the [code editors](code-editor.md).
+### Editor Settings
+
+| Setting | What it does |
+|---------|--------------|
+| **Enable Tab key for indentation** | When turned off, pressing Tab moves focus to the next element instead of indenting. |
+| **Indent using** | Whether an indent inserts tabs or spaces. |
+| **Tab size** | How many spaces make up one indent level. |
+| **Theme** | Light or dark. |
+| **Font family** | The editor's typeface. Fira Code and JetBrains Mono are included. |
+| **Enable Google Fonts** | Load additional fonts from Google. Requires an internet connection. |
+| **Font size** | Anywhere from 10 to 24 pixels. |
+| **Word wrap** | Wrap long lines instead of scrolling sideways to read them. |
+| **Font ligatures** | Let fonts such as Fira Code draw `>=` as a single symbol. Off by default — see below. |
+
+A live preview below the settings shows your choices applied to a sample of markup.
+
+#### About Font Ligatures
+
+Coding fonts like Fira Code and JetBrains Mono include *ligatures* — they draw certain character pairs as one combined symbol. Typed `>=` appears as `≥`, `!=` appears as `≠`, and two hyphens join into a single long dash.
+
+Some people prefer the look. But when you're writing markup and SQL, it matters that what you see matches what you typed — a ligature can make you think the editor changed your text when it hasn't. So ligatures are **off by default**, and the editor shows the exact characters you entered.
+
+Turn the setting on if you'd rather have them. Either way this only affects how text is drawn on screen: your forms, views, and feeds are never altered.
+
+These settings apply everywhere in the Control Panel — the [code editors](code-editor.md), the preview in this dialog, and the [Version History](version-history.md) comparison view. They're saved in your browser, so each browser you work in keeps its own preferences.
 
 ## Keyboard Shortcuts
 
