@@ -50,7 +50,7 @@ A dropdown below the filters lets you sort the list:
 
 Click the three-dot menu (**⋮**) on any feed to see the available actions:
 
-- **Open** — Open the feed in the Code Editor
+- **Open** — Open the feed in the [Feed Editor](feed-editor.md)
 - **Pin / Unpin** — Pin the feed to the top of the list for quick access. Pins persist across sessions.
 - **Rename** — Change the feed's name
 - **Duplicate** — Create a copy of the feed with a new name

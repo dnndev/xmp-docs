@@ -55,7 +55,7 @@ Views that are currently assigned to a module on a page show a small green dot n
 
 Click the three-dot menu (**⋮**) on any view to see the available actions:
 
-- **Open** — Open the view in the Code Editor
+- **Open** — Open the view in the [View Editor](view-editor.md)
 - **Pin / Unpin** — Pin the view to the top of the list for quick access. Pins persist across sessions.
 - **Rename** — Change the view's name. If the view is in use, XMod Pro shows you where it's referenced so you're aware of the impact.
 - **Duplicate** — Create a copy of the view with a new name
