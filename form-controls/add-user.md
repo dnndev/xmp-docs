@@ -23,6 +23,14 @@ After a form submits successfully, registers a new user in DNN with the supplied
 Public registration forms are a target for abuse. Always validate the form's inputs and protect the form so only the audience you intend can submit it.
 :::
 
+::: warning Verified registration sites: do not list auto-assigned roles in RoleNames
+If your site's registration type is **Verified** (Site Settings → User Accounts → Registration Settings), DNN places a new account in the *Unverified Users* role only and waits for the person to click the link in the verification email. Only then does DNN add them to the site's auto-assigned roles, such as *Registered Users*.
+
+`RoleNames` does not wait. It adds the new user to every role you list the moment the account is created, before the email is verified. Listing *Registered Users* (or any other role with **Auto Assignment** turned on) hands an unverified account the access that verification is meant to protect, and anyone can register with a throwaway email address.
+
+Leave auto-assigned roles out of `RoleNames`. DNN adds them itself once the user is verified. The same timing applies to any role you grant at signup, including roles granted afterward with `<AddToRoles UserId="[[__UserId]]">`, so on a Verified site treat any role in `RoleNames` as taking effect immediately.
+:::
+
 ::: info Passing the new UserID downstream
 On success, XMP adds a `__UserId` token (two underscores + `UserId`) to the form data, so later action tags (e.g. `<AddToRoles>`, `<Redirect>`) can reference the new user by ID. Available since v4.1.
 :::
@@ -156,4 +164,4 @@ Sets a single custom profile property. Use one `<Property>` tag per property to 
 
 *   <span id="prop-displayname">**DisplayName**</span>: The name DNN shows in places like the user menu and post bylines. If omitted (or empty), `<AddUser>` builds it from `FirstName` and `LastName`.
 
-*   <span id="prop-rolenames">**RoleNames**</span>: A comma-delimited list of DNN security role names. After the user is created, `<AddUser>` adds them to each named role. For more control (start/end dates, custom delimiter, conditional adds), use a separate [`<AddToRoles>`](add-to-roles.md) action with the `[[__UserId]]` token.
+*   <span id="prop-rolenames">**RoleNames**</span>: A comma-delimited list of DNN security role names. After the user is created, `<AddUser>` adds them to each named role immediately, regardless of whether the account has been approved or verified. Do not list roles DNN assigns automatically (*Registered Users*, *Subscribers*, or any role with Auto Assignment turned on): DNN adds those itself, and on a Verified registration site it does so only after the user verifies their email. See the warning above. For more control (start/end dates, custom delimiter, conditional adds), use a separate [`<AddToRoles>`](add-to-roles.md) action with the `[[__UserId]]` token.

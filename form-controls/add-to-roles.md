@@ -21,6 +21,12 @@ After a form submits successfully, adds the user identified by `UserId` to each 
 
 `StartDate` and `EndDate` set the role's effective and expiration dates, useful for time-limited memberships.
 
+::: warning Verified registration sites: roles are granted before the user verifies
+When `<AddToRoles>` follows [`<AddUser>`](add-user.md) and targets the new account with `UserId="[[__UserId]]"`, the role is granted the moment the form submits. If your site's registration type is **Verified** (Site Settings → User Accounts → Registration Settings), that is before the person has clicked the link in the verification email, so the role is active on an account that may never be verified, and anyone can register with a throwaway email address.
+
+Do not use `<AddToRoles>` to grant roles DNN assigns automatically (*Registered Users*, *Subscribers*, or any role with **Auto Assignment** turned on). DNN adds those itself once the user is verified. If you grant any other role at signup, such as a trial role, it takes effect immediately, so protect the pages it unlocks accordingly.
+:::
+
 ::: info Action timing
 Action tags only run when the form submits successfully. They evaluate their tokens at that point — not when the form loads — so `[[FieldName]]` tokens read user input. Actions run in document order; an action that fails throws away every action listed below it.
 :::
@@ -68,7 +74,7 @@ In the example below, a `<Variable>` captures the current user's ID into `[[uid]
 
 *   <span id="prop-rolenames">**RoleNames**</span>: A delimited list of DNN role names. Use the pipe `|` (the default) or set a different separator via `RoleDelimiter`. Field tokens may be used. Roles that don't exist on the portal are silently skipped.
 
-*   <span id="prop-userid">**UserId**</span>: The DNN UserID of the user to add. Use `[[User:Id]]` for the currently logged-in user, or a field token for the user identified by the form's data. If `UserId` is omitted, the current user is used (and if no one is logged in, the action exits without doing anything).
+*   <span id="prop-userid">**UserId**</span>: The DNN UserID of the user to add. Use `[[User:Id]]` for the currently logged-in user, a field token for the user identified by the form's data, or `[[__UserId]]` for an account created by `<AddUser>` earlier in the same form (see the warning above about Verified registration sites). If `UserId` is omitted, the current user is used (and if no one is logged in, the action exits without doing anything).
 
 *   <span id="prop-if">**If**</span>: A simple equality expression. When set and the expression is false, the action is skipped. Comparisons are text-only and case-insensitive. Use `=` for equality and `<>` for inequality.
 
