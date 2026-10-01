@@ -18,7 +18,9 @@ related:
 
 `<ScriptBlock>` registers a JavaScript block (or an external script file) with the hosting page so it ends up in the head, body-top, or body-bottom of the rendered HTML. The block is identified by `ScriptId`, which lets the same script appear in multiple forms or views without rendering twice when `RegisterOnce="True"`.
 
-The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` tags — wrap it in a CDATA section if your script contains characters that confuse the XML parser.
+The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` tags — wrap it in a CDATA section if your script contains characters that confuse the XML parser. With `BlockType="HeadScript"` the block can carry `<style>`, `<link>` and `<meta>` tags as well.
+
+The content is plain markup plus tokens; field, system and [expression tokens](../tokens/expressions.md) are replaced before the block is registered. Do not place other XMP controls inside a `<ScriptBlock>` — the block only registers the markup before the first nested control and drops the rest without an error. Use an expression token for anything computed, such as `[[=Format(DueDate, 'yyyy-MM-dd')]]`.
 
 ## Example
 
@@ -74,7 +76,9 @@ The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` t
     | `HeadScript` | Inside the page's `<head>` |
     | `ClientScriptInclude` | Renders a `<script src="...">` reference to the file at `Url` |
 
-*   <span id="prop-registeronce">**RegisterOnce**</span>: When `True`, the script is registered only if no other script with the same `ScriptId` is already on the page. Use this when the same form (or several forms sharing a helper) might be rendered more than once on a single page. `RegisterOnce` applies to `ClientScript`, `StartupScript`, and `ClientScriptInclude` block types.
+*   <span id="prop-registeronce">**RegisterOnce**</span>: When `True`, the block is registered only if no other block with the same `ScriptId` is already on the page. Use this when the same form (or several forms sharing a helper) might be rendered more than once on a single page.
+
+    The setting matters for `BlockType="HeadScript"`: blocks are registered in the order they appear, the first block registered under a `ScriptId` wins, and later blocks with the same `ScriptId` are skipped. Without `RegisterOnce`, a second `HeadScript` block with the same `ScriptId` is written into the head again. For the other block types ASP.NET already keys each registration by `ScriptId`, so a duplicate is never emitted either way.
 
 *   <span id="prop-url">**Url**</span>: When `BlockType="ClientScriptInclude"`, the path to the external `.js` file. Tilde (`~`) is supported for site-root-relative paths. Ignored for other block types.
 
@@ -85,10 +89,25 @@ The actual `<script>` tag goes between the opening and closing `<ScriptBlock>` t
                  RegisterOnce="True" />
     ```
 
-*   <span id="prop-if">**If**</span>: A simple equality expression evaluated when the form renders. When the expression is false (or resolves to `false` or `0`), the script is not registered. When the property is omitted, the script is always registered (the v4.x behavior). Use `=` for equality and `<>` for inequality.
+*   <span id="prop-if">**If**</span>: Decides whether the block is registered at all. Evaluated when the form renders, after tokens have been replaced. When the property is omitted, the block is always registered (the v4.x behavior). Otherwise:
+
+    | `If` value | Result |
+    |------------|--------|
+    | empty | not registered |
+    | `false` or `0` (any casing) | not registered |
+    | a token mixed with other text (never resolves — see below) | not registered |
+    | anything else | registered |
+
+    `If` is a simple on/off switch: it does not compare values, so `=` or `<>` inside the value are just characters. A bare field token is the easiest "has a value" test (`If='[[ReturnUrl]]'`); for a real comparison, use an [expression token](../tokens/expressions.md) that returns `true` or `false`:
 
     ```html
-    <ScriptBlock ScriptId="DebugHelpers" If="[[User:IsHost]] = True">
-      <script>console.log('XMP debug helpers loaded');</script>
+    <ScriptBlock ScriptId="MemberScripts" If="[[=If(${User:ID} > 0, 'true', 'false')]]">
+      <script>console.log('member scripts loaded');</script>
     </ScriptBlock>
     ```
+
+    ::: warning Do not mix a token with literal text
+    `If="[[Status]] = Active"` never registers. ASP.NET only resolves a token when it is the whole attribute value, so the comparison never sees the field's value, and `<ScriptBlock>` treats the unresolved text as "off". Put the comparison inside the expression token instead: `If="[[=If(Status = 'Active', 'true', 'false')]]"`. This differs from form actions such as `<Redirect If>` and `<Email SendIf>`, which do accept `[[Field]] = value` because their tokens are replaced as text when the form is submitted.
+    :::
+
+    For head tags that depend on data — a fallback chain of `<meta>` tags, for example — see [Conditional Content in the Head](../template-controls/script-block.md#conditional-content-in-the-head) on the view-side control. The same patterns apply to a form's `<ScriptBlock>`.
